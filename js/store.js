@@ -209,9 +209,9 @@ export function setSetting(key, value) {
 }
 
 export function applyTheme() {
-  document.documentElement.dataset.theme = "light";
+  document.documentElement.dataset.theme = "dark";
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", "#f8fafd");
+  if (meta) meta.setAttribute("content", "#101319");
 }
 
 export function resetAll() {

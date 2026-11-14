@@ -85,7 +85,7 @@
   transition: background 0.2s, color 0.2s;
 }
 .sp-steps li i { font-style: normal; font-family: var(--mono); font-size: 9px; opacity: 0.65; }
-.sp-steps li.active { background: var(--accent); color: #fff; }
+.sp-steps li.active { background: var(--accent); color: var(--accent-ink); }
 .sp-steps li.active i { opacity: 0.8; }
 .sp-steps li.done { color: var(--text-2); }
 .sp-steps li.done i { color: var(--accent); opacity: 1; }
@@ -146,7 +146,7 @@ canvas[data-wave] {
   display: grid;
   place-items: center;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   transition: transform 0.15s, background 0.2s;
 }
 .sp-rec:hover { transform: scale(1.04); }
@@ -222,7 +222,7 @@ canvas[data-wave] {
   transition: background 0.15s, color 0.15s;
 }
 .sp-btn:hover { background: var(--fill-2); }
-.sp-btn-primary { background: var(--accent); color: #fff; }
+.sp-btn-primary { background: var(--accent); color: var(--accent-ink); }
 .sp-btn-primary:hover { background: color-mix(in srgb, var(--accent) 88%, #000); }
 .sp-btn.done {
   background: color-mix(in srgb, var(--green) 15%, transparent);

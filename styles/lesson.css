@@ -59,16 +59,14 @@
 .seg-mode button:hover { color: var(--text); }
 .seg-mode button.on {
   background: var(--accent-soft);
-  color: #084491;
+  color: var(--accent);
   font-weight: 500;
 }
 
 /* ---------------------------------------------------------------- 布局 */
-.view:has(.lesson-head) { --page-max: 1440px; }
-
 .lesson-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(380px, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   gap: 22px;
   align-items: start;
 }
@@ -106,7 +104,7 @@
   text-align: center;
   padding: 24px;
 }
-.stage-error .btn { background: #fff; color: var(--accent); }
+.stage-error .btn { background: var(--accent); color: var(--accent-ink); }
 
 /* ---------------------------------------------------------------- 右栏 */
 .side {
@@ -189,7 +187,7 @@
 .seg-mini button:hover { color: var(--text); }
 .seg-mini button.on {
   background: var(--accent-soft);
-  color: #084491;
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -207,7 +205,7 @@
 }
 .tbtn:hover { background: var(--fill); color: var(--text); }
 .tbtn.on { color: var(--accent); background: var(--accent-soft); }
-.tbtn.icon-only { width: 28px; padding: 0; justify-content: center; }
+.tbtn.icon-only { width: 36px; padding: 0; justify-content: center; }
 .tbtn-key {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -300,7 +298,7 @@
 .krow-key:hover { background: var(--fill-2); }
 .krow-key.capturing {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   font-family: var(--font);
   font-size: 12px;
 }
@@ -356,7 +354,6 @@
   .stage { width: 100%; }
 }
 @media (max-width: 720px) {
-  .view:has(.lesson-head) { --page-max: 100%; }
   .stage { border-radius: var(--r-md); }
   .lesson-head { gap: 10px; }
   .seg-mode { width: 100%; }

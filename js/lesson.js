@@ -152,8 +152,8 @@ export async function render(root, [id]) {
             <span class="panel-pos mono" data-pos></span>
           </div>
           <div class="panel-tools">
-            <button class="mini" id="tEn" aria-pressed="true" aria-label="显示英文字幕" ${hasChinese ? "" : "hidden disabled"}>英文</button>
-            <button class="mini" id="tZh" aria-label="显示中文字幕" aria-pressed="false" ${hasChinese ? "" : "hidden disabled"}>中文</button>
+            <button class="mini" id="tEn" aria-pressed="true" aria-label="显示英文字幕" ${hasChinese ? "" : "hidden disabled"}>Eng</button>
+            <button class="mini" id="tZh" aria-label="显示中文字幕" aria-pressed="false" ${hasChinese ? "" : "hidden disabled"}>中</button>
             <button class="mini" id="tFont" title="调整字幕字号" aria-label="调整字幕字号">字号</button>
           </div>
         </div>
@@ -164,14 +164,14 @@ export async function render(root, [id]) {
             <button data-pause="1" title="每读完一句就停">句末暂停</button>
           </div>
           <div class="bar-actions">
-            <button class="tbtn" data-act="prev" title="上一句 (${keyLabel(keys.prev)})">${icon("back", 16)}</button>
-            <button class="tbtn" data-act="repeat" title="重播本句 (${keyLabel(keys.repeat)})">
-              ${icon("repeat1", 16)}<span>重播</span>
+            <button class="tbtn icon-only" data-act="prev" aria-label="上一句" title="上一句 (${keyLabel(keys.prev)})">${icon("back", 16)}</button>
+            <button class="tbtn icon-only" data-act="repeat" aria-label="重播本句" title="重播本句 (${keyLabel(keys.repeat)})">
+              ${icon("repeat1", 16)}
             </button>
-            <button class="tbtn" data-act="next" title="下一句 (${keyLabel(keys.next)})">${icon("arrow", 16)}</button>
+            <button class="tbtn icon-only" data-act="next" aria-label="下一句" title="下一句 (${keyLabel(keys.next)})">${icon("forward", 16)}</button>
             <span class="bar-sep"></span>
             <button class="tbtn${repeat ? " on" : ""}" data-act="loop" title="单句循环 (${keyLabel(keys.loop)})">
-              ${icon("repeat", 15)}<span class="tbtn-text">循环</span>
+              ${icon("repeat", 15)}<span class="tbtn-text">单句循环</span>
             </button>
             <button class="tbtn icon-only" data-act="shortcuts" title="设置快捷键">${icon("keyboard", 15)}</button>
           </div>
