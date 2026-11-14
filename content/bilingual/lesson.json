@@ -1,0 +1,265 @@
+{
+ "id": "bilingual",
+ "title": "The Benefits of a Bilingual Brain",
+ "titleZh": "双语大脑的好处",
+ "speaker": "Mia Nacamulli · TED-Ed",
+ "category": "subject",
+ "level": "B1",
+ "duration": 303.73,
+ "desc": "神经科学入门：双语者的三种类型、大脑灰质密度的变化，以及「同时学两门语言会不会混淆」的答案。",
+ "tags": [
+  "TED-Ed",
+  "语言学",
+  "脑科学"
+ ],
+ "source": {
+  "platform": "YouTube",
+  "name": "TED-Ed",
+  "url": "https://www.youtube.com/watch?v=MMmOLN5zBLY",
+  "license": "CC BY-NC-ND 4.0（仅用于个人学习）",
+  "clipped": false,
+  "clipStart": 0.0,
+  "yt": "MMmOLN5zBLY",
+  "embed": "https://www.youtube.com/embed/MMmOLN5zBLY"
+ },
+ "media": {
+  "poster": "poster.jpg"
+ },
+ "langs": [
+  "en",
+  "zh"
+ ],
+ "cues": [
+  {
+   "i": 0,
+   "s": 6.63,
+   "e": 18.33,
+   "en": "¿Hablas español? Parlez-vous français? 你会说中文吗？ If you answered, \"sí,\" \"oui,\" or \"会\" and you're watching this in English,",
+   "zh": "¿Hablas español? Parlez-vous français? 你会说中文吗？如果你回答 \"si\" \"oui\" 或\"会\" 而且用英文观看这视频"
+  },
+  {
+   "i": 1,
+   "s": 18.33,
+   "e": 23.47,
+   "en": "chances are you belong to the world's bilingual and multilingual majority.",
+   "zh": "你很可能是属於 这世上双语或多语的大多数之一"
+  },
+  {
+   "i": 2,
+   "s": 23.47,
+   "e": 34.78,
+   "en": "And besides having an easier time traveling or watching movies without subtitles, knowing two or more languages means that your brain may actually look and work differently than those of your monolingual friends.",
+   "zh": "除了旅行的时候比较容易或是看电影不用字幕会两种以上的语言，意谓你的大脑运作的方式和你单语的朋友不同"
+  },
+  {
+   "i": 3,
+   "s": 34.78,
+   "e": 38.27,
+   "en": "So what does it really mean to know a language?",
+   "zh": "怎样才叫真的会一种语言？"
+  },
+  {
+   "i": 4,
+   "s": 38.27,
+   "e": 46.98,
+   "en": "Language ability is typically measured in two active parts, speaking and writing, and two passive parts, listening and reading.",
+   "zh": "语言能力通常以说和写二个主动部分和听和读二个被动部分衡量"
+  },
+  {
+   "i": 5,
+   "s": 46.98,
+   "e": 57.98,
+   "en": "While a balanced bilingual has near equal abilities across the board in two languages, most bilinguals around the world know and use their languages in varying proportions.",
+   "zh": "平衡双语的人两种语言的掌握能力是接近的世上大多数的双语者 以不同的比例了解和使用他们的语言"
+  },
+  {
+   "i": 6,
+   "s": 57.98,
+   "e": 64.92,
+   "en": "And depending on their situation and how they acquired each language, they can be classified into three general types.",
+   "zh": "根据他们的状况和每个语言不同的掌握双语者可以分成三种类型"
+  },
+  {
+   "i": 7,
+   "s": 64.92,
+   "e": 72.01,
+   "en": "For example, let's take Gabriella, whose family immigrates to the US from Peru when she's two-years old.",
+   "zh": "让我们以 Gabriella 为例她两岁的时候，家里从秘鲁移民到美国"
+  },
+  {
+   "i": 8,
+   "s": 72.01,
+   "e": 82.17,
+   "en": "As a compound bilingual, Gabriella develops two linguistic codes simultaneously, with a single set of concepts, learning both English and Spanish",
+   "zh": "作为一个复合双语者Gabriella 对一个概念的两种语言码是同时发展的她同时学习英语和西班牙语"
+  },
+  {
+   "i": 9,
+   "s": 82.17,
+   "e": 85.36,
+   "en": "as she begins to process the world around her.",
+   "zh": "来理解身边的世界"
+  },
+  {
+   "i": 10,
+   "s": 85.36,
+   "e": 96.76,
+   "en": "Her teenage brother, on the other hand, might be a coordinate bilingual, working with two sets of concepts, learning English in school, while continuing to speak Spanish at home and with friends.",
+   "zh": "他十几岁的哥哥，从另一方面来说 算是协调双语者用两组概念理解世界在学校学习英语在家还有跟朋友是说西班牙语"
+  },
+  {
+   "i": 11,
+   "s": 96.76,
+   "e": 106.2,
+   "en": "Finally, Gabriella's parents are likely to be subordinate bilinguals who learn a secondary language by filtering it through their primary language.",
+   "zh": "Gabriella 的父母可能最后一种，从属双语者通过他们的母语来学习第二者语言"
+  },
+  {
+   "i": 12,
+   "s": 106.2,
+   "e": 115.84,
+   "en": "Because all types of bilingual people can become fully proficient in a language regardless of accent or pronunciation, the difference may not be apparent to a casual observer.",
+   "zh": "除了口音和发音之外，所有类型的双语者最终都能透过学习流利使用语言因此如果只是随意观察 他们的差别并不明显"
+  },
+  {
+   "i": 13,
+   "s": 115.84,
+   "e": 125.71,
+   "en": "But recent advances in brain imaging technology have given neurolinguists a glimpse into how specific aspects of language learning affect the bilingual brain.",
+   "zh": "但是最新的大脑成像技术让神经语言学家得以窥见学习语言对双言者的大脑有哪些影响"
+  },
+  {
+   "i": 14,
+   "s": 125.71,
+   "e": 136.2,
+   "en": "It's well known that the brain's left hemisphere is more dominant and analytical in logical processes, while the right hemisphere is more active in emotional and social ones,",
+   "zh": "众所周知，大脑的左半部擅於逻辑进程的分析右脑则是对於情绪和社交较於活跃"
+  },
+  {
+   "i": 15,
+   "s": 136.2,
+   "e": 140.07,
+   "en": "though this is a matter of degree, not an absolute split.",
+   "zh": "不过这是程度上的问题 不是绝对的划分"
+  },
+  {
+   "i": 16,
+   "s": 140.07,
+   "e": 148.8,
+   "en": "The fact that language involves both types of functions while lateralization develops gradually with age, has lead to the critical period hypothesis.",
+   "zh": "事实上语言和左右脑两边的功能都有关连随著年纪增长，大脑发展会侧重一边这是关键期假说的来由"
+  },
+  {
+   "i": 17,
+   "s": 148.8,
+   "e": 158.97,
+   "en": "According to this theory, children learn languages more easily because the plasticity of their developing brains lets them use both hemispheres in language acquisition,",
+   "zh": "根据关键期假说理论小孩学语言比较容易因为他们发展中的大脑较有弹性让他们同时运用左右脑学习语言"
+  },
+  {
+   "i": 18,
+   "s": 158.97,
+   "e": 164.9,
+   "en": "while in most adults, language is lateralized to one hemisphere, usually the left.",
+   "zh": "大部分的成人的语言学习是侧重於左脑"
+  },
+  {
+   "i": 19,
+   "s": 164.9,
+   "e": 172.48,
+   "en": "If this is true, learning a language in childhood may give you a more holistic grasp of its social and emotional contexts.",
+   "zh": "如果这是事实，在小时候学习语言更能掌握社会和情感脉络"
+  },
+  {
+   "i": 20,
+   "s": 172.48,
+   "e": 185.46,
+   "en": "Conversely, recent research showed that people who learned a second language in adulthood exhibit less emotional bias and a more rational approach when confronting problems in the second language than in their native one.",
+   "zh": "相反地，最近的研究显示在长大这学习第二语言的人在第二语言上面临问题时 会采用更理性的方式相对於母语比较不会有情绪偏见"
+  },
+  {
+   "i": 21,
+   "s": 185.46,
+   "e": 192.21,
+   "en": "But regardless of when you acquire additional languages, being multilingual gives your brain some remarkable advantages.",
+   "zh": "不过不论你何时学习语言多语能力都能给予大脑相当好的益处"
+  },
+  {
+   "i": 22,
+   "s": 192.21,
+   "e": 203.5,
+   "en": "Some of these are even visible, such as higher density of the grey matter that contains most of your brain's neurons and synapses, and more activity in certain regions when engaging a second language.",
+   "zh": "有些甚至看得见像是大脑中的灰质呈现较高的密度包含脑中的神经元和突触投入第二语言时 大脑的特定区域也会更活跃"
+  },
+  {
+   "i": 23,
+   "s": 203.5,
+   "e": 213.22,
+   "en": "The heightened workout a bilingual brain receives throughout its life can also help delay the onset of diseases, like Alzheimer's and dementia by as much as five years.",
+   "zh": "而双语者大脑终生受到的锻炼可延缓一些疾病的发生 像是阿尔茨海默氏症和痴呆症达五年之久"
+  },
+  {
+   "i": 24,
+   "s": 213.22,
+   "e": 220.51,
+   "en": "The idea of major cognitive benefits to bilingualism may seem intuitive now, but it would have surprised earlier experts.",
+   "zh": "对於双语好处的认知现在看来直观稍早却会让专家们感到讶异"
+  },
+  {
+   "i": 25,
+   "s": 220.51,
+   "e": 230.65,
+   "en": "Before the 1960s, bilingualism was considered a handicap that slowed a child's development by forcing them to spend too much energy distinguishing between languages,",
+   "zh": "六十年代以前人们认为双语会阻碍孩童的发展因为强迫孩童花太多精力在区别两种语言"
+  },
+  {
+   "i": 26,
+   "s": 230.65,
+   "e": 234.09,
+   "en": "a view based largely on flawed studies.",
+   "zh": "但是这是基於有缺陷的研究"
+  },
+  {
+   "i": 27,
+   "s": 234.09,
+   "e": 246.78,
+   "en": "And while a more recent study did show that reaction times and errors increase for some bilingual students in cross-language tests, it also showed that the effort and attention needed to switch between languages triggered more activity in,",
+   "zh": "愈来愈多的近期研究指出在跨语言的测试中有些双语学生的反应时间和错误都增多同时也指出 转换语言需要更多的心力和注意力将触发大脑更多的活动"
+  },
+  {
+   "i": 28,
+   "s": 246.78,
+   "e": 251.47,
+   "en": "and potentially strengthened, the dorsolateral prefrontal cortex.",
+   "zh": "并有可能加强背外侧前额叶皮层"
+  },
+  {
+   "i": 29,
+   "s": 251.47,
+   "e": 262.64,
+   "en": "This is the part of the brain that plays a large role in executive function, problem solving, switching between tasks, and focusing while filtering out irrelevant information.",
+   "zh": "这是大脑用来执行功能、 解决问题、在不同任务间转换和专注在过滤不相干资讯的主要部位"
+  },
+  {
+   "i": 30,
+   "s": 262.64,
+   "e": 273.42,
+   "en": "So, while bilingualism may not necessarily make you smarter, it does make your brain more healthy, complex and actively engaged, and even if you didn't have the good fortune",
+   "zh": "因此，双语可能不必然让你更聪明但确实会让你的大脑更健康、健全和更能专注即使你小时候未能"
+  },
+  {
+   "i": 31,
+   "s": 273.42,
+   "e": 283.56,
+   "en": "of learning a second language as a child, it's never too late to do yourself a favor and make the linguistic leap from, \"Hello,\" to, \"Hola,\" \"Bonjour\" or \"你好’s\"",
+   "zh": "学习第二种语言帮助自己永远不迟跨语言，就从 \"Hello\" 开始到 \"Hola\"、\"Bonjour\" 或 \"你好\""
+  },
+  {
+   "i": 32,
+   "s": 283.56,
+   "e": 288.08,
+   "en": "because when it comes to our brains a little exercise can go a long way.",
+   "zh": "这让我们的大脑做一些小小的运动 从而带给我们长远的帮助"
+  }
+ ]
+}

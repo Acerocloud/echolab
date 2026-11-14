@@ -1,0 +1,272 @@
+{
+ "id": "stock",
+ "title": "How Does the Stock Market Work?",
+ "titleZh": "股票市场是怎么运作的？",
+ "speaker": "Oliver Elfenbaum · TED-Ed",
+ "category": "subject",
+ "level": "B1",
+ "duration": 269.53,
+ "desc": "用一家卖柠檬水的公司讲清股票、交易所、IPO 与股价波动：经济学第一课的极简版本。",
+ "tags": [
+  "TED-Ed",
+  "经济学",
+  "商科"
+ ],
+ "source": {
+  "platform": "YouTube",
+  "name": "TED-Ed",
+  "url": "https://www.youtube.com/watch?v=p7HKvqRI_Bo",
+  "license": "CC BY-NC-ND 4.0（仅用于个人学习）",
+  "clipped": false,
+  "clipStart": 0.0,
+  "yt": "p7HKvqRI_Bo",
+  "embed": "https://www.youtube.com/embed/p7HKvqRI_Bo"
+ },
+ "media": {
+  "poster": "poster.jpg"
+ },
+ "langs": [
+  "en",
+  "zh"
+ ],
+ "cues": [
+  {
+   "i": 0,
+   "s": 6.66,
+   "e": 16.19,
+   "en": "In the 1600s the Dutch East India Company employed hundreds of ships to trade gold, porcelain, spices, and silks around the globe.",
+   "zh": "17世纪初，荷兰东印度公司雇佣了上百只商船在全球进行黄金，陶瓷，香料， 丝绸等贸易。"
+  },
+  {
+   "i": 1,
+   "s": 16.19,
+   "e": 19.08,
+   "en": "But running this massive operation wasn’t cheap.",
+   "zh": "这是一笔不小的开销。"
+  },
+  {
+   "i": 2,
+   "s": 19.08,
+   "e": 30.6,
+   "en": "In order to fund their expensive voyages, the company turned to private citizens– individuals who could invest money to support the trip in exchange for a share of the ship’s profits.",
+   "zh": "为了获得足够的资金来供养 这些昂贵的航行，荷兰东印度公司将目光转向了大众每一位能够为出海贸易出资的人，将会得到贸易利润的一部分作为交换。"
+  },
+  {
+   "i": 3,
+   "s": 30.6,
+   "e": 39.52,
+   "en": "This practice allowed the company to afford even grander voyages, increasing profits for both themselves and their savvy investors.",
+   "zh": "这一做法使公司有能力负担 规模更大的航行，同时带给精明的出资人和公司 更高的利润。"
+  },
+  {
+   "i": 4,
+   "s": 39.52,
+   "e": 50.36,
+   "en": "Selling these shares in coffee houses and shipping ports across the continent, the Dutch East India Company unknowingly invented the world’s first stock market.",
+   "zh": "这些股份在欧洲各地的 咖啡厅和港口被售卖，就这样，荷兰东印度公司在不知不觉中 发明了世界第一个股票市场。"
+  },
+  {
+   "i": 5,
+   "s": 50.36,
+   "e": 56.64,
+   "en": "Since then, companies have been collecting funds from willing investors to support all kinds of businesses.",
+   "zh": "自那以后，各个公司纷纷效仿， 向有意的投资者们募款，用来做各种各样的生意。"
+  },
+  {
+   "i": 6,
+   "s": 56.64,
+   "e": 64.28,
+   "en": "And today, the stock market has schools, careers, and even whole television channels dedicated to understanding it.",
+   "zh": "如今，很多学校，职业，甚至专门的电视频道致力于教人们理解股票市场的运作。"
+  },
+  {
+   "i": 7,
+   "s": 64.28,
+   "e": 69.92,
+   "en": "But the modern stock market is significantly more complicated than its original incarnation.",
+   "zh": "但现代股票市场要比当年复杂得多。"
+  },
+  {
+   "i": 8,
+   "s": 69.92,
+   "e": 74.09,
+   "en": "So how do companies and investors use the market today?",
+   "zh": "所以，如今的公司和投资人 该怎样运用这个市场？"
+  },
+  {
+   "i": 9,
+   "s": 74.09,
+   "e": 78.75,
+   "en": "Let’s imagine a new coffee company that decides to launch on the market.",
+   "zh": "让我们来想象一个决定进入市场的新咖啡公司。"
+  },
+  {
+   "i": 10,
+   "s": 78.75,
+   "e": 82.36,
+   "en": "First, the company will advertise itself to big investors.",
+   "zh": "首先，这家公司会向大型投资人推销自己。"
+  },
+  {
+   "i": 11,
+   "s": 82.36,
+   "e": 91.24,
+   "en": "If they think the company is a good idea, they get the first crack at investing, and then sponsor the company’s initial public offering, or IPO.",
+   "zh": "如果投资者认为，这是个好点子，他们将取得投资的先机，并且将资助该公司的首次公开募股（IPO）。"
+  },
+  {
+   "i": 12,
+   "s": 91.24,
+   "e": 99.72,
+   "en": "This launches the company onto the official public market, where any company or individual who believes the business could be profitable might buy a stock.",
+   "zh": "这使得这家咖啡公司进入 正式的公开市场。在这里，任何相信它会盈利的 个人投资者或公司，都可以购买股票。"
+  },
+  {
+   "i": 13,
+   "s": 99.72,
+   "e": 104.28,
+   "en": "Buying stocks makes those investors partial owners in the business.",
+   "zh": "股票这一方式， 使投资人变成公司的股东。"
+  },
+  {
+   "i": 14,
+   "s": 104.28,
+   "e": 111.98,
+   "en": "Their investment helps the company to grow, and as it becomes more successful, more buyers may see potential and start buying stocks.",
+   "zh": "他们的投资会帮助该公司成长，在这个过程中，更多人会看到它的潜力， 并购买更多的股票。"
+  },
+  {
+   "i": 15,
+   "s": 111.98,
+   "e": 121.93,
+   "en": "As demand for those stocks increases, so does their price, increasing the cost for prospective buyers, and raising the value of the company's stocks people already own.",
+   "zh": "当对该股票的需求不断增长，股票的价格也水涨船高，对于手中持有股票的人来说， 他们的股票价值也会有所上升。"
+  },
+  {
+   "i": 16,
+   "s": 121.93,
+   "e": 133.38,
+   "en": "For the company, this increased interest helps fund new initiatives, and also boosts its overall market value by showing how many people are willing to invest in their idea.",
+   "zh": "于公司而言，新增加的利益不仅会资助新的企划，并且通过许多人对公司的的投资意愿,抬高了公司整体市场价值。"
+  },
+  {
+   "i": 17,
+   "s": 133.38,
+   "e": 139.49,
+   "en": "However, if for some reason a company starts to seem less profitable the reverse can also happen.",
+   "zh": "然而，出于某些原因， 这家公司不那么盈利时，与之前截然相反的情况就有可能发生。"
+  },
+  {
+   "i": 18,
+   "s": 139.49,
+   "e": 147.77,
+   "en": "If investors think their stock value is going to decline, they’ll sell their stocks with the hopes of making a profit before the company loses more value.",
+   "zh": "如果投资者认为他们所拥有的 股票价值会下降，他们将卖掉手中的股票，并希望能在公司掉价前获得利润。"
+  },
+  {
+   "i": 19,
+   "s": 147.77,
+   "e": 154.85,
+   "en": "As stocks are sold and demand for the stock goes down, the stock price falls, and with it, the company’s market value.",
+   "zh": "这使得该股票需求持续减少，股票价格下跌，公司的市场价值也随之下降。"
+  },
+  {
+   "i": 20,
+   "s": 154.85,
+   "e": 160.84,
+   "en": "This can leave investors with big losses– unless the company starts to look profitable again.",
+   "zh": "除非公司的盈利情况开始好转，否则投资者将会面临很大的亏损。"
+  },
+  {
+   "i": 21,
+   "s": 160.84,
+   "e": 165.32,
+   "en": "This see-saw of supply and demand is influenced by many factors.",
+   "zh": "很多因素会影响到这样的供求平衡。"
+  },
+  {
+   "i": 22,
+   "s": 165.32,
+   "e": 176.02,
+   "en": "Companies are under the unavoidable influence of market forces– such as the fluctuating price of materials, changes in production technology, and the shifting costs of labor.",
+   "zh": "首先，市场力量是所有公司都无法避免的，这包括原料价格的波动，生产设备和技术的变化，以及劳动力成本的改变。"
+  },
+  {
+   "i": 23,
+   "s": 176.02,
+   "e": 183.37,
+   "en": "Investors may be worried about changes in leadership, bad publicity, or larger factors like new laws and trade policies.",
+   "zh": "投资者还可能会担心领导的变动， 不好的宣传或者是像新法和贸易政策一类 更大的原因。"
+  },
+  {
+   "i": 24,
+   "s": 183.37,
+   "e": 189.95,
+   "en": "And of course, plenty of investors are simply ready to sell valuable stocks and pursue personal interests.",
+   "zh": "当然，许多投资者也会随时卖掉昂贵的股票去追求个人利益"
+  },
+  {
+   "i": 25,
+   "s": 189.95,
+   "e": 196.13,
+   "en": "All these variables cause day-to-day noise in the market, which can make companies appear more or less successful.",
+   "zh": "这些变量都会干扰市场，并影响公司的成功与否。"
+  },
+  {
+   "i": 26,
+   "s": 196.13,
+   "e": 203.82,
+   "en": "And in the stock market, appearing to lose value often leads to losing investors, and in turn, losing actual value.",
+   "zh": "在股票市场，市场价值下降会导致失去投资者，也会使股票真正失去价值。"
+  },
+  {
+   "i": 27,
+   "s": 203.82,
+   "e": 210.44,
+   "en": "Human confidence in the market has the power to trigger everything from economic booms to financial crises.",
+   "zh": "人们对市场的信心作用很大，它可以促使经济繁荣， 也可以造成经济危机。"
+  },
+  {
+   "i": 28,
+   "s": 210.44,
+   "e": 218.46,
+   "en": "And this difficult-to-track variable is why most professionals promote reliable long term investing over trying to make quick cash.",
+   "zh": "这个难以掌控的变量是许多专家推荐可靠的长期投资而不是赚快钱的原因。"
+  },
+  {
+   "i": 29,
+   "s": 218.46,
+   "e": 225.8,
+   "en": "However, experts are constantly building tools in efforts to increase their chances of success in this highly unpredictable system.",
+   "zh": "然而，专家们在不断寻找新的工具来加大他们在这个不可测的系统中 成功的几率。"
+  },
+  {
+   "i": 30,
+   "s": 225.8,
+   "e": 229.27,
+   "en": "But the stock market is not just for the rich and powerful.",
+   "zh": "但股票市场不是专门为那些 有权有势的人准备的。"
+  },
+  {
+   "i": 31,
+   "s": 229.27,
+   "e": 236.13,
+   "en": "With the dawn of the Internet, everyday investors can buy stocks in many of the exact same ways a large investor would.",
+   "zh": "在互联网时代，每一天都有很多投资人用像大投资方一样的方式购买股票。"
+  },
+  {
+   "i": 32,
+   "s": 236.13,
+   "e": 245.47,
+   "en": "And as more people educate themselves about this complex system they too can trade stocks, support the businesses they believe in, and pursue their financial goals.",
+   "zh": "有更多的人自学这复杂市场的运作原理，他们也可以进行股票交易，支持他们相信的企业 ，并追求他们自己的理财目标。"
+  },
+  {
+   "i": 33,
+   "s": 245.47,
+   "e": 248.69,
+   "en": "The first step is getting invested.",
+   "zh": "第一步，就是投入进去。"
+  }
+ ]
+}
