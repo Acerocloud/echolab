@@ -54,7 +54,7 @@ export function render(root) {
       </ul>
 
       <p class="muted small" style="margin-top:34px">
-        EchoLab v0.1 · 产品需求文档见 <code>docs/PRD.md</code>
+        EchoLab v0.8.0 · 产品需求文档见 <code>docs/PRD.md</code>
       </p>
     </div>
   `;
