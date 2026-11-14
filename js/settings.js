@@ -14,9 +14,8 @@ export async function render(root) {
   root.innerHTML = `
     <div class="page-head fade-up">
       <div>
-        <span class="eyebrow">${icon("gear", 14)} PREFERENCES</span>
         <h1>设置</h1>
-        <p class="page-sub">所有偏好都存在这台电脑的浏览器里，不会上传。</p>
+        <p class="page-sub">管理跟读、AI 造句和本机学习数据。</p>
       </div>
     </div>
 
@@ -24,29 +23,29 @@ export async function render(root) {
       <div class="block-head"><h2>跟读</h2></div>
 
       <div class="setting-row">
-        <div><b>回音法停顿</b><span>听完原声后，留出「让声音在脑中回响」的时间</span></div>
-        <button class="switch ${s.echoOn ? "on" : ""}" data-toggle="echoOn" role="switch" aria-checked="${s.echoOn}"><i></i></button>
+        <div><b>开口前停顿</b><span>先听后读时，播放完毕后留出准备时间</span></div>
+        <button class="switch ${s.echoOn ? "on" : ""}" data-toggle="echoOn" aria-label="开口前停顿" role="switch" aria-checked="${s.echoOn}"><i></i></button>
       </div>
 
       <div class="setting-row">
-        <div><b>停顿长度</b><span>太长会走神，太短来不及回忆</span></div>
+        <div><b>停顿长度</b></div>
         <div class="range-wrap">
-          <input type="range" min="1" max="5" step="1" value="${Math.round((s.echoMs || 3000) / 1000)}" data-range="echoSec" />
+          <input type="range" min="1" max="5" step="1" value="${Math.round((s.echoMs || 3000) / 1000)}" data-range="echoSec" aria-label="停顿长度" />
           <span class="mono" id="echoVal">${Math.round((s.echoMs || 3000) / 1000)} 秒</span>
         </div>
       </div>
 
       <div class="setting-row">
-        <div><b>默认跟读模式</b><span>回音法：先听后说；同步：与原声同时开口</span></div>
+        <div><b>默认跟读模式</b><span>选择先听原声再读，或与原声同时开口</span></div>
         <div class="seg" data-key="shadowMode">
-          <button data-v="echo" class="${s.shadowMode !== "sync" ? "on" : ""}">回音法</button>
+          <button data-v="echo" class="${s.shadowMode !== "sync" ? "on" : ""}">先听后读</button>
           <button data-v="sync" class="${s.shadowMode === "sync" ? "on" : ""}">同步跟读</button>
         </div>
       </div>
 
       <div class="setting-row">
-        <div><b>自动播放</b><span>进入跟读页自动播一遍原声，接着进入回声</span></div>
-        <button class="switch ${s.autoAdvance ? "on" : ""}" data-toggle="autoAdvance" role="switch" aria-checked="${s.autoAdvance}"><i></i></button>
+        <div><b>自动播放</b><span>打开跟读时自动播放当前句</span></div>
+        <button class="switch ${s.autoAdvance ? "on" : ""}" data-toggle="autoAdvance" aria-label="自动播放" role="switch" aria-checked="${s.autoAdvance}"><i></i></button>
       </div>
     </section>
 
@@ -55,18 +54,18 @@ export async function render(root) {
 
       <div class="setting-row">
         <div><b>接口地址</b><span>到 /v1 为止，例如 https://opencode.ai/zen/go/v1</span></div>
-        <input class="field" data-ai="baseUrl" type="url" spellcheck="false" placeholder="https://.../v1" value="${esc(ai.baseUrl || "")}" />
+        <input class="field" data-ai="baseUrl" aria-label="接口地址" type="url" spellcheck="false" placeholder="https://.../v1" value="${esc(ai.baseUrl || "")}" />
       </div>
 
       <div class="setting-row">
         <div><b>API Key</b><span>只存在这台电脑的浏览器里，经本地服务转发</span></div>
-        <input class="field" data-ai="key" type="password" spellcheck="false" placeholder="sk-..." value="${esc(ai.key || "")}" />
+        <input class="field" data-ai="key" aria-label="API Key" type="password" spellcheck="false" placeholder="sk-..." value="${esc(ai.key || "")}" />
       </div>
 
       <div class="setting-row">
         <div><b>模型</b><span>先点「刷新模型」从接口拉取，再选一个</span></div>
         <div class="ai-model">
-          <select id="aiModel" class="field">
+          <select id="aiModel" aria-label="模型" class="field">
             ${ai.model ? `<option value="${esc(ai.model)}" selected>${esc(ai.model)}</option>` : `<option value="">（还没选）</option>`}
           </select>
           <button class="btn btn-sm" id="aiModels">刷新模型</button>
@@ -80,9 +79,9 @@ export async function render(root) {
     </section>
 
     <section class="block">
-      <div class="block-head"><h2>数据</h2><span class="muted small">只存在 localStorage</span></div>
+      <div class="block-head"><h2>学习数据</h2></div>
       <div class="setting-row">
-        <div><b>导出学习记录</b><span>下载一个 JSON，含进度、生词与收藏</span></div>
+        <div><b>导出学习记录</b><span>下载进度、生词与收藏（JSON）</span></div>
         <button class="btn btn-sm" id="btnExport">${icon("arrow", 14)} 导出</button>
       </div>
       <div class="setting-row">

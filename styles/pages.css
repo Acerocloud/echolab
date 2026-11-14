@@ -24,16 +24,16 @@
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-bottom: 52px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  gap: 12px;
+  margin-bottom: 36px;
 }
 .stat-card {
   padding: 22px 24px;
-  border-left: 1px solid var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface);
 }
-.stat-card:first-child { border-left: 0; padding-left: 0; }
+
 .stat-label { display: block; font-size: 12px; color: var(--muted); }
 .stat-card b {
   display: block;
@@ -47,7 +47,7 @@
 .stat-note { font-size: 11.5px; color: var(--muted); }
 
 /* ---------------------------------------------------------------- 区块 */
-.block { margin-bottom: 52px; max-width: 860px; }
+.block { margin-bottom: 20px; max-width: 980px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(14px, 3vw, 24px); }
 .block-head {
   display: flex;
   align-items: baseline;
@@ -206,7 +206,6 @@
   font-weight: 500;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-html[data-theme="dark"] .seg button.on { background: #3a3a3c; box-shadow: none; }
 
 .range-wrap { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
 .range-wrap input[type="range"] {
@@ -262,13 +261,11 @@ html[data-theme="dark"] .seg button.on { background: #3a3a3c; box-shadow: none; 
 }
 .four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 8px; }
 .four > div { padding: 14px; border-radius: var(--r-md); background: var(--bg-2); }
-html[data-theme="dark"] .four > div { background: rgba(255, 255, 255, 0.05); }
 .four b { display: block; font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 6px; }
 .four span { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
 
 @media (max-width: 860px) {
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-card:nth-child(3) { border-left: 0; padding-left: 0; }
   .four { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
@@ -321,7 +318,6 @@ html[data-theme="dark"] .four > div { background: rgba(255, 255, 255, 0.05); }
   transition: background 0.15s, color 0.15s;
 }
 .rc-tts:hover { color: var(--text); }
-html[data-theme="dark"] .rc-tts { background: rgba(255, 255, 255, 0.12); }
 
 .rc-sentence {
   margin: 28px 0 0;
@@ -353,7 +349,6 @@ html[data-theme="dark"] .rc-tts { background: rgba(255, 255, 255, 0.12); }
   transition: color 0.15s, background 0.15s;
 }
 .rc-btn:hover { color: var(--text); }
-html[data-theme="dark"] .rc-btn { background: rgba(255, 255, 255, 0.12); }
 
 .review-actions { display: flex; gap: 10px; margin: 16px 0 52px; }
 .review-actions .btn { flex: 1; height: 46px; font-size: 14.5px; }

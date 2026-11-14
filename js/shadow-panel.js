@@ -47,8 +47,8 @@ export function createShadowPanel(opts) {
     <div class="sp-top">
       <span class="sp-count mono"><b data-idx>1</b> / <span data-total>${queue.length}</span></span>
       <div class="sp-tools">
-        <button class="sp-chip" data-range title="切换练习范围">全部句</button>
-        <button class="sp-chip" data-mode title="回音法 / 同步跟读">回音法</button>
+        <button class="sp-chip" data-range title="切换练习范围">全部句子</button>
+        <button class="sp-chip" data-mode title="先听后读 / 同步跟读">先听后读</button>
         <button class="sp-star" data-star aria-label="收藏这句">${icon("star", 15)}</button>
       </div>
     </div>
@@ -60,16 +60,16 @@ export function createShadowPanel(opts) {
 
     <ol class="sp-steps">
       <li data-step="listen"><i>1</i>听</li>
-      <li data-step="echo"><i>2</i>回声</li>
-      <li data-step="record"><i>3</i>说</li>
-      <li data-step="review"><i>4</i>对比</li>
+      <li data-step="echo"><i>2</i>准备</li>
+      <li data-step="record"><i>3</i>录音</li>
+      <li data-step="review"><i>4</i>回听</li>
     </ol>
 
     <div class="sp-wave">
       <canvas data-wave></canvas>
       <div class="sp-legend">
         <span class="lg mine"><i></i>我的录音</span>
-        <span class="sp-note" data-note>录一句，波形会画在这里</span>
+        <span class="sp-note" data-note>录音波形</span>
       </div>
     </div>
 
@@ -78,20 +78,20 @@ export function createShadowPanel(opts) {
       <button class="sp-rec" data-act="rec" aria-label="录音">
         <span class="ring"></span>${icon("mic", 22)}
       </button>
-      <button class="sp-side" data-act="mine" disabled>${icon("headphones", 16)}<span>听我的</span></button>
+      <button class="sp-side" data-act="mine" disabled>${icon("headphones", 16)}<span>播放录音</span></button>
     </div>
 
     <p class="sp-phase" data-phase><i></i><span>点「听原声」开始，或按空格</span></p>
 
-    <div class="sp-compare">
+    <div class="sp-compare" role="group" aria-label="录音回听" hidden>
       <button data-play="orig">原声<kbd>1</kbd></button>
-      <button data-play="mine" disabled>我的<kbd>2</kbd></button>
-      <button data-play="both" disabled>叠加<kbd>3</kbd></button>
+      <button data-play="mine" disabled>录音<kbd>2</kbd></button>
+      <button data-play="both" disabled>同时播放<kbd>3</kbd></button>
     </div>
 
     <div class="sp-rate">
       <button class="sp-btn" data-act="again">再来一次</button>
-      <button class="sp-btn sp-btn-primary" data-act="pass">过关，下一句</button>
+      <button class="sp-btn sp-btn-primary" data-act="pass">完成，下一句</button>
     </div>
 
     <div class="sp-nav">
@@ -119,6 +119,7 @@ export function createShadowPanel(opts) {
   const btnStar = root.querySelector("[data-star]");
   const btnRange = root.querySelector("[data-range]");
   const btnMode = root.querySelector("[data-mode]");
+  const comparison = root.querySelector(".sp-compare");
   const cmpMine = root.querySelector('[data-play="mine"]');
   const cmpBoth = root.querySelector('[data-play="both"]');
   const canvas = root.querySelector("[data-wave]");
@@ -161,7 +162,7 @@ export function createShadowPanel(opts) {
     btnStar.classList.toggle("on", starred);
     btnStar.innerHTML = icon(starred ? "starOn" : "star", 15);
 
-    btnPass.textContent = isPassed(id, i) ? "已过关，下一句" : "过关，下一句";
+    btnPass.textContent = isPassed(id, i) ? "已完成，下一句" : "完成，下一句";
     btnPass.classList.toggle("done", isPassed(id, i));
     setCuePosition(id, i);
     renderDots();
@@ -183,9 +184,9 @@ export function createShadowPanel(opts) {
     const map = {
       idle: "点「听原声」开始，或按空格",
       listen: "在听 · 抓重音、连读和停顿",
-      echo: "回声 · 在心里重放一遍",
-      record: "在录 · 说完整",
-      review: "对比 · 原声 / 我的 / 叠加",
+      echo: "准备开口",
+      record: "正在录音",
+      review: "选择原声或录音开始回听",
       playing: "回放中…",
     };
     elPhase.textContent = map[p] || "";
@@ -348,6 +349,7 @@ export function createShadowPanel(opts) {
       recURL = URL.createObjectURL(blob);
       recAudio = new Audio(recURL);
       recAudio.preload = "auto";
+      comparison.hidden = false;
       cmpMine.disabled = false;
       cmpBoth.disabled = false;
       btnMine.disabled = false;
@@ -397,6 +399,7 @@ export function createShadowPanel(opts) {
   function clearRecording() {
     clearRecAudio();
     mineEnv = [];
+    comparison.hidden = true;
     cmpMine.disabled = true;
     cmpBoth.disabled = true;
     btnMine.disabled = true;
@@ -507,7 +510,7 @@ export function createShadowPanel(opts) {
       ctx2d.fillStyle = css("--muted") || "#86868b";
       ctx2d.font = `12px ${css("--font") || "sans-serif"}`;
       ctx2d.textAlign = "center";
-      ctx2d.fillText("你的录音节奏会画在这里", w / 2, mid + 4);
+      ctx2d.fillText("录音后显示波形", w / 2, mid + 4);
     }
 
     if (playhead !== null) {
@@ -542,7 +545,7 @@ export function createShadowPanel(opts) {
 
   function markPass() {
     passCue(id, current, 1);
-    btnPass.textContent = "已过关，下一句";
+    btnPass.textContent = "已完成，下一句";
     btnPass.classList.add("done");
     renderDots();
     setTimeout(next, 180);
@@ -597,7 +600,7 @@ export function createShadowPanel(opts) {
   btnRange.addEventListener("click", () => {
     const kinds = [
       ["all", "全部句"],
-      ["todo", "未过关"],
+      ["todo", "未完成"],
       ["star", "已收藏"],
     ];
     const idx = kinds.findIndex(([k]) => k === queueKind);
@@ -606,7 +609,7 @@ export function createShadowPanel(opts) {
     queue = buildQueue(queueKind);
     btnRange.textContent = found[1];
     if (!queue.length) {
-      toast(queueKind === "star" ? "还没有收藏的句子" : "这一组都过关了");
+      toast(queueKind === "star" ? "还没有收藏的句子" : "这一组都完成了");
       queueKind = "all";
       queue = buildQueue("all");
       btnRange.textContent = "全部句";
@@ -617,9 +620,9 @@ export function createShadowPanel(opts) {
 
   btnMode.addEventListener("click", () => {
     mode = mode === "echo" ? "sync" : "echo";
-    btnMode.textContent = mode === "echo" ? "回音法" : "同步跟读";
+    btnMode.textContent = mode === "echo" ? "先听后读" : "同步跟读";
     state.settings.shadowMode = mode;
-    toast(mode === "echo" ? "回音法：先听，停顿，再开口" : "同步跟读：与原声同时开口（戴耳机）");
+    toast(mode === "echo" ? "先听后读：先听，停顿，再开口" : "同步跟读：与原声同时开口（戴耳机）");
   });
 
   dotsEl.addEventListener("click", (e) => {

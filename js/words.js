@@ -59,7 +59,6 @@ export async function render(root) {
   root.innerHTML = `
     <div class="page-head">
       <div>
-        <p class="eyebrow">生词本 · Vocabulary</p>
         <h1>生词本</h1>
         <p class="page-sub" id="wlSub"></p>
       </div>

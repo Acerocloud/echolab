@@ -34,7 +34,7 @@ async function getGlosses() {
 function loadYouTubeApi() {
   if (window.YT?.Player) return Promise.resolve(window.YT);
   if (!ytApiPromise) {
-    ytApiPromise = new Promise((resolve) => {
+    ytApiPromise = new Promise((resolve, reject) => {
       const prev = window.onYouTubeIframeAPIReady;
       window.onYouTubeIframeAPIReady = () => {
         if (typeof prev === "function") prev();
@@ -44,6 +44,11 @@ function loadYouTubeApi() {
         const s = document.createElement("script");
         s.id = "yt-iframe-api";
         s.src = "https://www.youtube.com/iframe_api";
+        s.addEventListener("error", () => {
+          s.remove();
+          ytApiPromise = null;
+          reject(new Error("YouTube IFrame API unavailable"));
+        }, { once: true });
         document.head.appendChild(s);
       }
     });
@@ -97,6 +102,7 @@ export async function render(root, [id]) {
   const ytId = lesson.source?.yt;
   const offset = Number(lesson.source?.clipStart) || 0;
 
+  const hasChinese = Boolean(info.langs?.includes("zh"));
   let mode = /\/shadow(\?|$)/.test(location.hash) ? "shadow" : "listen";
   let current = clamp(Number(new URLSearchParams(location.hash.split("?")[1] || "").get("cue") ?? progress.cue) || 0, 0, cues.length - 1);
   let repeat = Boolean(state.settings.repeatOne);
@@ -106,6 +112,7 @@ export async function render(root, [id]) {
   let tickTimer = 0;
   let shadowCtl = null;
   let pollTimer = 0;
+  let disposed = false;
 
   const keys = getKeys();
 
@@ -123,28 +130,18 @@ export async function render(root, [id]) {
           <span>${info.cueCount} 句</span>
         </div>
       </div>
-      <div class="seg-mode" role="tablist" aria-label="学习模式">
-        <button role="tab" data-mode="listen">精听</button>
-        <button role="tab" data-mode="shadow">跟读</button>
+      <div class="seg-mode" role="group" aria-label="练习模式">
+        <button aria-pressed="false" data-mode="listen">精听</button>
+        <button aria-pressed="false" data-mode="shadow">跟读</button>
       </div>
     </div>
 
     <div class="lesson-grid">
       <div class="stage-col">
         <div class="stage" id="stage">
+          ${info.poster ? `<img class="stage-poster" src="${esc(info.poster)}" alt="" />` : ""}
           <div class="yt-host" id="ytHost"></div>
           <div class="stage-error" id="stageError" hidden></div>
-        </div>
-        <div class="lesson-meta">
-          <p class="meta-desc">${esc(info.desc)}</p>
-          <div class="meta-tags">
-            ${(info.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}
-            ${info.langs?.includes("zh") ? `<span class="tag">英 + 中</span>` : `<span class="tag">英文</span>`}
-            <span class="tag">YouTube 嵌入</span>
-          </div>
-          <p class="meta-source">${esc(lesson.speaker)} · ${lesson.source.captionType === "auto" ? "YouTube 自动字幕" : "人工字幕"}${
-            lesson.source.clipped ? "（节选）" : ""
-          } · <a href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">原始视频</a></p>
         </div>
       </div>
 
@@ -155,21 +152,21 @@ export async function render(root, [id]) {
             <span class="panel-pos mono" data-pos></span>
           </div>
           <div class="panel-tools">
-            <button class="mini" id="tEn" aria-pressed="true">EN</button>
-            <button class="mini" id="tZh" aria-pressed="true" ${info.langs?.includes("zh") ? "" : "disabled"}>中</button>
-            <button class="mini" id="tFont" title="字号">A±</button>
+            <button class="mini" id="tEn" aria-pressed="true" aria-label="显示英文字幕" ${hasChinese ? "" : "hidden disabled"}>英文</button>
+            <button class="mini" id="tZh" aria-label="显示中文字幕" aria-pressed="false" ${hasChinese ? "" : "hidden disabled"}>中文</button>
+            <button class="mini" id="tFont" title="调整字幕字号" aria-label="调整字幕字号">字号</button>
           </div>
         </div>
 
         <div class="bar" data-bar="listen">
           <div class="seg-mini" role="group" aria-label="播放方式">
             <button data-pause="0" title="一直播下去">连续播放</button>
-            <button data-pause="1" title="每读完一句就停">逐句暂停</button>
+            <button data-pause="1" title="每读完一句就停">句末暂停</button>
           </div>
           <div class="bar-actions">
             <button class="tbtn" data-act="prev" title="上一句 (${keyLabel(keys.prev)})">${icon("back", 16)}</button>
             <button class="tbtn" data-act="repeat" title="重播本句 (${keyLabel(keys.repeat)})">
-              ${icon("repeat1", 16)}<span class="tbtn-key">${keyLabel(keys.repeat)}</span>
+              ${icon("repeat1", 16)}<span>重播</span>
             </button>
             <button class="tbtn" data-act="next" title="下一句 (${keyLabel(keys.next)})">${icon("arrow", 16)}</button>
             <span class="bar-sep"></span>
@@ -188,6 +185,12 @@ export async function render(root, [id]) {
 
         <div class="pane pane-shadow" data-pane="shadow" hidden></div>
       </aside>
+      <div class="lesson-meta">
+        <p class="meta-desc">${esc(info.desc)}</p>
+        <p class="meta-source">${esc(lesson.speaker)} · ${lesson.source.captionType === "auto" ? "YouTube 自动字幕" : "人工字幕"}${
+          lesson.source.clipped ? "（节选）" : ""
+        } · <a href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">原始视频</a></p>
+      </div>
     </div>
 
 
@@ -273,6 +276,7 @@ export async function render(root, [id]) {
   const play = () => { try { player?.playVideo?.(); } catch {} };
 
   function showPlayerError(code) {
+    if (disposed) return;
     playerFailed = true;
     const map = {
       2: "视频地址无效", 5: "HTML5 播放器出错", 100: "视频不存在或已删除",
@@ -281,7 +285,7 @@ export async function render(root, [id]) {
     stageError.hidden = false;
     stageError.innerHTML = `
       <p>${esc(map[code] || "YouTube 播放失败")}</p>
-      <a class="btn btn-sm" href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">去 YouTube 看</a>`;
+      <a class="btn btn-sm" href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">在 YouTube 观看</a>`;
   }
 
   function killYouTubeCaptions() {
@@ -295,6 +299,7 @@ export async function render(root, [id]) {
   }
 
   loadYouTubeApi().then((Y) => {
+    if (disposed) return;
     if (!ytId) return showPlayerError(100);
     player = new Y.Player("ytHost", {
       videoId: ytId,
@@ -355,7 +360,7 @@ export async function render(root, [id]) {
   /* ---------------------------------------------------------------- 工具 */
   function lineHTML(c) {
     return `<li class="line" data-i="${c.i}" data-s="${c.s}" data-e="${c.e}">
-      <span class="line-n mono">${String(c.i + 1).padStart(2, "0")}</span>
+      <button type="button" class="line-n mono" aria-label="播放 ${fmtTime(c.s)}">${fmtTime(c.s)}</button>
       <div class="line-body">
         <p class="line-en">${tokenize(c.en, savedSet)}</p>
         ${c.zh ? `<p class="line-zh">${esc(c.zh)}</p>` : ""}
@@ -367,8 +372,10 @@ export async function render(root, [id]) {
   }
 
   function applySubPrefs() {
-    const showEn = state.settings.subEn;
+    const showEn = !hasChinese || state.settings.subEn;
     const showZh = state.settings.subZh;
+    root.querySelector("#tEn").setAttribute("aria-pressed", String(showEn));
+    root.querySelector("#tZh").setAttribute("aria-pressed", String(Boolean(showZh && info.langs?.includes("zh"))));
     root.querySelectorAll(".line-en").forEach((el) => (el.style.display = showEn ? "" : "none"));
     root.querySelectorAll(".line-zh").forEach((el) => (el.style.display = showZh ? "" : "none"));
   }
@@ -446,12 +453,17 @@ export async function render(root, [id]) {
   function setPauseEach(v) {
     pauseEach = Boolean(v);
     setSetting("pauseEachCue", pauseEach);
-    segPause.forEach((b) => b.classList.toggle("on", (b.dataset.pause === "1") === pauseEach));
+    segPause.forEach((b) => {
+      const selected = (b.dataset.pause === "1") === pauseEach;
+      b.classList.toggle("on", selected);
+      b.setAttribute("aria-pressed", String(selected));
+    });
   }
 
   function setLoop(v) {
     repeat = Boolean(v);
     btnLoop.classList.toggle("on", repeat);
+    btnLoop.setAttribute("aria-pressed", String(repeat));
     setSetting("repeatOne", repeat);
     if (repeat) { seekRel(cues[current].s); play(); }
   }
@@ -469,12 +481,20 @@ export async function render(root, [id]) {
     if (location.hash !== target) history.replaceState(null, "", target);
   }
 
+  function updateModeButtons(mode) {
+    segBtns.forEach((button) => {
+      const selected = button.dataset.mode === mode;
+      button.classList.toggle("on", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+  }
+
   function setMode(next, { cue } = {}) {
     if (next === mode && shadowCtl) return;
     mode = next;
     document.title = `${next === "shadow" ? "跟读" : "课程"} · EchoLab`;
     root.dataset.mode = next;
-    segBtns.forEach((b) => b.classList.toggle("on", b.dataset.mode === next));
+    updateModeButtons(next);
     paneScript.hidden = next !== "listen";
     paneShadow.hidden = next !== "shadow";
     listenBar.hidden = next !== "listen";
@@ -685,7 +705,7 @@ export async function render(root, [id]) {
         <ul class="wc-defs">${defs}</ul>
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
-        ${gloss ? `<div class="wc-why"><h3>为什么这么译</h3><p>${esc(gloss.why)}</p></div>` : ""}
+        ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
       </div>`,
       actions: [
         { label: "关闭" },
@@ -756,13 +776,14 @@ export async function render(root, [id]) {
 
   setPauseEach(pauseEach);
   btnLoop.classList.toggle("on", repeat);
+  btnLoop.setAttribute("aria-pressed", String(repeat));
   applySubPrefs();
   applyFont();
   setActive(current, { force: true });
 
   if (mode === "shadow") {
     root.dataset.mode = "shadow";
-    segBtns.forEach((b) => b.classList.toggle("on", b.dataset.mode === "shadow"));
+    updateModeButtons("shadow");
     paneScript.hidden = true;
     paneShadow.hidden = false;
     listenBar.hidden = true;
@@ -771,10 +792,11 @@ export async function render(root, [id]) {
     paneShadow.innerHTML = `<p class="pane-wait">播放器加载中…</p>`;
   } else {
     root.dataset.mode = "listen";
-    segBtns.forEach((b) => b.classList.toggle("on", b.dataset.mode === "listen"));
+    updateModeButtons("listen");
   }
 
   return () => {
+    disposed = true;
     document.removeEventListener("keydown", onKey);
     clearInterval(tickTimer);
     clearInterval(pollTimer);

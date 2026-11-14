@@ -1,6 +1,6 @@
 /* EchoLab — 路由与外壳 */
 
-import { state, streak, applyTheme } from "./store.js";
+import { applyTheme } from "./store.js";
 import { icon, esc, openModal, isModalOpen } from "./ui.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
 
@@ -43,8 +43,11 @@ async function render() {
   if (myToken !== token) return; // 路由已切换
 
   document.title = `${mod.meta?.title || match.title} · EchoLab`;
-  document.querySelectorAll(".nav a").forEach((a) => {
-    a.classList.toggle("active", a.dataset.nav === match.nav);
+  document.querySelectorAll("[data-nav]").forEach((a) => {
+    const active = a.dataset.nav === match.nav;
+    a.classList.toggle("active", active);
+    if (active) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
   });
 
   root.innerHTML = "";
@@ -63,14 +66,6 @@ async function render() {
         <p class="muted">${String(err.message || err)}</p>
         <a class="btn" href="#/">返回课程库</a>
       </div>`;
-  }
-}
-
-function syncShell() {
-  const chip = document.getElementById("streakChip");
-  if (chip) {
-    chip.querySelector("b").textContent = String(streak());
-    chip.title = `连续练习 ${streak()} 天`;
   }
 }
 
@@ -93,11 +88,8 @@ document.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("hashchange", render);
-window.addEventListener("focus", syncShell);
 
 applyTheme();
-syncShell();
 render();
-setInterval(syncShell, 30000);
 
 export { icon };

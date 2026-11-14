@@ -14,7 +14,6 @@ const DEFAULTS = {
     echoOn: true,
     echoMs: 3000,
     shadowMode: "echo", // echo | sync
-    theme: "dark",
     autoAdvance: true,
     aiCount: 10,
     ai: { baseUrl: "https://opencode.ai/zen/go/v1", key: "", model: "" },
@@ -209,11 +208,10 @@ export function setSetting(key, value) {
   applyTheme();
 }
 
-/** 只有深色一个主题 */
 export function applyTheme() {
-  document.documentElement.dataset.theme = "dark";
+  document.documentElement.dataset.theme = "light";
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", "#000000");
+  if (meta) meta.setAttribute("content", "#f8fafd");
 }
 
 export function resetAll() {

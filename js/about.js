@@ -7,7 +7,6 @@ export const meta = { title: "关于" };
 export function render(root) {
   root.innerHTML = `
     <div class="prose fade-up">
-      <span class="eyebrow">${icon("spark", 14)} ABOUT</span>
       <h1>关于 EchoLab</h1>
       <p class="lead">
         EchoLab 是一个「只做一件事」的网页工具：把一段真实英文语音，切成句子，
@@ -54,7 +53,7 @@ export function render(root) {
       </ul>
 
       <p class="muted small" style="margin-top:34px">
-        EchoLab v0.8.0 · 产品需求文档见 <code>docs/PRD.md</code>
+        产品需求文档见 <code>docs/PRD.md</code>
       </p>
     </div>
   `;

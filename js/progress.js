@@ -47,7 +47,6 @@ export async function render(root) {
   root.innerHTML = `
     <div class="page-head fade-up">
       <div>
-        <span class="eyebrow">${icon("wave", 14)} YOUR PROGRESS</span>
         <h1>学习记录</h1>
         <p class="page-sub">${minutes ? `已经练了 ${minutes} 分钟，${passed} 个句子过了关。` : "还没有开始，从一句话开始就好。"}</p>
       </div>
@@ -66,20 +65,20 @@ export async function render(root) {
         <span class="stat-note">${(state.total?.seconds || 0) >= 60 ? `约 ${(minutes / 60).toFixed(1)} 小时` : "从第一句开始"}</span>
       </div>
       <div class="stat-card">
-        <span class="stat-label">过关句子</span>
+        <span class="stat-label">完成句子</span>
         <b>${passed}<i>句</i></b>
         <span class="stat-note">收藏 ${stars.length} 句 · 生词 ${words.length} 个</span>
       </div>
       <div class="stat-card">
         <span class="stat-label">完成课程</span>
         <b>${finished}<i>/ ${lessons.length}</i></b>
-        <span class="stat-note">${lessons.length ? Math.round((finished / lessons.length) * 100) : 0}% 课程全句过关</span>
+        <span class="stat-note">${lessons.length ? Math.round((finished / lessons.length) * 100) : 0}% 课程全句完成</span>
       </div>
     </section>
 
     <section class="block">
       <div class="block-head">
-        <h2>练习热力</h2>
+        <h2>练习日历</h2>
         <span class="muted small">最近 12 周</span>
       </div>
       <div class="heat">
@@ -106,7 +105,7 @@ export async function render(root) {
                 <span class="mono muted">${p.passed?.length || 0} / ${l.cueCount}</span>
               </div>
               <div class="progress-line"><i style="width:${pct}%"></i></div>
-              <span class="course-row-note">${pct === 100 ? "全部过关 ✦" : pct > 0 ? `已练 ${Math.round((p.seconds || 0) / 60)} 分钟` : "还没开始"}</span>
+              <span class="course-row-note">${pct === 100 ? "全部完成 ✦" : pct > 0 ? `已练 ${Math.round((p.seconds || 0) / 60)} 分钟` : "还没开始"}</span>
             </div>
           </a>`;
         }).join("") || `<p class="muted">还没有课程。</p>`}
