@@ -111,6 +111,28 @@
     "zh"
    ],
    "cueCount": 77
+  },
+  {
+   "id": "muse-launch",
+   "title": "The Biggest Launch Since ChatGPT",
+   "titleZh": "ChatGPT 之后最大的一次发布",
+   "speaker": "Alexandr Wang · Cleo Abram",
+   "category": "interview",
+   "level": "C1",
+   "duration": 4101.0,
+   "desc": "68 分钟对谈：Meta 的 Alexandr Wang 讲 Muse 这个「个人 AI agent」到底能做什么、凭什么让人把隐私交给它、以及 AI 对齐与监管的真实分歧。口语密集、有抢话，适合练真实语流。",
+   "tags": [
+    "访谈",
+    "AI",
+    "科技"
+   ],
+   "poster": "content/muse-launch/poster.jpg",
+   "yt": "1LRvMRC_pfY",
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "cueCount": 633
   }
  ]
 }

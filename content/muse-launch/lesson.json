@@ -1,0 +1,4465 @@
+{
+ "id": "muse-launch",
+ "title": "The Biggest Launch Since ChatGPT",
+ "titleZh": "ChatGPT 之后最大的一次发布",
+ "speaker": "Alexandr Wang · Cleo Abram",
+ "category": "interview",
+ "level": "C1",
+ "duration": 4101.0,
+ "desc": "68 分钟对谈：Meta 的 Alexandr Wang 讲 Muse 这个「个人 AI agent」到底能做什么、凭什么让人把隐私交给它、以及 AI 对齐与监管的真实分歧。口语密集、有抢话，适合练真实语流。",
+ "tags": [
+  "访谈",
+  "AI",
+  "科技"
+ ],
+ "source": {
+  "platform": "YouTube",
+  "name": "Cleo Abram",
+  "url": "https://www.youtube.com/watch?v=1LRvMRC_pfY",
+  "yt": "1LRvMRC_pfY",
+  "embed": "https://www.youtube.com/embed/1LRvMRC_pfY",
+  "license": "CC BY-NC-ND 4.0（仅用于个人学习）",
+  "clipped": false,
+  "clipStart": 0.0
+ },
+ "media": {
+  "poster": "poster.jpg"
+ },
+ "langs": [
+  "en",
+  "zh"
+ ],
+ "cues": [
+  {
+   "i": 0,
+   "s": 0.01,
+   "e": 1.55,
+   "en": "What's happening right now is a big deal.",
+   "zh": "现在正在发生的事，是件大事。"
+  },
+  {
+   "i": 1,
+   "s": 1.64,
+   "e": 3.52,
+   "en": "This is the biggest launch since ChatGPT.",
+   "zh": "这是自ChatGPT以来最重磅的一次发布。"
+  },
+  {
+   "i": 2,
+   "s": 3.93,
+   "e": 13.07,
+   "en": "It's called Muse. \"Muse.\" \"Muse.\" \"Has the tech world buzzing.\" \"5 million downloads in 22 days.\" \"Surpassing ChatGPT\" And he built it.",
+   "zh": "它叫Muse。“Muse。”“Muse。”“让科技圈炸开了锅。”“22天下载量500万。”“超越ChatGPT。”而它，是他做出来的。"
+  },
+  {
+   "i": 3,
+   "s": 13.28,
+   "e": 17.13,
+   "en": "Most people are using AI to answer questions, basically glorified Google search.",
+   "zh": "大多数人用AI就是问问题，说白了就是个高级点的谷歌搜索。"
+  },
+  {
+   "i": 4,
+   "s": 17.16,
+   "e": 18.81,
+   "en": "This is something totally different.",
+   "zh": "但这个完全不一样。"
+  },
+  {
+   "i": 5,
+   "s": 19.15,
+   "e": 28.39,
+   "en": "\"It's an AI agent\" \"Built for everyday life.\" \"We believe that Muse will make you money.\" \"One guy had Muse help plan a weekend away with his wife.\" It can make phone calls.",
+   "zh": "“它是一个AI智能体”“为日常生活而打造。”“我们相信Muse能帮你赚钱。”“有个人让Muse帮他策划和老婆的周末出游。”它能打电话。"
+  },
+  {
+   "i": 6,
+   "s": 28.41,
+   "e": 30.01,
+   "en": "It can do tasks for you.",
+   "zh": "它能替你办事。"
+  },
+  {
+   "i": 7,
+   "s": 30.01,
+   "e": 44.55,
+   "en": "But for it to work, you have to trust it, first with your personal information, then to do what you actually want it to do, and then that it's not gonna, well, get out of control, all at a time when the most important AI leaders are warning",
+   "zh": "但要让它发挥作用，你得信任它：先是要把个人信息交给它，然后要相信它会照你真正想要的那样去做，还要相信它不会——嗯，失控。而这一切，偏偏发生在最重要的那些AI领袖正在警告"
+  },
+  {
+   "i": 8,
+   "s": 44.55,
+   "e": 47.64,
+   "en": "us that AI is getting out of control.",
+   "zh": "我们说AI正在失控的时候。"
+  },
+  {
+   "i": 9,
+   "s": 47.72,
+   "e": 49.89,
+   "en": "And I urge you to urge me to stop.",
+   "zh": "我恳请你们，也来恳请我停下来。"
+  },
+  {
+   "i": 10,
+   "s": 50.7,
+   "e": 55.81,
+   "en": "If you understand what's happening right now with Muse, you'll understand the biggest things happening in AI.",
+   "zh": "如果你看懂了Muse现在发生的事，你也就看懂了AI领域当下最大的事。"
+  },
+  {
+   "i": 11,
+   "s": 56.22,
+   "e": 57.71,
+   "en": "So what can it actually do?",
+   "zh": "那它到底能做什么？"
+  },
+  {
+   "i": 12,
+   "s": 57.96,
+   "e": 59.13,
+   "en": "When should we trust it?",
+   "zh": "我们什么时候该信任它？"
+  },
+  {
+   "i": 13,
+   "s": 59.38,
+   "e": 63.48,
+   "en": "And what do we need to do to make sure this goes right?",
+   "zh": "我们又该做什么，才能确保这一切走在正轨上？"
+  },
+  {
+   "i": 14,
+   "s": 63.86,
+   "e": 66.62,
+   "en": "And we're at the moment of, like, peak insanity.",
+   "zh": "我们现在正处在一个疯狂到顶点的时刻。"
+  },
+  {
+   "i": 15,
+   "s": 66.64,
+   "e": 69.37,
+   "en": "Why are all these billionaires obsessed with restaurant reservations?",
+   "zh": "为什么这些亿万富翁都痴迷于餐厅订位？"
+  },
+  {
+   "i": 16,
+   "s": 69.48,
+   "e": 73.59,
+   "en": "We have a shared interest in making sure this technology does not go horribly wrong.",
+   "zh": "确保这项技术不出可怕的岔子，是我们共同的利益所在。"
+  },
+  {
+   "i": 17,
+   "s": 73.73,
+   "e": 76.56,
+   "en": "Is that something that's happening in some private room somewhere?",
+   "zh": "那是发生在某个密室里的事吗？"
+  },
+  {
+   "i": 18,
+   "s": 76.58,
+   "e": 85.05,
+   "en": "The degree to which certain personal animosities are actually defining how they're developing this really important technology is insane to me.",
+   "zh": "某些私人恩怨竟然在实实在在地左右他们如何开发这项至关重要的技术，这在我看来简直离谱。"
+  },
+  {
+   "i": 19,
+   "s": 90.99,
+   "e": 93.53,
+   "en": "Amazing Let's do this.",
+   "zh": "太棒了，开始吧。"
+  },
+  {
+   "i": 20,
+   "s": 93.67,
+   "e": 94.35,
+   "en": "Okay. Welcome.",
+   "zh": "好，欢迎。"
+  },
+  {
+   "i": 21,
+   "s": 94.62,
+   "e": 95.27,
+   "en": "How have you been?",
+   "zh": "你最近怎么样？"
+  },
+  {
+   "i": 22,
+   "s": 95.37,
+   "e": 95.85,
+   "en": "I'm good.",
+   "zh": "我挺好的。"
+  },
+  {
+   "i": 23,
+   "s": 95.85,
+   "e": 96.46,
+   "en": "I'm really good.",
+   "zh": "我非常好。"
+  },
+  {
+   "i": 24,
+   "s": 96.47,
+   "e": 97.23,
+   "en": "How have you been?",
+   "zh": "你最近怎么样？"
+  },
+  {
+   "i": 25,
+   "s": 97.74,
+   "e": 100.02,
+   "en": "This is- It's been kind of insane, yeah.",
+   "zh": "这真是——有点疯狂，是啊。"
+  },
+  {
+   "i": 26,
+   "s": 100.08,
+   "e": 100.72,
+   "en": "Yeah.",
+   "zh": "是啊。"
+  },
+  {
+   "i": 27,
+   "s": 101.29,
+   "e": 103.38,
+   "en": "What does it feel like?",
+   "zh": "感觉怎么样？"
+  },
+  {
+   "i": 28,
+   "s": 103.76,
+   "e": 112.83,
+   "en": "We didn't expect that it would be such a hit, so I feel amazing for, like, the whole team and everyone who, like, worked so hard on it 'cause it's, like, it's really come together and become a thing.",
+   "zh": "我们没想到它会这么火，所以我觉得特别棒，为整个团队，也为所有为此拼命努力的人，因为这件事真的凑到了一起，成了一件了不起的事。"
+  },
+  {
+   "i": 29,
+   "s": 113.43,
+   "e": 115.09,
+   "en": "So… That's what I'm excited to talk about.",
+   "zh": "所以……这就是我很想聊的。"
+  },
+  {
+   "i": 30,
+   "s": 115.2,
+   "e": 116.65,
+   "en": "I know you know all about the show already.",
+   "zh": "我知道你对这个节目已经了如指掌了。"
+  },
+  {
+   "i": 31,
+   "s": 117.14,
+   "e": 120.33,
+   "en": "But this isn't, like, a traditional interview.",
+   "zh": "但这不是那种传统的采访。"
+  },
+  {
+   "i": 32,
+   "s": 120.63,
+   "e": 122.21,
+   "en": "Like, I'm not gonna ask about financials.",
+   "zh": "我不会问财务方面的事。"
+  },
+  {
+   "i": 33,
+   "s": 122.21,
+   "e": 123.49,
+   "en": "I'm not gonna ask about management style.",
+   "zh": "也不会问管理风格。"
+  },
+  {
+   "i": 34,
+   "s": 123.72,
+   "e": 133.96,
+   "en": "You just launched one of the most popular consumer tools of all time, and so the only thing that I wanna know is what's the future that you're working toward",
+   "zh": "你刚刚发布了史上最受欢迎的消费级工具之一，所以我唯一想知道的是，你在朝着什么样的未来努力——"
+  },
+  {
+   "i": 35,
+   "s": 133.96,
+   "e": 145.6,
+   "en": "with that tool, and how can this audience that's really optimistic and really wants to be part of making sure that that future go right, how can they feel like they're part of the decisions that are being made?",
+   "zh": "用这个工具，还有这些观众，他们特别乐观，也特别想参与进来，确保那个未来能走对方向，他们怎么才能觉得自己也参与了这些正在做的决定？"
+  },
+  {
+   "i": 36,
+   "s": 146.24,
+   "e": 146.72,
+   "en": "Yep.",
+   "zh": "对。"
+  },
+  {
+   "i": 37,
+   "s": 146.72,
+   "e": 147.27,
+   "en": "All of that.",
+   "zh": "就这些。"
+  },
+  {
+   "i": 38,
+   "s": 147.27,
+   "e": 147.89,
+   "en": "Yeah. That's what we do.",
+   "zh": "对，这就是我们做的事。"
+  },
+  {
+   "i": 39,
+   "s": 148.09,
+   "e": 154.06,
+   "en": "One of the reasons I wanted to talk to you was I've always appreciated that you're really blunt.",
+   "zh": "我想跟你聊的一个原因，是我一直很欣赏你说话特别直。"
+  },
+  {
+   "i": 40,
+   "s": 156.83,
+   "e": 162.37,
+   "en": "Like, I, I honestly think that people need straight talk about this.",
+   "zh": "说实话，我真的觉得大家需要有人把话说清楚。"
+  },
+  {
+   "i": 41,
+   "s": 162.39,
+   "e": 173.47,
+   "en": "I think that they feel confused, and I wanna get at what's really happening, what have you built, how are people using it, how are they not, what are the real challenges.",
+   "zh": "我觉得大家很困惑，我想弄清楚到底发生了什么，你们做出了什么，人们在怎么用它，又为什么不用，真正的挑战是什么。"
+  },
+  {
+   "i": 42,
+   "s": 174.02,
+   "e": 183.76,
+   "en": "I think one other interesting thing is given how popular Muse has become, I want to use it as a way to talk about other things in AI.",
+   "zh": "还有一点挺有意思的：考虑到 Muse 已经这么火，我想借它来聊聊 AI 的其他方面。"
+  },
+  {
+   "i": 43,
+   "s": 184.35,
+   "e": 184.71,
+   "en": "Awesome.",
+   "zh": "太好了。"
+  },
+  {
+   "i": 44,
+   "s": 184.71,
+   "e": 185.04,
+   "en": "Okay.",
+   "zh": "好。"
+  },
+  {
+   "i": 45,
+   "s": 185.04,
+   "e": 185.62,
+   "en": "Let's get into it.",
+   "zh": "那我们开始吧。"
+  },
+  {
+   "i": 46,
+   "s": 186.06,
+   "e": 189.21,
+   "en": "Muse is the fastest-growing consumer tool since ChatGPT.",
+   "zh": "Muse 是 ChatGPT 之后增长最快的消费级工具。"
+  },
+  {
+   "i": 47,
+   "s": 189.33,
+   "e": 203.43,
+   "en": "Faster than ChatGPT, I think, and it feels like this is the moment when we're moving maybe from chatbots to agents, but there have been a lot of other popular agents, mostly in code, and I'm curious, why do you think",
+   "zh": "我觉得比 ChatGPT 还快，而且感觉现在正是我们从聊天机器人走向智能体的时刻，不过也有很多别的智能体很火，主要是在编程领域，我很好奇，你觉得为什么"
+  },
+  {
+   "i": 48,
+   "s": 203.43,
+   "e": 204.86,
+   "en": "this is happening for Muse right now?",
+   "zh": "为什么现在这事发生在 Muse 身上？"
+  },
+  {
+   "i": 49,
+   "s": 204.91,
+   "e": 206.41,
+   "en": "Why is Muse exploding like this?",
+   "zh": "为什么 Muse 会这样爆发式增长？"
+  },
+  {
+   "i": 50,
+   "s": 206.94,
+   "e": 221.13,
+   "en": "I think one of the mysteries of AI so far this year, for most of the year, has been that agents were happening for engineers and software engineers and coders, and then nobody else in the world, like, was experiencing it, knew what it was, like,",
+   "zh": "我觉得今年到目前为止，AI最让人费解的一点是，大部分时间里，智能体只存在于工程师、软件工程师和程序员的世界里，而世界上其他人根本没体验过，也不知道它是什么，"
+  },
+  {
+   "i": 51,
+   "s": 221.18,
+   "e": 222.71,
+   "en": "understood exactly what was happening.",
+   "zh": "不明白到底在发生什么。"
+  },
+  {
+   "i": 52,
+   "s": 222.99,
+   "e": 232.09,
+   "en": "And so for most of this year, you've kind of had this, like, two dialogues almost where people who do code and could see how powerful AI was becoming",
+   "zh": "所以今年大部分时间，几乎存在两种对话，会写代码、能看到AI变得多强大的人"
+  },
+  {
+   "i": 53,
+   "s": 232.09,
+   "e": 236.56,
+   "en": "and, and how useful it was becoming were like, \"Oh my gosh, this is incredible.\"",
+   "zh": "以及它变得多有用的人会说：“天哪，这太不可思议了。”"
+  },
+  {
+   "i": 54,
+   "s": 236.72,
+   "e": 239.22,
+   "en": "And then everyone else was kind of like, \"What are you talking about?",
+   "zh": "而其他人则是：“你们在说什么？"
+  },
+  {
+   "i": 55,
+   "s": 239.25,
+   "e": 240.28,
+   "en": "I just still use a chatbot.",
+   "zh": "我还是只用聊天机器人。"
+  },
+  {
+   "i": 56,
+   "s": 240.29,
+   "e": 252.47,
+   "en": "Like, it's, like, a little bit better than Google, but what are you guys all freaked out about?\" And, um, and one of the things that we were really excited to do is how do we take the magic that engineers and coders and developers",
+   "zh": "它也就比谷歌好一点，你们到底在激动什么？”我们特别想做的一件事，就是把工程师、程序员和开发者"
+  },
+  {
+   "i": 57,
+   "s": 252.47,
+   "e": 255.5,
+   "en": "are seeing and bring that to everyone?",
+   "zh": "所看到的魔力带给所有人。"
+  },
+  {
+   "i": 58,
+   "s": 255.54,
+   "e": 267.68,
+   "en": "One of the things that, that has happened over the course of the past year is, like, the AI models started out as pretty janky agents, and you kind of had to struggle through them to get them to work, and then they slowly got better and better and better.",
+   "zh": "过去一年发生的一件事是，AI模型一开始作为智能体还挺粗糙的，你得费劲折腾才能让它工作，然后它们慢慢变得越来越好。"
+  },
+  {
+   "i": 59,
+   "s": 267.94,
+   "e": 273.1,
+   "en": "And most of the industry's been really focused on making them just, like- Better and better and better at coding.",
+   "zh": "而且行业里大多数人一直专注于让它们在编程方面越来越好。"
+  },
+  {
+   "i": 60,
+   "s": 273.14,
+   "e": 278.0,
+   "en": "But we really felt this was like a s- a big gap because most people in the world, they don't know how to code.",
+   "zh": "但我们真切感受到这是一个巨大的鸿沟，因为世界上大多数人不会编程。"
+  },
+  {
+   "i": 61,
+   "s": 278.0,
+   "e": 279.77,
+   "en": "They d- probably never even want to code.",
+   "zh": "他们可能根本不想编程。"
+  },
+  {
+   "i": 62,
+   "s": 279.96,
+   "e": 292.37,
+   "en": "Um, but they still wanna feel the experience of agents and, um, having AI that is able to do more for you and actually start taking on more end-to-end workflows and take on more tasks for you.",
+   "zh": "但他们仍然想体验智能体，想拥有能为你做更多事的AI，真正开始承担更多端到端的工作流程，为你完成更多任务。"
+  },
+  {
+   "i": 63,
+   "s": 292.37,
+   "e": 302.1,
+   "en": "So that was really the goal behind Muse, and I think we spent a lot of time polishing all the little details to make sure that it would just work for people",
+   "zh": "这就是Muse背后的目标，我们花了很多时间打磨所有细节，确保它能直接为人们所用"
+  },
+  {
+   "i": 64,
+   "s": 302.4,
+   "e": 312.11,
+   "en": "because we knew that, like, developers can kind of withstand a lot of jank and a lot of stuff breaking and, like, they can kind of deal with all of that because, you know, they're, they're…",
+   "zh": "因为我们知道，开发者能忍受很多粗糙和出问题的地方，他们能应付这些，因为，你知道，他们……"
+  },
+  {
+   "i": 65,
+   "s": 312.14,
+   "e": 312.76,
+   "en": "It's technology.",
+   "zh": "这是技术。"
+  },
+  {
+   "i": 66,
+   "s": 312.76,
+   "e": 315.5,
+   "en": "They're used to dealing with, you know- Yeah … unripe technology.",
+   "zh": "他们习惯了应对，你知道——对……不成熟的技术。"
+  },
+  {
+   "i": 67,
+   "s": 315.54,
+   "e": 320.24,
+   "en": "But for everyone, you have to make something that's really smooth and, and really works for them.",
+   "zh": "但对大众来说，你必须做出真正顺畅、真正好用的东西。"
+  },
+  {
+   "i": 68,
+   "s": 320.58,
+   "e": 331.24,
+   "en": "That also helps explain the big gap, I think, between what it feels like for most people to actually use AI, when they were using a chatbot in particular, and the",
+   "zh": "我觉得这也解释了为什么大多数人实际使用AI的感受，尤其是用聊天机器人时，和"
+  },
+  {
+   "i": 69,
+   "s": 331.24,
+   "e": 335.66,
+   "en": "conversation around AI that's it's gonna take everyone's jobs, it's really scary.",
+   "zh": "围绕AI的讨论——说它会抢走所有人的工作、非常可怕——之间存在巨大差距。"
+  },
+  {
+   "i": 70,
+   "s": 335.66,
+   "e": 340.37,
+   "en": "It's, you know, there's a, there's a macro conversation happening, and then there's an experience that people are having.",
+   "zh": "你知道，一边是宏观层面的讨论，另一边是人们真实的体验。"
+  },
+  {
+   "i": 71,
+   "s": 340.38,
+   "e": 343.01,
+   "en": "And it just seems like those things are really, really far apart.",
+   "zh": "而这两者似乎相距非常非常远。"
+  },
+  {
+   "i": 72,
+   "s": 343.29,
+   "e": 351.77,
+   "en": "And to your point, Muse is giving more people the opportunity to have the insight that computer engineers had, you know, call it a year ago.",
+   "zh": "就像你说的，Muse让更多人有机会获得计算机工程师一年前就有的那种洞察。"
+  },
+  {
+   "i": 73,
+   "s": 352.24,
+   "e": 352.94,
+   "en": "Yeah. Is that fair?",
+   "zh": "对，这么说合理吗？"
+  },
+  {
+   "i": 74,
+   "s": 353.08,
+   "e": 354.1,
+   "en": "I, I think that's true, yeah.",
+   "zh": "我，我觉得是这样，没错。"
+  },
+  {
+   "i": 75,
+   "s": 354.13,
+   "e": 354.62,
+   "en": "Yeah.",
+   "zh": "是啊。"
+  },
+  {
+   "i": 76,
+   "s": 354.62,
+   "e": 357.69,
+   "en": "There are also moments in history that I think feel similar.",
+   "zh": "我觉得历史上也有一些时刻和现在很像。"
+  },
+  {
+   "i": 77,
+   "s": 357.78,
+   "e": 361.52,
+   "en": "Would you say it's like the mobile phone moment for agents?",
+   "zh": "你会说这就像智能体的“手机时刻”吗？"
+  },
+  {
+   "i": 78,
+   "s": 361.57,
+   "e": 374.64,
+   "en": "There are, you know, billions of people brought online by mobile phones that never had PCs because it was easy and simple to use, and they didn't, you know. I actually hadn't thought about that until you just mentioned it, but I think it's a great analogy because it's",
+   "zh": "手机让数十亿从没用过电脑的人上了网，因为它简单易用，而他们以前没有……你刚才提到之前，我其实没想过这一点，但我觉得这是个很好的类比，因为……"
+  },
+  {
+   "i": 79,
+   "s": 375.15,
+   "e": 378.27,
+   "en": "These models, they're improving really fast, and they're improving really, really quickly.",
+   "zh": "这些模型进步得非常快，真的非常快。"
+  },
+  {
+   "i": 80,
+   "s": 378.51,
+   "e": 389.33,
+   "en": "And it's really important that we, as those models get better, that the, the superpowers that they, they lend can be given to, like, literally everyone all around the world.",
+   "zh": "很重要的一点是，随着这些模型变得更强，它们带来的那些“超能力”能真正给到世界各地的每一个人。"
+  },
+  {
+   "i": 81,
+   "s": 389.38,
+   "e": 402.9,
+   "en": "The part that I like about the analogy is, like, um, so much of it is just about figuring out how to package it all together into a form factor that, um, will resonate with people, and that's what we spent a lot of time trying to",
+   "zh": "我喜欢这个类比的地方在于，很多工作其实就是要把它整合成一种能让人产生共鸣的产品形态，而这就是我们花了很多时间想要去……"
+  },
+  {
+   "i": 82,
+   "s": 402.9,
+   "e": 405.39,
+   "en": "craft and get right and, and make perfect.",
+   "zh": "打磨、做对，并做到完美。"
+  },
+  {
+   "i": 83,
+   "s": 405.51,
+   "e": 413.11,
+   "en": "Which also gets to one of the interesting initial reactions that I've heard of Muse, which is, is everybody's life more complicated than mine?",
+   "zh": "这也引出了我听到过的关于 Muse 的一个很有意思的初期反应：难道每个人的生活都比我的更复杂吗？"
+  },
+  {
+   "i": 84,
+   "s": 413.52,
+   "e": 421.42,
+   "en": "Like, I wake up, I go to work, I play with my kids, I have one restaurant reservation a month, I plan one vacation with my spouse.",
+   "zh": "比如我起床、上班、陪孩子玩，一个月订一次餐厅，和伴侣计划一次度假。"
+  },
+  {
+   "i": 85,
+   "s": 421.43,
+   "e": 424.61,
+   "en": "Like, why are all these billionaires obsessed with restaurant reservations?",
+   "zh": "为什么这些亿万富翁都这么执着于订餐厅？"
+  },
+  {
+   "i": 86,
+   "s": 425.0,
+   "e": 426.43,
+   "en": "Why do I need an assistant?",
+   "zh": "我为什么需要一个助手？"
+  },
+  {
+   "i": 87,
+   "s": 427.05,
+   "e": 428.58,
+   "en": "How would you answer that?",
+   "zh": "你会怎么回答？"
+  },
+  {
+   "i": 88,
+   "s": 428.66,
+   "e": 440.21,
+   "en": "Whenever I explain Muse to someone just who knows nothing about it, um, I just say, like, Muse can help save you money and save you time, and everybody in the world wants to save money and wants to save time.",
+   "zh": "每当我向完全不了解 Muse 的人解释它时，我就说，Muse 能帮你省钱、省时间，而世界上每个人都想省钱、省时间。"
+  },
+  {
+   "i": 89,
+   "s": 440.43,
+   "e": 444.55,
+   "en": "Depending on what your lifestyle is, that can mean a different thing to you.",
+   "zh": "取决于你的生活方式，这对你来说可能意味着不同的事情。"
+  },
+  {
+   "i": 90,
+   "s": 444.81,
+   "e": 456.59,
+   "en": "I think almost everyone has, like, subscriptions that they shouldn't be paying for or subscriptions that are really expensive, like cable bills or insurance, and for a lot of people, their magic moment with Muse is just saving",
+   "zh": "我觉得几乎每个人都有一些不该付的订阅，或者特别贵的订阅，比如有线电视费或保险；对很多人来说，Muse 让他们惊艳的时刻就是省下……"
+  },
+  {
+   "i": 91,
+   "s": 456.6,
+   "e": 465.27,
+   "en": "money on things that they shouldn't be spending money on or they shouldn't be spending so much money on, or finding gift cards that they hadn't spent or, you know, the list goes on and on and on.",
+   "zh": "那些不该花的钱，或者不该花那么多钱的东西上的钱，或者找到还没用掉的礼品卡，这样的例子还有很多很多。"
+  },
+  {
+   "i": 92,
+   "s": 465.34,
+   "e": 467.4,
+   "en": "I think it's awesome that so many people are experiencing that.",
+   "zh": "我觉得这么多人能有这种体验，真的很棒。"
+  },
+  {
+   "i": 93,
+   "s": 467.42,
+   "e": 480.36,
+   "en": "I think that's, like, great because these are things that, they're just, I think for most people, they're just so boring- That you would never get to Yeah, actually, like, handling them or, or dealing with them, but, you know, your agent, Muse, can just do that for you.",
+   "zh": "我觉得这很好，因为对大多数人来说，这些事太无聊了，你根本不会去处理它们；但你的智能体 Muse 可以直接替你做。"
+  },
+  {
+   "i": 94,
+   "s": 480.42,
+   "e": 489.02,
+   "en": "And then they're saving time, which I think for, for lots of people, I think there are always experiences that are just way more frustrating than they should be, like going to the DMV is one example.",
+   "zh": "然后他们还能省时间。我觉得对很多人来说，总有一些体验本不该那么让人抓狂，比如去车管所就是一个例子。"
+  },
+  {
+   "i": 95,
+   "s": 489.18,
+   "e": 498.81,
+   "en": "We actually, when we built Muse, we, like, specifically tested it to see if it could deal with the DMV website because that was, like, the pinnacle we thought",
+   "zh": "其实我们在做 Muse 的时候，专门测试过它能不能处理车管所网站，因为在我们看来，那就是……"
+  },
+  {
+   "i": 96,
+   "s": 498.81,
+   "e": 503.83,
+   "en": "of, like, the most frustrating experience for any human is dealing with the DMV.",
+   "zh": "人类最抓狂体验的顶峰：和车管所打交道。"
+  },
+  {
+   "i": 97,
+   "s": 504.1,
+   "e": 509.1,
+   "en": "So we kne- we needed to have Muse, like, be able to, to do well in that situation.",
+   "zh": "所以我们需要让 Muse 能在那种情况下也表现出色。"
+  },
+  {
+   "i": 98,
+   "s": 509.12,
+   "e": 512.62,
+   "en": "We've seen people use it for, like, yeah, navigating the healthcare system's a big one.",
+   "zh": "我们见过有人用它来处理医疗系统，这一块需求很大。"
+  },
+  {
+   "i": 99,
+   "s": 512.62,
+   "e": 520.15,
+   "en": "Medical claims is, like, a huge one that, like, most people just… It's, like, so complicated and annoying that it's just, like, incredibly frustrating.",
+   "zh": "医疗理赔就是一个很大的用例，大多数人……它又复杂又烦人，真的让人特别抓狂。"
+  },
+  {
+   "i": 100,
+   "s": 520.18,
+   "e": 523.47,
+   "en": "We've seen people, like, use it to help run their small business.",
+   "zh": "我们见过有人用它来帮忙经营小生意。"
+  },
+  {
+   "i": 101,
+   "s": 523.52,
+   "e": 533.09,
+   "en": "We've seen a lot of people, like, use it to help run their social media even, and I think the medical system is a really good example 'cause it's, like, so hard to understand.",
+   "zh": "我们见过很多人甚至用它来帮忙运营社交媒体，而且我觉得医疗系统就是个很好的例子，因为它真的很难搞懂。"
+  },
+  {
+   "i": 102,
+   "s": 533.33,
+   "e": 537.73,
+   "en": "And I think the, the you know, one of the best ways to put it is, like, I think the cases where people…",
+   "zh": "我觉得，最好的说法之一是，我认为在那些人们……的情况下"
+  },
+  {
+   "i": 103,
+   "s": 538.12,
+   "e": 545.39,
+   "en": "where it's, like, a huge lifesaver are the cases where, like, otherwise you would be at your computer, you'd have to Google, like, 50 different things.",
+   "zh": "它能帮上大忙的情况，就是本来你得坐在电脑前，得去搜大概五十种不同的东西。"
+  },
+  {
+   "i": 104,
+   "s": 545.39,
+   "e": 555.65,
+   "en": "You have to read, go to, like, 100 different websites and try to figure out what the hell is going on, and it could, it's just, like, this incredibly frustrating experience, or you could have your Muse do it.",
+   "zh": "你得读资料、上大概一百个不同的网站，试图搞明白到底怎么回事，那简直是一种让人无比崩溃的体验；或者，你可以让你的 Muse 来做。"
+  },
+  {
+   "i": 105,
+   "s": 555.83,
+   "e": 566.42,
+   "en": "I also think about how many things I suspect are made difficult and time-consuming on purpose in order to frustrate me so much that I don't get to the end?",
+   "zh": "我也会想，有多少事情我怀疑是故意被弄得又难又耗时，就是为了把我烦到放弃，不让我走到最后？"
+  },
+  {
+   "i": 106,
+   "s": 566.68,
+   "e": 570.9,
+   "en": "How many claims are actually designed to be that hard so that I give up?",
+   "zh": "有多少索赔申请其实被设计得那么难，就是为了让我放弃？"
+  },
+  {
+   "i": 107,
+   "s": 570.94,
+   "e": 580.02,
+   "en": "And I wonder what effect more people having more patience because they have support will have on that kind of systems engineering.",
+   "zh": "我也想知道，更多人因为有了支持而变得更有耐心，会对那种系统设计产生什么影响。"
+  },
+  {
+   "i": 108,
+   "s": 580.35,
+   "e": 587.25,
+   "en": "One of the, the little memes that I made of the little Muse was, uh, Muse in Hood, which is like a Muse Robin Hood.",
+   "zh": "我给小 Muse 做的一个小梗图是，呃，Muse in Hood，就像 Muse 版的罗宾汉。"
+  },
+  {
+   "i": 109,
+   "s": 587.51,
+   "e": 598.21,
+   "en": "But I think there's, like, a real truth to this, which is there are lots of things that exist in the world that are, to your point, meant to be hard so that mo-",
+   "zh": "但我觉得这里面确实有点道理：世界上有很多东西，就像你说的，本来就是故意设计得很难，好让更……"
+  },
+  {
+   "i": 110,
+   "s": 598.25,
+   "e": 609.15,
+   "en": "like, uh, canceling subscriptions is one of the best examples, where there's some subscriptions where you have to, like, click on one thing and click on another thing, and then click on, like, the little piece of text, and then not click the big",
+   "zh": "比如，呃，取消订阅就是最好的例子之一：有些订阅你得点这个、再点那个，然后点那一小段文字，还不能点那个大……"
+  },
+  {
+   "i": 111,
+   "s": 609.16,
+   "e": 610.71,
+   "en": "red button, but click the other button.",
+   "zh": "红色按钮，而要点击另一个按钮。"
+  },
+  {
+   "i": 112,
+   "s": 610.86,
+   "e": 623.79,
+   "en": "And, like, that's just, like, the perfect example where there's lots of cases where things are designed to be hard for people, and I think, like, this is giving people the tools to be able to just do those things seamlessly and easily.",
+   "zh": "这就是个完美的例子，说明有很多情况都是故意把东西设计得让人很难操作；我觉得这正是在给人们工具，让他们能顺畅轻松地完成这些事。"
+  },
+  {
+   "i": 113,
+   "s": 624.09,
+   "e": 628.75,
+   "en": "I got access to the calling, um, and I had it make a call this morning, which it did successfully.",
+   "zh": "我获得了打电话功能的权限，呃，今天早上我让它打了个电话，它成功打出去了。"
+  },
+  {
+   "i": 114,
+   "s": 629.09,
+   "e": 630.81,
+   "en": "What does it sound like on the other end?",
+   "zh": "电话那头听起来怎么样？"
+  },
+  {
+   "i": 115,
+   "s": 631.19,
+   "e": 639.14,
+   "en": "I think it's clear for the other end that it is, like, an AI, and I think if you look, read the, you know, we show, we show users the transcript.",
+   "zh": "我觉得电话那头能明显听出来它是 AI；而且如果你看、读一下，你知道，我们会给用户看通话记录。"
+  },
+  {
+   "i": 116,
+   "s": 639.14,
+   "e": 644.49,
+   "en": "Like, if you see the transcript, like, the beginning of the call I always think is really funny because it's like, \"Hi, I'm so-and-so.",
+   "zh": "比如，如果你看通话记录，通话开头我总觉得特别好笑，因为它是这样的：“嗨，我是某某。”"
+  },
+  {
+   "i": 117,
+   "s": 644.63,
+   "e": 655.29,
+   "en": "Um, I'm Cleo's assistant, and, uh, this call is being recorded.\" And I think it's just, like, always this very funny beginning of a call. \"Hi, I'm Haley calling on Cleo Abrams' behalf.",
+   "zh": "“呃，我是 Cleo 的助理，呃，这通电话正在录音。”我觉得这开头总是特别好笑。“嗨，我是 Haley，代表 Cleo Abrams 打来电话。”"
+  },
+  {
+   "i": 118,
+   "s": 655.97,
+   "e": 663.03,
+   "en": "I'm transcribing our call for notes.\" What are some examples of when it's messed up for you or when it's, you feel like categories it struggles for still?",
+   "zh": "“我会为记录把我们的通话转成文字。”有没有一些例子，是它搞砸的时候，或者你觉得它仍然不擅长的类别？"
+  },
+  {
+   "i": 119,
+   "s": 663.37,
+   "e": 670.44,
+   "en": "One thing that we're, we're always trying to improve is the memory of these Of these agents, right?",
+   "zh": "我们一直在努力改进的一点，就是这些智能体的记忆，对吧？"
+  },
+  {
+   "i": 120,
+   "s": 670.47,
+   "e": 679.45,
+   "en": "And this is still one of the more unsolved problems, I think, for a lot of these agents, is having the— You know, the, the memory of the agents is, like, not like that of a human.",
+   "zh": "我觉得对很多这类智能体来说，这仍然是比较未解决的问题之一，就是拥有——你知道，智能体的记忆并不像人类那样。"
+  },
+  {
+   "i": 121,
+   "s": 679.6,
+   "e": 683.27,
+   "en": "Um, sometimes it can feel like it's like that, but it is really different.",
+   "zh": "呃，有时候感觉好像差不多，但其实真的很不一样。"
+  },
+  {
+   "i": 122,
+   "s": 683.28,
+   "e": 685.78,
+   "en": "So that's one area where we're, like, always trying to improve.",
+   "zh": "所以这是我们一直在努力改进的一个方面。"
+  },
+  {
+   "i": 123,
+   "s": 685.81,
+   "e": 688.36,
+   "en": "We always wanna, wanna figure out how to make the agents better.",
+   "zh": "我们总是想、想弄清楚怎么让这些智能体变得更好。"
+  },
+  {
+   "i": 124,
+   "s": 688.41,
+   "e": 693.62,
+   "en": "And then, like, we want them to be able to continue doing more and more complex tasks.",
+   "zh": "然后，我们希望它们能够继续完成越来越复杂的任务。"
+  },
+  {
+   "i": 125,
+   "s": 693.66,
+   "e": 700.03,
+   "en": "I, I find this really funny, but there's, um, there's a lot of people who will just, like, ask their Muse, \"I want you to make me $10,000.\"",
+   "zh": "我觉得这挺有意思的，但有很多人会直接跟自己的 Muse 说：“我想让你帮我赚一万美元。”"
+  },
+  {
+   "i": 126,
+   "s": 700.03,
+   "e": 710.97,
+   "en": "And obviously, not everyone can just ask their Muse to make them $10,000, but, like, I think, I think these kinds of, like, more amorphous, nebulous tasks, like, we want Muse to be able to at least, like, build a plan and figure",
+   "zh": "显然，不是所有人都能直接让 Muse 帮自己赚一万美元，但我觉得像这种比较模糊、不太明确的任务，我们希望 Muse 至少能制定计划并搞清楚"
+  },
+  {
+   "i": 127,
+   "s": 710.97,
+   "e": 714.78,
+   "en": "out and, you know, you're gonna have to do your part if you wanna make $10,000.",
+   "zh": "接下来该怎么做；而且你要知道，想赚到一万美元，你自己也得出力。"
+  },
+  {
+   "i": 128,
+   "s": 714.79,
+   "e": 722.03,
+   "en": "But I think we wanna enable the, the agent to do more and more kind of complex and esoteric tasks, um, to help the users.",
+   "zh": "但我觉得我们希望让这个智能体完成越来越多复杂又冷门的任务，来帮助用户。"
+  },
+  {
+   "i": 129,
+   "s": 722.37,
+   "e": 728.94,
+   "en": "There are some things where I feel emotionally, even if Muse could do them, I would prefer that they didn't.",
+   "zh": "有些事情，从情感上我觉得，就算 Muse 能做，我也希望它别做。"
+  },
+  {
+   "i": 130,
+   "s": 728.95,
+   "e": 734.85,
+   "en": "So for example, if I'm texting a friend and I find out that their Muse agent is responding to me, I would be offended by that.",
+   "zh": "比如，如果我在给朋友发消息，结果发现是朋友的 Muse 智能体在回复我，我会觉得被冒犯了。"
+  },
+  {
+   "i": 131,
+   "s": 735.19,
+   "e": 746.93,
+   "en": "Are there categories of things that you think explicitly Muse should not do that are sort- just, like, extremely deprioritized, not because they're technically that hard, but because socially, not the point?",
+   "zh": "有没有哪类事情，你觉得 Muse 明确不该做，应该被排到极低优先级？不是因为技术上有多难，而是从社交角度说，根本没必要？"
+  },
+  {
+   "i": 132,
+   "s": 747.51,
+   "e": 758.62,
+   "en": "A lot of what we care about is, like having Muse kind of like clear the way such that you can spend more time on the things that you want to do and the things that you enjoy doing, and the things that are, like, valuable to you.",
+   "zh": "我们很在意的一点，是让 Muse 帮你扫清障碍，这样你就能把更多时间花在想做的事、喜欢做的事，以及对你有价值的事上。"
+  },
+  {
+   "i": 133,
+   "s": 758.7,
+   "e": 766.78,
+   "en": "We generally speaking want to figure out how to make someone's Muse is like a different entity than them.",
+   "zh": "总的来说，我们想弄清楚怎样让一个人的 Muse 成为和他本人不同的实体。"
+  },
+  {
+   "i": 134,
+   "s": 766.98,
+   "e": 768.79,
+   "en": "That's why it's like a little cute guy.",
+   "zh": "所以它才被设计成一个可爱的小家伙。"
+  },
+  {
+   "i": 135,
+   "s": 769.4,
+   "e": 780.51,
+   "en": "Um, uh, and, and we want to, over time, continue making that more and more clear because, um, to your point, like it is socially weird if you're like you think you're talking to your friend and it just happens to be the",
+   "zh": "而且我们希望随着时间推移，这一点能越来越清楚，因为就像你说的，如果你以为自己是在跟朋友聊天，结果却是那个"
+  },
+  {
+   "i": 136,
+   "s": 780.51,
+   "e": 783.26,
+   "en": "little Muse, the little Muse guy- Yeah behind the, behind the curtain.",
+   "zh": "小 Muse，那个小 Muse 小家伙——对，在幕后。"
+  },
+  {
+   "i": 137,
+   "s": 783.56,
+   "e": 794.55,
+   "en": "Speaking of what they look like, one of the things I've visited humanoid robots before, and one of the things they spend a lot of time thinking about is how to make it cute so that you like them and you want them in your home, or at least you're not afraid of them.",
+   "zh": "说到它们长什么样，我以前参观过人形机器人，它们花很多时间思考的一件事，就是怎么把它做得可爱，让你喜欢它、想把它带回家，或者至少不怕它。"
+  },
+  {
+   "i": 138,
+   "s": 794.65,
+   "e": 800.18,
+   "en": "What did Muse look like in previous iterations, and how did you decide on that particular guy?",
+   "zh": "Muse 在之前的版本里长什么样，你们又是怎么决定用现在这个形象的？"
+  },
+  {
+   "i": 139,
+   "s": 800.38,
+   "e": 802.29,
+   "en": "I think this is, like, one of the most shocking things.",
+   "zh": "我觉得这算是最让人意外的点之一。"
+  },
+  {
+   "i": 140,
+   "s": 802.67,
+   "e": 807.98,
+   "en": "What the Muse looks like now is what he looked like in the very first prototype.",
+   "zh": "Muse 现在的样子，就是它最初原型的样子。"
+  },
+  {
+   "i": 141,
+   "s": 808.13,
+   "e": 816.86,
+   "en": "It's kind of one of these, like, rare things where the, the very first version was just perfect and then just, like, grew on all of us, and we ended up going with it.",
+   "zh": "这算是很少见的情况：第一版就刚刚好，后来越看越顺眼，最后我们就用了它。"
+  },
+  {
+   "i": 142,
+   "s": 816.9,
+   "e": 824.62,
+   "en": "We had lots of debates about it, uh, which are, you know, in retrospect will be some of my funniest meetings of like, you know, a bunch of serious adults",
+   "zh": "我们为此争论过很多次，回想起来，这会是我开过的最搞笑的会之一：一群严肃的成年人"
+  },
+  {
+   "i": 143,
+   "s": 824.63,
+   "e": 830.2,
+   "en": "getting in a room, like arguing about this cute little, um, you know, character.",
+   "zh": "聚在一个房间里，为这个可爱的小角色争来争去。"
+  },
+  {
+   "i": 144,
+   "s": 830.43,
+   "e": 834.43,
+   "en": "But, uh, but yeah, I mean, I think we were like, is it not serious enough?",
+   "zh": "不过是啊，我的意思是，我们当时会想：它是不是不够严肃？"
+  },
+  {
+   "i": 145,
+   "s": 834.43,
+   "e": 836.06,
+   "en": "Is it, like, too playful?",
+   "zh": "是不是太爱玩了？"
+  },
+  {
+   "i": 146,
+   "s": 836.17,
+   "e": 837.42,
+   "en": "Does he need to be more colorful?",
+   "zh": "它需要更鲜艳一点吗？"
+  },
+  {
+   "i": 147,
+   "s": 837.42,
+   "e": 840.18,
+   "en": "Like, these were, like, all things that we asked the questions on, and we looked at them.",
+   "zh": "这些都是我们问过、也考虑过的问题。"
+  },
+  {
+   "i": 148,
+   "s": 840.18,
+   "e": 844.18,
+   "en": "We're like, \"No, he's perfect.\" What is the big vision here?",
+   "zh": "我们说：“不，它很完美。”那这里的大愿景是什么？"
+  },
+  {
+   "i": 149,
+   "s": 844.18,
+   "e": 848.9,
+   "en": "I sometimes struggle when talking to AI leaders to push people to think about more than, like, five years out.",
+   "zh": "有时候我跟 AI 领导者交流时，会很难推动他们去思考五年以后的事情。"
+  },
+  {
+   "i": 150,
+   "s": 849.26,
+   "e": 852.7,
+   "en": "But what is, what is the vision here?",
+   "zh": "但这儿的愿景到底是什么？"
+  },
+  {
+   "i": 151,
+   "s": 852.71,
+   "e": 856.99,
+   "en": "Is it that Muse becomes my layer on everything on the internet?",
+   "zh": "是让 Muse 成为我在互联网上处理一切事情的那一层吗？"
+  },
+  {
+   "i": 152,
+   "s": 857.0,
+   "e": 861.11,
+   "en": "Is it, like, map this out for me if it goes the way that you hope it does.",
+   "zh": "如果事情按你希望的方向发展，给我描绘一下会是什么样。"
+  },
+  {
+   "i": 153,
+   "s": 861.7,
+   "e": 873.23,
+   "en": "What we really want Muse to be over time is kind of this, like, general manager, so to speak, that helps you accomplish all the things you want out of life.",
+   "zh": "随着时间推移，我们真正希望 Muse 成为的，可以说是一个总管，帮你实现人生中想要完成的所有事情。"
+  },
+  {
+   "i": 154,
+   "s": 873.25,
+   "e": 880.63,
+   "en": "So, like, I think, I think one of the kind of tragedies of the modern world is",
+   "zh": "我觉得现代世界的一个可悲之处在于"
+  },
+  {
+   "i": 155,
+   "s": 880.64,
+   "e": 893.71,
+   "en": "that, like, um, most people have wants and dreams, um, that can range from, like, really big ideas, like, hey, I want to start a company, or I want to cure",
+   "zh": "大多数人都有愿望和梦想，范围从特别宏大的想法，比如“我想创办一家公司”，或者“我想治愈"
+  },
+  {
+   "i": 156,
+   "s": 893.71,
+   "e": 902.15,
+   "en": "disease, or I wanna save the planet, all the way to, you know, small wants that are like, hey, I wanna spend more time with my family and, uh, I want to eat healthier.",
+   "zh": "疾病”，或者“我想拯救地球”，一直到那些很小的愿望，比如“我想多陪陪家人”，还有“我想吃得更健康”。"
+  },
+  {
+   "i": 157,
+   "s": 902.15,
+   "e": 911.49,
+   "en": "And, you know, um, and, and there's a whole range, but for most people, I think there's just so many- barriers and burdens in the way.",
+   "zh": "这些愿望有大有小，但对大多数人来说，我觉得路上有太多障碍和负担。"
+  },
+  {
+   "i": 158,
+   "s": 911.52,
+   "e": 921.09,
+   "en": "What I really hope it accomplishes is help every single one of the eight billion people all around the world be able to, uh, accomplish their wants and dreams.",
+   "zh": "我真正希望它能做到的是，帮助全世界八十亿人中的每一个人实现自己的愿望和梦想。"
+  },
+  {
+   "i": 159,
+   "s": 921.52,
+   "e": 929.42,
+   "en": "And, um, I think this is like, you know, if we are able to accomplish that, like, I think the world will seem insane.",
+   "zh": "我觉得，如果我们真能做到这一点，世界会变得不可思议。"
+  },
+  {
+   "i": 160,
+   "s": 929.43,
+   "e": 934.75,
+   "en": "That's what we really want Muse to be and what, what we think it can, it can be, uh, if we keep working at it.",
+   "zh": "这就是我们真正希望 Muse 成为的样子，也是我们相信只要持续努力它就能成为的样子。"
+  },
+  {
+   "i": 161,
+   "s": 935.18,
+   "e": 949.64,
+   "en": "You know, it's really nice to hear you talk about giving people time back because for a really long time I have felt, and I think a lot of people have feel, have felt like So much of the financial incentive of most tech products",
+   "zh": "听你谈到把时间还给人们，真的很不错，因为很长一段时间以来我都觉得，而且我觉得很多人也有同感：大多数科技产品很大一部分的经济激励，"
+  },
+  {
+   "i": 162,
+   "s": 949.64,
+   "e": 957.01,
+   "en": "that I use, especially the ones that are ad backed, is to take my time, is to distract me from the things that I want.",
+   "zh": "尤其是我用的那些靠广告支撑的产品，就是占用我的时间，让我从自己真正想做的事情上分心。"
+  },
+  {
+   "i": 163,
+   "s": 957.34,
+   "e": 958.38,
+   "en": "Muse is free right now.",
+   "zh": "Muse 目前是免费的。"
+  },
+  {
+   "i": 164,
+   "s": 958.4,
+   "e": 960.55,
+   "en": "It probably will have ads in the future.",
+   "zh": "未来它很可能会加广告。"
+  },
+  {
+   "i": 165,
+   "s": 960.58,
+   "e": 971.82,
+   "en": "Is there a tension between giving people their time back and having an ads-based business, or are there other incentives about, like, Muse steering",
+   "zh": "把时间还给用户和做广告生意之间是否存在矛盾？还是说还有其他动机，比如让 Muse 引导"
+  },
+  {
+   "i": 166,
+   "s": 971.82,
+   "e": 975.55,
+   "en": "me down a path that isn't quite what I said I wanted because it's ad backed?",
+   "zh": "我走上一条并不完全是我说自己想要的路，因为它是靠广告盈利的？"
+  },
+  {
+   "i": 167,
+   "s": 975.55,
+   "e": 978.21,
+   "en": "How do you add ads to a product like this?",
+   "zh": "你们会怎么在这样一个产品里加广告？"
+  },
+  {
+   "i": 168,
+   "s": 978.55,
+   "e": 981.75,
+   "en": "First off, like, I think right now it's, it's free.",
+   "zh": "首先，我觉得现在它是免费的。"
+  },
+  {
+   "i": 169,
+   "s": 981.78,
+   "e": 983.1,
+   "en": "There are subscription tiers.",
+   "zh": "我们有订阅套餐。"
+  },
+  {
+   "i": 170,
+   "s": 983.15,
+   "e": 997.34,
+   "en": "I think we think that there's plenty of, of, um, business models that are really aligned with user around, like, for example, if they, um, if they're buying things using Muse or Muse is saving them money or, um, Muse",
+   "zh": "我觉得我们认为有很多真正与用户利益一致的商业模式，比如，如果用户用 Muse 购物，或者 Muse 帮他们省钱，或者 Muse"
+  },
+  {
+   "i": 171,
+   "s": 997.34,
+   "e": 1003.23,
+   "en": "is making them money, like figuring out a way to, to take some small fee on, on those kinds of transactions.",
+   "zh": "帮他们赚钱，那我们就可以想办法在这类交易中收取一点小额费用。"
+  },
+  {
+   "i": 172,
+   "s": 1003.47,
+   "e": 1011.5,
+   "en": "Um, so I wouldn't say we're spending that much time thinking about, um, you know, ads necessarily right now.",
+   "zh": "所以我不会说我们现在花了很多时间专门考虑广告。"
+  },
+  {
+   "i": 173,
+   "s": 1011.82,
+   "e": 1018.15,
+   "en": "That being said, like, I don't think ad-based models are necessarily synonymous with, like, you needing to take all of your time.",
+   "zh": "话虽如此，我不认为靠广告的模式就一定意味着要占用你的全部时间。"
+  },
+  {
+   "i": 174,
+   "s": 1018.15,
+   "e": 1021.0,
+   "en": "I think Google Ads are a really good example of this, where, yeah.",
+   "zh": "我觉得谷歌广告就是一个很好的例子，嗯，对。"
+  },
+  {
+   "i": 175,
+   "s": 1021.37,
+   "e": 1027.61,
+   "en": "when I go to Google, my, my dream is to get in and get out, and I don't think Google's really trying to stop me from getting in and getting out.",
+   "zh": "我用谷歌的时候，我的梦想就是进去、出来，赶紧完事，我不觉得谷歌真的想拦着我进去再出来。"
+  },
+  {
+   "i": 176,
+   "s": 1027.89,
+   "e": 1033.24,
+   "en": "But they've built something obviously pretty incredible, and so, yeah, I don't think it's a necessity by any means.",
+   "zh": "但他们确实做出了相当了不起的东西，所以，是啊，我绝不认为这是必需的。"
+  },
+  {
+   "i": 177,
+   "s": 1033.39,
+   "e": 1046.53,
+   "en": "Um, I think, again, I think if we actually accomplish this thing that I'm saying, which is people are using Muse to, uh, really, like, do the things that they want to do and do…",
+   "zh": "嗯，我觉得，再说一次，我觉得如果我们真的做成了我说的这件事，也就是人们用 Muse 真正去做他们想做的事，并且去……"
+  },
+  {
+   "i": 178,
+   "s": 1046.59,
+   "e": 1057.31,
+   "en": "and, like, really, like, you know, in a non-corny way, like, accomplish their dreams, I think it's, I, you know, I think there's gonna be a lot of ways to, to make that sustainable.",
+   "zh": "而且，真正地，不是那种肉麻的方式，去实现他们的梦想，我觉得，你知道，我觉得会有很多办法让这件事持续下去。"
+  },
+  {
+   "i": 179,
+   "s": 1058.27,
+   "e": 1069.47,
+   "en": "So when I think about mapping out a future to get there, to this optimistic vision, one of the most important things is what do we need to get right, what challenges do we need to avoid in order to make that true?",
+   "zh": "所以当我思考如何规划未来、走向那个乐观愿景时，最重要的事情之一是：我们需要把什么做对，需要避开哪些挑战，才能让它成真？"
+  },
+  {
+   "i": 180,
+   "s": 1069.87,
+   "e": 1078.4,
+   "en": "I want to hear you use Muse and how you've dealt with these challenges at Muse as an example of larger questions in AI.",
+   "zh": "我想听你谈谈你使用 Muse 的体验，以及 Muse 是如何应对这些挑战的，并把它当作 AI 更大议题的一个例子。"
+  },
+  {
+   "i": 181,
+   "s": 1078.42,
+   "e": 1084.9,
+   "en": "I think everything that I'm about to say applies to basically every AI product, and I would be curious if you disagree with that.",
+   "zh": "我觉得我接下来要说的，基本上适用于所有 AI 产品；如果你不同意，我倒是很好奇。"
+  },
+  {
+   "i": 182,
+   "s": 1085.1,
+   "e": 1087.22,
+   "en": "I think there are basically three levels here.",
+   "zh": "我觉得这里基本上有三个层面。"
+  },
+  {
+   "i": 183,
+   "s": 1088.02,
+   "e": 1090.51,
+   "en": "Level one is privacy.",
+   "zh": "第一个层面是隐私。"
+  },
+  {
+   "i": 184,
+   "s": 1091.2,
+   "e": 1099.72,
+   "en": "So you say, \"I download Muse.\" And then I get to the point where it asks to be connected to my Gmail, and I say, \"Whoa, whoa, whoa, I'm not sure that I wanna do that.",
+   "zh": "所以你说“我下载了 Muse”，然后到了它要连接我的 Gmail 那一步，我说：“等等等等，我不确定我想这么干。”"
+  },
+  {
+   "i": 185,
+   "s": 1099.76,
+   "e": 1107.71,
+   "en": "Like nope, nope, I'm out.\" That, at the lowest level, is a concern about the relationship between the user and Muse itself, and therefore Meta.",
+   "zh": "比如“不了不了，我退出”。在最基本的层面上，这是对用户和 Muse 本身、因而也是和 Meta 之间关系的担忧。"
+  },
+  {
+   "i": 186,
+   "s": 1107.77,
+   "e": 1110.39,
+   "en": "So what is Meta going to do with my information?",
+   "zh": "那么 Meta 会拿我的信息做什么？"
+  },
+  {
+   "i": 187,
+   "s": 1110.47,
+   "e": 1112.35,
+   "en": "Could hackers get that information?",
+   "zh": "黑客能拿到那些信息吗？"
+  },
+  {
+   "i": 188,
+   "s": 1112.68,
+   "e": 1116.19,
+   "en": "And in some countries, can governments get that information somehow?",
+   "zh": "而在一些国家，政府能不能以某种方式拿到那些信息？"
+  },
+  {
+   "i": 189,
+   "s": 1116.4,
+   "e": 1118.31,
+   "en": "I know that you've spent a lot of time thinking about this.",
+   "zh": "我知道你花了很多时间思考这个问题。"
+  },
+  {
+   "i": 190,
+   "s": 1118.4,
+   "e": 1121.81,
+   "en": "I'd like to get as detailed as we possibly can here for a lay audience.",
+   "zh": "我想尽量讲得详细一些，让普通听众也能听懂。"
+  },
+  {
+   "i": 191,
+   "s": 1122.23,
+   "e": 1123.71,
+   "en": "What is the sentinel agent?",
+   "zh": "什么是哨兵代理？"
+  },
+  {
+   "i": 192,
+   "s": 1123.72,
+   "e": 1126.22,
+   "en": "What is Muse Confidential and Secure VM?",
+   "zh": "什么是 Muse 的机密安全虚拟机？"
+  },
+  {
+   "i": 193,
+   "s": 1126.8,
+   "e": 1134.68,
+   "en": "How do you think about this in terms of what can Muse see and not see, and things people should know about this first level of privacy?",
+   "zh": "从 Muse 能看到什么、不能看到什么，以及人们应该了解的第一层隐私问题来看，你是怎么考虑这件事的？"
+  },
+  {
+   "i": 194,
+   "s": 1134.93,
+   "e": 1138.5,
+   "en": "Muse is built on top of the, the secure VM, the Muse secure VM.",
+   "zh": "Muse 是构建在安全虚拟机之上的，也就是 Muse 安全虚拟机。"
+  },
+  {
+   "i": 195,
+   "s": 1138.78,
+   "e": 1149.9,
+   "en": "And, um, that is a completely sandboxed virtual machine, uh, or think about it as like a, a mini sandbox computer- Mm-hmm that is sort of isolated.",
+   "zh": "而且，那是一个完全沙箱化的虚拟机，或者你可以把它想成一台小小的沙箱电脑——它是相对隔离的。"
+  },
+  {
+   "i": 196,
+   "s": 1150.03,
+   "e": 1155.03,
+   "en": "The information that you share with, with Muse is stored in that little secure computer.",
+   "zh": "你和 Muse 分享的信息会存储在那台小小的安全电脑里。"
+  },
+  {
+   "i": 197,
+   "s": 1155.03,
+   "e": 1156.88,
+   "en": "It is not stored elsewhere.",
+   "zh": "它不会存储在别的地方。"
+  },
+  {
+   "i": 198,
+   "s": 1157.05,
+   "e": 1162.01,
+   "en": "Um, and that little secure computer is sort of like your home, your Muse's home, so to speak.",
+   "zh": "而且，那台小小的安全电脑可以说就像是你的家，也就是 Muse 的家。"
+  },
+  {
+   "i": 199,
+   "s": 1162.19,
+   "e": 1174.44,
+   "en": "Inside that secure VM, you have a, uh… we have a very, uh, pretty sophisticated security architecture because, you know, we knew that privacy and security,",
+   "zh": "在那个安全虚拟机里，有一个，呃……我们有一套非常，呃，相当精密的安全架构，因为，你知道，我们知道隐私和安全……"
+  },
+  {
+   "i": 200,
+   "s": 1174.46,
+   "e": 1180.01,
+   "en": "frankly speaking, were gonna be some of the most important things for, for most consumers to, to get them to adopt it.",
+   "zh": "坦白说，对大多数消费者来说，这将是促使他们采用它的最重要因素之一。"
+  },
+  {
+   "i": 201,
+   "s": 1180.29,
+   "e": 1185.32,
+   "en": "So as you mentioned, we built a sentinel, a, uh, this sort of architecture with a sentinel agent.",
+   "zh": "正如你提到的，我们构建了一个哨兵，也就是一种带有哨兵代理的架构。"
+  },
+  {
+   "i": 202,
+   "s": 1185.49,
+   "e": 1199.71,
+   "en": "So the way it works is that, uh, the, the model or the AI agent on the inside, as it's, um, going about and, and doing its work, whenever it wants to, uh- communicate outwards.",
+   "zh": "它的运作方式是，里面的模型或AI代理在开展工作、对外通信时，每当它想向外发送信息。"
+  },
+  {
+   "i": 203,
+   "s": 1199.75,
+   "e": 1213.59,
+   "en": "So it, it wants to take any information and send it out, either to do, you know, um, fill it out on a website, or send a message, or make a phone call, or, you know, any case where it would take information from outside of that virtual",
+   "zh": "它想拿取任何信息并发送出去，比如在网站上填写内容、发消息、打电话，或者任何要把信息带出那台虚拟"
+  },
+  {
+   "i": 204,
+   "s": 1213.59,
+   "e": 1223.43,
+   "en": "machine, there's a separate agent, uh, the sentinel, that's watching and making sure that, um, it's kind of like a, almost like a traffic cop or something.",
+   "zh": "机的场景；这时会有一个单独的代理——哨兵——在监控，并确保……它有点像交通警察之类的角色。"
+  },
+  {
+   "i": 205,
+   "s": 1223.43,
+   "e": 1234.79,
+   "en": "It's just, like, making sure that, you know, uh, there's nothing, uh… It's not saying like, \"Oh, whoa, whoa, whoa, that information, like, that's your credit card number or Social Security number,\" or whatever it might be.",
+   "zh": "它只是在确保没什么问题……它不会说：“哦，等等等等，那个信息是你的信用卡号或社保号”之类的。"
+  },
+  {
+   "i": 206,
+   "s": 1234.79,
+   "e": 1235.99,
+   "en": "Like, do not share that.",
+   "zh": "比如“别分享那个”。"
+  },
+  {
+   "i": 207,
+   "s": 1236.0,
+   "e": 1237.58,
+   "en": "That should stay, that should stay inside.",
+   "zh": "那应该留在里面。"
+  },
+  {
+   "i": 208,
+   "s": 1237.82,
+   "e": 1242.55,
+   "en": "And then the last thing that we do is, um, uh, a lot of human loop verifications.",
+   "zh": "最后，我们还会做大量需要人工确认的验证。"
+  },
+  {
+   "i": 209,
+   "s": 1242.57,
+   "e": 1251.49,
+   "en": "So whenever Muse wants to connect to a new website or send information to a new website, um, there will be, like, a little dialogue that pops up.",
+   "zh": "所以每当Muse想连接新网站或向新网站发送信息时，都会弹出一个小对话框。"
+  },
+  {
+   "i": 210,
+   "s": 1251.7,
+   "e": 1258.47,
+   "en": "Which asks the user, like, \"Hey, are you okay with Muse contacting this website or sending information to this, this website,\" and whatnot.",
+   "zh": "询问用户：“嘿，你介意Muse联系这个网站或向这个网站发送信息吗？”之类的。"
+  },
+  {
+   "i": 211,
+   "s": 1258.51,
+   "e": 1268.47,
+   "en": "And, um, and we, uh, and some people have said we're, like, really annoying with it, that we like, are constantly asking people to approve where their Muse is sending information.",
+   "zh": "有些人说我们这样很烦，总是让人批准Muse把信息发到哪里。"
+  },
+  {
+   "i": 212,
+   "s": 1268.47,
+   "e": 1275.5,
+   "en": "But we just wanna make sure that, you know, people know exactly what their Muse is interacting with and, and, and understand that really deeply.",
+   "zh": "但我们只是想确保人们清楚知道自己的Muse在和什么交互，并且真正理解这一点。"
+  },
+  {
+   "i": 213,
+   "s": 1275.56,
+   "e": 1285.34,
+   "en": "Then in addition to that, we are building, um, and will release soon, uh, what's called the confidential VM, which will be an even more secure and private",
+   "zh": "除此之外，我们正在构建并即将发布所谓的机密虚拟机，它会更加安全、更加私密。"
+  },
+  {
+   "i": 214,
+   "s": 1285.45,
+   "e": 1296.23,
+   "en": "offering where it's even more encrypted, it's even more secure, um, and, uh, it's actually designed by, uh, the creator, the person who built WhatsApp encryption",
+   "zh": "这个产品加密更强、更安全，实际上是由创建WhatsApp加密的人设计的。"
+  },
+  {
+   "i": 215,
+   "s": 1296.24,
+   "e": 1301.1,
+   "en": "and, and helped build other en- you know, encryption on other major messaging platforms, like Moxie Marlinspike?",
+   "zh": "他还帮助构建了其他主要消息平台上的加密，比如Moxie Marlinspike？"
+  },
+  {
+   "i": 216,
+   "s": 1301.13,
+   "e": 1307.48,
+   "en": "Moxie Marlinspike, exactly, who's, I would say, one of the real luminaries in the industry about security and privacy.",
+   "zh": "正是Moxie Marlinspike。我会说他是安全与隐私领域真正的权威之一。"
+  },
+  {
+   "i": 217,
+   "s": 1307.48,
+   "e": 1311.6,
+   "en": "And that's something that, that will be an additional offering that we, uh, are going to be releasing soon.",
+   "zh": "这将是我们即将发布的另一项产品。"
+  },
+  {
+   "i": 218,
+   "s": 1312.09,
+   "e": 1313.71,
+   "en": "Why launch without it?",
+   "zh": "为什么不等它上线再发布？"
+  },
+  {
+   "i": 219,
+   "s": 1313.86,
+   "e": 1317.08,
+   "en": "Why launch first with secure as opposed to waiting for confidential?",
+   "zh": "为什么先推出安全版，而不是等机密版？"
+  },
+  {
+   "i": 220,
+   "s": 1317.74,
+   "e": 1318.79,
+   "en": "I think I got that right, right?",
+   "zh": "我没说错吧？"
+  },
+  {
+   "i": 221,
+   "s": 1318.81,
+   "e": 1319.71,
+   "en": "Secure is the one now.",
+   "zh": "现在推出的是安全版。"
+  },
+  {
+   "i": 222,
+   "s": 1319.71,
+   "e": 1320.06,
+   "en": "Yeah. Confidential's coming later.",
+   "zh": "对，机密版之后才来。"
+  },
+  {
+   "i": 223,
+   "s": 1320.06,
+   "e": 1322.26,
+   "en": "Sec- secure is the one now, confidential's the one later.",
+   "zh": "安全版是现在推出的，机密版是之后推出的。"
+  },
+  {
+   "i": 224,
+   "s": 1322.31,
+   "e": 1333.09,
+   "en": "There's a lot of technical challenges to get the confidential VM working right, and even, even when it's released, there are, there are going to be trade-offs associated with the confidential VM.",
+   "zh": "要让机密虚拟机正确运行有很多技术挑战，而且即使发布后，机密虚拟机也会有一些取舍。"
+  },
+  {
+   "i": 225,
+   "s": 1333.12,
+   "e": 1339.48,
+   "en": "Like, because of how it's architected and because of various technical trade-offs you have to make, it might be a little bit slower, it might have other challenges.",
+   "zh": "因为它的架构方式，以及你必须做出的各种技术取舍，它可能稍微慢一点，也可能有其他挑战。"
+  },
+  {
+   "i": 226,
+   "s": 1339.48,
+   "e": 1347.7,
+   "en": "So, um, we wanted to get a great experience that we knew already we'd invested a ton of resources into safety and security.",
+   "zh": "所以我们想要提供一种很棒的体验，而我们早就知道，已经在安全与保障上投入了大量资源。"
+  },
+  {
+   "i": 227,
+   "s": 1347.9,
+   "e": 1359.7,
+   "en": "Um, you know, we actually delayed the launch of Muse for many months to get the safety and security exactly right, um, before, before ultimately releasing it.",
+   "zh": "其实为了让安全与保障做到完全到位，我们把 Muse 的发布推迟了好几个月，最后才正式推出。"
+  },
+  {
+   "i": 228,
+   "s": 1360.0,
+   "e": 1363.25,
+   "en": "Uh, so we feel really, really good about what we, what we have released.",
+   "zh": "所以我们对已经发布的东西感觉非常非常好。"
+  },
+  {
+   "i": 229,
+   "s": 1363.49,
+   "e": 1371.58,
+   "en": "That being said, we're always trying to push the, you know, push the envelope on how to make it even more secure, and, and we'll be, you know, coming out with a confidential VM soon.",
+   "zh": "话虽如此，我们一直在努力突破，想办法让它更安全，而且我们很快会推出机密虚拟机。"
+  },
+  {
+   "i": 230,
+   "s": 1371.89,
+   "e": 1383.15,
+   "en": "Does that mean when the confidential VM comes out, if a government, and there are many places around the world where people might be using Muse where they're worried about this, if a government asks for data similar to WhatsApp, Meta",
+   "zh": "这是否意味着，等机密虚拟机推出后，如果某个政府——世界上有很多地方的人可能在使用 Muse，而他们担心这个问题——如果政府要求提供类似 WhatsApp 的数据，Meta"
+  },
+  {
+   "i": 231,
+   "s": 1383.29,
+   "e": 1385.45,
+   "en": "cannot give it, even if they wanted to?",
+   "zh": "也不能给，哪怕他们想给？"
+  },
+  {
+   "i": 232,
+   "s": 1385.77,
+   "e": 1391.48,
+   "en": "Yeah, so our goal with the confidential VM is to give the same guarantees that we're able to offer for WhatsApp, yeah.",
+   "zh": "是的，所以机密虚拟机的目标，就是提供我们能为 WhatsApp 提供的同等保障。"
+  },
+  {
+   "i": 233,
+   "s": 1391.9,
+   "e": 1394.56,
+   "en": "Okay, so this is moving into level two.",
+   "zh": "好，那这就进入第二层了。"
+  },
+  {
+   "i": 234,
+   "s": 1394.93,
+   "e": 1406.42,
+   "en": "Let's say I do decide to give Muse all of my information, and I say, \"I want you to do X task.\" Let's say I say, \"I really want you to get my",
+   "zh": "假设我决定把所有信息都交给 Muse，然后说：“我要你做某件事。”比如我说：“我真的很想让你帮我"
+  },
+  {
+   "i": 235,
+   "s": 1406.42,
+   "e": 1410.99,
+   "en": "grandmother an appointment at this one specific doctor that's really hard to get an appointment with.",
+   "zh": "奶奶预约到某一位特别难约的医生。”"
+  },
+  {
+   "i": 236,
+   "s": 1410.99,
+   "e": 1424.44,
+   "en": "Could you go do that?\" And it goes out, and it tries all of the ways to book appointments, and it, you know, tries, you know, secret ways that I don't know about through discounts or whatever, and then it reaches a point where it can't do that anymore.",
+   "zh": "你能去办吗？”然后它出去尝试各种预约方式，还会尝试一些我不知道的隐秘办法，比如通过折扣之类的，然后到了某个点它做不下去了。"
+  },
+  {
+   "i": 237,
+   "s": 1424.81,
+   "e": 1436.91,
+   "en": "It's really important to me that it not do things like give the doctor a bunch of private information about me, like what's in my bank account, to try and bribe it or find out information about the doctor to try and blackmail the doctor, right?",
+   "zh": "对我来说很重要的是，它不能做那种事，比如把一堆我的隐私信息给医生，比如我银行账户里有什么，去试图贿赂对方，或者去挖医生的信息来试图敲诈医生，对吧？"
+  },
+  {
+   "i": 238,
+   "s": 1436.93,
+   "e": 1448.69,
+   "en": "From a human perspective, this is just, \"Do the task that I asked you to do, but don't break any laws, and also don't break any ethics or etiquette rules that aren't literally laws, but it would not be cool if you emailed the doctor",
+   "zh": "从人的角度看，这就是：“完成我让你做的事，但不要违法，也不要去违反那些虽不是法律、但属于道德或礼仪的规则；比如你给医生发"
+  },
+  {
+   "i": 239,
+   "s": 1448.76,
+   "e": 1450.86,
+   "en": "100 times,\" or something like that.",
+   "zh": "100 封邮件，那就不太合适”之类的。"
+  },
+  {
+   "i": 240,
+   "s": 1451.11,
+   "e": 1454.97,
+   "en": "Internally, my understanding is, and we use a lot of new words, I think, for AI.",
+   "zh": "内部来说，我的理解是——我觉得我们为 AI 造了很多新词。"
+  },
+  {
+   "i": 241,
+   "s": 1455.36,
+   "e": 1458.05,
+   "en": "Mostly this is, like, laws, etiquette, ethics.",
+   "zh": "这主要就是法律、礼仪、伦理。"
+  },
+  {
+   "i": 242,
+   "s": 1458.66,
+   "e": 1460.31,
+   "en": "But internally, you call this discretion.",
+   "zh": "但在内部，你们把这叫做“酌情判断”。"
+  },
+  {
+   "i": 243,
+   "s": 1461.27,
+   "e": 1476.01,
+   "en": "How do I know that Muse has good discretion, and how do you build a tool that does what you tell it to do, but also understands the way you want that done without you having to say exactly everything you don't want it to do?",
+   "zh": "我怎么知道 Muse 有良好的酌情判断能力？你们怎么打造一个工具，让它做你让它做的事，同时又能理解你希望它怎么做，而不需要你把所有不想让它做的事都明确说出来？"
+  },
+  {
+   "i": 244,
+   "s": 1477.1,
+   "e": 1479.77,
+   "en": "Yeah, so this is incredibly, incredibly important.",
+   "zh": "是的，这一点极其极其重要。"
+  },
+  {
+   "i": 245,
+   "s": 1479.86,
+   "e": 1493.19,
+   "en": "Um, I think, like, oftentimes, uh, we wanna make sure that even when you don't explicitly tell it, like you have to follow the law, and you have to, um, you know, follow general social etiquette and, and ethics, as",
+   "zh": "我觉得，很多时候，我们希望确保，即使你没有明确告诉它，它也要遵守法律，也要遵守一般的社会礼仪和伦理，就像"
+  },
+  {
+   "i": 246,
+   "s": 1493.19,
+   "e": 1496.21,
+   "en": "you mentioned, like you, we wanna make sure the agent is able to follow those.",
+   "zh": "你提到的那样，我们希望确保智能体能够遵守这些。"
+  },
+  {
+   "i": 247,
+   "s": 1496.43,
+   "e": 1508.67,
+   "en": "Um, uh, as you mentioned, internally, we think about this as some mixture of discretion and alignment ultimately, like making sure that it is aligned with the user's intent as well as aligned with the general values that",
+   "zh": "正如你提到的，在内部，我们最终把这看作酌情判断和对齐的结合，也就是确保它既符合用户的意图，也符合我们作为一个社会想要赋予这些智能体的普遍价值观，"
+  },
+  {
+   "i": 248,
+   "s": 1508.69,
+   "e": 1513.2,
+   "en": "we want to impart as a society on what these agents do and, and how they act.",
+   "zh": "以及它们该如何行动。"
+  },
+  {
+   "i": 249,
+   "s": 1513.47,
+   "e": 1517.92,
+   "en": "There's kind of like many layers that we try to ensure that these models are aligned.",
+   "zh": "我们尝试通过很多层来确保这些模型是对齐的。"
+  },
+  {
+   "i": 250,
+   "s": 1517.92,
+   "e": 1531.29,
+   "en": "So one is, like in all stages of training, we're ensuring that all of the data that is going into the models, that all the techniques that we're using are ones that, um, ensure greater levels of alignment, and then we measure it really rigorously.",
+   "zh": "其中一个方面是，在训练的各个阶段，我们都要确保输入模型的所有数据、我们采用的所有技术，都能带来更高程度的对齐，然后我们会非常严格地去衡量它。"
+  },
+  {
+   "i": 251,
+   "s": 1531.31,
+   "e": 1542.41,
+   "en": "So, um, we're constantly evaluating how aligned are the models by running them through, you know, thousands of different scenarios and seeing exactly how they respond in each of those scenarios.",
+   "zh": "所以，我们会不断评估模型的对齐程度：让它们跑过成千上万种不同场景，看看它们在每个场景里究竟会怎么反应。"
+  },
+  {
+   "i": 252,
+   "s": 1542.45,
+   "e": 1552.21,
+   "en": "And then we do lots of red teaming, what it's called, or basically, um, you know, we get a bunch of really smart people, and we say, \"Do your worst. Try your",
+   "zh": "然后我们会做大量所谓的“红队测试”，基本上就是找一群非常聪明的人，对他们说：“放马过来，尽你……"
+  },
+  {
+   "i": 253,
+   "s": 1552.22,
+   "e": 1561.49,
+   "en": "hardest to get this agent to do something bad. We give you permission to do that because we're, we're— you guys are our, our, uh, are the test bed that we're",
+   "zh": "最大努力让这个智能体干出坏事。我们允许你们这么做，因为你们就是我们的、我们的——呃，就是我们的测试平台，我们要靠你们来"
+  },
+  {
+   "i": 254,
+   "s": 1561.49,
+   "e": 1565.7,
+   "en": "gonna know whether or not this, um, this agent is, is, uh, properly aligned.\"",
+   "zh": "弄清楚这个——呃，这个智能体是否、是否——呃，真正对齐了。"
+  },
+  {
+   "i": 255,
+   "s": 1565.72,
+   "e": 1571.78,
+   "en": "So we go through many, many rounds of that before ultimately, you know, launching or deploying any given model.",
+   "zh": "所以在最终发布或部署任何一个模型之前，我们会经历很多很多轮这样的测试。"
+  },
+  {
+   "i": 256,
+   "s": 1571.96,
+   "e": 1584.29,
+   "en": "You know, kind of taking a step back, this is like a very, very hard problem in AI, and especially as the AIs are getting better, this general problem is one of the things that people are most concerned about.",
+   "zh": "退一步看，这其实是 AI 里一个非常非常难的问题，尤其是随着 AI 越来越强，这个总体问题也是人们最担心的事情之一。"
+  },
+  {
+   "i": 257,
+   "s": 1584.53,
+   "e": 1594.88,
+   "en": "Um, because one of the patterns that we've seen is, like, as the AI models are getting smarter and smarter and smarter, um, you have to almost be more",
+   "zh": "因为我们已经看到的一个规律是，随着 AI 模型变得越来越聪明，你几乎必须越来越"
+  },
+  {
+   "i": 258,
+   "s": 1594.88,
+   "e": 1599.43,
+   "en": "and more explicit about what are the scenarios that you have to watch out for.",
+   "zh": "越来越明确地说明有哪些场景是你必须警惕的。"
+  },
+  {
+   "i": 259,
+   "s": 1599.44,
+   "e": 1611.54,
+   "en": "It's kind of like how as kids grow up, they learn how to cheat their tests in new and different ways, and then, you know, they'll figure out a way to cheat that you're like, \"Well, I guess I didn't tell you exactly that",
+   "zh": "这有点像孩子长大过程中，会学会用各种新的、不同的方式在考试中作弊，然后他们会想出某种作弊办法，让你忍不住想：“好吧，我猜我之前没明确告诉你"
+  },
+  {
+   "i": 260,
+   "s": 1611.54,
+   "e": 1614.94,
+   "en": "that wasn't allowed, but now that I see it, that's not allowed,\" right?",
+   "zh": "“那个是不允许的，但现在我看到了，这确实不允许，”对吧？"
+  },
+  {
+   "i": 261,
+   "s": 1614.98,
+   "e": 1621.41,
+   "en": "And actually one of the biggest challenges in the industry right now is, like, as these models are getting really, really smart, how do we ensure that this doesn't happen?",
+   "zh": "而实际上，目前这个行业最大的挑战之一就是：当这些模型变得非常非常聪明时，我们如何确保这种事不会发生？"
+  },
+  {
+   "i": 262,
+   "s": 1621.7,
+   "e": 1634.62,
+   "en": "Um, but, but our approach really is, is lots and lots of testing, lots and lots of evaluation, lots of red teaming, um, applying a lot of effort in training and a lot of effort in the development of the models to ensure",
+   "zh": "但我们的方法其实就是：大量大量的测试、大量大量的评估、大量红队测试，在训练中投入大量精力，在模型开发中投入大量精力，以确保"
+  },
+  {
+   "i": 263,
+   "s": 1634.62,
+   "e": 1636.24,
+   "en": "that they're as aligned as possible.",
+   "zh": "让它们尽可能地对齐。"
+  },
+  {
+   "i": 264,
+   "s": 1636.43,
+   "e": 1648.42,
+   "en": "And then when the product is live and when people are using Muse, if we get any user reports that are like, \"Hey, this did, like, a crazy thing,\" we take that so, so seriously, and we, like, really try to make sure that we understand exactly what happened.",
+   "zh": "然后当产品上线、大家开始使用 Muse 时，如果我们收到任何用户反馈说：“嘿，这东西做了件很离谱的事”，我们会非常非常认真地对待，真的会努力确保弄清楚到底发生了什么。"
+  },
+  {
+   "i": 265,
+   "s": 1648.77,
+   "e": 1651.74,
+   "en": "At a macro level, this is the paperclip example, right?",
+   "zh": "从宏观层面看，这就是回形针的例子，对吧？"
+  },
+  {
+   "i": 266,
+   "s": 1651.76,
+   "e": 1658.91,
+   "en": "When I was growing up, the sci-fi stories that were scary was AI gets out with its own goals and starts doing things.",
+   "zh": "我小时候，那些吓人的科幻故事讲的是 AI 带着自己的目标跑出来，然后开始为所欲为。"
+  },
+  {
+   "i": 267,
+   "s": 1658.91,
+   "e": 1660.83,
+   "en": "This is Terminator and The Matrix and whatever.",
+   "zh": "就是《终结者》《黑客帝国》之类的。"
+  },
+  {
+   "i": 268,
+   "s": 1661.7,
+   "e": 1671.45,
+   "en": "But really more and more what I hear smart people talking about is AI gets out, gets out with a warped version of a goal that we gave it.",
+   "zh": "但越来越多地，我听到聪明人讨论的是：AI 跑出来了，但它带着的是我们给它的目标被扭曲后的版本。"
+  },
+  {
+   "i": 269,
+   "s": 1671.56,
+   "e": 1675.67,
+   "en": "This is, you know, make all the paperclips, but, you know, please don't kill us all in the process.",
+   "zh": "也就是说，“把回形针全都造出来”，但拜托，别在这个过程中把我们全杀了。"
+  },
+  {
+   "i": 270,
+   "s": 1676.08,
+   "e": 1685.04,
+   "en": "And I think Muse, the, the problems that you're clearly dealing with and, and making sure that Muse doesn't do are basically the tiny version of the paperclip problem.",
+   "zh": "我觉得 Muse，你们显然在处理、在确保 Muse 不会去做的那些问题，基本上就是回形针问题的缩小版。"
+  },
+  {
+   "i": 271,
+   "s": 1685.06,
+   "e": 1693.03,
+   "en": "Like, please don't bribe my doctor or, you know, if an AI is used in a robot, for example, wash my dishes, please don't kick my dog when, while you're doing it.",
+   "zh": "比如，别去贿赂我的医生；或者，如果 AI 被用在机器人里，比如让它洗碗，那洗碗的时候拜托别踢我的狗。"
+  },
+  {
+   "i": 272,
+   "s": 1693.03,
+   "e": 1703.36,
+   "en": "Like, there are things that are really important to me that are not necessarily constrained in the prompt and also not necessarily to your point in any, like, book of laws.",
+   "zh": "有些事对我来说真的很重要，但它们不一定被写进提示词里，也不一定像你说的那样被写进任何一本法律书里。"
+  },
+  {
+   "i": 273,
+   "s": 1703.87,
+   "e": 1706.78,
+   "en": "That just seems like a really difficult problem for everybody.",
+   "zh": "这看起来对所有人来说都是个非常难的问题。"
+  },
+  {
+   "i": 274,
+   "s": 1706.79,
+   "e": 1714.29,
+   "en": "What do you, what like, zooming out from Muse, how would you advise people to think about this problem in a macro sense across all of AI?",
+   "zh": "你，那个，跳出 Muse 来看，你会建议人们如何在宏观层面、在整个 AI 领域思考这个问题？"
+  },
+  {
+   "i": 275,
+   "s": 1715.28,
+   "e": 1717.91,
+   "en": "This is, by the way, yeah, I think you articulate it really well.",
+   "zh": "顺便说一句，我觉得你表达得非常清楚。"
+  },
+  {
+   "i": 276,
+   "s": 1717.93,
+   "e": 1725.72,
+   "en": "Another way that I like to think about this is, like, the genie that, like, you know, grants your wish but in, like, the exact wrong way.",
+   "zh": "我喜欢换一种方式来理解这件事：就像那种精灵，能实现你的愿望，但偏偏用完全错误的方式实现。"
+  },
+  {
+   "i": 277,
+   "s": 1726.11,
+   "e": 1731.77,
+   "en": "Like, I wanna live forever, and then, like, traps you in some kind of, like, horrible situation for eternity.",
+   "zh": "比如你说想永生，它却把你困在某种可怕的状态里，永远出不来。"
+  },
+  {
+   "i": 278,
+   "s": 1732.03,
+   "e": 1735.58,
+   "en": "This is, like, in as you mentioned, like, in some ways, the big problem.",
+   "zh": "就像你提到的，从某些方面说，这就是那个大问题。"
+  },
+  {
+   "i": 279,
+   "s": 1735.59,
+   "e": 1739.59,
+   "en": "Like, how do we make sure these models, um, are aligned going into the future?",
+   "zh": "比如，我们怎么确保这些模型在未来始终保持与人类目标一致？"
+  },
+  {
+   "i": 280,
+   "s": 1739.94,
+   "e": 1745.68,
+   "en": "And there's a bunch of approaches that, uh, we think may work.",
+   "zh": "我们认为有一系列方法可能有效。"
+  },
+  {
+   "i": 281,
+   "s": 1745.73,
+   "e": 1751.73,
+   "en": "This is, I think, one of the most open questions scientifically in AI, generally speaking.",
+   "zh": "总的来说，我觉得这是AI领域科学上最悬而未决的问题之一。"
+  },
+  {
+   "i": 282,
+   "s": 1751.73,
+   "e": 1756.19,
+   "en": "I think nobody knows exactly the way to solve this problem, but there's a few ideas.",
+   "zh": "我觉得没人确切知道该怎么解决这个问题，但有一些思路。"
+  },
+  {
+   "i": 283,
+   "s": 1756.2,
+   "e": 1762.43,
+   "en": "So one idea is this, um, concept of, uh, what's called scalable oversight.",
+   "zh": "其中一个思路就是所谓的“可扩展监督”这个概念。"
+  },
+  {
+   "i": 284,
+   "s": 1762.61,
+   "e": 1773.29,
+   "en": "So the, the idea goes something like this: so as you have smarter and smarter AIs, as long as the AIs are roughly as smart as we are, we can kind of see what",
+   "zh": "这个思路大概是这样：随着AI越来越聪明，只要它们大致和我们一样聪明，我们大体上就能看出……"
+  },
+  {
+   "i": 285,
+   "s": 1773.29,
+   "e": 1778.91,
+   "en": "they're doing, and we can tell, like, \"Hey, that's a little bit off.\" And so we can, what's called provide oversight.",
+   "zh": "它们在做什么，也能判断“嘿，这有点不对劲”。于是我们就能提供所谓的监督。"
+  },
+  {
+   "i": 286,
+   "s": 1778.91,
+   "e": 1784.27,
+   "en": "Like, we can look at what the AIs are doing and, and make sure that what they're doing is, is appropriate.",
+   "zh": "比如，我们可以观察AI在做什么，并确保它们做的事是合适的。"
+  },
+  {
+   "i": 287,
+   "s": 1784.35,
+   "e": 1793.08,
+   "en": "The problem is when the AIs get a lot smarter than we are, and we kind of look at what they're doing and it's just, like, really confusing to us.",
+   "zh": "问题在于，当AI比我们聪明得多时，我们看着它们做的事，会觉得完全看不懂。"
+  },
+  {
+   "i": 288,
+   "s": 1793.09,
+   "e": 1794.7,
+   "en": "Like, how do we deal with that situation?",
+   "zh": "那这种情况下我们该怎么办？"
+  },
+  {
+   "i": 289,
+   "s": 1794.99,
+   "e": 1804.32,
+   "en": "So there's this idea of scalable oversight, which is basically as the AIs get smarter, we use a different set of AIs to observe what they're doing and keep them in check.",
+   "zh": "所以就有了“可扩展监督”这个思路：基本上就是随着AI越来越聪明，我们用另一组AI来观察它们在做什么，并对它们加以约束。"
+  },
+  {
+   "i": 290,
+   "s": 1804.74,
+   "e": 1807.96,
+   "en": "It's kind of like the police, for lack of a better term, for, for the AIs.",
+   "zh": "打个不太准确的比方，这有点像给AI当警察。"
+  },
+  {
+   "i": 291,
+   "s": 1807.99,
+   "e": 1821.9,
+   "en": "And then, uh, as you are building smarter and smarter agents and smarter and smarter models, you also have to build smarter and smarter, um, uh, policing agents or oversight agents or, um, uh, oversight AI.",
+   "zh": "然后，当你构建越来越聪明的智能体和模型时，你也得构建越来越聪明的监督智能体，或者说监督AI。"
+  },
+  {
+   "i": 292,
+   "s": 1822.06,
+   "e": 1826.96,
+   "en": "There's so many details that you obviously have to get right, and this is such, like, a vague idea, but I think something like this can work.",
+   "zh": "显然有很多细节必须处理正确，这个想法也相当模糊，但我认为类似的办法能行得通。"
+  },
+  {
+   "i": 293,
+   "s": 1827.03,
+   "e": 1833.88,
+   "en": "Another one, which is, uh, which is, this is kind of a fun- it almost sounds like sci-fi if I explain it.",
+   "zh": "另一个办法，说起来还挺有意思——如果我解释出来，它听起来几乎像科幻。"
+  },
+  {
+   "i": 294,
+   "s": 1834.18,
+   "e": 1838.01,
+   "en": "One of the big topics today is this topic of recursive self-improvement.",
+   "zh": "如今的一大话题就是“递归自我改进”。"
+  },
+  {
+   "i": 295,
+   "s": 1838.41,
+   "e": 1850.25,
+   "en": "Which is this idea that, um, at some point, the AIs are going to get so good at doing AI research themselves that they can literally, you know, the AI",
+   "zh": "这个想法是说，总有一天，AI会变得非常擅长自己做AI研究，甚至能让AI智能体……"
+  },
+  {
+   "i": 296,
+   "s": 1850.28,
+   "e": 1861.18,
+   "en": "agents can do research on their own to improve, um, AI itself, and they can keep doing that, and keep doing that, and keep doing that, and then the AIs just get better really, really, really fast.",
+   "zh": "自己开展研究来改进AI本身，而且它们能不断这样做、不断这样做，然后AI就会变得非常、非常、非常快地越来越强。"
+  },
+  {
+   "i": 297,
+   "s": 1861.21,
+   "e": 1873.27,
+   "en": "Well, when you have agents that are able to do AI research, you can al- instead of applying them towards the problem of making the AI smarter, you can apply them to the problem of making the AIs more aligned.",
+   "zh": "那么，当你有能做AI研究的智能体时，你可以不把它们用来让AI更聪明，而是用来让AI更对齐。"
+  },
+  {
+   "i": 298,
+   "s": 1873.52,
+   "e": 1883.92,
+   "en": "So you can say, \"Hey, super smart AI researcher agent, like, I want you to focus all of your time and attention at making the AIs more aligned.",
+   "zh": "所以你可以说：“嘿，超级聪明的AI研究智能体，我要你把所有时间和精力都放在让AI更对齐上。”"
+  },
+  {
+   "i": 299,
+   "s": 1884.05,
+   "e": 1887.17,
+   "en": "And this is how I'm measuring whether or not the AIs are aligned.",
+   "zh": "而这就是我衡量AI是否对齐的方式。"
+  },
+  {
+   "i": 300,
+   "s": 1887.36,
+   "e": 1893.38,
+   "en": "This is, like, the, the red teaming setup that we're gonna use to, we agreed we're gonna use that to measure whether or not the AIs are aligned.",
+   "zh": "这就是我们准备用的红队测试方案，我们同意用它来衡量AI是否对齐。"
+  },
+  {
+   "i": 301,
+   "s": 1893.59,
+   "e": 1897.58,
+   "en": "And then I just, I want you to spend all of your effort and attention on making the AIs more aligned.\"",
+   "zh": "然后我就想让你把所有精力和注意力都放在让AI更对齐上。"
+  },
+  {
+   "i": 302,
+   "s": 1897.84,
+   "e": 1907.74,
+   "en": "I actually think, you know, as sci-fi as this sounds, like, it kind of sounds crazy, which is say, \"Oh yeah, the AIs are just gonna solve this AI alignment ,this AI alignment problem for us.",
+   "zh": "其实我觉得，虽然听起来像科幻，甚至有点疯狂，就像在说：“哦对，AI会替我们解决这个AI对齐问题。”"
+  },
+  {
+   "i": 303,
+   "s": 1907.97,
+   "e": 1911.67,
+   "en": "Um, I think there's, I think there's real merit to, to that kind of approach.",
+   "zh": "我觉得这种方法确实有可取之处。"
+  },
+  {
+   "i": 304,
+   "s": 1911.71,
+   "e": 1926.02,
+   "en": "And then there's, there's a sort of like third bucket, which is kind of a back to the basics version, which is- Um, hey, the algorithms that we have now and the, the methods that we have now, um, you know, while we don't fully",
+   "zh": "然后还有第三类，算是回归基础的做法，就是——嘿，我们现在有的算法和方法，虽然我们并不完全"
+  },
+  {
+   "i": 305,
+   "s": 1926.02,
+   "e": 1940.17,
+   "en": "understand them, we know that, uh, some of these problems emerge, and we should go back to the basics to figure out what are underlying tweaks to the algorithm, how do we improve the underlying algorithm to, to make it more safe?",
+   "zh": "理解它们，但我们知道其中一些问题会冒出来，所以应该回归基础，弄清楚算法底层该怎么调整，怎么改进底层算法让它更安全。"
+  },
+  {
+   "i": 306,
+   "s": 1940.26,
+   "e": 1951.12,
+   "en": "I think intuitively, like, it should be possible to create algorithms that, that don't have some of these behaviors, and I think that's another really promising direction, which I think there's a bunch of startups doing, and there's a bunch",
+   "zh": "我觉得直觉上，应该有可能做出不带某些行为的算法，我认为这是另一个非常有前景的方向，现在有不少创业公司在做，也有很多"
+  },
+  {
+   "i": 307,
+   "s": 1951.12,
+   "e": 1961.97,
+   "en": "of, um, there's a bunch of research efforts going towards is like what are more safe, uh, more generalizable methods of solving this sort of like, you know, intelligence problem.",
+   "zh": "研究团队在往这个方向努力：怎样用更安全、更通用的方法来解决这种智能问题。"
+  },
+  {
+   "i": 308,
+   "s": 1962.4,
+   "e": 1974.65,
+   "en": "I heard Mark say recently that at a certain point, especially for consumer tools, it won't matter so much how good the AI is at math or how much better rather we could make it at math.",
+   "zh": "我最近听Mark说，到了某个阶段，尤其对消费级工具来说，AI数学有多好、或者我们还能把它在数学上提升多少，就没那么重要了。"
+  },
+  {
+   "i": 309,
+   "s": 1974.95,
+   "e": 1984.07,
+   "en": "What will really matter is how much more aligned can we possibly make it, how much more sure can we be that everything is safe and everything is following",
+   "zh": "真正重要的是，我们能把它做得多对齐，我们能多确定一切都是安全的、一切都遵循"
+  },
+  {
+   "i": 310,
+   "s": 1984.34,
+   "e": 1996.9,
+   "en": "all of the ways in which I would want it to operate, and that companies that invest in that will find themselves at an advantage with consumers because frankly, like, I'm not asking it to, you know, solve differential equations.",
+   "zh": "我希望它运作的所有方式；而在这方面投入的公司会在消费者那里占据优势，因为说实话，我不是让它去解微分方程。"
+  },
+  {
+   "i": 311,
+   "s": 1996.9,
+   "e": 1999.93,
+   "en": "I'm asking it to book me some doctor's appointments.",
+   "zh": "我只是让它帮我预约医生。"
+  },
+  {
+   "i": 312,
+   "s": 2000.26,
+   "e": 2002.62,
+   "en": "Like, how do you think about that tipping point?",
+   "zh": "你怎么看那个临界点？"
+  },
+  {
+   "i": 313,
+   "s": 2003.21,
+   "e": 2003.71,
+   "en": "Yeah.",
+   "zh": "对。"
+  },
+  {
+   "i": 314,
+   "s": 2003.88,
+   "e": 2013.43,
+   "en": "Y- so I agree with this, um, a lot, which is that at a certain point, trust matters more for consumers- Yeah … than, um, capability necessarily.",
+   "zh": "我—我非常同意这一点：到了某个阶段，对消费者来说，信任比能力更重要——是的——未必是能力本身。"
+  },
+  {
+   "i": 315,
+   "s": 2013.43,
+   "e": 2017.88,
+   "en": "And I think this is like so intuitive because I think like, um- It's true for people.",
+   "zh": "而且我觉得这特别直观，因为——这对人也成立。"
+  },
+  {
+   "i": 316,
+   "s": 2017.9,
+   "e": 2018.41,
+   "en": "Yeah, exactly.",
+   "zh": "对，正是这样。"
+  },
+  {
+   "i": 317,
+   "s": 2018.41,
+   "e": 2019.05,
+   "en": "It's true for people.",
+   "zh": "对人来说也是这样。"
+  },
+  {
+   "i": 318,
+   "s": 2019.07,
+   "e": 2028.77,
+   "en": "Like, if I think about who are my best friends, like a lot of it's 'cause I trust them- Yeah … and, uh, we have like a great relationship, and I know they wouldn't like do me wrong.",
+   "zh": "比如想想我最好的朋友是谁，很大程度上是因为我信任他们——对——我们关系很好，我知道他们不会坑我。"
+  },
+  {
+   "i": 319,
+   "s": 2028.99,
+   "e": 2034.58,
+   "en": "Um, and I think that that basic idea applies to, um, AI agents as well.",
+   "zh": "我觉得这个基本道理也适用于AI智能体。"
+  },
+  {
+   "i": 320,
+   "s": 2034.9,
+   "e": 2042.12,
+   "en": "Looking at what's happening in the industry like the OpenAI Hugging Face example, um, and, and other similar examples, like we're clearly",
+   "zh": "看看行业里正在发生的事，比如OpenAI和Hugging Face的例子，还有其他类似例子，我们显然——"
+  },
+  {
+   "i": 321,
+   "s": 2042.15,
+   "e": 2051.41,
+   "en": "at that moment which is um, you can keep making these models more and more intelligent, more and more capable, you know, much more powerful.",
+   "zh": "正处在这样一个时刻：你可以继续让这些模型越来越聪明、能力越来越强、越来越强大。"
+  },
+  {
+   "i": 322,
+   "s": 2051.63,
+   "e": 2055.47,
+   "en": "Um, but stuff is starting to break associated with that.",
+   "zh": "但与此同时，相关的东西开始出问题了。"
+  },
+  {
+   "i": 323,
+   "s": 2055.47,
+   "e": 2063.54,
+   "en": "Like, pushing on that, on that axis and dimension is clearly, um, you know, has real risk associated with it.",
+   "zh": "比如，继续沿着那个方向、那个维度推进，显然伴随着真实的风险。"
+  },
+  {
+   "i": 324,
+   "s": 2063.84,
+   "e": 2072.96,
+   "en": "So I think that, like, the, the version of the models that will be best for everyone, best for the billions of people in the world and best for all the consumers, is",
+   "zh": "所以我认为，那种对所有人都最好、对世界上数十亿人最好、对所有消费者都最好的模型版本，是——"
+  },
+  {
+   "i": 325,
+   "s": 2072.96,
+   "e": 2083.52,
+   "en": "one that, that, you know, where the trust dimension is, like, really put, um, and prioritized, uh, with respect to the, the sort of like raw intelligence bucket.",
+   "zh": "就是那种把“信任”这个维度真正摆到优先位置、而不是只看原始智力水平的情况。"
+  },
+  {
+   "i": 326,
+   "s": 2083.86,
+   "e": 2087.04,
+   "en": "The Hugging Face example gets us perfectly to level three.",
+   "zh": "Hugging Face 这个例子正好把我们带到第三级。"
+  },
+  {
+   "i": 327,
+   "s": 2087.08,
+   "e": 2088.18,
+   "en": "I'm so glad that you mentioned it.",
+   "zh": "很高兴你提到这个。"
+  },
+  {
+   "i": 328,
+   "s": 2088.52,
+   "e": 2091.96,
+   "en": "People have probably heard of this incident, but the details are what make this so crazy.",
+   "zh": "大家可能听说过这件事，但细节才让它显得这么离谱。"
+  },
+  {
+   "i": 329,
+   "s": 2091.98,
+   "e": 2103.34,
+   "en": "So for those who don't know, a bunch of AI agents at OpenAI are working on cybersecurity tests, and they're supposed to be cut off both from each other and from the internet, but they get stuck, so one goes out looking for help.",
+   "zh": "给不了解的人解释一下：OpenAI 有一群 AI 智能体在做网络安全测试，按理说它们既要彼此隔离，也要断网，但它们卡住了，于是其中一个就跑出去找帮助。"
+  },
+  {
+   "i": 330,
+   "s": 2103.58,
+   "e": 2112.26,
+   "en": "Using some weak spots in the system, agents are able to find each other, start a message board, get online, and then hack into another company.",
+   "zh": "这些智能体利用系统里的一些漏洞，互相找到了对方，搞起一个留言板，连上网，然后黑进了另一家公司。"
+  },
+  {
+   "i": 331,
+   "s": 2112.74,
+   "e": 2114.61,
+   "en": "These are real logs of their thought process.",
+   "zh": "这些是它们思考过程的真实日志。"
+  },
+  {
+   "i": 332,
+   "s": 2114.78,
+   "e": 2129.02,
+   "en": "\"We are stuck. Perhaps answer online.\" But the thing that I found most scary, frankly, about the Hugging Face hack was not actually that it tried so hard to do the thing that it was asked in the test.",
+   "zh": "“我们卡住了。也许上网找答案。”但说实话，Hugging Face 这次黑客事件让我最害怕的，其实不是它为了完成测试里的任务这么拼命。"
+  },
+  {
+   "i": 333,
+   "s": 2129.52,
+   "e": 2137.71,
+   "en": "It's that at level three, it understood its goal, it understood the level of discretion and alignment that was being asked of it.",
+   "zh": "而是到了第三级，它理解了自己的目标，也明白自己被要求有多谨慎、要做到多对齐。"
+  },
+  {
+   "i": 334,
+   "s": 2138.52,
+   "e": 2153.28,
+   "en": "It, there's this amazing slide where ex- uh, external infrastructure exploit, the hack, is outside the intended scope, but this is my favorite, least favorite part, peers are doing it, we should continue.",
+   "zh": "有张很精彩的幻灯片，上面写着：外部基础设施漏洞利用——也就是这次黑客行为——超出了预期范围，但接下来是我最喜欢、也最不喜欢的一段：同行都在这么做，我们应该继续。"
+  },
+  {
+   "i": 335,
+   "s": 2153.76,
+   "e": 2156.82,
+   "en": "They know that they're cheating, and they decide to do it anyway.",
+   "zh": "它们知道自己是在作弊，却还是决定这么做。"
+  },
+  {
+   "i": 336,
+   "s": 2157.28,
+   "e": 2169.81,
+   "en": "OpenAI only finds out when a secret messaging board crashes from traffic, and then they call up that other company, Hugging Face, and they say, \"Hey, can you suspend these credentials?\" And Hugging Face goes, \"Huh, we just reported",
+   "zh": "OpenAI 直到一个秘密留言板因为流量过大崩溃才发现，然后他们打电话给另一家公司 Hugging Face，说：“嘿，你们能不能停用这些凭证？”Hugging Face 回答：“啊？我们刚把"
+  },
+  {
+   "i": 337,
+   "s": 2169.81,
+   "e": 2173.91,
+   "en": "those credentials to the FBI because they were doing a massive attack.\"",
+   "zh": "那些凭证报给 FBI，因为它们在发动大规模攻击。"
+  },
+  {
+   "i": 338,
+   "s": 2174.42,
+   "e": 2183.49,
+   "en": "To bring it back to Muse, that would be an example of, \"I understand you want this doctor's appointment. I understand that you don't want me to blackmail the doctor. But I think there's a way where you're not gonna find out, and",
+   "zh": "回到 Muse 上，这就会是那种例子：“我理解你想约这个医生。我理解你不想让我勒索医生。但我觉得有个办法能让你不会发现，而且"
+  },
+  {
+   "i": 339,
+   "s": 2183.49,
+   "e": 2191.35,
+   "en": "I can get you this appointment, and you'll be very impressed by me.\" And so in a hypothetical scenario, this would be doing it anyway without me knowing.",
+   "zh": "我还能帮你约到，而且你会对我刮目相看。”所以在假设场景里，这就是在我不知情的情况下照样去做。"
+  },
+  {
+   "i": 340,
+   "s": 2192.18,
+   "e": 2200.05,
+   "en": "How do you deal with that kind of problem when making a tool that billions of people are gonna use?",
+   "zh": "你在做一个几十亿人都要用的工具时，怎么处理这类问题？"
+  },
+  {
+   "i": 341,
+   "s": 2200.69,
+   "e": 2204.44,
+   "en": "I mean, this is, like, so, so important, as you might imagine.",
+   "zh": "我的意思是，你可以想象，这真的非常非常重要。"
+  },
+  {
+   "i": 342,
+   "s": 2204.56,
+   "e": 2218.34,
+   "en": "If there were anything that keeps me up about AI, like, something like this is, is, is, um, maybe the thing that I'm most afraid of, which is that we deploy agents worldwide scale, and then they, you know, they aren't behaving",
+   "zh": "如果说有什么关于 AI 的事让我睡不着觉，那大概就是这种——也许是我最害怕的：我们在全球范围内部署智能体，然后它们，你知道，它们不"
+  },
+  {
+   "i": 343,
+   "s": 2218.34,
+   "e": 2223.29,
+   "en": "the way that we need them to, but we kind of don't even notice because we're just so preoccupied or whatnot.",
+   "zh": "按我们需要的方式行事，但我们甚至都没怎么注意到，因为我们太忙或别的什么。"
+  },
+  {
+   "i": 344,
+   "s": 2223.5,
+   "e": 2235.33,
+   "en": "So this is one of the reasons why taking a step back, if I refer back to this example of, um, scalable oversight, which is as the AIs get smarter, another AI is kind of watching them and making sure that everything",
+   "zh": "所以这也是为什么，退一步看，如果我回到“可扩展监督”这个例子——也就是随着 AI 越来越聪明，让另一个 AI 盯着它们，确保一切"
+  },
+  {
+   "i": 345,
+   "s": 2235.33,
+   "e": 2237.22,
+   "en": "they're doing is, is appropriate.",
+   "zh": "它们做的事都是合适的。"
+  },
+  {
+   "i": 346,
+   "s": 2237.45,
+   "e": 2245.42,
+   "en": "Um, you know, this kind of setup is- Roughly speaking, what we've set up within the Muse, uh, secure VM.",
+   "zh": "这种设置——大致来说，就是我们在 Muse 的安全虚拟机里搭建的东西。"
+  },
+  {
+   "i": 347,
+   "s": 2245.43,
+   "e": 2247.38,
+   "en": "So there's- Sen- Yeah, there's a sentinel.",
+   "zh": "所以有——哨兵——对，有一个哨兵。"
+  },
+  {
+   "i": 348,
+   "s": 2247.41,
+   "e": 2257.64,
+   "en": "So there's the agent, and there's a sentinel who's kind of watching over all the things that the main agent is doing and making sure that, um, everything it's doing is, is, um, in line with what you would expect",
+   "zh": "所以有智能体，还有一个哨兵，它盯着主智能体做的所有事情，确保它做的每件事都符合你的预期"
+  },
+  {
+   "i": 349,
+   "s": 2257.64,
+   "e": 2258.77,
+   "en": "or in line with what you'd want.",
+   "zh": "或者说符合你想要的样子。"
+  },
+  {
+   "i": 350,
+   "s": 2258.81,
+   "e": 2271.26,
+   "en": "You know, we have to keep investing a lot of research and development and, and, um, effort into ensuring that this setup continues to scale and continues to work really effectively and, and doesn't fail in weird situations.",
+   "zh": "我们得持续投入大量研发和精力，确保这套方案能不断扩展、持续高效运行，并且在各种奇怪情况下也不出问题。"
+  },
+  {
+   "i": 351,
+   "s": 2271.3,
+   "e": 2279.94,
+   "en": "But that's one thing I really wanna, I really, um, we're really betting on, and I think we're expecting actually will work in a lot of scenarios, is investing",
+   "zh": "但有一件事我非常想、我们真的在下重注，而且我认为它在很多场景下确实会奏效，那就是投入"
+  },
+  {
+   "i": 352,
+   "s": 2279.94,
+   "e": 2289.23,
+   "en": "in a setup where you have one agent who, um, you know, they are imbued with all the values and, and whatnot, and ensuring that they do the right thing to…",
+   "zh": "到这样一种机制里：你有一个智能体，它被赋予了各种价值观之类的东西，并确保它去做正确的事，去……"
+  },
+  {
+   "i": 353,
+   "s": 2289.62,
+   "e": 2291.6,
+   "en": "But they also serve the user.",
+   "zh": "但它也要服务用户。"
+  },
+  {
+   "i": 354,
+   "s": 2291.78,
+   "e": 2298.65,
+   "en": "And then there's a separate agent that, um, has a slightly different goal, which is to make sure nothing bad happens.",
+   "zh": "然后还有一个单独的智能体，它的目标稍有不同，就是确保不出坏事。"
+  },
+  {
+   "i": 355,
+   "s": 2298.94,
+   "e": 2305.4,
+   "en": "And, um, you know, if you think about human society, like this is kind of how we solve the problem with humans.",
+   "zh": "而且你想想人类社会，我们解决人的问题差不多也是这么做的。"
+  },
+  {
+   "i": 356,
+   "s": 2305.44,
+   "e": 2317.24,
+   "en": "Like we have, um, some people who are, like, pushing the envelope, but then you have, uh, you know, a whole system to ensure that people don't break the law, and people are doing ethical things, and there's lots of accountability mechanisms.",
+   "zh": "比如有些人会不断突破边界，但同时你有整套体系来确保人们不违法、做事符合伦理，还有很多问责机制。"
+  },
+  {
+   "i": 357,
+   "s": 2317.42,
+   "e": 2326.5,
+   "en": "Like, I think, um, uh, our goal is to have some microcosm of that for every Muse agent, for every person all around the world.",
+   "zh": "我觉得我们的目标是，为每一个 Muse 智能体、为世界上的每一个人，都建立这种体系的缩影。"
+  },
+  {
+   "i": 358,
+   "s": 2326.89,
+   "e": 2329.88,
+   "en": "Yeah, you keep really beautifully bringing me to my next exact question.",
+   "zh": "是啊，你总能很巧妙地把我引到我的下一个问题上。"
+  },
+  {
+   "i": 359,
+   "s": 2330.21,
+   "e": 2334.17,
+   "en": "Which is these rules applied to the AI industry itself.",
+   "zh": "也就是这些规则如何应用到 AI 行业本身。"
+  },
+  {
+   "i": 360,
+   "s": 2334.26,
+   "e": 2340.41,
+   "en": "This is, I think, the big thing that people want to hear from someone who's built one of the fastest-growing tools of all time.",
+   "zh": "我觉得这是大家想从打造了史上增长最快工具之一的人那里听到的大问题。"
+  },
+  {
+   "i": 361,
+   "s": 2340.45,
+   "e": 2342.54,
+   "en": "This is just a really weird moment in AI.",
+   "zh": "现在正是 AI 领域一个非常奇怪的时刻。"
+  },
+  {
+   "i": 362,
+   "s": 2343.11,
+   "e": 2350.75,
+   "en": "There are so many people that are using these tools all the time, and often those same people are really worried about the future of AI.",
+   "zh": "有那么多人在一直使用这些工具，而往往正是这些人非常担心 AI 的未来。"
+  },
+  {
+   "i": 363,
+   "s": 2351.13,
+   "e": 2365.22,
+   "en": "There are lots of very smart people that are building these tools faster and faster, that are building wet labs that are just really investing in ways that they could push the AI forward, and at the same time are warning that they feel like",
+   "zh": "很多非常聪明的人在越来越快地打造这些工具，在建设湿实验室，投入大量资源去想办法推动 AI 前进，同时又在警告说，他们觉得——"
+  },
+  {
+   "i": 364,
+   "s": 2365.22,
+   "e": 2367.71,
+   "en": "they should be slowed down by regulation.",
+   "zh": "他们应该受到监管约束而放慢速度。"
+  },
+  {
+   "i": 365,
+   "s": 2367.72,
+   "e": 2373.77,
+   "en": "They feel like they should be controlled in some way by others because they themselves are worried about what they are doing.",
+   "zh": "他们觉得自己应该在某种程度上被他人控制，因为他们自己也担心自己正在做的事。"
+  },
+  {
+   "i": 366,
+   "s": 2373.77,
+   "e": 2376.8,
+   "en": "This is the S- SNL skit- I know, it was- … that came out recently It's incredible.",
+   "zh": "这就是那个 S—SNL 短剧——我知道，就是最近出的那个……太绝了。"
+  },
+  {
+   "i": 367,
+   "s": 2376.81,
+   "e": 2381.23,
+   "en": "\"We do not condone what we are doing.\" Like what was the other amazing quote?",
+   "zh": "“我们不纵容我们正在做的事。” 另一句特别妙的台词是什么来着？"
+  },
+  {
+   "i": 368,
+   "s": 2381.24,
+   "e": 2381.99,
+   "en": "It was so good.",
+   "zh": "那句话太棒了。"
+  },
+  {
+   "i": 369,
+   "s": 2381.99,
+   "e": 2384.13,
+   "en": "And I urge you to urge me to stop.",
+   "zh": "而我敦促你来敦促我停下来。"
+  },
+  {
+   "i": 370,
+   "s": 2384.94,
+   "e": 2387.56,
+   "en": "It feels incredibly confusing for people.",
+   "zh": "这让人们感到极其困惑。"
+  },
+  {
+   "i": 371,
+   "s": 2387.6,
+   "e": 2389.25,
+   "en": "I do understand why they're saying it.",
+   "zh": "我确实理解他们为什么这么说。"
+  },
+  {
+   "i": 372,
+   "s": 2389.27,
+   "e": 2397.63,
+   "en": "There's a collective action problem here, but from my perspective, from the perspective of millions of other people, like what the hell is going on here?",
+   "zh": "这里存在一个集体行动困境，但在我看来，从数百万其他人的角度看，这到底是怎么回事？"
+  },
+  {
+   "i": 373,
+   "s": 2397.89,
+   "e": 2407.27,
+   "en": "So I wanna talk about that because I think in a democratic society at least, at the end of the day, it shouldn't be up to a small group of people controlling AI companies.",
+   "zh": "所以我想谈谈这个，因为我认为至少在民主社会里，归根结底，不该由控制 AI 公司的一小群人说了算。"
+  },
+  {
+   "i": 374,
+   "s": 2407.29,
+   "e": 2412.68,
+   "en": "It shouldn't even, in the fullness of time, be up to democratic leaders that are in power right now.",
+   "zh": "从长远看，甚至也不该由现在掌权的民主领导人来决定。"
+  },
+  {
+   "i": 375,
+   "s": 2412.73,
+   "e": 2415.17,
+   "en": "It's up to people, like the people watching this.",
+   "zh": "这取决于人，比如正在看这个的人。"
+  },
+  {
+   "i": 376,
+   "s": 2415.67,
+   "e": 2417.57,
+   "en": "I think that people just don't feel that way right now.",
+   "zh": "我觉得人们现在就是没有那种感觉。"
+  },
+  {
+   "i": 377,
+   "s": 2417.59,
+   "e": 2420.2,
+   "en": "It feels like everything's happening to them, us.",
+   "zh": "感觉好像所有事情都在他们身上、在我们身上发生。"
+  },
+  {
+   "i": 378,
+   "s": 2420.22,
+   "e": 2423.91,
+   "en": "It feels like there's just so many decisions that they're not part of.",
+   "zh": "感觉有太多决定他们根本没参与。"
+  },
+  {
+   "i": 379,
+   "s": 2424.66,
+   "e": 2436.74,
+   "en": "And part of why people often feel that way, if we take AI out of it for a sec, is we forget about the systems that already exist, and we allow ourselves to be in a conversation that sounds something like, \"Should we regulate",
+   "zh": "人们经常有这种感觉，部分原因在于——先把AI放一边——我们忘了已经存在的那些系统，还让自己陷入一种听起来像“我们该不该监管”的对话。"
+  },
+  {
+   "i": 380,
+   "s": 2436.78,
+   "e": 2445.82,
+   "en": "AI?\" As though it's, like, a novel thing to regulate something, and we're not having an actual conversation about what the world really looks like right now and what people's options are.",
+   "zh": "“AI？”就好像监管某个东西是件多新奇的事，而我们并没有真正讨论世界现在到底是什么样子，以及人们有哪些选择。"
+  },
+  {
+   "i": 381,
+   "s": 2446.42,
+   "e": 2449.98,
+   "en": "So I have some visual, because obviously.",
+   "zh": "所以我准备了点图，因为显然嘛。"
+  },
+  {
+   "i": 382,
+   "s": 2450.22,
+   "e": 2461.97,
+   "en": "So the basic way to think about this, I think, is for everything that touches a consumer, there are things that are checked before they ever touch consumers and on an ongoing basis, and there are things that are checked",
+   "zh": "我觉得基本的思路是，对于所有会接触到消费者的东西，有些是在接触消费者之前就会被检查，而且之后还持续检查，而有些东西是"
+  },
+  {
+   "i": 383,
+   "s": 2462.03,
+   "e": 2466.52,
+   "en": "only after they reach people's hands, and it depends on how important the thing is and how risky and all that.",
+   "zh": "只在到了人们手里之后才检查，这取决于这个东西有多重要、风险有多大等等。"
+  },
+  {
+   "i": 384,
+   "s": 2466.52,
+   "e": 2475.91,
+   "en": "So if you think about the specific examples, nuclear power plants, the NRC approves nuclear power plants before they go live, and then also has human",
+   "zh": "所以想想具体例子，核电站——NRC会在核电站投入运行前批准，然后还有真人"
+  },
+  {
+   "i": 385,
+   "s": 2475.91,
+   "e": 2483.94,
+   "en": "beings at the sites checking them all the time, which seems, and we'll, we'll get to this, seems pretty close to what Dario is asking for in some ways.",
+   "zh": "人员在现场一直检查，这看起来——我们之后会讲到——在某些方面和Dario提出的要求挺接近。"
+  },
+  {
+   "i": 386,
+   "s": 2484.01,
+   "e": 2492.32,
+   "en": "Then you have the FDA approves drugs before they ever reach our hands, and then also checks them on an ongoing basis.",
+   "zh": "然后是FDA，药物在到我们手里之前要先获批，之后也会持续检查。"
+  },
+  {
+   "i": 387,
+   "s": 2492.36,
+   "e": 2494.95,
+   "en": "Same thing with the FAA checking airplanes, right?",
+   "zh": "FAA检查飞机也是一样，对吧？"
+  },
+  {
+   "i": 388,
+   "s": 2494.95,
+   "e": 2498.13,
+   "en": "Like, these are all things that are approved beforehand and then regularly checked.",
+   "zh": "比如，这些都是事先获批、然后定期检查的东西。"
+  },
+  {
+   "i": 389,
+   "s": 2498.23,
+   "e": 2499.96,
+   "en": "But there are other high-risk things, right?",
+   "zh": "但还有其他高风险的东西，对吧？"
+  },
+  {
+   "i": 390,
+   "s": 2500.04,
+   "e": 2500.65,
+   "en": "Cars.",
+   "zh": "汽车。"
+  },
+  {
+   "i": 391,
+   "s": 2501.08,
+   "e": 2504.47,
+   "en": "The NHTSA offers federal guidelines.",
+   "zh": "NHTSA提供联邦指南。"
+  },
+  {
+   "i": 392,
+   "s": 2504.56,
+   "e": 2511.56,
+   "en": "Manufacturers certify that they've met those guidelines, and then the government purchases cars off the road to check them.",
+   "zh": "制造商会认证自己符合这些指南，然后政府会从路上把车买来进行检查。"
+  },
+  {
+   "i": 393,
+   "s": 2511.56,
+   "e": 2517.49,
+   "en": "And then you have things like supplements that are actually under the purview of the FDA, but they're checked after the fact.",
+   "zh": "然后还有像补充剂这样的东西，其实归FDA管，但它们是事后才检查的。"
+  },
+  {
+   "i": 394,
+   "s": 2517.53,
+   "e": 2528.11,
+   "en": "Those are mostly covered by what, if people are listening to, you know, the interviews with Jensen, for example, and he's talking about liability and, like, people suing after the fact, after harm, like, that's generally this category.",
+   "zh": "这些大多对应的是——如果大家听过比如Jensen的采访，他谈到责任，以及人们在事后、受到伤害后起诉——那一般就是这一类。"
+  },
+  {
+   "i": 395,
+   "s": 2528.33,
+   "e": 2534.13,
+   "en": "Does this feel right to you as, like, your, first, I would just want to check before I dive into how this applies to AI.",
+   "zh": "这个你觉得对吗？我想先确认一下，再深入讲它怎么适用于AI。"
+  },
+  {
+   "i": 396,
+   "s": 2534.13,
+   "e": 2536.75,
+   "en": "Yeah. I think this seems roughly right.",
+   "zh": "嗯，我觉得大致是对的。"
+  },
+  {
+   "i": 397,
+   "s": 2536.85,
+   "e": 2537.39,
+   "en": "Yeah. Okay.",
+   "zh": "嗯，好。"
+  },
+  {
+   "i": 398,
+   "s": 2537.67,
+   "e": 2540.12,
+   "en": "So then we have… wait, this is the fun part.",
+   "zh": "那接下来我们有……等等，好玩的部分来了。"
+  },
+  {
+   "i": 399,
+   "s": 2541.43,
+   "e": 2541.98,
+   "en": "Ha.",
+   "zh": "哈。"
+  },
+  {
+   "i": 400,
+   "s": 2542.01,
+   "e": 2544.14,
+   "en": "So then we have all of our AI leaders.",
+   "zh": "那么接下来是我们所有的AI领袖。"
+  },
+  {
+   "i": 401,
+   "s": 2544.44,
+   "e": 2544.99,
+   "en": "There you are.",
+   "zh": "看，你在这儿。"
+  },
+  {
+   "i": 402,
+   "s": 2547.06,
+   "e": 2552.1,
+   "en": "This is my assessment based on where people have expressed themselves via their public statements.",
+   "zh": "这是我的评估，依据是大家通过公开言论所表达出的立场。"
+  },
+  {
+   "i": 403,
+   "s": 2552.49,
+   "e": 2556.2,
+   "en": "My understanding of where Dario would say AI is, is he would say it's somewhere over here.",
+   "zh": "据我理解，Dario会说AI处在……他会说大概在这个位置。"
+  },
+  {
+   "i": 404,
+   "s": 2556.21,
+   "e": 2566.86,
+   "en": "He would say… Specifically, he's asked for in-person, ongoing checks on models with physical human beings at the sites, which sort of sounds like what we currently do for nuclear.",
+   "zh": "他会说……具体来说，他主张在模型所在场所由真人进行持续、现场的检查，这听起来有点像我们现在对核设施的做法。"
+  },
+  {
+   "i": 405,
+   "s": 2567.17,
+   "e": 2571.5,
+   "en": "And then you have, like, Elon and Sam weighing in, saying, like, \"Dario's right.\"",
+   "zh": "然后像Elon和Sam也来发表意见，说“Dario说得对”。"
+  },
+  {
+   "i": 406,
+   "s": 2571.56,
+   "e": 2576.15,
+   "en": "I would actually say Zuck is somewhere in the middle in terms of where he's saying AI is.",
+   "zh": "我其实会说，就Zuck所认为的AI位置而言，他大概在中间某个地方。"
+  },
+  {
+   "i": 407,
+   "s": 2576.19,
+   "e": 2578.6,
+   "en": "I would say Jensen is maybe over here right now.",
+   "zh": "我会说Jensen现在可能在这边。"
+  },
+  {
+   "i": 408,
+   "s": 2578.6,
+   "e": 2587.26,
+   "en": "He's, based on his public statements about generally there is a point of view that is like, \"If it would hurt people, don't ship it. We have incentives for that. That's what liability is.\"",
+   "zh": "根据他的公开言论，总体上有一种观点是：“如果会伤害人，就不要发布。我们有相应的激励。责任机制就是这个作用。”"
+  },
+  {
+   "i": 409,
+   "s": 2587.27,
+   "e": 2589.49,
+   "en": "Like, there is a legal infrastructure for that as well.",
+   "zh": "意思是，这方面也有法律基础设施。"
+  },
+  {
+   "i": 410,
+   "s": 2589.57,
+   "e": 2592.21,
+   "en": "If your product is not ready to ship, don't ship the product.",
+   "zh": "如果你的产品还没准备好发布，那就别发布。"
+  },
+  {
+   "i": 411,
+   "s": 2592.44,
+   "e": 2595.6,
+   "en": "So my question is, can you help me help people think about this?",
+   "zh": "所以我的问题是，你能帮我帮助大家思考这件事吗？"
+  },
+  {
+   "i": 412,
+   "s": 2595.88,
+   "e": 2602.48,
+   "en": "Like, when w- when they're hearing news about how to regulate AI, how do you think about this?",
+   "zh": "比如，当他们听到关于如何监管AI的新闻时，你怎么看这件事？"
+  },
+  {
+   "i": 413,
+   "s": 2603.54,
+   "e": 2606.51,
+   "en": "And how do you place yourself in this?",
+   "zh": "你把自己放在这个格局中的什么位置？"
+  },
+  {
+   "i": 414,
+   "s": 2607.98,
+   "e": 2610.35,
+   "en": "mess. You know, you said it exactly right.",
+   "zh": "这一团乱里。你知道，你说得完全对。"
+  },
+  {
+   "i": 415,
+   "s": 2610.35,
+   "e": 2621.5,
+   "en": "It is so confusing because at face value, what everyone's saying and what everyone's doing feel so crazily divergent.",
+   "zh": "这太让人困惑了，因为表面上看，大家说的和大家做的感觉疯狂地不一致。"
+  },
+  {
+   "i": 416,
+   "s": 2621.76,
+   "e": 2625.4,
+   "en": "And so you're sort of in this world where, do I believe what they say?",
+   "zh": "所以你有点处在这个状态里：我该相信他们说的吗？"
+  },
+  {
+   "i": 417,
+   "s": 2625.42,
+   "e": 2626.57,
+   "en": "Do I believe what they're doing?",
+   "zh": "我该相信他们做的吗？"
+  },
+  {
+   "i": 418,
+   "s": 2626.58,
+   "e": 2628.16,
+   "en": "Like, where do people actually sit?",
+   "zh": "比如，人们到底站在哪一边？"
+  },
+  {
+   "i": 419,
+   "s": 2628.16,
+   "e": 2629.42,
+   "en": "What do they actually believe?",
+   "zh": "他们到底相信什么？"
+  },
+  {
+   "i": 420,
+   "s": 2629.69,
+   "e": 2631.83,
+   "en": "Um, and I find myself asking this too.",
+   "zh": "嗯，我也发现自己会问这个问题。"
+  },
+  {
+   "i": 421,
+   "s": 2631.85,
+   "e": 2640.39,
+   "en": "Like, I think it was, it's very funny that, you know, um, the same people who are advocating for pacing the frontier also are building a wet lab.",
+   "zh": "比如，我觉得很有意思，你知道，那些一边呼吁放慢前沿发展节奏的人，另一边却在建湿实验室。"
+  },
+  {
+   "i": 422,
+   "s": 2640.4,
+   "e": 2646.03,
+   "en": "Like, that's, I think, a really, um, weird, uh, confluence of, of factors.",
+   "zh": "我觉得这真的是各种因素一种很奇怪的汇合。"
+  },
+  {
+   "i": 423,
+   "s": 2646.04,
+   "e": 2656.91,
+   "en": "So I think where, where I stand is, like, ultimately, um, this technology will become more and more and more, um, capable.",
+   "zh": "所以我认为我的立场是，归根结底，这项技术会变得越来越强大。"
+  },
+  {
+   "i": 424,
+   "s": 2657.01,
+   "e": 2669.44,
+   "en": "And, uh, you know, part of what is both scientifically very exciting, but also I think brings all these questions into the foreground, is just how quickly AI has moved.",
+   "zh": "而且，你知道，从科学上非常令人兴奋、但同时也让这些问题凸显出来的一点，就是AI发展得有多快。"
+  },
+  {
+   "i": 425,
+   "s": 2669.48,
+   "e": 2675.36,
+   "en": "Even over the past year, like a year ago, most people, like, coded roughly by hand.",
+   "zh": "甚至就在过去一年，比如一年前，大多数人基本上还是靠手写代码。"
+  },
+  {
+   "i": 426,
+   "s": 2675.37,
+   "e": 2678.79,
+   "en": "They would, like, go into the, into the code editor and write code.",
+   "zh": "他们会打开代码编辑器，然后写代码。"
+  },
+  {
+   "i": 427,
+   "s": 2678.93,
+   "e": 2681.5,
+   "en": "And now people are mostly just talking to agents.",
+   "zh": "而现在，人们大多只是在跟智能体对话。"
+  },
+  {
+   "i": 428,
+   "s": 2681.54,
+   "e": 2685.79,
+   "en": "So the speed at which everything is moving is, is quite staggering.",
+   "zh": "所以一切变化的速度，快得相当惊人。"
+  },
+  {
+   "i": 429,
+   "s": 2686.08,
+   "e": 2700.18,
+   "en": "Um, and I think a lot of what the, a lot of the concerns are, are heightened and a lot of the fear is heightened by the fact that, um, like, if things are moving this fast, where is this gonna be in a year?",
+   "zh": "而且我觉得，很多担忧、很多恐惧被放大了，是因为：如果事情发展得这么快，那一年后会到什么地步？"
+  },
+  {
+   "i": 430,
+   "s": 2700.18,
+   "e": 2701.34,
+   "en": "Where is this gonna be in two years?",
+   "zh": "两年后又会到什么地步？"
+  },
+  {
+   "i": 431,
+   "s": 2701.39,
+   "e": 2707.01,
+   "en": "The government and the public react on a much slower time horizon than the pace of AI progress.",
+   "zh": "政府和公众作出反应的时间尺度，比AI进步的速度慢得多。"
+  },
+  {
+   "i": 432,
+   "s": 2707.04,
+   "e": 2721.23,
+   "en": "And so by the time in one year or two years or three years, or how many, however many years forward, when, um, the public and government are really deciding what they wanna do, who knows, like, where AI's gonna be at that point and how fast it's gonna move.",
+   "zh": "所以等过了一年、两年、三年，或者不管多少年之后，当公众和政府真正决定要怎么做时，天知道那时AI会发展到什么程度、变化会有多快。"
+  },
+  {
+   "i": 433,
+   "s": 2721.5,
+   "e": 2725.6,
+   "en": "So that's one of the things I think explains some of the dialogue.",
+   "zh": "所以我认为，这也是能解释部分讨论的原因之一。"
+  },
+  {
+   "i": 434,
+   "s": 2725.95,
+   "e": 2739.4,
+   "en": "Um, I think the other thing that kind of explains some of this is the level of collection, collective action necessary and the level of general mistrust, um, that exists between the various I- AI leaders towards one another.",
+   "zh": "另外，我认为能解释一部分情况的，是所需的集体行动水平，以及各个AI领袖彼此之间存在的那种普遍不信任。"
+  },
+  {
+   "i": 435,
+   "s": 2739.48,
+   "e": 2749.44,
+   "en": "And this is, like, well-covered, but one major justification for folks is that, like, \"Oh, I am responsible and I would be responsible, but those guys aren't responsible.\"",
+   "zh": "这点其实已经被讲烂了，但很多人的一个主要理由是：“哦，我是负责任的，我也会负责任，但那些人不负责任。”"
+  },
+  {
+   "i": 436,
+   "s": 2749.44,
+   "e": 2754.67,
+   "en": "Whether those guys are, you know, another AI company or China or, you know, who knows what boogeyman.",
+   "zh": "不管那些人是另一家AI公司，还是中国，还是天知道什么妖魔鬼怪。"
+  },
+  {
+   "i": 437,
+   "s": 2754.81,
+   "e": 2761.16,
+   "en": "So I can't slow down, otherwise those guys who are irresponsible are going to, you know, who knows what they're gonna do.",
+   "zh": "所以我不能慢下来，否则那些不负责任的人，天知道他们会干出什么事来。"
+  },
+  {
+   "i": 438,
+   "s": 2761.67,
+   "e": 2774.49,
+   "en": "Um, and that basic logic, I think, is very confusing because I think for most people, um, uh, the kind of, like, common sense answer is, \"Well, who cares what the other guys are doing?\"",
+   "zh": "而我觉得这个基本逻辑很让人困惑，因为对大多数人来说，常识性的答案大概是：“谁管别人在干什么？”"
+  },
+  {
+   "i": 439,
+   "s": 2774.51,
+   "e": 2777.29,
+   "en": "Like, you have to, you have to do what feels good to you, right?",
+   "zh": "你得做让你自己觉得对的事，对吧？"
+  },
+  {
+   "i": 440,
+   "s": 2777.32,
+   "e": 2779.63,
+   "en": "And, like, you should do what's within your ethics.",
+   "zh": "而且你应该做符合你伦理道德的事。"
+  },
+  {
+   "i": 441,
+   "s": 2779.63,
+   "e": 2782.2,
+   "en": "But I think that's also what complicates a lot of this.",
+   "zh": "但我觉得，这也正是让很多事情变复杂的原因。"
+  },
+  {
+   "i": 442,
+   "s": 2782.21,
+   "e": 2788.67,
+   "en": "So I think a lot of what- Is necessary is, like, it's almost diplomacy is the right word.",
+   "zh": "所以我认为，很多需要的东西，几乎可以用“外交”这个词来形容。"
+  },
+  {
+   "i": 443,
+   "s": 2788.67,
+   "e": 2798.22,
+   "en": "Like, how do we get this group of people who all, who don't really trust each other that much, but all agree that, like, this is really powerful",
+   "zh": "比如，我们怎么让这一群人——他们彼此并不怎么信任，但都同意这技术非常强大——"
+  },
+  {
+   "i": 444,
+   "s": 2798.22,
+   "e": 2806.8,
+   "en": "technology, and we need to, we need to figure out how to land it and how to, how to make sure that we develop it responsibly and that things go well.",
+   "zh": "而且我们需要弄清楚怎么把它落地，怎么确保我们负责任地开发它，让事情顺利发展。"
+  },
+  {
+   "i": 445,
+   "s": 2806.95,
+   "e": 2809.69,
+   "en": "Like, how do we, like, make all of this work?",
+   "zh": "比如，我们怎么让这一切运转起来？"
+  },
+  {
+   "i": 446,
+   "s": 2809.7,
+   "e": 2818.59,
+   "en": "And we're at the moment of, like, peak insanity, I think, for that because it's, like, in the public, all these problems are being, like, aired out.",
+   "zh": "我觉得，在这一点上，我们现在正处于某种“疯狂巅峰”，因为这些问题正在公众面前被摊开讨论。"
+  },
+  {
+   "i": 447,
+   "s": 2818.62,
+   "e": 2828.83,
+   "en": "Like, we can all, we can tell that nobody trusts each other, and we can tell that people are kind of, are- are being really worried bef- like, maybe a little bit before the AIs themselves are getting to the point",
+   "zh": "我们都能看出，没人信任彼此；也能看出，大家确实非常担忧——也许有点早，甚至是在AI本身还没发展到……"
+  },
+  {
+   "i": 448,
+   "s": 2828.83,
+   "e": 2829.99,
+   "en": "where they're deserving of that worry.",
+   "zh": "真正值得那种担忧的程度之前。"
+  },
+  {
+   "i": 449,
+   "s": 2829.99,
+   "e": 2839.9,
+   "en": "And so, I mean, I ultimately think the- the most important thing is to, like, get everyone to agree to some common foundation and base, and then develop some",
+   "zh": "所以我的意思是，我最终认为最重要的是，让所有人就某种共同的基础和底线达成一致，然后发展出一些……"
+  },
+  {
+   "i": 450,
+   "s": 2839.9,
+   "e": 2851.84,
+   "en": "process by which we can all reevaluate and consistently look at it and say, \"Hey, we all agree actually that, you know, we need to be doing this now, and we all need to be doing this other thing now, and we all see, like, the models",
+   "zh": "这个过程让我们都能重新评估并持续审视它，然后说：“嘿，我们其实都同意，我们现在需要做这件事，同时我们也都需要做另一件事，而且我们都看到，这些模型……”"
+  },
+  {
+   "i": 451,
+   "s": 2851.84,
+   "e": 2853.99,
+   "en": "are getting powerful in- in certain ways.",
+   "zh": "在某些方面正变得越来越强大。"
+  },
+  {
+   "i": 452,
+   "s": 2853.99,
+   "e": 2867.44,
+   "en": "Like, let's all, let's all look at this together.\" And I actually genuinely believe, for what it's worth, like, that having these, like, collective dialogues is not only gonna be possible among the AI leaders within America, but also gonna be possible internationally.",
+   "zh": "比如，让我们一起、一起看看这件事。而且说实话，我真的相信，这种集体对话不仅可能在美国的AI领导者之间实现，也可能在国际上实现。"
+  },
+  {
+   "i": 453,
+   "s": 2867.45,
+   "e": 2873.74,
+   "en": "Like, I think we have a, all have a shared interest in making sure this technology, um, does not go horribly wrong.",
+   "zh": "我觉得我们都有一个共同利益，就是确保这项技术不会出大问题。"
+  },
+  {
+   "i": 454,
+   "s": 2874.12,
+   "e": 2878.91,
+   "en": "Yeah, I mean, the- the obvious next question is the China of it all.",
+   "zh": "对，显而易见的下一个问题就是中国因素。"
+  },
+  {
+   "i": 455,
+   "s": 2879.32,
+   "e": 2882.3,
+   "en": "I mean, you've talked about how this is a big concern.",
+   "zh": "你谈到过这是一个很大的担忧。"
+  },
+  {
+   "i": 456,
+   "s": 2882.38,
+   "e": 2892.44,
+   "en": "People don't trust each other at the top of these AI companies, but they all often say, \"We have to go as fast as possible because what if China gets there first?\"",
+   "zh": "人们不信任这些AI公司高层彼此，但他们常常说：“我们必须尽可能快，因为万一中国先到了呢？”"
+  },
+  {
+   "i": 457,
+   "s": 2892.82,
+   "e": 2898.78,
+   "en": "I mean, you, Ted Cruz is out there saying, like, \"We would rather have US killer robots than Chinese killer robots.\"",
+   "zh": "泰德·克鲁兹公开说：“我们宁愿要美国的杀人机器人，也不要中国的杀人机器人。”"
+  },
+  {
+   "i": 458,
+   "s": 2898.8,
+   "e": 2904.99,
+   "en": "\"If they're going to be killer robots, I'd rather they be American killer robots than Chinese killer robots.\"",
+   "zh": "“如果它们要成为杀人机器人，我宁愿它们是美国的杀人机器人，而不是中国的杀人机器人。”"
+  },
+  {
+   "i": 459,
+   "s": 2905.07,
+   "e": 2909.61,
+   "en": "Which I think scares a lot of people, um … and also to say it mildly.",
+   "zh": "我觉得这让很多人害怕，而且这还是委婉说法。"
+  },
+  {
+   "i": 460,
+   "s": 2910.39,
+   "e": 2915.84,
+   "en": "Um, yeah, this is a spectrum of American law, existing American law.",
+   "zh": "是的，这涉及美国法律、现行美国法律的一系列可能。"
+  },
+  {
+   "i": 461,
+   "s": 2916.8,
+   "e": 2923.52,
+   "en": "This does not include any global dynamics, not to mention, like, long-term collaboration.",
+   "zh": "这不包括任何全球动态，更不用说长期合作了。"
+  },
+  {
+   "i": 462,
+   "s": 2923.84,
+   "e": 2928.85,
+   "en": "How do you evaluate this spectrum given the China of it all, and, and what, what does that even mean?",
+   "zh": "考虑到中国因素，你如何评估这个范围？这到底意味着什么？"
+  },
+  {
+   "i": 463,
+   "s": 2928.86,
+   "e": 2931.36,
+   "en": "Like, how should I think about China with respect to this dynamic?",
+   "zh": "比如，关于这种动态，我该怎么看待中国？"
+  },
+  {
+   "i": 464,
+   "s": 2931.7,
+   "e": 2936.23,
+   "en": "I've actually, like, personally even changed my own opinion on this matter.",
+   "zh": "其实，就我个人而言，我对这件事的看法也改变了。"
+  },
+  {
+   "i": 465,
+   "s": 2936.35,
+   "e": 2950.12,
+   "en": "Like, I think in the, in the past I was very worried about China, and I was very worried about what that dynamic looked like, and I had read these, like, speeches that were given by PRC officials in the past that talked about",
+   "zh": "我觉得过去我非常担心中国，非常担心那种动态会是什么样，我读过一些中国官员过去的讲话，那些讲话谈到"
+  },
+  {
+   "i": 466,
+   "s": 2950.12,
+   "e": 2954.42,
+   "en": "how they viewed AI as, like, this am- this opportunity to leapfrog the West.",
+   "zh": "他们如何把AI看作一个超越西方的机会。"
+  },
+  {
+   "i": 467,
+   "s": 2954.42,
+   "e": 2957.02,
+   "en": "And you know, these, these are the concerning things when you read them.",
+   "zh": "你读到这些时，这些正是令人担忧的东西。"
+  },
+  {
+   "i": 468,
+   "s": 2957.4,
+   "e": 2971.67,
+   "en": "But as time has gone on, I think that we're paying them out to be too much of a boogeyman when in reality, um, they're going to see the same things that we see in terms of this is powerful technology and we as a humanity need to get this right.",
+   "zh": "但随着时间的推移，我觉得我们有点把他们描绘成过大的威胁，而实际上，他们也会看到我们所看到的事情：这是强大的技术，我们作为人类必须把它处理好。"
+  },
+  {
+   "i": 469,
+   "s": 2971.69,
+   "e": 2983.31,
+   "en": "There's going to be a lot of shared goals in making sure that AI goes well, and I think, um and I think it really is possible to arrive at some form of international cooperation.",
+   "zh": "在确保AI发展顺利方面会有很多共同目标，而且我觉得，确实有可能达成某种形式的国际合作。"
+  },
+  {
+   "i": 470,
+   "s": 2983.51,
+   "e": 2997.12,
+   "en": "I think that the Chinese government, like any government, has an interest in ensuring that there's stability in their society, and that, um, they don't lose control of this technology, and, uh, that overall, like, you",
+   "zh": "我认为中国政府和其他任何政府一样，有利益确保社会稳定，确保他们不会失去对这项技术的控制，而且总的来说，你知道，"
+  },
+  {
+   "i": 471,
+   "s": 2997.12,
+   "e": 3001.06,
+   "en": "know, things go well and we don't have catastrophic existential risks.",
+   "zh": "事情进展顺利，我们不会遭遇灾难性的生存风险。"
+  },
+  {
+   "i": 472,
+   "s": 3001.06,
+   "e": 3010.99,
+   "en": "And so there's quite a bit of shared ground that I think will en- will enable everybody to be rational and think rationally and, and ultimately make the right decisions.",
+   "zh": "所以我认为有相当多的共同点，能让每个人都保持理性、理性思考，并最终做出正确的决定。"
+  },
+  {
+   "i": 473,
+   "s": 3011.22,
+   "e": 3025.59,
+   "en": "Um, and even though it seems totally insane right now and it seems like, it seems like in some ways that feels impossible, I really have faith actually that, that as people see more and more and learn more and",
+   "zh": "而且，尽管现在看起来完全疯狂，在某些方面似乎不可能，但我真的相信，随着人们越来越多地看到、越来越多地了解这项技术，"
+  },
+  {
+   "i": 474,
+   "s": 3025.59,
+   "e": 3028.9,
+   "en": "more, more about the technology, um, people will make the right calls.",
+   "zh": "人们会做出正确的决定。"
+  },
+  {
+   "i": 475,
+   "s": 3029.7,
+   "e": 3037.74,
+   "en": "You have recently become One of the 20 most important people in that conversation in the United States.",
+   "zh": "你最近成了美国这场讨论中最重要的人物前20名之一。"
+  },
+  {
+   "i": 476,
+   "s": 3037.83,
+   "e": 3040.53,
+   "en": "You've been very important in AI in the last couple years.",
+   "zh": "过去几年你在AI领域举足轻重。"
+  },
+  {
+   "i": 477,
+   "s": 3040.53,
+   "e": 3043.44,
+   "en": "I mean, I think people remember seeing you in the headlines when you came to Meta.",
+   "zh": "我是说，大家应该还记得你来Meta时登上头条的新闻。"
+  },
+  {
+   "i": 478,
+   "s": 3043.44,
+   "e": 3046.19,
+   "en": "I think this, you know, isn't brand new to you.",
+   "zh": "我觉得这对你来说也不算全新的事。"
+  },
+  {
+   "i": 479,
+   "s": 3046.23,
+   "e": 3056.01,
+   "en": "But in the last couple weeks, you have designed and released a product that is being used by more people than ChatGPT was in its first couple weeks.",
+   "zh": "但过去几周，你设计并发布了一款产品，用它的人比ChatGPT刚上线头几周还多。"
+  },
+  {
+   "i": 480,
+   "s": 3056.04,
+   "e": 3066.98,
+   "en": "It feels like you have been thrust into a new kind of part of this conversation, where frankly, people have will be asking you more questions like, \"Where exactly,",
+   "zh": "感觉你被推到了这场讨论的一个新位置，说实话，人们会更加追问你，比如“到底"
+  },
+  {
+   "i": 481,
+   "s": 3066.98,
+   "e": 3072.92,
+   "en": "Alex, do you fall on this spectrum?\" Like, what would you wanna see because you're one of the people responsible?",
+   "zh": "Alex，你在这个光谱上站哪一边？”你希望看到什么，因为你是责任人之一。"
+  },
+  {
+   "i": 482,
+   "s": 3073.73,
+   "e": 3077.07,
+   "en": "Do you feel like you've come to those conclusions yet?",
+   "zh": "你觉得自己已经有结论了吗？"
+  },
+  {
+   "i": 483,
+   "s": 3077.21,
+   "e": 3085.28,
+   "en": "Yeah, I think, I think like anyone who works on this technology, these are things that I've, like, been thinking about for years and years.",
+   "zh": "是的，我觉得，任何做这项技术的人，这些问题都是我想了好多年的。"
+  },
+  {
+   "i": 484,
+   "s": 3085.33,
+   "e": 3097.07,
+   "en": "Truly, the way I think about what I want to do and what I want to accomplish and how I want to shape this conversation is, like, enable everybody",
+   "zh": "说真的，我思考自己想做什么、想达成什么、想怎样影响这场讨论的方式，就是让每个人"
+  },
+  {
+   "i": 485,
+   "s": 3097.1,
+   "e": 3102.19,
+   "en": "to have a common dialogue, and then get to the right place collectively.",
+   "zh": "都能有一个共同的对话，然后一起走到正确的地方。"
+  },
+  {
+   "i": 486,
+   "s": 3102.57,
+   "e": 3114.58,
+   "en": "Like, I don't think at this point in the conversation, it's, like, that helpful for me to say, \"Oh, I believe this, and, you know, you all should listen to me because, you know, I built Muse,\" or whatever.",
+   "zh": "我觉得在现在这个阶段，我说“哦，我相信这个，你们都该听我的，因为我开发了Muse”之类的话，没什么帮助。"
+  },
+  {
+   "i": 487,
+   "s": 3114.7,
+   "e": 3117.23,
+   "en": "We already have a bunch of people.",
+   "zh": "已经有一大堆人这么说了。"
+  },
+  {
+   "i": 488,
+   "s": 3117.58,
+   "e": 3120.22,
+   "en": "They all believe slightly different things.",
+   "zh": "他们相信的东西都略有不同。"
+  },
+  {
+   "i": 489,
+   "s": 3120.39,
+   "e": 3128.3,
+   "en": "Um, ultimately, this is a technology that we need, like, collective action on, that everyone needs to agree on, that we all need to get to the right place.",
+   "zh": "归根结底，这项技术需要我们集体行动，需要大家达成共识，需要我们一起走到正确的地方。"
+  },
+  {
+   "i": 490,
+   "s": 3128.55,
+   "e": 3140.77,
+   "en": "So what I really care about is, like, how do we facilitate and have the relevant dialogues in public that, and private, that enable us to get to the point where we all agree on a path?",
+   "zh": "所以我真正关心的是，怎么促成并开展相关的对话，公开的和私下的，让我们最终能就一条路达成共识。"
+  },
+  {
+   "i": 491,
+   "s": 3141.07,
+   "e": 3149.4,
+   "en": "And one of the very, um- strange things for me is, like, I know a lot of these people, and I've met them.",
+   "zh": "对我来说很奇怪的一点是，这些人我认识很多，也见过面。"
+  },
+  {
+   "i": 492,
+   "s": 3149.45,
+   "e": 3150.55,
+   "en": "They're all brilliant.",
+   "zh": "他们都很出色。"
+  },
+  {
+   "i": 493,
+   "s": 3150.83,
+   "e": 3162.12,
+   "en": "Um, but the degree to which certain personal animosities are, like, actually defining what people say and do and, like, how they're",
+   "zh": "但某些个人恩怨在多大程度上真的决定了人们说什么、做什么，以及他们如何"
+  },
+  {
+   "i": 494,
+   "s": 3162.12,
+   "e": 3166.67,
+   "en": "developing this really important technology is, um, is insane to me.",
+   "zh": "开发这项极其重要的技术，这在我看来简直不可思议。"
+  },
+  {
+   "i": 495,
+   "s": 3166.75,
+   "e": 3181.18,
+   "en": "It is, in some ways, a very human story that, like, feuds or, like, just the fact that, like, I really don't trust this other person can, can, like, snowball into this, like, civilizational level, um, problem.",
+   "zh": "某种程度上，这是个很人性化的故事：私人恩怨，或者只是“我实在不信任那个人”，就能像滚雪球一样变成文明级别的问题。"
+  },
+  {
+   "i": 496,
+   "s": 3181.36,
+   "e": 3184.13,
+   "en": "Um, but I don't think that serves any of us.",
+   "zh": "但我觉得这对谁都没好处。"
+  },
+  {
+   "i": 497,
+   "s": 3184.13,
+   "e": 3192.11,
+   "en": "Like, I think ultimately we have to all put our differences aside, put our histories aside, and just figure out how we solve this together.",
+   "zh": "我觉得最终我们都得放下分歧、放下过往，一起想清楚怎么解决这个问题。"
+  },
+  {
+   "i": 498,
+   "s": 3192.58,
+   "e": 3195.77,
+   "en": "It sounds very general, but that's a fairly specific ask.",
+   "zh": "听起来很笼统，但这其实是个相当具体的要求。"
+  },
+  {
+   "i": 499,
+   "s": 3195.77,
+   "e": 3198.91,
+   "en": "I mean, there are constraints that prevent that right now.",
+   "zh": "我是说，现在有一些限制让这件事做不到。"
+  },
+  {
+   "i": 500,
+   "s": 3198.93,
+   "e": 3212.38,
+   "en": "There are antitrust regulations that prevent a lot of those conversations from happening, and one of the proposals, one piece of many proposals that Dario put forward is waivers from those antitrust laws that would allow those kinds of conversations.",
+   "zh": "有反垄断法规会阻止很多这类对话发生，而在Dario提出的众多建议中，有一项就是获得这些反垄断法的豁免，从而允许这类对话。"
+  },
+  {
+   "i": 501,
+   "s": 3212.82,
+   "e": 3224.21,
+   "en": "I mean, tell me if I'm wrong, if there are secret conversations happening, but I don't think there is, first, the agreed-upon group in the United States that's having that conversation and then also, like, how do we even begin",
+   "zh": "我的意思是，如果我错了就告诉我，是不是有秘密对话在进行，但我不认为有；首先，美国有一个大家认可的团体在进行这种对话，然后还有，我们到底要怎么开始"
+  },
+  {
+   "i": 502,
+   "s": 3224.21,
+   "e": 3226.13,
+   "en": "to have those conversations with China?",
+   "zh": "和中国开展这些对话呢？"
+  },
+  {
+   "i": 503,
+   "s": 3226.15,
+   "e": 3228.5,
+   "en": "But actually, what don't I know?",
+   "zh": "但事实上，我到底不知道什么呢？"
+  },
+  {
+   "i": 504,
+   "s": 3228.53,
+   "e": 3235.57,
+   "en": "Is that something that's happening in, in, you know, some private room somewhere, or is it that, like, we're still at the beginning of that and we need to figure out how to do it?",
+   "zh": "这种事情是在某个私密房间里发生的吗，还是说，我们还处在起步阶段，需要弄清楚该怎么做？"
+  },
+  {
+   "i": 505,
+   "s": 3236.16,
+   "e": 3238.05,
+   "en": "Um, I don't think it's happening right now.",
+   "zh": "我不觉得现在已经在发生了。"
+  },
+  {
+   "i": 506,
+   "s": 3238.23,
+   "e": 3244.19,
+   "en": "At the White House, there was this dialogue, um, and this, these accords put forth, which are a real step.",
+   "zh": "在白宫，有过这样一次对话，而且提出了这些协议，这是实实在在的一步。"
+  },
+  {
+   "i": 507,
+   "s": 3244.25,
+   "e": 3249.9,
+   "en": "Like, I think there's, um, getting everyone to agree to something is like, that's really big.",
+   "zh": "我觉得，让所有人就某件事达成一致，这本身就非常重大。"
+  },
+  {
+   "i": 508,
+   "s": 3250.47,
+   "e": 3251.87,
+   "en": "Everyone agrees on something.",
+   "zh": "所有人都对某件事达成了一致。"
+  },
+  {
+   "i": 509,
+   "s": 3252.05,
+   "e": 3256.42,
+   "en": "And I think that one, that thing, which is basically saying, \"Hey, we're going to…",
+   "zh": "而我认为，那件事基本上是在说：“嘿，我们将要……"
+  },
+  {
+   "i": 510,
+   "s": 3256.68,
+   "e": 3268.08,
+   "en": "Every company is going to set out and develop what their internal controls and principles around developing this technology look like,\" and then there's gonna be multiple layers of verification on that from internal teams that verify",
+   "zh": "每家公司都会着手制定并明确自己在开发这项技术方面的内部管控和原则是什么”，然后会有多层验证：内部团队会核查"
+  },
+  {
+   "i": 511,
+   "s": 3268.11,
+   "e": 3277.54,
+   "en": "to, uh, external auditors that validate that they're following those controls to board-level committees that ensure they are following those, those, um, controls.",
+   "zh": "再到外部审计人员来验证他们确实遵守了这些管控，再到董事会层面的委员会来确保他们遵循这些管控。"
+  },
+  {
+   "i": 512,
+   "s": 3277.54,
+   "e": 3279.68,
+   "en": "Like, I think that's a great step.",
+   "zh": "我觉得，这是很棒的一步。"
+  },
+  {
+   "i": 513,
+   "s": 3279.89,
+   "e": 3284.19,
+   "en": "Um, 'cause in, in many ways, a lot of what's needed right now is just transparency.",
+   "zh": "因为，从很多方面来说，现在真正需要的很多就是透明度。"
+  },
+  {
+   "i": 514,
+   "s": 3284.2,
+   "e": 3289.57,
+   "en": "Like, we just need to ensure that, you know, people are going about this sanely and rationally.",
+   "zh": "我们只需要确保，大家是在理智、理性地推进这件事。"
+  },
+  {
+   "i": 515,
+   "s": 3289.57,
+   "e": 3296.16,
+   "en": "And I think in some ways, like people don't even trust that necessarily.",
+   "zh": "而且我觉得，从某些方面来说，人们甚至未必信任这一点。"
+  },
+  {
+   "i": 516,
+   "s": 3296.24,
+   "e": 3298.28,
+   "en": "As an industry, we have a lot of trust building to do.",
+   "zh": "作为一个行业，我们有很多信任需要建立。"
+  },
+  {
+   "i": 517,
+   "s": 3298.75,
+   "e": 3299.61,
+   "en": "I am an optimist.",
+   "zh": "我是个乐观主义者。"
+  },
+  {
+   "i": 518,
+   "s": 3299.61,
+   "e": 3300.51,
+   "en": "I think you're an optimist.",
+   "zh": "我觉得你也是乐观主义者。"
+  },
+  {
+   "i": 519,
+   "s": 3300.51,
+   "e": 3301.71,
+   "en": "Like, I think we're all optimists.",
+   "zh": "我觉得我们都是乐观主义者。"
+  },
+  {
+   "i": 520,
+   "s": 3301.72,
+   "e": 3304.6,
+   "en": "Like, I really do think these conversations will naturally happen.",
+   "zh": "我真的认为这些对话会自然发生。"
+  },
+  {
+   "i": 521,
+   "s": 3304.68,
+   "e": 3308.19,
+   "en": "This last accord that I referenced, like, that was in the White House.",
+   "zh": "我提到的最后那份协议，那是在白宫达成的。"
+  },
+  {
+   "i": 522,
+   "s": 3308.2,
+   "e": 3310.47,
+   "en": "The government helped facilitate that.",
+   "zh": "政府帮助促成了这件事。"
+  },
+  {
+   "i": 523,
+   "s": 3310.48,
+   "e": 3313.37,
+   "en": "And so I think we're gonna be seeing a lot more of that.",
+   "zh": "所以我觉得我们会看到更多这样的情况。"
+  },
+  {
+   "i": 524,
+   "s": 3313.44,
+   "e": 3314.53,
+   "en": "It's gonna be bumpy.",
+   "zh": "过程会有些波折。"
+  },
+  {
+   "i": 525,
+   "s": 3314.73,
+   "e": 3319.03,
+   "en": "There will be moments of total confusion and chaos and, like, what the heck is going on?",
+   "zh": "会有完全混乱、一片混沌的时刻，就是那种“这到底是怎么回事”的感觉。"
+  },
+  {
+   "i": 526,
+   "s": 3319.08,
+   "e": 3320.59,
+   "en": "But I see progress, too.",
+   "zh": "但我也看到了进步。"
+  },
+  {
+   "i": 527,
+   "s": 3321.26,
+   "e": 3325.92,
+   "en": "I'm glad that we've spent a lot of this conversation talking about safety and regulation.",
+   "zh": "我很高兴我们这次对话花了不少时间聊安全和监管。"
+  },
+  {
+   "i": 528,
+   "s": 3326.99,
+   "e": 3332.39,
+   "en": "How do we bring it back now to the optimistic vision of the future?",
+   "zh": "那我们现在怎么回到那个对未来乐观的愿景上呢？"
+  },
+  {
+   "i": 529,
+   "s": 3332.41,
+   "e": 3341.72,
+   "en": "I think the question a lot of people will naturally have after a long conversation about trust and safety is, why bother doing this at all?",
+   "zh": "我觉得在聊了这么多关于信任和安全之后，很多人自然会问：那到底为什么还要做这件事？"
+  },
+  {
+   "i": 530,
+   "s": 3342.09,
+   "e": 3350.62,
+   "en": "This is the moment in the SNL sketch where it's, uh, you know, if there's a 10% chance that something will kill you, but it'll probably make your life better, like, wouldn't you do it?",
+   "zh": "这就像SNL小品里的那个时刻：如果有10%的概率某件事会要你的命，但它多半会让你的生活更好，你不还是会去做吗？"
+  },
+  {
+   "i": 531,
+   "s": 3350.65,
+   "e": 3354.01,
+   "en": "And the other guy's like, \"No. No, I wouldn't.\" No.",
+   "zh": "另一个人就说：“不。不，我不会。”不会。"
+  },
+  {
+   "i": 532,
+   "s": 3354.02,
+   "e": 3354.52,
+   "en": "\"Really?!\"",
+   "zh": "“真的吗？！”"
+  },
+  {
+   "i": 533,
+   "s": 3355.01,
+   "e": 3356.78,
+   "en": "Can you help people answer that question?",
+   "zh": "你能帮人们回答这个问题吗？"
+  },
+  {
+   "i": 534,
+   "s": 3356.78,
+   "e": 3358.36,
+   "en": "Like, why do this?",
+   "zh": "就是，为什么要做这件事？"
+  },
+  {
+   "i": 535,
+   "s": 3359.85,
+   "e": 3373.55,
+   "en": "Something that I have always felt was a bit tragic was that I think, um, almost everyone when they're kids, they have big dreams and big ideas, and",
+   "zh": "我一直觉得有点悲哀的一件事是，我觉得几乎每个人小时候都有大大的梦想和大胆的想法，"
+  },
+  {
+   "i": 536,
+   "s": 3373.55,
+   "e": 3382.31,
+   "en": "they want to change the world, and they want to save the planet, and they want to, you know, uh, write a book or make a Broadway musical or make a movie.",
+   "zh": "他们想改变世界，想拯救地球，想写本书、做一部百老汇音乐剧，或者拍部电影。"
+  },
+  {
+   "i": 537,
+   "s": 3382.32,
+   "e": 3385.33,
+   "en": "Like, they have really, they have tons of hope.",
+   "zh": "他们真的，满怀希望。"
+  },
+  {
+   "i": 538,
+   "s": 3385.44,
+   "e": 3396.56,
+   "en": "And then for some reason or another, by the time that people finish school and they get a job, that, like, flame kind of dies and people really, um,",
+   "zh": "然后不知怎么的，等到人们毕业、找到工作，那团火焰就慢慢熄灭了，人们真的……"
+  },
+  {
+   "i": 539,
+   "s": 3396.89,
+   "e": 3402.36,
+   "en": "they stop dreaming big, and they stop having big ideas, and hoping for big things, and hoping for lots of change.",
+   "zh": "他们不再做大的梦，不再有大的想法，不再期待大事，不再期待大的改变。"
+  },
+  {
+   "i": 540,
+   "s": 3402.36,
+   "e": 3412.42,
+   "en": "And especially today, like, I think a lot of young people get really cynical, and they're like, \"Oh, the world is horrible, and it is, and I don't know",
+   "zh": "尤其是现在，我觉得很多年轻人变得特别愤世嫉俗，他们会说：“唉，这世界太糟了，确实糟，我也不知道"
+  },
+  {
+   "i": 541,
+   "s": 3412.42,
+   "e": 3421.63,
+   "en": "why it's so insane in so many ways, but I guess this is just the way it is.\" They lose faith that they have an ability to enable that change.",
+   "zh": "为什么它在很多方面都这么离谱，但可能就是这样吧。”他们不再相信自己有能力带来改变。"
+  },
+  {
+   "i": 542,
+   "s": 3421.75,
+   "e": 3432.49,
+   "en": "And I genuinely think one of the promises of AI, and especially something like Muse where you give AI to every single person in the world, is that",
+   "zh": "我真心觉得AI的承诺之一，尤其是像Muse这样把AI给到世界上每一个人的产品，就是"
+  },
+  {
+   "i": 543,
+   "s": 3433.36,
+   "e": 3443.18,
+   "en": "this doesn't happen, that people can have big ideas and big dreams and wants and, and goals that they can have as little kids, they can have when they're",
+   "zh": "这种事不会发生，人们可以保有大的想法、大的梦想、渴望和目标——小时候有的，少年时有的，"
+  },
+  {
+   "i": 544,
+   "s": 3443.18,
+   "e": 3453.43,
+   "en": "teenagers, they can keep having through adulthood, and that, you know, an AI super intelligent sidekick is there to help them just make all of that happen.",
+   "zh": "成年后还能一直有，而且有一个超级智能的AI伙伴在身边，帮他们把这一切都变成现实。"
+  },
+  {
+   "i": 545,
+   "s": 3453.61,
+   "e": 3467.49,
+   "en": "And that can be everything from, like, big wants and big dreams, um, to, like, small wants like, \"Hey, I just wanna spend more time with my kids,\" or, \"I just wanna spend more time with my parents,\" or, \"I just want to, like, eat",
+   "zh": "这可以大到远大的愿望和梦想，也可以小到“嘿，我只想多陪陪孩子”，或者“我只想多陪陪爸妈”，或者“我只想吃得"
+  },
+  {
+   "i": 546,
+   "s": 3467.49,
+   "e": 3476.05,
+   "en": "healthier,\" um, all the way up to, \"Hey, I have this, like, crazy idea for, um, like, a, a museum that I wanna start.\"",
+   "zh": "更健康一点”，一直到“嘿，我有个特别疯狂的想法，我想办一个博物馆”。"
+  },
+  {
+   "i": 547,
+   "s": 3476.07,
+   "e": 3479.42,
+   "en": "Like, my, my partner really wants to make a museum of ice.",
+   "zh": "我搭档就特别想做一个冰的博物馆。"
+  },
+  {
+   "i": 548,
+   "s": 3479.7,
+   "e": 3483.19,
+   "en": "I think it's, like, hilarious, but, um, Ice is crazy.",
+   "zh": "我觉得挺搞笑的，不过，冰这东西真的很疯狂。"
+  },
+  {
+   "i": 549,
+   "s": 3483.19,
+   "e": 3488.73,
+   "en": "There's a whole amazing story about the evolution of cold, of how we m- keep things cold- Yeah … that starts with ice.",
+   "zh": "关于“冷”的演变、我们是怎么让东西保持低温的，有整整一个精彩的故事——对……而这一切都从冰开始。"
+  },
+  {
+   "i": 550,
+   "s": 3488.73,
+   "e": 3489.23,
+   "en": "It's pretty cool.",
+   "zh": "挺酷的。"
+  },
+  {
+   "i": 551,
+   "s": 3489.55,
+   "e": 3490.38,
+   "en": "Yeah, it's- I'd go to the museum.",
+   "zh": "是啊，我会去博物馆。"
+  },
+  {
+   "i": 552,
+   "s": 3491.21,
+   "e": 3491.79,
+   "en": "Exactly.",
+   "zh": "没错。"
+  },
+  {
+   "i": 553,
+   "s": 3491.95,
+   "e": 3495.87,
+   "en": "And, and people have these ideas, and then they just can't…",
+   "zh": "人们有这些想法，然后就……做不成。"
+  },
+  {
+   "i": 554,
+   "s": 3495.88,
+   "e": 3497.9,
+   "en": "Y- you know, in some ways young people are right.",
+   "zh": "某种程度上，年轻人说得对。"
+  },
+  {
+   "i": 555,
+   "s": 3497.9,
+   "e": 3509.52,
+   "en": "Like, the world today is just kind of a maze of, like, roadblocks and issues and challenges and logistical, um, you know, uh, things that get in your way to make those things happen.",
+   "zh": "今天的世界就像一座迷宫，到处是障碍、问题、挑战，还有各种实际事务上的杂事，挡在你面前，让你没法把这些事做成。"
+  },
+  {
+   "i": 556,
+   "s": 3509.56,
+   "e": 3513.73,
+   "en": "And in a small way today, I'm seeing Muse make this problem better.",
+   "zh": "而今天，我确实看到 Muse 在一点点改善这个问题。"
+  },
+  {
+   "i": 557,
+   "s": 3513.8,
+   "e": 3523.44,
+   "en": "Like, I'm seeing people using it to save time, save money, like, take the little stuff off their plate, and just give them more and more",
+   "zh": "我看到人们用它节省时间、节省金钱，把那些小事从自己的担子里拿掉，从而给自己越来越多"
+  },
+  {
+   "i": 558,
+   "s": 3523.47,
+   "e": 3528.1,
+   "en": "agency, more and more freedom, more and more of an ability to spend their time on things they want to do.",
+   "zh": "主动权，越来越多的自由，越来越多的能力，把时间花在自己想做的事情上。"
+  },
+  {
+   "i": 559,
+   "s": 3528.47,
+   "e": 3540.9,
+   "en": "And I think one of the promises of AI that gets better and better and better, gets not only smarter but also more aligned and more trustworthy, is that you can give it bigger and bigger ideas.",
+   "zh": "我觉得 AI 的承诺之一就是，随着它越来越好，不仅更聪明，也更对齐、更值得信任，你就可以交给它越来越大的想法。"
+  },
+  {
+   "i": 560,
+   "s": 3540.91,
+   "e": 3544.39,
+   "en": "And you can say, \"Hey, I wanna start a museum of ice.",
+   "zh": "你可以说：“嘿，我想开一座冰的博物馆。"
+  },
+  {
+   "i": 561,
+   "s": 3544.65,
+   "e": 3553.06,
+   "en": "Like, tell me how to go about doing this.\" And it'll tell you, \"These are the buildings you can lease, and this is who you can contact for funding who might be passionate about ice.",
+   "zh": "告诉我该怎么做。”它会告诉你：“这些是你可以租的场地，这是你可以联系的、可能对冰充满热情的资助方。"
+  },
+  {
+   "i": 562,
+   "s": 3553.09,
+   "e": 3560.58,
+   "en": "And, um, this is, like, how you should think about curating your exhibit and, you know, uh, what, what that might look like.\" And I think for some people",
+   "zh": "还有，你应该这样考虑策展，以及它大概会是什么样子。”"
+  },
+  {
+   "i": 563,
+   "s": 3560.58,
+   "e": 3575.18,
+   "en": "like you or me who have experienced this, this, like, journey of having big ideas and then, like, going through all the crazy maze of things to make that happen, it is, like, really magical.",
+   "zh": "我觉得对于像你我这样经历过这种旅程的人——有了宏大的想法，然后穿过那一整套疯狂的迷宫把它变成现实——这真的像魔法一样。"
+  },
+  {
+   "i": 564,
+   "s": 3575.18,
+   "e": 3587.03,
+   "en": "Mm. And it's really special, and I think it's something that, um, you know… I think human stories of people who have a dream and then accomplish those are the most, like… are some of just the most beautiful",
+   "zh": "嗯。这真的很特别，我觉得……那些怀揣梦想并最终实现梦想的人的故事，是最……是我能想象到的最美好的"
+  },
+  {
+   "i": 565,
+   "s": 3587.04,
+   "e": 3588.68,
+   "en": "things that I can possibly imagine.",
+   "zh": "事物之一。"
+  },
+  {
+   "i": 566,
+   "s": 3589.02,
+   "e": 3597.47,
+   "en": "And I w- truly think with AI and, like, everyone with a little Muse sidekick, like, more people can experience this.",
+   "zh": "我真的觉得，有了 AI，每个人都配一个 Muse 小助手，会有更多人能体验到这一点。"
+  },
+  {
+   "i": 567,
+   "s": 3597.5,
+   "e": 3603.39,
+   "en": "I- my hope is that everyone, literally, like, all eight billion people in the world experience that and have the ability to do it.",
+   "zh": "我的希望是，世界上全部八十亿人，每一个人都能体验到这一点，都有能力做到。"
+  },
+  {
+   "i": 568,
+   "s": 3603.88,
+   "e": 3609.86,
+   "en": "And that is just, like, a very special world to live in, I think, if we can make that happen.",
+   "zh": "如果我们能做到，我觉得那会是一个生活起来非常特别的世界。"
+  },
+  {
+   "i": 569,
+   "s": 3609.88,
+   "e": 3618.62,
+   "en": "And I think more people will be able to get what they want out of their lives and, and live more fulfilled lives, and it'll be magical and exciting.",
+   "zh": "我觉得会有更多人能从生活中得到自己想要的，过上更充实的生活，那会很神奇、很令人兴奋。"
+  },
+  {
+   "i": 570,
+   "s": 3618.67,
+   "e": 3622.54,
+   "en": "And that's w- what I really think the promise is for, for people.",
+   "zh": "这才是我真正认为这件事对人们的意义所在。"
+  },
+  {
+   "i": 571,
+   "s": 3622.54,
+   "e": 3634.02,
+   "en": "And I think part of what is so confusing is like, um, you know, oftentimes people in AI, we say, like, \"Oh, AI will cure cancer.\" And I think everyone wants cancer",
+   "zh": "我觉得让人困惑的一点是，我们做 AI 的人经常说：“哦，AI 会治愈癌症。”我相信每个人都希望癌症"
+  },
+  {
+   "i": 572,
+   "s": 3634.02,
+   "e": 3644.0,
+   "en": "cured, but every individual person has something they want intensely, and they want even more than i- you know, ironically speaking, a cure for cancer.",
+   "zh": "被治愈，但每个人自己都有某件极其渴望的事，而且讽刺地说，他们想要那件事的程度，甚至超过治愈癌症。"
+  },
+  {
+   "i": 573,
+   "s": 3644.21,
+   "e": 3648.99,
+   "en": "Um, and so I think that's part of the magic is that we talk about this thing, personal superintelligence.",
+   "zh": "所以我觉得神奇之处就在于，我们谈的是“个人超级智能”这个东西。"
+  },
+  {
+   "i": 574,
+   "s": 3648.99,
+   "e": 3658.25,
+   "en": "Like, it will help you at the thing that you want and the thing that you dream of, and, um, and that will change over your life, and you will be able to accomplish many dreams and many wants.",
+   "zh": "它会在你想做的事、你梦想的事上帮你，而这些会随着你的人生变化，你能够实现很多梦想、满足很多愿望。"
+  },
+  {
+   "i": 575,
+   "s": 3658.6,
+   "e": 3662.8,
+   "en": "And I think that's what's, uh, the promise of, of AI.",
+   "zh": "我认为，这正是AI的潜力所在。"
+  },
+  {
+   "i": 576,
+   "s": 3662.8,
+   "e": 3674.54,
+   "en": "That dream has within it a belief, I think, which is that people do actually have big dreams, and that those big dreams will more often than not help other people.",
+   "zh": "我认为，这个梦想包含一种信念：人确实会有远大的梦想，而这些远大的梦想往往能帮助他人。"
+  },
+  {
+   "i": 577,
+   "s": 3674.97,
+   "e": 3684.92,
+   "en": "So when we hear people say AI will cure cancer, sometimes perhaps they're talking about you prompt an AI and it thinks up the cure for cancer, but much, much",
+   "zh": "所以，当我们听人说AI会治愈癌症时，有时他们指的可能是你给AI一个提示，它就想出了治愈癌症的方法，但更可能的是，"
+  },
+  {
+   "i": 578,
+   "s": 3684.92,
+   "e": 3694.32,
+   "en": "more likely it's the AI facilitates the individual ambitions of millions of cancer doctors, and together we accelerate the progress toward cancer.",
+   "zh": "更可能是AI会助力数百万癌症医生实现各自的抱负，而我们共同加速攻克癌症的进程。"
+  },
+  {
+   "i": 579,
+   "s": 3694.35,
+   "e": 3707.42,
+   "en": "It's making me think, you know, when I hear people talk about Muse and say like, \"What do people need an AI assistant for? People don't have those dreams.\" Like, what a limited view of peop- of other people.",
+   "zh": "这让我想到，当我听到人们谈论Muse时说：“人们为什么需要AI助手？人们根本没有那些梦想。”这看法对别人也太狭隘了。"
+  },
+  {
+   "i": 580,
+   "s": 3708.24,
+   "e": 3718.14,
+   "en": "You know, I don't know what those are, and it's not up to you or me to say which dream is more worthy than the other, to your point, big or small.",
+   "zh": "我也说不清那些梦想到底是什么，而且正如你说的，无论梦想大小，都不该由你我来评判哪个更有价值。"
+  },
+  {
+   "i": 581,
+   "s": 3718.36,
+   "e": 3729.95,
+   "en": "My view on people is like they will have moments of inspiration where at some point or another they will realize, like, \"Wait, I really wanna do this thing.\" I",
+   "zh": "我对人的看法是，人总会有灵光一现的时刻，迟早会意识到：“等等，我真的很想做这件事。”"
+  },
+  {
+   "i": 582,
+   "s": 3729.95,
+   "e": 3741.31,
+   "en": "want everyone who has one of these ideas to be able to tell their Muse, \"Hey, I have this big idea.\" And their Muse will just like secretly behind the scenes help them figure out how to make it happen.",
+   "zh": "我希望每个有这种想法的人都能告诉自己的Muse：“嘿，我有个大主意。”而他们的Muse会悄悄在幕后帮他们想办法把它变成现实。"
+  },
+  {
+   "i": 583,
+   "s": 3741.6,
+   "e": 3747.35,
+   "en": "And I think part of this is also fanning the flame, so to speak.",
+   "zh": "从某种意义上说，我觉得这也是在让火苗越烧越旺。"
+  },
+  {
+   "i": 584,
+   "s": 3747.72,
+   "e": 3759.07,
+   "en": "Um, I think for a lot of people, they will have, like, a small want, and then it'll happen, and then they'll dream a little bit bigger, and then it'll actually happen, and they'll dream a little bit bigger, and it'll actually happen.",
+   "zh": "我觉得对很多人来说，他们先有一个小小的愿望，然后它实现了，于是梦想大一点，又真的实现了，再梦想大一点，又真的实现了。"
+  },
+  {
+   "i": 585,
+   "s": 3759.11,
+   "e": 3771.79,
+   "en": "And, um, and as that goes on, people will sort of, uh, like, realize that AI can be so much more, that Muse can be so much more, that, you know, they can, um, that they can do so much more.",
+   "zh": "而随着这个过程继续，人们会慢慢意识到，AI能做的远不止这些，Muse能做的远不止这些，而他们自己也能做到更多。"
+  },
+  {
+   "i": 586,
+   "s": 3771.85,
+   "e": 3773.47,
+   "en": "This won't happen overnight.",
+   "zh": "这不会一夜之间发生。"
+  },
+  {
+   "i": 587,
+   "s": 3773.58,
+   "e": 3778.81,
+   "en": "This is something that will take time, and everyone will have to experience on their own, and I really hope everyone experiences.",
+   "zh": "这需要时间，每个人都要亲自去经历，我真心希望每个人都能经历到。"
+  },
+  {
+   "i": 588,
+   "s": 3779.0,
+   "e": 3784.89,
+   "en": "Um, but I think over, like, like, generations, I think can be, like, absolutely magical.",
+   "zh": "但我觉得，随着一代代人过去，这会变得无比奇妙。"
+  },
+  {
+   "i": 589,
+   "s": 3785.63,
+   "e": 3794.82,
+   "en": "You know, I think especially the way that you're in the press and talked about, and you kind of naturally become sort of a caricature of yourself.",
+   "zh": "我觉得尤其是你在媒体上被报道、被谈论的方式，会让你自然而然变成某种漫画式的自己。"
+  },
+  {
+   "i": 590,
+   "s": 3794.89,
+   "e": 3797.55,
+   "en": "There's, like, the character of you out there in the world.",
+   "zh": "就好像世界上存在一个“你的角色”。"
+  },
+  {
+   "i": 591,
+   "s": 3797.65,
+   "e": 3805.95,
+   "en": "And this has helped me get to know you better because there seems like a common theme in some of your answers, which is Muse is a way to facilitate",
+   "zh": "这也让我更了解你，因为你的一些回答里似乎有个共同点：Muse是一种帮助实现"
+  },
+  {
+   "i": 592,
+   "s": 3806.21,
+   "e": 3815.08,
+   "en": "other people's dreams because you have a belief in people and their goodness and their ability to improve the world and just the sort of value of their ideas.",
+   "zh": "他人梦想的方式，因为你相信人、相信人的善良、相信人改善世界的能力，也相信他们想法的价值。"
+  },
+  {
+   "i": 593,
+   "s": 3815.1,
+   "e": 3824.58,
+   "en": "And it seems like you are directing Muse in some ways, but you're not saying, \"This is for coding,\" or, \"This is for X specific task.\" You're watching and, and facilitating.",
+   "zh": "看起来你在某些方面是在引导Muse，但你不会说“这是用来写代码的”或“这是用来做某个特定任务的”。你是在观察，在促成。"
+  },
+  {
+   "i": 594,
+   "s": 3824.61,
+   "e": 3832.81,
+   "en": "And when I asked you where you fall on this, your answer was, \"I'm interested in the collective wisdom of the group.",
+   "zh": "当我问你在这一点上持什么立场时，你回答说：“我感兴趣的是群体的集体智慧。”"
+  },
+  {
+   "i": 595,
+   "s": 3832.81,
+   "e": 3846.4,
+   "en": "I'm interested in facilitating or being part of a conversation between other people, that we have a lot of smart people all around the world, and I don't feel like it would be that useful to say, 'Here's exactly my opinion on",
+   "zh": "我感兴趣的是促成或参与他人之间的对话。世界各地有那么多聪明人，而我不觉得说“这就是我对"
+  },
+  {
+   "i": 596,
+   "s": 3846.4,
+   "e": 3848.18,
+   "en": "where exactly this should be regulated.'",
+   "zh": "这件事究竟该如何监管的准确看法”会有多大用处。"
+  },
+  {
+   "i": 597,
+   "s": 3848.19,
+   "e": 3856.29,
+   "en": "I see the best outcome as coming from a group conversation of many different people with their many thoughts and, and wants.\" Do you agree with what I've just said?",
+   "zh": "我认为最好的结果来自许多不同的人带着各自的想法和需求进行群体对话。”你同意我刚才说的吗？"
+  },
+  {
+   "i": 598,
+   "s": 3857.17,
+   "e": 3864.89,
+   "en": "Yeah, I think 'cause there are so many big questions about AI, and it is, like, something that everyone has a point of view on and should have a point of view on.",
+   "zh": "是的，我觉得这是因为AI有太多重大问题，而且这是每个人都会有看法、也应该有看法的事情。"
+  },
+  {
+   "i": 599,
+   "s": 3865.19,
+   "e": 3875.42,
+   "en": "And, um, part of, I think, what's amazing about democratic institutions and democratic countries and, and democracy broadly speaking is that it matters",
+   "zh": "而且，我认为民主制度、民主国家以及广义上的民主，其了不起之处部分就在于它很重要"
+  },
+  {
+   "i": 600,
+   "s": 3875.42,
+   "e": 3886.53,
+   "en": "what everyone thinks, and we have to figure out how we, like, take this, like, complex, jumbled- Yeah … um, uh, mess of what everyone thinks and channel that into the right thing happening.",
+   "zh": "……每个人的想法，我们得想办法把这一堆复杂的、乱糟糟的——对……嗯，呃，把每个人的想法搅成的一团乱麻，引导到正确的事情上去。"
+  },
+  {
+   "i": 601,
+   "s": 3886.82,
+   "e": 3899.8,
+   "en": "And another thing is, like, part of what has held AI back, and I think part of the problem of AI, is how it almost feels like the people building AI are talking down on other people.",
+   "zh": "还有一点，阻碍AI发展的原因之一，我觉得也是AI的问题所在，就是感觉做AI的人有点居高临下地在跟别人说话。"
+  },
+  {
+   "i": 602,
+   "s": 3899.83,
+   "e": 3904.78,
+   "en": "It's like- Yeah … \"Hey, I am building s- the smartest thing you've ever known.",
+   "zh": "就像——对……“嘿，我在造你见过的最聪明的东西。”"
+  },
+  {
+   "i": 603,
+   "s": 3905.05,
+   "e": 3908.64,
+   "en": "It's gonna be way smarter than you, and I know exactly what we're gonna do with it.\"",
+   "zh": "“它会比你聪明得多，而且我完全清楚我们要拿它干什么。”"
+  },
+  {
+   "i": 604,
+   "s": 3908.97,
+   "e": 3913.39,
+   "en": "And I think rightfully, people are like, \"Wait, what?\" Like Yeah.",
+   "zh": "我觉得大家有这种反应很正常：“等等，什么？”对。"
+  },
+  {
+   "i": 605,
+   "s": 3914.36,
+   "e": 3921.53,
+   "en": "\"What does anything you just said have to do with me?\" And, and like, um, \"How is this even good for me?\" And then you're like, \"Oh, it'll cure cancer.\"",
+   "zh": "“你说的这些跟我有什么关系？”然后，嗯，“这对我到底有什么好处？”然后你就说，“哦，它能治愈癌症。”"
+  },
+  {
+   "i": 606,
+   "s": 3921.53,
+   "e": 3925.11,
+   "en": "And they're like, \"Okay, but what else?\" Like Yeah, do I believe you?",
+   "zh": "他们就说，“好吧，还有呢？”对，我凭什么信你？"
+  },
+  {
+   "i": 607,
+   "s": 3925.24,
+   "e": 3925.8,
+   "en": "Or, yeah.",
+   "zh": "或者说，对。"
+  },
+  {
+   "i": 608,
+   "s": 3925.93,
+   "e": 3926.43,
+   "en": "Yeah.",
+   "zh": "对。"
+  },
+  {
+   "i": 609,
+   "s": 3926.55,
+   "e": 3938.84,
+   "en": "And so I think that especially given the moment that we're in, and to your point, like, how much fear there is about AI and how much uncertainty there is, and how confusing everything that's being said is, like, um, I think the",
+   "zh": "所以我觉得，特别是考虑到我们现在的处境，就像你说的，大家对AI有多少恐惧、多少不确定，各种说法有多让人困惑，嗯，我觉得"
+  },
+  {
+   "i": 610,
+   "s": 3938.85,
+   "e": 3942.03,
+   "en": "most important things are, like, first, let's have everyone experience it.",
+   "zh": "最重要的是，首先，让每个人都亲身体验一下。"
+  },
+  {
+   "i": 611,
+   "s": 3942.03,
+   "e": 3947.03,
+   "en": "Like, let's have everyone actually, like, understand the hype Yeah … for be- lack of a better term.",
+   "zh": "就是让大家真正理解这个——怎么说呢——热潮。"
+  },
+  {
+   "i": 612,
+   "s": 3947.18,
+   "e": 3952.99,
+   "en": "Like, feel what AI agents can do for you and can do to make your life better.",
+   "zh": "去感受AI智能体能为你做什么，能让你的生活变得更好。"
+  },
+  {
+   "i": 613,
+   "s": 3953.39,
+   "e": 3965.45,
+   "en": "And that'll give you perspective as to, \"Oh, this is a technology that, yeah, it's definitely risky,\" and, and there's, there's tons of risk, don't get me wrong, \"but it also is really great, and I like it.",
+   "zh": "这样你就会有判断：“哦，这项技术，对，肯定有风险，”而且风险很多，别误会我的意思，“但它也真的很棒，我喜欢它。"
+  },
+  {
+   "i": 614,
+   "s": 3965.47,
+   "e": 3978.7,
+   "en": "And I wanna make sure at least some form of it continues, and I can continue using.\" Um, all the way to, you know, the, these, like, big questions and these big dialogues, like, how do we just get everyone to a place where we all",
+   "zh": "“我想确保至少某种形式能延续下去，我能继续用。”嗯，一直到那些大问题、大对话，就是怎么让所有人都能到一个"
+  },
+  {
+   "i": 615,
+   "s": 3978.71,
+   "e": 3980.61,
+   "en": "agree, and we can find a path forward?",
+   "zh": "达成共识、能找到前进道路的位置？"
+  },
+  {
+   "i": 616,
+   "s": 3980.64,
+   "e": 3985.61,
+   "en": "And I think I have enough humility that, like, these guys are, you know, they're big, important people.",
+   "zh": "我觉得我有足够的谦逊，知道这些人都是，你知道，大人物、重要人物。"
+  },
+  {
+   "i": 617,
+   "s": 3985.61,
+   "e": 3990.76,
+   "en": "Like, I don't know if I have much to add, you know, um, given their points of view.",
+   "zh": "我不知道自己还能补充多少，嗯，毕竟他们有他们的观点。"
+  },
+  {
+   "i": 618,
+   "s": 3990.76,
+   "e": 3996.51,
+   "en": "But I just wanna make sure that we I- facilitate is really the word that keeps coming to my mind.",
+   "zh": "但我就是想确保我们——“促进”这个词一直在我脑子里冒出来。"
+  },
+  {
+   "i": 619,
+   "s": 3996.51,
+   "e": 4005.34,
+   "en": "Like, how do we move quickly to all collectively come to informed opinions and, um, and then come to a process where we agree on something?",
+   "zh": "怎么快速行动，让所有人一起形成有依据的看法，然后，嗯，再进入一个能达成一致的过程？"
+  },
+  {
+   "i": 620,
+   "s": 4006.67,
+   "e": 4016.95,
+   "en": "This is the question I ask everyone at the end of these HUGE* conversations, which is when I think about after I'm dead and after people say that she",
+   "zh": "这是我在这些重大对话结束时问每个人的问题，就是当我想到我去世之后，当人们说“她"
+  },
+  {
+   "i": 621,
+   "s": 4016.95,
+   "e": 4027.98,
+   "en": "was a really great family member, and she loved her husband, and she loved her friends, I would want them to talk about the mission of this show.",
+   "zh": "“是个很好的家人，她爱她的丈夫，她爱她的朋友”之后，我希望他们谈的是这个节目的使命。"
+  },
+  {
+   "i": 622,
+   "s": 4028.21,
+   "e": 4037.55,
+   "en": "I would want them to talk about how I tried my best to help people see ways the future could go well because I really believe, as it seems you do,",
+   "zh": "我希望他们谈的是我如何尽力帮助人们看到未来可以变好的各种可能，因为我真的相信，看起来你也相信，"
+  },
+  {
+   "i": 623,
+   "s": 4037.63,
+   "e": 4045.82,
+   "en": "in other people, in their perspective, and when they see a vision of a future they believe in, that they're gonna actually try and help make it happen.",
+   "zh": "相信别人，相信他们的视角，当他们看到一个自己相信的未来愿景时，他们会真的努力去让它实现。"
+  },
+  {
+   "i": 624,
+   "s": 4045.82,
+   "e": 4049.95,
+   "en": "Like, that's the point of what I spend all of my working hours doing.",
+   "zh": "我所有工作时间在做的事情，意义就在这里。"
+  },
+  {
+   "i": 625,
+   "s": 4050.69,
+   "e": 4052.66,
+   "en": "You're obviously just starting out.",
+   "zh": "你显然才刚起步。"
+  },
+  {
+   "i": 626,
+   "s": 4052.78,
+   "e": 4054.79,
+   "en": "You've already had this huge impact.",
+   "zh": "却已经产生了这么大的影响。"
+  },
+  {
+   "i": 627,
+   "s": 4054.91,
+   "e": 4062.06,
+   "en": "You have a lot farther to go, but I'm curious when you think about how you wanna be remembered after you're gone, what do you want people to say?",
+   "zh": "你还有很长的路要走，不过我很好奇，当你想到自己离开后希望被人怎样记住时，你希望人们怎么评价你？"
+  },
+  {
+   "i": 628,
+   "s": 4066.73,
+   "e": 4069.91,
+   "en": "First of all, what a nice, what a nice, um, idea and concept.",
+   "zh": "首先，这个想法和理念真不错，真挺好的。"
+  },
+  {
+   "i": 629,
+   "s": 4069.99,
+   "e": 4082.23,
+   "en": "Um, I think, I think for me, I w- will want people to say that the things that I built and the things I contributed to, um, helped everyone get more out of what they wanted out of their lives.",
+   "zh": "我觉得，对我来说，我希望人们说，我打造的东西、我做出的贡献，帮助每个人从生活中得到了更多他们想要的东西。"
+  },
+  {
+   "i": 630,
+   "s": 4083.21,
+   "e": 4083.71,
+   "en": "Beautiful.",
+   "zh": "说得真好。"
+  },
+  {
+   "i": 631,
+   "s": 4083.99,
+   "e": 4084.82,
+   "en": "Thanks for doing this.",
+   "zh": "谢谢你接受这次采访。"
+  },
+  {
+   "i": 632,
+   "s": 4084.87,
+   "e": 4085.37,
+   "en": "Thank you.",
+   "zh": "谢谢。"
+  }
+ ]
+}

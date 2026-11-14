@@ -14,7 +14,7 @@ EchoLab 是一个用于个人英语影子跟读练习的本地网页工具。本
 | 内容 | 来源 | 授权 / 归属 |
 | --- | --- | --- |
 | 字幕文本（`lesson.json` 里的 `en`） | YouTube 上由人工上传的字幕（subtitles），非自动生成 | 归视频作者 / 字幕译者所有 |
-| 字幕译文（`lesson.json` 里的 `zh`） | 同上，YouTube 人工中文字幕 | 归字幕译者所有；TED 官方中译为 TED 所有 |
+| 字幕译文（`lesson.json` 里的 `zh`） | 有人工中文字幕的课程取自 YouTube；`muse-launch` 一课为本项目用 AI 翻译，已标注 | 归原字幕译者；AI 译文由本项目生成 |
 | 封面图（`poster.jpg`） | `i.ytimg.com` YouTube 官方缩略图 | 归视频作者所有 |
 | 词汇释义（`dict.json`） | [ECDICT](https://github.com/skywind3000/ECDICT) | MIT |
 | 重点词注解（`glosses.json`） | 本项目撰写 | MIT |
@@ -28,6 +28,7 @@ EchoLab 是一个用于个人英语影子跟读练习的本地网页工具。本
 | The Benefits of a Bilingual Brain | `MMmOLN5zBLY` | TED-Ed | CC BY-NC-ND 4.0 |
 | How Does the Stock Market Work? | `p7HKvqRI_Bo` | TED-Ed | CC BY-NC-ND 4.0 |
 | Your Body Language May Shape Who You Are | `Ks-_Mh1QhMc` | TED | CC BY-NC-ND 4.0 |
+| The Biggest Launch Since ChatGPT | `1LRvMRC_pfY` | Cleo Abram（YouTube） | YouTube 标准许可 |
 
 TED / TED-Ed 内容依 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 使用：
 **署名、非商业性、禁止演绎**。本仓库仅作学习与教学演示，未作任何修改性演绎（节选属于引用）。

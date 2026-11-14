@@ -88,6 +88,18 @@ LESSONS = [
         "zh": True,
         "desc": "社会心理学家 Amy Cuddy 讲「姿势反馈」：两分钟的高能量姿势如何改变睾酮与皮质醇，让你在压力场合真的更自信。语速偏快、情绪饱满，适合练语调。",
         "tags": ["TED", "肢体语言", "职场"],
+    },    {
+        "id": "muse-launch",
+        "yt": "1LRvMRC_pfY",
+        "title": "The Biggest Launch Since ChatGPT",
+        "titleZh": "ChatGPT 之后最大的一次发布",
+        "speaker": "Alexandr Wang · Cleo Abram",
+        "category": "interview",
+        "level": "C1",
+        "clip": None,
+        "zh": False,
+        "desc": "68 分钟对谈：Meta 的 Alexandr Wang 讲 Muse 这个「个人 AI agent」到底能做什么、凭什么让人把隐私交给它、以及 AI 对齐与监管的真实分歧。口语密集、有抢话，适合练真实语流。",
+        "tags": ["访谈", "AI", "科技"],
     },]
 
 SRT_TIME = re.compile(
@@ -203,8 +215,25 @@ def make_poster(lesson, outdir, at):
     return video
 
 
-def merge_sentences(cues, max_dur=13.0, max_words=46):
-    """把字幕行合并成适合跟读的完整句子"""
+# 断在这些词上说明话没说完，再多并一行
+DANGLING = re.compile(
+    r"\b(and|but|so|or|because|if|when|while|that|which|who|whom|whose|to|of|for|with|"
+    r"about|like|than|then|as|at|in|on|by|from|into|"
+    r"the|a|an|my|your|his|her|its|our|their|this|these|those|"
+    r"is|are|was|were|be|been|being|have|has|had|do|does|did|"
+    r"will|would|can|could|should|may|might|must|"
+    r"i|you|he|she|it|we|they|me|him|us|them|"
+    r"not|very|just|really|actually|kind|sort|lot|well|okay|yeah|oh|um|uh)\s*[,]?\s*$",
+    re.I,
+)
+
+
+def merge_sentences(cues, max_dur=13.0, max_words=46, slack_dur=2.0, slack_words=8):
+    """把字幕行合并成适合跟读的完整句子
+
+    末尾停在 and / but / that / to / the 这类虚词上时，说明原字幕把一句话拆到了下一行，
+    此时放宽上限再并一行（最多 +2 秒 / +8 词），避免语义断在中间。
+    """
     out = []
     cur = None
     for s, e, t in cues:
@@ -219,7 +248,13 @@ def merge_sentences(cues, max_dur=13.0, max_words=46):
         dur = e - cur["s"]
         words = len(joined.split()) + len(t.split())
         ends_ok = re.search(r"[.?!…][\"'”’)\]]?$", joined) is not None
-        if (not ends_ok) and dur <= max_dur and words <= max_words:
+        # 以逗号结尾，或末尾停在虚词 / 语气词上，都说明话没说完
+        dangling = (not ends_ok) and (
+            DANGLING.search(joined) is not None or joined.rstrip().endswith(",")
+        )
+        limit_dur = max_dur + (slack_dur if dangling else 0.0)
+        limit_words = max_words + (slack_words if dangling else 0)
+        if (not ends_ok) and dur <= limit_dur and words <= limit_words:
             cur["texts"].append(t)
             cur["e"] = e
         else:

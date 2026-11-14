@@ -77,6 +77,7 @@ python -m http.server 8777 --bind 127.0.0.1
 | The Benefits of a Bilingual Brain（TED-Ed） | 学科·语言学 | B1 | 5:04 | 英 + 中 |
 | How Does the Stock Market Work?（TED-Ed） | 学科·经济学 | B1 | 4:30 | 英 + 中 |
 | Your Body Language May Shape Who You Are（Amy Cuddy, TED） | 演讲 | C1 | 6:42（节选） | 英 + 中 |
+| The Biggest Launch Since ChatGPT（Cleo Abram 访谈） | 访谈 | C1 | 68:21 | 英 + 中（AI 译） |
 
 素材授权：TED / TED-Ed 为 **CC BY-NC-ND 4.0**，Big Think 为平台公开访谈。
 本项目仅作个人学习与教学演示。**视频不落地**：所有片段都通过 YouTube 官方嵌入播放器逐流加载，仓库里只有字幕和封面；界面内标注作者、平台与许可。

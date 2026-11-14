@@ -183,9 +183,43 @@ export async function render(root, [id]) {
   let playerReady = false;
   let playerFailed = false;
 
-  const relTime = () => {
+  // YouTube 的 seekTo 是异步的：跳转后的一小段时间里 getCurrentTime 还返回旧值。
+  // 如果直接拿旧值去算当前句，就会把刚切过去的句子拽回来（开着单句循环时尤其明显）。
+  // 所以程序化 seek 之后，先用目标时间「顶」住，直到真实时间追上。
+  let pendingSeek = null;
+
+  const rawTime = () => {
     if (!playerReady) return 0;
     try { return Math.max(0, player.getCurrentTime() - offset); } catch { return 0; }
+  };
+
+  /** 判断一次跳转是否已经落地：带目标句时，要等真实时间进到那一句里才算数 */
+  let lockCue = -1;
+  let lockUntil = 0;
+
+  function seekLanded(p) {
+    const t = rawTime();
+    if (p.cue !== null && cues[p.cue]) {
+      const c = cues[p.cue];
+      // 关键帧 seek 常落在目标前几十毫秒，给 60ms 容差
+      if (t >= c.s - 0.06 && t < c.e) {
+        lockCue = p.cue;
+        lockUntil = performance.now() + 600;
+        return true;
+      }
+      return false;
+    }
+    return Math.abs(t - p.target) < 0.35;
+  }
+
+  const relTime = () => {
+    const p = pendingSeek;
+    if (!p) return rawTime();
+    if (seekLanded(p) || performance.now() - p.at > 4000) {
+      pendingSeek = null;
+      return rawTime();
+    }
+    return p.target;
   };
   const totalDur = () => {
     if (playerReady) {
@@ -196,9 +230,12 @@ export async function render(root, [id]) {
     }
     return info.duration;
   };
-  const seekRel = (t) => {
+  /** cue: 目标句序号；传了就一直守到真实时间进入该句为止 */
+  const seekRel = (t, cue = null) => {
     if (!playerReady) return;
-    try { player.seekTo(Math.max(0, t + offset), true); } catch {}
+    const target = Math.max(0, t);
+    pendingSeek = { target, at: performance.now(), cue };
+    try { player.seekTo(Math.max(0, target + offset), true); } catch {}
   };
   const isPlaying = () => {
     if (!playerReady) return false;
@@ -263,24 +300,22 @@ export async function render(root, [id]) {
     get ready() { return playerReady; },
     state: () => { try { return player.getPlayerState(); } catch { return "n/a"; } },
     time: () => { try { return player.getCurrentTime(); } catch { return -1; } },
+    dbg: () => ({
+      current,
+      pending: pendingSeek ? { target: pendingSeek.target, age: Math.round(performance.now() - pendingSeek.at) } : null,
+      raw: Number(rawTime().toFixed(2)),
+      sticky: Number(relTime().toFixed(2)),
+      cue: cues[current] ? { s: cues[current].s, e: cues[current].e } : null,
+      repeat,
+    }),
   };
 
-  /* ---------------------------------------------------------------- 适配器（跟读面板用） */
-  let seekTarget = null;
-  let seekAt = 0;
+  let playToken = 0;
 
+  /* ---------------------------------------------------------------- 适配器（跟读面板用） */
   const media = {
-    get currentTime() {
-      const t = relTime();
-      if (seekTarget !== null) {
-        if (Math.abs(t - seekTarget) < 1.0) { seekTarget = null; return t; }
-        if (performance.now() - seekAt < 3000) return seekTarget;
-        seekTarget = null;
-        return t;
-      }
-      return t;
-    },
-    set currentTime(v) { seekTarget = v; seekAt = performance.now(); seekRel(v); },
+    get currentTime() { return relTime(); },   // 粘性 seek 已在 relTime 里处理
+    set currentTime(v) { seekRel(v); },
     get paused() { return !isPlaying(); },
     get duration() { return totalDur(); },
     set volume(v) { try { player?.setVolume?.(Math.round(v * 100)); } catch {} },
@@ -335,10 +370,20 @@ export async function render(root, [id]) {
     if (mode === "shadow") syncHash();
   }
 
+  /**
+   * 时间 → 句子序号。
+   * 先严格命中（s <= t < e），再给前一句 0.12s 的尾巴，剩下的空隙归下一句。
+   * 之前用 s-0.06 / e+0.18 做区间，会让句首的时间被判给上一句，
+   * 于是「跳到下一句」后立刻又被认成上一句（开着单句循环时会直接卡住）。
+   */
   function cueAt(t) {
     for (let k = 0; k < cues.length; k += 1) {
       const c = cues[k];
-      if (t >= c.s - 0.06 && t < c.e + 0.18) return k;
+      if (t >= c.s && t < c.e) return k;
+    }
+    for (let k = 0; k < cues.length; k += 1) {
+      const c = cues[k];
+      if (t >= c.e && t < c.e + 0.12) return k;
     }
     for (let k = 0; k < cues.length; k += 1) if (t < cues[k].s) return k;
     return cues.length - 1;
@@ -347,9 +392,26 @@ export async function render(root, [id]) {
   function playCue(i) {
     const c = cues[i];
     if (!c) return;
-    seekRel(c.s);
+    seekRel(c.s, i);
     play();
     setActive(i, { force: true });
+
+    // seekTo 会先进入缓冲，紧随其后的 playVideo 有时被吞掉，
+    // 落地后再确认一次是否真的在播（用户主动暂停会作废这个任务）
+    const token = ++playToken;
+    let tries = 0;
+    const kick = () => {
+      if (token !== playToken || mode !== "listen") return;
+      if (pendingSeek) {
+        if (tries++ < 20) setTimeout(kick, 250);
+        return;
+      }
+      if (!isPlaying()) {
+        play();
+        if (tries++ < 4) setTimeout(kick, 400);
+      }
+    };
+    setTimeout(kick, 400);
   }
 
   /* ---------------------------------------------------------------- 全局面板控制 */
@@ -368,6 +430,7 @@ export async function render(root, [id]) {
 
   function togglePlay() {
     if (!playerReady) return toast("播放器还在加载…");
+    playToken += 1;               // 用户自己按的，取消待执行的补播
     if (isPlaying()) pause();
     else play();
   }
@@ -427,19 +490,22 @@ export async function render(root, [id]) {
     if (pollTimer) return;
     pollTimer = setInterval(() => {
       if (!playerReady || playerFailed || mode !== "listen") return;
+      // 跳转还在飞：别用旧时间重算当前句，否则刚切过去的句子会被拽回来
+      if (pendingSeek) { relTime(); return; }
+
       const t = relTime();
       const cur = cues[current];
 
       if (cur && t >= cur.e - 0.03) {
-        if (repeat) { seekRel(cur.s); return; }
+        if (repeat) { seekRel(cur.s, current); return; }
         if (pauseEach && isPlaying()) {
           pause();
-          seekRel(Math.max(cur.s, cur.e - 0.06));
+          seekRel(Math.max(cur.s, cur.e - 0.06), current);
           return;
         }
       }
 
-      const i = cueAt(t);
+      const i = performance.now() < lockUntil ? lockCue : cueAt(t);
       if (i !== current) setActive(i);
 
       if (info.duration && t > info.duration + 0.4) {
