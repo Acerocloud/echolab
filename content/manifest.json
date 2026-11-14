@@ -133,6 +133,25 @@
     "zh"
    ],
    "cueCount": 633
+  },
+  {
+   "id": "economist-musk",
+   "title": "The full-length interview with Elon Musk | The Economist",
+   "titleZh": "《经济学人》专访埃隆·马斯克（完整版）",
+   "speaker": "Elon Musk · The Economist",
+   "category": "interview",
+   "level": "C1",
+   "duration": 5106,
+   "desc": "《经济学人》与埃隆·马斯克谈人工智能、机器人，以及他对科技和社会的预测。",
+   "tags": [
+    "访谈",
+    "AI",
+    "科技"
+   ],
+   "poster": "content/economist-musk/poster.jpg",
+   "yt": "XuoqKYxDHVc",
+   "langs": [],
+   "cueCount": 0
   }
  ]
 }

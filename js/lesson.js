@@ -52,6 +52,35 @@ function loadYouTubeApi() {
 }
 
 export async function render(root, [id]) {
+  const manifest = await getManifest();
+  const entry = manifest.find((course) => course.id === id);
+  if (entry?.cueCount === 0 && entry.yt) {
+    const ytId = encodeURIComponent(entry.yt);
+    root.innerHTML = `
+      <div class="lesson-head">
+        <a class="back-link" href="#/">${icon("back", 15)} 课程库</a>
+        <div class="lesson-title">
+          <h1>${esc(entry.titleZh)}</h1>
+          <p class="lesson-en">${esc(entry.title)}</p>
+          <p class="lesson-kicker">${esc(entry.speaker)} · ${fmtTime(entry.duration)}</p>
+        </div>
+      </div>
+      <div>
+        <div class="stage-col">
+          <div class="stage">
+            <iframe class="yt-host" src="https://www.youtube.com/embed/${ytId}?cc_load_policy=1&cc_lang_pref=en"
+              title="${esc(entry.title)}" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="lesson-meta">
+            <p class="meta-desc">${esc(entry.desc)}</p>
+            <p class="meta-source">播放器提供 YouTube 自动字幕。逐句跟读需要人工字幕。</p>
+            <a href="https://www.youtube.com/watch?v=${ytId}" target="_blank" rel="noopener">在 YouTube 观看</a>
+          </div>
+        </div>
+      </div>`;
+    return () => {};
+  }
+
   let lesson;
   try {
     lesson = await getLesson(id);
@@ -61,8 +90,7 @@ export async function render(root, [id]) {
     return () => {};
   }
 
-  const manifest = await getManifest();
-  const info = manifest.find((l) => l.id === id) || lesson;
+  const info = entry || lesson;
   const progress = lessonProgress(id);
   const cues = lesson.cues;
   const savedSet = new Set(state.words.map((w) => w.w));

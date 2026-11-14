@@ -29,6 +29,7 @@ EchoLab 是一个用于个人英语影子跟读练习的本地网页工具。本
 | How Does the Stock Market Work? | `p7HKvqRI_Bo` | TED-Ed | CC BY-NC-ND 4.0 |
 | Your Body Language May Shape Who You Are | `Ks-_Mh1QhMc` | TED | CC BY-NC-ND 4.0 |
 | The Biggest Launch Since ChatGPT | `1LRvMRC_pfY` | Cleo Abram（YouTube） | YouTube 标准许可 |
+| The full-length interview with Elon Musk | `XuoqKYxDHVc` | The Economist（YouTube） | 视频通过官方播放器嵌入，封面归原权利人 |
 
 TED / TED-Ed 内容依 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 使用：
 **署名、非商业性、禁止演绎**。本仓库仅作学习与教学演示，未作任何修改性演绎（节选属于引用）。

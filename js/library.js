@@ -110,7 +110,7 @@ export async function render(root) {
           ${pct ? `<div class="card-bar"><i style="width:${pct}%"></i></div>` : ""}
         </div>
         <div class="card-body">
-          <p class="card-meta">${CATEGORIES[l.category]?.label || l.category} · ${esc(l.level)}</p>
+          <p class="card-meta">${CATEGORIES[l.category]?.label || l.category} · ${esc(l.level)}${l.cueCount === 0 ? " · 视频观看" : ""}</p>
           <h3>${esc(l.titleZh)}</h3>
           <p class="card-en">${esc(l.title)}</p>
           <p class="card-foot">${esc(l.speaker.split(" · ")[0])}${

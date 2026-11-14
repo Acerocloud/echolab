@@ -37,7 +37,7 @@ python -m http.server 8777 --bind 127.0.0.1
 
 | 模块 | 能力 |
 | --- | --- |
-| 课程库 | 6 节课，覆盖演讲 / 访谈 / 学科介绍；分类与关键词筛选；「继续上次」动态定位 |
+| 课程库 | 6 节逐句跟读课程和 1 部观看视频，覆盖演讲 / 访谈 / 学科介绍；支持分类和关键词筛选 |
 | 页面结构 | **左视频 / 右字幕**（约 84vw 宽）；精听 / 跟读在右栏切换 |
 | 视频来源 | **YouTube 原生播放器**（IFrame Player API，自带控制条/倍速/全屏），仓库里不存任何视频文件 |
 | 播放器 | YouTube 自带控制条（进度、音量、倍速、全屏） |
@@ -78,6 +78,7 @@ python -m http.server 8777 --bind 127.0.0.1
 | How Does the Stock Market Work?（TED-Ed） | 学科·经济学 | B1 | 4:30 | 英 + 中 |
 | Your Body Language May Shape Who You Are（Amy Cuddy, TED） | 演讲 | C1 | 6:42（节选） | 英 + 中 |
 | The Biggest Launch Since ChatGPT（Cleo Abram 访谈） | 访谈 | C1 | 68:21 | 英 + 中（AI 译） |
+| The full-length interview with Elon Musk（The Economist） | 访谈 | C1 | 85:06 | 播放器自动字幕，仅观看 |
 
 素材授权：TED / TED-Ed 为 **CC BY-NC-ND 4.0**，Big Think 为平台公开访谈。
 本项目仅作个人学习与教学演示。**视频不落地**：所有片段都通过 YouTube 官方嵌入播放器逐流加载，仓库里只有字幕和封面；界面内标注作者、平台与许可。
