@@ -142,7 +142,7 @@ export async function render(root, [id]) {
             ${info.langs?.includes("zh") ? `<span class="tag">英 + 中</span>` : `<span class="tag">英文</span>`}
             <span class="tag">YouTube 嵌入</span>
           </div>
-          <p class="meta-source">${esc(lesson.speaker)} · 人工字幕${
+          <p class="meta-source">${esc(lesson.speaker)} · ${lesson.source.captionType === "auto" ? "YouTube 自动字幕" : "人工字幕"}${
             lesson.source.clipped ? "（节选）" : ""
           } · <a href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">原始视频</a></p>
         </div>

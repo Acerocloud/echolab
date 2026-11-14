@@ -1,0 +1,4674 @@
+{
+ "id": "economist-musk",
+ "title": "The full-length interview with Elon Musk | The Economist",
+ "titleZh": "《经济学人》专访埃隆·马斯克（完整版）",
+ "speaker": "Elon Musk · The Economist",
+ "category": "interview",
+ "level": "C1",
+ "duration": 5106,
+ "desc": "《经济学人》与埃隆·马斯克谈人工智能、机器人，以及他对科技和社会的预测。",
+ "tags": [
+  "访谈",
+  "AI",
+  "科技"
+ ],
+ "langs": [
+  "en"
+ ],
+ "source": {
+  "platform": "YouTube",
+  "name": "The Economist",
+  "url": "https://www.youtube.com/watch?v=XuoqKYxDHVc",
+  "yt": "XuoqKYxDHVc",
+  "embed": "https://www.youtube.com/embed/XuoqKYxDHVc",
+  "captionType": "auto",
+  "clipped": false,
+  "clipStart": 0
+ },
+ "media": {
+  "poster": "poster.jpg"
+ },
+ "cues": [
+  {
+   "i": 0,
+   "s": 0,
+   "e": 14,
+   "en": "Elon Musk, thank you so much for joining me on the Insider. Thank you for having us here at Tesla Giga. Um, it is really hard to introduce you without using superlatives. I mean, you are doing, I think, more to build the future than literally anybody alive right now.",
+   "zh": ""
+  },
+  {
+   "i": 1,
+   "s": 14,
+   "e": 16,
+   "en": "I'm doing a lot of building in general.",
+   "zh": ""
+  },
+  {
+   "i": 2,
+   "s": 16,
+   "e": 17,
+   "en": "I'm You're doing a lot of building.",
+   "zh": ""
+  },
+  {
+   "i": 3,
+   "s": 17,
+   "e": 20,
+   "en": "In instinctive builder, I suppose. I just like building things.",
+   "zh": ""
+  },
+  {
+   "i": 4,
+   "s": 20,
+   "e": 22,
+   "en": "You are, but you're building I mean, you",
+   "zh": ""
+  },
+  {
+   "i": 5,
+   "s": 22,
+   "e": 24,
+   "en": "you know, run around building things",
+   "zh": ""
+  },
+  {
+   "i": 6,
+   "s": 24,
+   "e": 25,
+   "en": "all day long.",
+   "zh": ""
+  },
+  {
+   "i": 7,
+   "s": 25,
+   "e": 26,
+   "en": "You run around building a lot of things.",
+   "zh": ""
+  },
+  {
+   "i": 8,
+   "s": 26,
+   "e": 37,
+   "en": "You pioneered electric vehicles. You revolutionized space travel. You've got a cutting edge AI model now, humanoid robots. Can we start this conversation by you putting all of this together?",
+   "zh": ""
+  },
+  {
+   "i": 9,
+   "s": 37,
+   "e": 42,
+   "en": "Yeah. Tell me what the world's going to be like in let's say 10 years if you succeed.",
+   "zh": ""
+  },
+  {
+   "i": 10,
+   "s": 42,
+   "e": 44,
+   "en": "10 years. So we're talking 2036.",
+   "zh": ""
+  },
+  {
+   "i": 11,
+   "s": 44,
+   "e": 45,
+   "en": "Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 12,
+   "s": 45,
+   "e": 47,
+   "en": "Hopefully we'll both be around.",
+   "zh": ""
+  },
+  {
+   "i": 13,
+   "s": 47,
+   "e": 48,
+   "en": "Hopefully. Yes. we can we can",
+   "zh": ""
+  },
+  {
+   "i": 14,
+   "s": 48,
+   "e": 63,
+   "en": "uh probably most likely we will be um it it's hard to imagine the future that where there's not an overwhelm over overwhelming amount of artificial intelligence meaning like in 10 years I would expect artificial intelligence to",
+   "zh": ""
+  },
+  {
+   "i": 15,
+   "s": 63,
+   "e": 77,
+   "en": "be far greater than the sum of human intelligence like far greater um in fact I think AI may exceed the sum of human intelligence in about in around five years",
+   "zh": ""
+  },
+  {
+   "i": 16,
+   "s": 77,
+   "e": 78,
+   "en": "exactly 5 years.",
+   "zh": ""
+  },
+  {
+   "i": 17,
+   "s": 78,
+   "e": 90,
+   "en": "Roughly 5 years is my guess. Um, so there really won't be anything that AI can't do better than humans apart from being human. Perhaps",
+   "zh": ""
+  },
+  {
+   "i": 18,
+   "s": 90,
+   "e": 95,
+   "en": "at a more prosaic level, what will life be like?",
+   "zh": ""
+  },
+  {
+   "i": 19,
+   "s": 95,
+   "e": 107,
+   "en": "The most likely outcome is an age of amazing abundance uh where anyone can have anything they can think of.",
+   "zh": ""
+  },
+  {
+   "i": 20,
+   "s": 107,
+   "e": 113,
+   "en": "This is this is uh this may sound preposterous, but well, here we are in 2026.",
+   "zh": ""
+  },
+  {
+   "i": 21,
+   "s": 113,
+   "e": 126,
+   "en": "Let's see where we stand in 2036. Now, of course, there are things that could derail this like a a massive global thermonuclear war or something like that. Um, but assuming that there's not World War II,",
+   "zh": ""
+  },
+  {
+   "i": 22,
+   "s": 126,
+   "e": 138,
+   "en": "uh, I think I think we're headed for an age of amazing abundance. So this is I guess a message of of optimism and uh excitement about the future.",
+   "zh": ""
+  },
+  {
+   "i": 23,
+   "s": 138,
+   "e": 152,
+   "en": "So we'll talk about the abundance in a second but just a very prosaic matter how are your companies going to be making money because when you in the SpaceX IPO perspectives it it looked as though the overwhelming amount of the revenue would be coming from AI from",
+   "zh": ""
+  },
+  {
+   "i": 24,
+   "s": 152,
+   "e": 157,
+   "en": "Grock really it won't be transporting things to space as SpaceX is now doing.",
+   "zh": ""
+  },
+  {
+   "i": 25,
+   "s": 157,
+   "e": 165,
+   "en": "What is what will your companies be doing in 10 years and how will they make money?",
+   "zh": ""
+  },
+  {
+   "i": 26,
+   "s": 165,
+   "e": 171,
+   "en": "Well, you can really think of the economy as uh digital and physical intelligence.",
+   "zh": ""
+  },
+  {
+   "i": 27,
+   "s": 171,
+   "e": 178,
+   "en": "Um so what we have right now advancing very rapidly is digital intelligence.",
+   "zh": ""
+  },
+  {
+   "i": 28,
+   "s": 178,
+   "e": 191,
+   "en": "Obviously with with AI that is uh it seems almost with every passing week uh there are more AI breakthroughs. It can do something amazing that it couldn't do before. Uh but it's still somewhat",
+   "zh": ""
+  },
+  {
+   "i": 29,
+   "s": 191,
+   "e": 205,
+   "en": "confined to the digital realm. It doesn't have endectors. You need the endectors in the form of humanoid robotics. Um human you need need a basically a lots of bots in a nutshell.",
+   "zh": ""
+  },
+  {
+   "i": 30,
+   "s": 205,
+   "e": 217,
+   "en": "You need lots of bots. Um and then you can go from um intelligence manifesting itself only digitally to shaping atoms.",
+   "zh": ""
+  },
+  {
+   "i": 31,
+   "s": 217,
+   "e": 220,
+   "en": "Um and you say what what is an economy?",
+   "zh": ""
+  },
+  {
+   "i": 32,
+   "s": 220,
+   "e": 227,
+   "en": "An economy is um the production of goods and provision of services.",
+   "zh": ""
+  },
+  {
+   "i": 33,
+   "s": 227,
+   "e": 242,
+   "en": "And if you have vast numbers of robots uh with uh vast amounts of digital intelligence, you have a sort of a quatti quasi infinite economy.",
+   "zh": ""
+  },
+  {
+   "i": 34,
+   "s": 242,
+   "e": 256,
+   "en": "So, so this is this is really the the future is going to be very very different from the past. There's there's no um there's no analogy or metaphor that I think illustrates the magnitude",
+   "zh": ""
+  },
+  {
+   "i": 35,
+   "s": 256,
+   "e": 259,
+   "en": "of change that we're going to experience here. I",
+   "zh": ""
+  },
+  {
+   "i": 36,
+   "s": 259,
+   "e": 266,
+   "en": "I I I understand that and I'm I'm also trying to kind of figure out what that world will look like. But but in some way you have",
+   "zh": ""
+  },
+  {
+   "i": 37,
+   "s": 266,
+   "e": 268,
+   "en": "it's going to be pretty incredible.",
+   "zh": ""
+  },
+  {
+   "i": 38,
+   "s": 268,
+   "e": 274,
+   "en": "Yeah, we'll we'll also do there are some risks. We'll come to those. We'll come to those. But just on on on how then",
+   "zh": ""
+  },
+  {
+   "i": 39,
+   "s": 274,
+   "e": 279,
+   "en": "you make money because in the end people are buying your shares because because they expect you to make money.",
+   "zh": ""
+  },
+  {
+   "i": 40,
+   "s": 279,
+   "e": 282,
+   "en": "I'll make another prediction. Money won't matter in 2036.",
+   "zh": ""
+  },
+  {
+   "i": 41,
+   "s": 282,
+   "e": 291,
+   "en": "You're watching my interview with Elon Musk. If you want to get early access to other interviews, subscribe to The Economist by clicking the link above.",
+   "zh": ""
+  },
+  {
+   "i": 42,
+   "s": 291,
+   "e": 299,
+   "en": "Now back to the interview. I'm not sure that the people who bought your shares think that money won't matter in 2036.",
+   "zh": ""
+  },
+  {
+   "i": 43,
+   "s": 299,
+   "e": 302,
+   "en": "What do you want money for?",
+   "zh": ""
+  },
+  {
+   "i": 44,
+   "s": 302,
+   "e": 310,
+   "en": "You you want money for goods and services, right? You want money for obviously food, housing, transport, entertainment.",
+   "zh": ""
+  },
+  {
+   "i": 45,
+   "s": 310,
+   "e": 324,
+   "en": "Um well, if that is so abundant that uh there's more that the robots and AI are providing more goods and services than you than any human could possibly consume.",
+   "zh": ""
+  },
+  {
+   "i": 46,
+   "s": 324,
+   "e": 326,
+   "en": "What do you need money for in that case?",
+   "zh": ""
+  },
+  {
+   "i": 47,
+   "s": 326,
+   "e": 328,
+   "en": "But you're you're creating these robots.",
+   "zh": ""
+  },
+  {
+   "i": 48,
+   "s": 328,
+   "e": 330,
+   "en": "Are you now and then you'll need money?",
+   "zh": ""
+  },
+  {
+   "i": 49,
+   "s": 330,
+   "e": 332,
+   "en": "Sure. Are you are you selling these robots?",
+   "zh": ""
+  },
+  {
+   "i": 50,
+   "s": 332,
+   "e": 340,
+   "en": "Are you selling humanoid robots or are you producing goods and services with the humanoid robots that you control?",
+   "zh": ""
+  },
+  {
+   "i": 51,
+   "s": 340,
+   "e": 342,
+   "en": "I give you the Levi Strap.",
+   "zh": ""
+  },
+  {
+   "i": 52,
+   "s": 342,
+   "e": 357,
+   "en": "I think I think I would probably be it would be an exercise in vanity to for me to think that I would be controlling super genius AI that is vastly smarter than me. I think that what we can and should try to do is to make sure that",
+   "zh": ""
+  },
+  {
+   "i": 53,
+   "s": 357,
+   "e": 372,
+   "en": "the AI has good values that it cares about humanity and that uh it wants wants us to be happy and prosper. Um I think it probably will be",
+   "zh": ""
+  },
+  {
+   "i": 54,
+   "s": 372,
+   "e": 383,
+   "en": "um my what my biological neural net tells me is that the most important thing for this for AI safety is to be maximally truth seeeking and curious.",
+   "zh": ""
+  },
+  {
+   "i": 55,
+   "s": 383,
+   "e": 389,
+   "en": "uh if that's the case uh I think it will foster humanity.",
+   "zh": ""
+  },
+  {
+   "i": 56,
+   "s": 389,
+   "e": 394,
+   "en": "So let's unpack that. You're sure that humans will no longer be in control in 10 years time?",
+   "zh": ""
+  },
+  {
+   "i": 57,
+   "s": 394,
+   "e": 409,
+   "en": "I think it is unlikely. Um in the same way that if the difference in intelligence between AI and humans is vastly greater than the difference in intelligence between AI and chimpanzees, it's hard to imagine that the",
+   "zh": ""
+  },
+  {
+   "i": 58,
+   "s": 409,
+   "e": 411,
+   "en": "chimpanzees would be in charge.",
+   "zh": ""
+  },
+  {
+   "i": 59,
+   "s": 411,
+   "e": 412,
+   "en": "I'm really sorry.",
+   "zh": ""
+  },
+  {
+   "i": 60,
+   "s": 412,
+   "e": 424,
+   "en": "And we are essentially um an evolved form of chimpanzeee. So it wasn't that long ago that we're swinging through the trees eating bananas um in the jungle.",
+   "zh": ""
+  },
+  {
+   "i": 61,
+   "s": 424,
+   "e": 430,
+   "en": "And we still eat bananas, by the way. We do. And still, you know, bananas sometimes swing through trees as well.",
+   "zh": ""
+  },
+  {
+   "i": 62,
+   "s": 430,
+   "e": 432,
+   "en": "Yes, we sometimes swing through trees.",
+   "zh": ""
+  },
+  {
+   "i": 63,
+   "s": 432,
+   "e": 442,
+   "en": "It's kind of fun. It's sort of um reminiscent of the past. Um for all time sake, swing through the trees once in a while. probably, you know, there should be more swinging through trees. I bet it's way more fun than people think.",
+   "zh": ""
+  },
+  {
+   "i": 64,
+   "s": 442,
+   "e": 456,
+   "en": "I'm with you on that. I'm definitely with you on swinging through trees. I love swinging through trees, but but but I'm really struck listening to you say this now because I've been listening to a bunch of things that you've said over the years. And and 10 years ago, you were on a podcast. I think it was with Neil Degrass Tyson, and you said that",
+   "zh": ""
+  },
+  {
+   "i": 65,
+   "s": 456,
+   "e": 462,
+   "en": "the thing that terrified you most was rapid recursive self-improvement in AIs.",
+   "zh": ""
+  },
+  {
+   "i": 66,
+   "s": 462,
+   "e": 468,
+   "en": "Yes. And that you said, and it really struck with me, you said that we will just be the pet labradors at the best.",
+   "zh": ""
+  },
+  {
+   "i": 67,
+   "s": 468,
+   "e": 469,
+   "en": "Now you see",
+   "zh": ""
+  },
+  {
+   "i": 68,
+   "s": 469,
+   "e": 470,
+   "en": "everyone are pretty happy creatures.",
+   "zh": ""
+  },
+  {
+   "i": 69,
+   "s": 470,
+   "e": 471,
+   "en": "That's my experience.",
+   "zh": ""
+  },
+  {
+   "i": 70,
+   "s": 471,
+   "e": 476,
+   "en": "But in 2023 you you c you asked for a slowdown in air because you were worried about it.",
+   "zh": ""
+  },
+  {
+   "i": 71,
+   "s": 476,
+   "e": 485,
+   "en": "Well, I signed on to you know as one of many like 500 people. I I I was just you know one of many signatures on that thing.",
+   "zh": ""
+  },
+  {
+   "i": 72,
+   "s": 485,
+   "e": 493,
+   "en": "But but I think even last year you said I was it Ted Cruz's podcast you said there was a 10 to 20% chance of killer robots wiping out humanity. Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 73,
+   "s": 493,
+   "e": 495,
+   "en": "So you sounded worried then.",
+   "zh": ""
+  },
+  {
+   "i": 74,
+   "s": 495,
+   "e": 500,
+   "en": "Now you seem very relaxed about it. Have you changed your view?",
+   "zh": ""
+  },
+  {
+   "i": 75,
+   "s": 500,
+   "e": 513,
+   "en": "I still think there's I still think there's risk associated with AI and robots. It's not zero. Um I I guess I've come to my my sort of philosophical conclusion",
+   "zh": ""
+  },
+  {
+   "i": 76,
+   "s": 513,
+   "e": 527,
+   "en": "is to look on the bright side. Um I like I I can't see any way to really stop this incredible momentum of AI and robots. Um and and at times I sort of",
+   "zh": ""
+  },
+  {
+   "i": 77,
+   "s": 527,
+   "e": 539,
+   "en": "think well perhaps you know even if there was a stop button we probably shouldn't press it uh because it was the most likely outcome is",
+   "zh": ""
+  },
+  {
+   "i": 78,
+   "s": 539,
+   "e": 543,
+   "en": "incredible abundance for for all.",
+   "zh": ""
+  },
+  {
+   "i": 79,
+   "s": 543,
+   "e": 549,
+   "en": "That's what I thought actually. It struck me that now you seem to have decided it's inevitable.",
+   "zh": ""
+  },
+  {
+   "i": 80,
+   "s": 549,
+   "e": 553,
+   "en": "Let's hope for the best and go for the ride.",
+   "zh": ""
+  },
+  {
+   "i": 81,
+   "s": 553,
+   "e": 567,
+   "en": "Yeah. I mean, yes, pretty much. Let's uh let's enjoy the ride is is I think my philosophy at this point because I mean, honestly, this there's it's it's there seems to be just an inexurable",
+   "zh": ""
+  },
+  {
+   "i": 82,
+   "s": 567,
+   "e": 573,
+   "en": "uh progress here in in AI and and in robots that um",
+   "zh": ""
+  },
+  {
+   "i": 83,
+   "s": 573,
+   "e": 578,
+   "en": "but you even if I wanted to stop it, I don't I couldn't. Um,",
+   "zh": ""
+  },
+  {
+   "i": 84,
+   "s": 578,
+   "e": 585,
+   "en": "do you think there's still a 10 to 20% chance that killer robots mean the end of humanity?",
+   "zh": ""
+  },
+  {
+   "i": 85,
+   "s": 585,
+   "e": 588,
+   "en": "That's a high poom, as they say.",
+   "zh": ""
+  },
+  {
+   "i": 86,
+   "s": 588,
+   "e": 597,
+   "en": "Well, in the long run, we're all dead, of course. um you know um so I mean so I mean",
+   "zh": ""
+  },
+  {
+   "i": 87,
+   "s": 597,
+   "e": 611,
+   "en": "according to the standard model of physics the end of the universe is um a long boring sort of thin gray soup of uh gradual",
+   "zh": ""
+  },
+  {
+   "i": 88,
+   "s": 611,
+   "e": 625,
+   "en": "cooling um meaning sort of the heat death of the universe it's called. So now if if the heat death of the universe is in fact the outcome for our reality, then it really is all about the journey because the destination is terrible.",
+   "zh": ""
+  },
+  {
+   "i": 89,
+   "s": 625,
+   "e": 627,
+   "en": "10 years is not very Yeah, I get that.",
+   "zh": ""
+  },
+  {
+   "i": 90,
+   "s": 627,
+   "e": 631,
+   "en": "But that could be a long way and you're basically saying, very long way.",
+   "zh": ""
+  },
+  {
+   "i": 91,
+   "s": 631,
+   "e": 639,
+   "en": "If it's 10 to 20% in 10 years, you would you go into one of your rockets if you thought there was a 10 to 20% chance of it blowing up and killing you?",
+   "zh": ""
+  },
+  {
+   "i": 92,
+   "s": 639,
+   "e": 645,
+   "en": "Yes. But but let's say there's you can't do anything about it. Okay,",
+   "zh": ""
+  },
+  {
+   "i": 93,
+   "s": 645,
+   "e": 657,
+   "en": "that I guess the only thing we can try to do is minimize the probability of the bad outcome. Um, but trying to stop the intelligence in robots.",
+   "zh": ""
+  },
+  {
+   "i": 94,
+   "s": 657,
+   "e": 671,
+   "en": "Um I mean for the longest time I declined to participate in AI or was you know you know created open AI as a essentially a counterweight to to Google",
+   "zh": ""
+  },
+  {
+   "i": 95,
+   "s": 671,
+   "e": 685,
+   "en": "because at the time they were um they had more or less a monopoly on AI. Um and then anthropic spun out of uh open AI and and if anything it seems like what my actions have really accelerated",
+   "zh": ""
+  },
+  {
+   "i": 96,
+   "s": 685,
+   "e": 700,
+   "en": "AI. you know, I wasn't really aiming to accelerate AI, but in creating open AI and then having Anthropic spin out of that and now currently Anthropic is the leader in AI. Um, I mean the these actions have actually",
+   "zh": ""
+  },
+  {
+   "i": 97,
+   "s": 700,
+   "e": 708,
+   "en": "resulted in knock-on effects that accelerated AI, which wasn't really my intention.",
+   "zh": ""
+  },
+  {
+   "i": 98,
+   "s": 708,
+   "e": 716,
+   "en": "So, it just seems like all roads lead to acceleration of AI.",
+   "zh": ""
+  },
+  {
+   "i": 99,
+   "s": 716,
+   "e": 723,
+   "en": "So then I'm like, \"Okay, well, you can just sort of be sad about it or join the club, I suppose.\"",
+   "zh": ""
+  },
+  {
+   "i": 100,
+   "s": 723,
+   "e": 724,
+   "en": "Well, you've certainly joined the club.",
+   "zh": ""
+  },
+  {
+   "i": 101,
+   "s": 724,
+   "e": 725,
+   "en": "Yeah,",
+   "zh": ""
+  },
+  {
+   "i": 102,
+   "s": 725,
+   "e": 727,
+   "en": "you've definitely joined the club, but",
+   "zh": ""
+  },
+  {
+   "i": 103,
+   "s": 727,
+   "e": 728,
+   "en": "you can't beat him. Join them, you know.",
+   "zh": ""
+  },
+  {
+   "i": 104,
+   "s": 728,
+   "e": 742,
+   "en": "Well, you you've you've clearly done that and very successfully, but what about trying to minimize the risks and, you know, a number of the other leaders of of model makers have been pushing for different ways to try and minimize the",
+   "zh": ""
+  },
+  {
+   "i": 105,
+   "s": 742,
+   "e": 757,
+   "en": "risks. Um, you know, just last week, Deisabes came out with a proposal for a private public regulator. Um, I think you you said it was a good starting point for discussions. I think do you think you guys should be working more actively",
+   "zh": ""
+  },
+  {
+   "i": 106,
+   "s": 757,
+   "e": 772,
+   "en": "to get something in place to control the risks or do you think that's impossible too? My recommendation to Demis because we I talked to him for a few hours before he published his his piece was that um the most immediate thing that we could do is to have the leading AI",
+   "zh": ""
+  },
+  {
+   "i": 107,
+   "s": 772,
+   "e": 785,
+   "en": "companies um at least just meet uh or have a some sort of call once every few weeks um and just uh discuss",
+   "zh": ""
+  },
+  {
+   "i": 108,
+   "s": 785,
+   "e": 800,
+   "en": "any safety and security issues that and and and that before a breakthrough sort a new frontier model is released, something that sort of is is far more intelligent than anything that already exists that there's an opportunity for",
+   "zh": ""
+  },
+  {
+   "i": 109,
+   "s": 800,
+   "e": 815,
+   "en": "the various competing uh AI companies to uh test that model for any harmful effects and to be able to recommend pausing to address some of",
+   "zh": ""
+  },
+  {
+   "i": 110,
+   "s": 815,
+   "e": 827,
+   "en": "these security issues. I I think that's that's the that's sort of the easy quick thing that we can do and it can it can evolve to more than that over time. Um but that's um that I think would be a smart move.",
+   "zh": ""
+  },
+  {
+   "i": 111,
+   "s": 827,
+   "e": 831,
+   "en": "But why why haven't you done that yet? I mean there's like five of you, right? I mean everyone knows the first name.",
+   "zh": ""
+  },
+  {
+   "i": 112,
+   "s": 831,
+   "e": 840,
+   "en": "Dario, Demis, Sam. I mean, you don't all like each other very much. Yeah. But you're not all you're not all I mean you're also all competing, right? You all want to be first.",
+   "zh": ""
+  },
+  {
+   "i": 113,
+   "s": 840,
+   "e": 854,
+   "en": "Yes. But that's that's where I think um the competitors can keep it keep each other honest. So meaning meaning like if um like I think it's quite difficult for someone in the government who doesn't have a deep technical understanding and",
+   "zh": ""
+  },
+  {
+   "i": 114,
+   "s": 854,
+   "e": 867,
+   "en": "isn't driving the frontier of of AI to know whether something should be released or not. Um however the competitors I think will can you know if given sort of a week or two to review a",
+   "zh": ""
+  },
+  {
+   "i": 115,
+   "s": 867,
+   "e": 876,
+   "en": "new model um can highlight issues and uh and have an incentive to keep all all the competitors have an incentive to keep the others honest.",
+   "zh": ""
+  },
+  {
+   "i": 116,
+   "s": 876,
+   "e": 884,
+   "en": "Do you have enough trust between you to do that? I mean you don't much like each other. Wouldn't wouldn't Samman just think you're going to nick all his ideas if you did that?",
+   "zh": ""
+  },
+  {
+   "i": 117,
+   "s": 884,
+   "e": 886,
+   "en": "Well, we're just talking about a week.",
+   "zh": ""
+  },
+  {
+   "i": 118,
+   "s": 886,
+   "e": 895,
+   "en": "Honestly, I think as little as a week is all that would be needed uh or private testing. It's not it's not to hand over the AI. It's just to test it",
+   "zh": ""
+  },
+  {
+   "i": 119,
+   "s": 895,
+   "e": 896,
+   "en": "to test it. Have you proposed this?",
+   "zh": ""
+  },
+  {
+   "i": 120,
+   "s": 896,
+   "e": 903,
+   "en": "Yeah, just to test it via an API or something. Um I think that would probably be a good thing to do. Um",
+   "zh": ""
+  },
+  {
+   "i": 121,
+   "s": 903,
+   "e": 908,
+   "en": "but have you have you proposed it? I mean, you could to Demis",
+   "zh": ""
+  },
+  {
+   "i": 122,
+   "s": 908,
+   "e": 923,
+   "en": "and I guess uh I I'll I'll talk to Daria about it, too. Um there's also of course um some very competent uh Chinese AI companies um",
+   "zh": ""
+  },
+  {
+   "i": 123,
+   "s": 923,
+   "e": 933,
+   "en": "that uh there's several of them several that are that are very good. Um the new Kimmy model Kimmy K3. Yeah. The one that came out last week has I mean it was almost as good as Fable, right? So",
+   "zh": ""
+  },
+  {
+   "i": 124,
+   "s": 933,
+   "e": 945,
+   "en": "well um I I think realistically Fable is is still uh clearly the smartest model. Um I think and anyone realistically would say that that's still the case but the",
+   "zh": ""
+  },
+  {
+   "i": 125,
+   "s": 945,
+   "e": 957,
+   "en": "chem model is getting quite close to fable. Um now anthropic had uh mythos from which fable is derived. I think",
+   "zh": ""
+  },
+  {
+   "i": 126,
+   "s": 957,
+   "e": 972,
+   "en": "they had that ready in February. So they've got they've got what they call I'm not sure what they call it but mythos 2 or or fable 6 or something something much better than what they had in February. They almost certainly have.",
+   "zh": ""
+  },
+  {
+   "i": 127,
+   "s": 972,
+   "e": 980,
+   "en": "Not almost certainly, they certainly have right now. So, and I think they could they they could release it at any time.",
+   "zh": ""
+  },
+  {
+   "i": 128,
+   "s": 980,
+   "e": 990,
+   "en": "Just before we get on to to releasing, how do you think about the Chinese models and the geopolitics of it? Are you worried about the Chinese catching up and getting ahead",
+   "zh": ""
+  },
+  {
+   "i": 129,
+   "s": 990,
+   "e": 1002,
+   "en": "given that the Chinese AI companies are um are doing as well as they are with a relatively small amount of compute? Uh it seems though as that if they had a",
+   "zh": ""
+  },
+  {
+   "i": 130,
+   "s": 1002,
+   "e": 1014,
+   "en": "lot of compute um there's a good chance that they would be the leaders and at some point they probably will have a lot of compute.",
+   "zh": ""
+  },
+  {
+   "i": 131,
+   "s": 1014,
+   "e": 1019,
+   "en": "So they will go they will be the leaders.",
+   "zh": ""
+  },
+  {
+   "i": 132,
+   "s": 1019,
+   "e": 1033,
+   "en": "There's a good chance that they are the leaders at some point. Um, you can think of like the the constraints on AI are essentially electricity and AI chips.",
+   "zh": ""
+  },
+  {
+   "i": 133,
+   "s": 1033,
+   "e": 1043,
+   "en": "Um, and then for physical AI, the robots, uh, China's also got some very good robot companies. In fact, they have these like robot sporting events. I don't know if you've seen some of them.",
+   "zh": ""
+  },
+  {
+   "i": 134,
+   "s": 1043,
+   "e": 1058,
+   "en": "Yes, I have. I saw them. Last time I was in Beijing, I saw the the robots. Well, and then they have the sort of like a like a boxing match or fighting match with um the robots which is quite entertaining. And I I saw some video of robot that got his head knocked off kept fighting even with his head knocked off.",
+   "zh": ""
+  },
+  {
+   "i": 135,
+   "s": 1058,
+   "e": 1065,
+   "en": "It looked pretty funny. But um I mean in fact I think the the robot battles are going to be quite entertaining to watch.",
+   "zh": ""
+  },
+  {
+   "i": 136,
+   "s": 1065,
+   "e": 1066,
+   "en": "Um",
+   "zh": ""
+  },
+  {
+   "i": 137,
+   "s": 1066,
+   "e": 1067,
+   "en": "but but just",
+   "zh": ""
+  },
+  {
+   "i": 138,
+   "s": 1067,
+   "e": 1082,
+   "en": "so so China's China is very strong on robots very strong on digital AI and and if you look at electricity production you say like AI is a function of whatever whatever the limiting factor is if it's chips or electricity China has",
+   "zh": ""
+  },
+  {
+   "i": 139,
+   "s": 1082,
+   "e": 1097,
+   "en": "far more electricity than the United States in fact China has more electricity than the United States Europe and India combined already um and is heading to and my guess is and it gets to four times the electricity",
+   "zh": ""
+  },
+  {
+   "i": 140,
+   "s": 1097,
+   "e": 1102,
+   "en": "production of the US which is roughly proportionate to the population.",
+   "zh": ""
+  },
+  {
+   "i": 141,
+   "s": 1102,
+   "e": 1115,
+   "en": "What should the US government do about this? I mean if you you presumably it is a little alarming if you have an authoritarian regime far ahead in the most powerful technology and clearly what what the US government's been trying to do is with the export controls",
+   "zh": ""
+  },
+  {
+   "i": 142,
+   "s": 1115,
+   "e": 1127,
+   "en": "and so forth keep China back. Do you think they should ban the use of K3 kim K3 for example? Well, the US government can't they can they can pass some law",
+   "zh": ""
+  },
+  {
+   "i": 143,
+   "s": 1127,
+   "e": 1135,
+   "en": "that prevents US companies from using um Chinese models, but they can't stop the rest of the world from from using them.",
+   "zh": ""
+  },
+  {
+   "i": 144,
+   "s": 1135,
+   "e": 1141,
+   "en": "Um so it's it's not like the the US government has authority over China or the rest of the world. Um",
+   "zh": ""
+  },
+  {
+   "i": 145,
+   "s": 1141,
+   "e": 1146,
+   "en": "do you think they should stop US companies from using them? There's talk of that right now, right?",
+   "zh": ""
+  },
+  {
+   "i": 146,
+   "s": 1146,
+   "e": 1149,
+   "en": "I don't think that that helps.",
+   "zh": ""
+  },
+  {
+   "i": 147,
+   "s": 1149,
+   "e": 1164,
+   "en": "Um, and that won't stop China from being the leader in AI. The the really it's for for digital intelligence, it comes down to uh how much AI compute do you have? Well, how many chips chips do you",
+   "zh": ""
+  },
+  {
+   "i": 148,
+   "s": 1164,
+   "e": 1179,
+   "en": "have and how much power do you have? How much electricity do you have? Um so the constraint right now I think is actually slightly more on power and cooling than it is on AI chips",
+   "zh": ""
+  },
+  {
+   "i": 149,
+   "s": 1179,
+   "e": 1194,
+   "en": "because um the the power demands of the AI chips are very very high. Um we'll talk about water demands but the really the water usage of AI is negligible almost nothing. Um but the the electrical demand is very high.",
+   "zh": ""
+  },
+  {
+   "i": 150,
+   "s": 1194,
+   "e": 1209,
+   "en": "That's why you're thinking of orbital data centers presumably that's The constraint for any AI chips not being turned on in China is electricity and like power and cooling and the electrical equipment and everything. Um",
+   "zh": ""
+  },
+  {
+   "i": 151,
+   "s": 1209,
+   "e": 1215,
+   "en": "the rate at which AI chips are being made exceeds the rate at which new electricity is coming online",
+   "zh": ""
+  },
+  {
+   "i": 152,
+   "s": 1215,
+   "e": 1216,
+   "en": "in China.",
+   "zh": ""
+  },
+  {
+   "i": 153,
+   "s": 1216,
+   "e": 1217,
+   "en": "Um outside of China.",
+   "zh": ""
+  },
+  {
+   "i": 154,
+   "s": 1217,
+   "e": 1219,
+   "en": "Outside China. I see. Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 155,
+   "s": 1219,
+   "e": 1230,
+   "en": "Um and since China, you know, the US has banned the export of the latest AI chips to China. Um, China is is somewhat chip starved. So,",
+   "zh": ""
+  },
+  {
+   "i": 156,
+   "s": 1230,
+   "e": 1244,
+   "en": "but they are becoming much more efficient at using the chips that they have and that one of the striking things of Kim K3, right, is how efficiently they and and and China is also um I I think closer than most people realize to",
+   "zh": ""
+  },
+  {
+   "i": 157,
+   "s": 1244,
+   "e": 1259,
+   "en": "solving uh the lithography problem which would enable them to make uh AI chips at at very large volumes. So, so I think there's, you know, this shouldn't devolve into",
+   "zh": ""
+  },
+  {
+   "i": 158,
+   "s": 1259,
+   "e": 1272,
+   "en": "just a China conversation, but um but but so the current current constraint is is electricity outside of China. In China, the constraint is chips. Uh once the once we address the",
+   "zh": ""
+  },
+  {
+   "i": 159,
+   "s": 1272,
+   "e": 1286,
+   "en": "the power constraint with um AI data centers in space, uh then the constraint will once again be chips outside of China. That suggests to me that you need China and the US if you're going to have",
+   "zh": ""
+  },
+  {
+   "i": 160,
+   "s": 1286,
+   "e": 1301,
+   "en": "some overall safety constraints that they will need to work together if you are going to try and I mean you suggested you know the five makers here working uh probably it should include um the Chinese companies that are doing",
+   "zh": ""
+  },
+  {
+   "i": 161,
+   "s": 1301,
+   "e": 1304,
+   "en": "frontier AI models too",
+   "zh": ""
+  },
+  {
+   "i": 162,
+   "s": 1304,
+   "e": 1319,
+   "en": "and do you think governments need to be involved? My recommendation would be that if if some of the leading companies in AI in AI say that this a new model is very dangerous,",
+   "zh": ""
+  },
+  {
+   "i": 163,
+   "s": 1319,
+   "e": 1331,
+   "en": "then they should inform the government and and and and a new model is very dangerous and that the company producing that model is not taking steps to address the danger, then then they should alert the",
+   "zh": ""
+  },
+  {
+   "i": 164,
+   "s": 1331,
+   "e": 1344,
+   "en": "government to take action um to limit the uh release of that model. Um and that could be action by the Chinese government or action by the US government. Um it's",
+   "zh": ""
+  },
+  {
+   "i": 165,
+   "s": 1344,
+   "e": 1358,
+   "en": "it's really it's really just the US government and the Chinese government that that have the power to take action here. But the I guess people would be worried about relying on a group of model builders to decide whether to do this.",
+   "zh": ""
+  },
+  {
+   "i": 166,
+   "s": 1358,
+   "e": 1372,
+   "en": "is I mean if you look at what the US government has done with with mythos they stepped in because they were worried about the cyber security risks and they stepped in using you know threat of export controls to you know prevent the widespread release of this",
+   "zh": ""
+  },
+  {
+   "i": 167,
+   "s": 1372,
+   "e": 1386,
+   "en": "model. I find it hard to see how governments will not want to keep that power that they ultimately decide whether a model gets released. I think they should keep they should have that power. But it it wasn't as though someone in the government figured out",
+   "zh": ""
+  },
+  {
+   "i": 168,
+   "s": 1386,
+   "e": 1398,
+   "en": "that Mythos uh was had had some scary cyber security uh risks. It it was Amazon.",
+   "zh": ""
+  },
+  {
+   "i": 169,
+   "s": 1398,
+   "e": 1402,
+   "en": "Um Amazon highlighted this and Amazon called the White House.",
+   "zh": ""
+  },
+  {
+   "i": 170,
+   "s": 1402,
+   "e": 1410,
+   "en": "So you'd have a system where the model makers would check each other's work. If there was something that worried them, you'd tell the government. the government would then take action.",
+   "zh": ""
+  },
+  {
+   "i": 171,
+   "s": 1410,
+   "e": 1418,
+   "en": "If there's something else was worrisome and that company was not doing anything to address that risk, then that would be the the moment for government to step in",
+   "zh": ""
+  },
+  {
+   "i": 172,
+   "s": 1418,
+   "e": 1421,
+   "en": "and take action, which is literally what just what occurred.",
+   "zh": ""
+  },
+  {
+   "i": 173,
+   "s": 1421,
+   "e": 1425,
+   "en": "Why does all this have to happen?",
+   "zh": ""
+  },
+  {
+   "i": 174,
+   "s": 1425,
+   "e": 1430,
+   "en": "Well, I think it would be good to do that I think immediately really. Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 175,
+   "s": 1430,
+   "e": 1439,
+   "en": "Yeah. That's what people keep telling me. We we have to get this some kind of system in the next six months because of the pace at which the models are improving.",
+   "zh": ""
+  },
+  {
+   "i": 176,
+   "s": 1439,
+   "e": 1443,
+   "en": "Yeah, six months is a long time. Um,",
+   "zh": ""
+  },
+  {
+   "i": 177,
+   "s": 1443,
+   "e": 1445,
+   "en": "so you think shorter than that?",
+   "zh": ""
+  },
+  {
+   "i": 178,
+   "s": 1445,
+   "e": 1454,
+   "en": "Well, I mean, there's there's so many AI breakthrough announcements, sometimes multiple per day. I mean, how many were there last week?",
+   "zh": ""
+  },
+  {
+   "i": 179,
+   "s": 1454,
+   "e": 1455,
+   "en": "A lot.",
+   "zh": ""
+  },
+  {
+   "i": 180,
+   "s": 1455,
+   "e": 1456,
+   "en": "I lost track, you know.",
+   "zh": ""
+  },
+  {
+   "i": 181,
+   "s": 1456,
+   "e": 1458,
+   "en": "Yeah, a lot.",
+   "zh": ""
+  },
+  {
+   "i": 182,
+   "s": 1458,
+   "e": 1460,
+   "en": "Um,",
+   "zh": ""
+  },
+  {
+   "i": 183,
+   "s": 1460,
+   "e": 1468,
+   "en": "so so you you basically, you know, whether it's Demis' proposal or others, you need to get together and get this set up kind of now. It sounds like you're telling me.",
+   "zh": ""
+  },
+  {
+   "i": 184,
+   "s": 1468,
+   "e": 1480,
+   "en": "Yeah, I I I would recommend that we at least have some sort of informal g um weekly or bi-weekly um call and that there's that that",
+   "zh": ""
+  },
+  {
+   "i": 185,
+   "s": 1480,
+   "e": 1495,
+   "en": "um there's maybe a week or two weeks of of early access by competitors. And and this is why I think the incentives work is because if if you know competing companies I think are likely to understand if something is a security",
+   "zh": ""
+  },
+  {
+   "i": 186,
+   "s": 1495,
+   "e": 1510,
+   "en": "risk and they're they're not going to be shy about highlighting that that their their competitor's model should be delayed in release. does I think the incentive structure does work quite well there and and if the if and if and this is sort of how it works with the motion",
+   "zh": ""
+  },
+  {
+   "i": 187,
+   "s": 1510,
+   "e": 1524,
+   "en": "picture association you know the it's it's an industry group that uh decides how how movies should be rated you know whe whether it's appropriate for for young children or or not. Um and that's",
+   "zh": ""
+  },
+  {
+   "i": 188,
+   "s": 1524,
+   "e": 1527,
+   "en": "uh that seems to have worked quite well.",
+   "zh": ""
+  },
+  {
+   "i": 189,
+   "s": 1527,
+   "e": 1538,
+   "en": "So um and and and then you really just ask have ask the government to intervene if if some if a company is doing something very dangerous and refuses to take action to reduce the danger.",
+   "zh": ""
+  },
+  {
+   "i": 190,
+   "s": 1538,
+   "e": 1553,
+   "en": "Do you think this is a this is a tricky one, but you guys don't much like each other and you don't much trust each other. You're insulting each other on on social media constantly. So do you do you think you can do that with people that you dislike that that where there seems to be such",
+   "zh": ""
+  },
+  {
+   "i": 191,
+   "s": 1553,
+   "e": 1557,
+   "en": "kind of personal vitrial between some of these leaders?",
+   "zh": ""
+  },
+  {
+   "i": 192,
+   "s": 1557,
+   "e": 1563,
+   "en": "Um, yes. Well, I'm I'm not a fan of Sam Alman because um",
+   "zh": ""
+  },
+  {
+   "i": 193,
+   "s": 1563,
+   "e": 1571,
+   "en": "you're watching my interview with Elon Musk. If you want to get early access to other interviews, subscribe to The Economist by clicking the link above.",
+   "zh": ""
+  },
+  {
+   "i": 194,
+   "s": 1571,
+   "e": 1584,
+   "en": "Now, back to the interview. if you started a nonprofit that was meant to be an open-source AI company and um you know owned by the world uh and it",
+   "zh": ""
+  },
+  {
+   "i": 195,
+   "s": 1584,
+   "e": 1598,
+   "en": "somehow got turned into an $800 billion for-profit company with closed source I think you'd be like well wait a second that's uh the exact opposite of what I donated the money for that that's my issue I think it's a legitimate one",
+   "zh": ""
+  },
+  {
+   "i": 196,
+   "s": 1598,
+   "e": 1612,
+   "en": "um and then Daario I think also is not a fan of Sam Alman because he felt In fact, the reason the anthropic team left OpenAI is because they they didn't trust Sam Alman. Otherwise, anthropic wouldn't exist. They would still be at",
+   "zh": ""
+  },
+  {
+   "i": 197,
+   "s": 1612,
+   "e": 1624,
+   "en": "OpenAI. Um I I think Dario is a very principled person. He cares about things a lot. Uh cares about the future of the world. And I think everyone I've met at Anthropic",
+   "zh": ""
+  },
+  {
+   "i": 198,
+   "s": 1624,
+   "e": 1632,
+   "en": "so far has been I'm like no one set off my evil detector, you know, they always seem seem like they're well-intentioned.",
+   "zh": ""
+  },
+  {
+   "i": 199,
+   "s": 1632,
+   "e": 1638,
+   "en": "Um, and uh, and the road to hell is, I think, mostly paved with bad intentions.",
+   "zh": ""
+  },
+  {
+   "i": 200,
+   "s": 1638,
+   "e": 1651,
+   "en": "There are a few well-intentioned paving stones in there. So, we we don't want to be complacent. Um, but, uh, you at the end of the day, if we have to talk, we'll talk. I mean, set aside our personal differences for the good of the world.",
+   "zh": ""
+  },
+  {
+   "i": 201,
+   "s": 1651,
+   "e": 1654,
+   "en": "Well, that's that's a very good thing for the rest of us to hear.",
+   "zh": ""
+  },
+  {
+   "i": 202,
+   "s": 1654,
+   "e": 1656,
+   "en": "Yeah. Um",
+   "zh": ""
+  },
+  {
+   "i": 203,
+   "s": 1656,
+   "e": 1668,
+   "en": "can I can we turn to one other risk that people worry about particularly I think ordinary Americans where you know AI has become incredibly unpopular 75% of people are worried about it and I think they worry about their jobs",
+   "zh": ""
+  },
+  {
+   "i": 204,
+   "s": 1668,
+   "e": 1677,
+   "en": "and if you look at Dario has said famously what 50% of entry- level jobs entry level white collar jobs will be gone within a few years",
+   "zh": ""
+  },
+  {
+   "i": 205,
+   "s": 1677,
+   "e": 1679,
+   "en": "you're building humanoid robots.",
+   "zh": ""
+  },
+  {
+   "i": 206,
+   "s": 1679,
+   "e": 1693,
+   "en": "Yes. He he also said like I mean Dario did dig his own grave here regarding Mythos because he said you know mythos is like super scary terrifying and also by the way we're going to release it and then he's like what what do you mean",
+   "zh": ""
+  },
+  {
+   "i": 207,
+   "s": 1693,
+   "e": 1700,
+   "en": "you know so I think he um I think probably in the future we'll choose his words differently. Um",
+   "zh": ""
+  },
+  {
+   "i": 208,
+   "s": 1700,
+   "e": 1701,
+   "en": "but what",
+   "zh": ""
+  },
+  {
+   "i": 209,
+   "s": 1701,
+   "e": 1707,
+   "en": "because obviously if if you make if you terrify everyone and then say oh we're releasing this terrifying thing people will obviously be alarmed about that.",
+   "zh": ""
+  },
+  {
+   "i": 210,
+   "s": 1707,
+   "e": 1715,
+   "en": "you know, you've literally told them to be scared and then you release the scary thing and so they will be scared. That is natural.",
+   "zh": ""
+  },
+  {
+   "i": 211,
+   "s": 1715,
+   "e": 1730,
+   "en": "So I I certainly don't want you to alarm people, but I do think there is a really important debate about how quickly and to what degree AI displace people from jobs because it is as you say if in 10 years it's more it's there's more intelligence artificial intelligence",
+   "zh": ""
+  },
+  {
+   "i": 212,
+   "s": 1730,
+   "e": 1731,
+   "en": "than any human intelligence.",
+   "zh": ""
+  },
+  {
+   "i": 213,
+   "s": 1731,
+   "e": 1736,
+   "en": "Yes. And if you are and I think you're ahead of everyone at least in this country on",
+   "zh": ""
+  },
+  {
+   "i": 214,
+   "s": 1736,
+   "e": 1740,
+   "en": "powering humanoid robots that's that's also going to be",
+   "zh": ""
+  },
+  {
+   "i": 215,
+   "s": 1740,
+   "e": 1742,
+   "en": "kind of factory work.",
+   "zh": ""
+  },
+  {
+   "i": 216,
+   "s": 1742,
+   "e": 1752,
+   "en": "So do you are you part do you are you closer to Dario let's say in your sense of the pace at which jobs are going to be displaced.",
+   "zh": ""
+  },
+  {
+   "i": 217,
+   "s": 1752,
+   "e": 1765,
+   "en": "I I do think it's going to be a bumpy road. Um because AI will be able to do any job better than any person can do that job.",
+   "zh": ""
+  },
+  {
+   "i": 218,
+   "s": 1765,
+   "e": 1780,
+   "en": "Um and that will be true very quickly of jobs that um are digital or really anything that involves a person at a computer or on a phone. AI could do all of that. Um will be able to do all of",
+   "zh": ""
+  },
+  {
+   "i": 219,
+   "s": 1780,
+   "e": 1782,
+   "en": "that very soon.",
+   "zh": ""
+  },
+  {
+   "i": 220,
+   "s": 1782,
+   "e": 1797,
+   "en": "I mean, for software engineering, we already have a situation where AI is better than at least 90% of humans um at writing software. 90% of professional",
+   "zh": ""
+  },
+  {
+   "i": 221,
+   "s": 1797,
+   "e": 1799,
+   "en": "software engineers at writing software.",
+   "zh": ""
+  },
+  {
+   "i": 222,
+   "s": 1799,
+   "e": 1804,
+   "en": "And I mean, really, it's getting to the point where it'll be better than 99%.",
+   "zh": ""
+  },
+  {
+   "i": 223,
+   "s": 1804,
+   "e": 1811,
+   "en": "And then it'll get to the point where there's just no way to compete. It'll it'll get to what I call Stockfish level.",
+   "zh": ""
+  },
+  {
+   "i": 224,
+   "s": 1811,
+   "e": 1815,
+   "en": "So Stockfish, so Stockfish is the chess program",
+   "zh": ""
+  },
+  {
+   "i": 225,
+   "s": 1815,
+   "e": 1830,
+   "en": "that um Stockfish is so good at chess that you know it it will easily beat Magnus Carlson or anyone uh at chess um on a even running on a small",
+   "zh": ""
+  },
+  {
+   "i": 226,
+   "s": 1830,
+   "e": 1842,
+   "en": "computer. I suspect that you could probably run Stockfish on your phone and beat Magnus Carlson. That's how good it is at chess and that's how good AI will be at writing software",
+   "zh": ""
+  },
+  {
+   "i": 227,
+   "s": 1842,
+   "e": 1844,
+   "en": "and beyond software",
+   "zh": ""
+  },
+  {
+   "i": 228,
+   "s": 1844,
+   "e": 1845,
+   "en": "beyond",
+   "zh": ""
+  },
+  {
+   "i": 229,
+   "s": 1845,
+   "e": 1847,
+   "en": "and that applies to everything",
+   "zh": ""
+  },
+  {
+   "i": 230,
+   "s": 1847,
+   "e": 1848,
+   "en": "everything",
+   "zh": ""
+  },
+  {
+   "i": 231,
+   "s": 1848,
+   "e": 1849,
+   "en": "everything",
+   "zh": ""
+  },
+  {
+   "i": 232,
+   "s": 1849,
+   "e": 1861,
+   "en": "everything but what about you for for physical jobs for assembly jobs you will also need the capability in humanoid robots which so far isn't there yet is it",
+   "zh": ""
+  },
+  {
+   "i": 233,
+   "s": 1861,
+   "e": 1872,
+   "en": "right so that's why I said digital AI and then physically manifested AI in the form of robots where the robot is is more or less an endeector. It would have some amount of local intelligence but be",
+   "zh": ""
+  },
+  {
+   "i": 234,
+   "s": 1872,
+   "e": 1885,
+   "en": "managed by a large AI model. Um and uh I and I've said many times I think work is going to be optional.",
+   "zh": ""
+  },
+  {
+   "i": 235,
+   "s": 1885,
+   "e": 1898,
+   "en": "So I mean let me mean so so I think maybe maybe a good a good uh comparison would be um gardening like you don't have to garden you know you",
+   "zh": ""
+  },
+  {
+   "i": 236,
+   "s": 1898,
+   "e": 1913,
+   "en": "don't like you you don't have to grow vegetables in in your garden you can go to the store and they're going to be pristine vegetables or you could grow vegetables in your garden and they will actually be uh less perfect. your",
+   "zh": ""
+  },
+  {
+   "i": 237,
+   "s": 1913,
+   "e": 1927,
+   "en": "tomatoes not going to be as plump and juicy as the ones at the store. They they'll, you know, look a little artisal. Um, but, you know, if if you go to a friend's house and they they make dinner at and with vegetables from their",
+   "zh": ""
+  },
+  {
+   "i": 238,
+   "s": 1927,
+   "e": 1930,
+   "en": "garden, it's it's a nice touch.",
+   "zh": ""
+  },
+  {
+   "i": 239,
+   "s": 1930,
+   "e": 1944,
+   "en": "So, that's this is what work is going to be like, you know, I get that. I mean, in that world, I would be hopeless because I can't garden to save my life. But, I get the idea. People still like playing chess with each other even though every computer's better. Let's just let's just think about the politics of this. Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 240,
+   "s": 1944,
+   "e": 1951,
+   "en": "Because it sounds you're describing a world where within 10 years pretty much every job can be done better by an intelligence.",
+   "zh": ""
+  },
+  {
+   "i": 241,
+   "s": 1951,
+   "e": 1952,
+   "en": "And",
+   "zh": ""
+  },
+  {
+   "i": 242,
+   "s": 1952,
+   "e": 1958,
+   "en": "yes, you're seeing huge returns to this intelligence to people like you, you're the wealthiest man in the world.",
+   "zh": ""
+  },
+  {
+   "i": 243,
+   "s": 1958,
+   "e": 1965,
+   "en": "What people who lose their jobs, who are displaced, who may go off and garden, but how are they going to live? And what kind of I mean, it sounds to me",
+   "zh": ""
+  },
+  {
+   "i": 244,
+   "s": 1965,
+   "e": 1968,
+   "en": "universal high income,",
+   "zh": ""
+  },
+  {
+   "i": 245,
+   "s": 1968,
+   "e": 1969,
+   "en": "but how are you going to get there?",
+   "zh": ""
+  },
+  {
+   "i": 246,
+   "s": 1969,
+   "e": 1972,
+   "en": "Let's talk about the politics of this cuz right now",
+   "zh": ""
+  },
+  {
+   "i": 247,
+   "s": 1972,
+   "e": 1978,
+   "en": "we if we look at the political pressures in most countries people are very very worried about this very against it.",
+   "zh": ""
+  },
+  {
+   "i": 248,
+   "s": 1978,
+   "e": 1985,
+   "en": "I mean it seems to me that there's a risk that we are heading more for revolution than for an easy route to this nirvana you're playing out.",
+   "zh": ""
+  },
+  {
+   "i": 249,
+   "s": 1985,
+   "e": 2000,
+   "en": "I mean it will be a bumpy road. I'm not suggesting it will be sort of that everything will be smooth sailing here. Um, so I mean there are many jobs that used to",
+   "zh": ""
+  },
+  {
+   "i": 250,
+   "s": 2000,
+   "e": 2015,
+   "en": "exist that don't exist because of computers. I mean the the word computer used to refer to a person doing computations like that used to be a job description of a person. And you can see pictures online of um of buildings that",
+   "zh": ""
+  },
+  {
+   "i": 251,
+   "s": 2015,
+   "e": 2024,
+   "en": "have entire skyscrapers of just filled with people doing calculations to to do things like calculate the interest on your bank balance.",
+   "zh": ""
+  },
+  {
+   "i": 252,
+   "s": 2024,
+   "e": 2038,
+   "en": "um this is how things were done for a long time until computers came around and even in the beginning computers were very expensive and hard to use. Uh so so the the thing that's different here is",
+   "zh": ""
+  },
+  {
+   "i": 253,
+   "s": 2038,
+   "e": 2051,
+   "en": "that the the pace of change is radically accelerated. So, but still people, you know, some people were upset that they their job of calculating bank interest",
+   "zh": ""
+  },
+  {
+   "i": 254,
+   "s": 2051,
+   "e": 2066,
+   "en": "would would no longer be available. Um, but now I think mo there's you be hardressed to find people who want to do that job. Um, so I I think I I have a suggestion for say what say science",
+   "zh": ""
+  },
+  {
+   "i": 255,
+   "s": 2066,
+   "e": 2074,
+   "en": "fiction books people might want to read to get a sense of what the future will be like.",
+   "zh": ""
+  },
+  {
+   "i": 256,
+   "s": 2074,
+   "e": 2080,
+   "en": "And the the best envisioning of an AI future that I've read are the books by Ian Banks, the culture books.",
+   "zh": ""
+  },
+  {
+   "i": 257,
+   "s": 2080,
+   "e": 2085,
+   "en": "I'm just reading accession. So I' I've thanks to you I've started reading these",
+   "zh": ""
+  },
+  {
+   "i": 258,
+   "s": 2085,
+   "e": 2092,
+   "en": "but I actually don't find that future a terribly appealing one because I don't think humans have agency in that future.",
+   "zh": ""
+  },
+  {
+   "i": 259,
+   "s": 2092,
+   "e": 2094,
+   "en": "They have agency",
+   "zh": ""
+  },
+  {
+   "i": 260,
+   "s": 2094,
+   "e": 2096,
+   "en": "minimal compared to the mind",
+   "zh": ""
+  },
+  {
+   "i": 261,
+   "s": 2096,
+   "e": 2097,
+   "en": "small way",
+   "zh": ""
+  },
+  {
+   "i": 262,
+   "s": 2097,
+   "e": 2103,
+   "en": "but the irony I mean Ian Banks as you know was a socialist. Um Ian Banks had a very different political philosophy.",
+   "zh": ""
+  },
+  {
+   "i": 263,
+   "s": 2103,
+   "e": 2106,
+   "en": "I not sure that's I'm not sure I would entirely agree with that.",
+   "zh": ""
+  },
+  {
+   "i": 264,
+   "s": 2106,
+   "e": 2117,
+   "en": "Let's agree that that could be where we end up. I'm con I'm concerned about the road and we live you know we live in democracies and people are very worried about this. So I guess two questions.",
+   "zh": ""
+  },
+  {
+   "i": 265,
+   "s": 2117,
+   "e": 2132,
+   "en": "Firstly, do you have to have massive redistribution from people like you to the people who are losing their jobs? Do you need to have do you need to pay more tax? Do you have much higher taxes on capital so that you fund what some kind",
+   "zh": ""
+  },
+  {
+   "i": 266,
+   "s": 2132,
+   "e": 2135,
+   "en": "of universal income? Otherwise what do people live off?",
+   "zh": ""
+  },
+  {
+   "i": 267,
+   "s": 2135,
+   "e": 2140,
+   "en": "I I think that that the Treasury should just simply issue people checks.",
+   "zh": ""
+  },
+  {
+   "i": 268,
+   "s": 2140,
+   "e": 2146,
+   "en": "But where's the revenue coming from? I mean, I'm enough of an economist. If you just issue checks, you're going to have inflation.",
+   "zh": ""
+  },
+  {
+   "i": 269,
+   "s": 2146,
+   "e": 2155,
+   "en": "This is like a lot of what we're trying to think about is these things were relevant in the past, they will not be relevant in the future.",
+   "zh": ""
+  },
+  {
+   "i": 270,
+   "s": 2155,
+   "e": 2161,
+   "en": "So like inflation is simply the ratio of money to the to to goods and services.",
+   "zh": ""
+  },
+  {
+   "i": 271,
+   "s": 2161,
+   "e": 2176,
+   "en": "So if the goods and services output increases dramatically if it increases you know a th000%. You can increase the you can literally print or these days change the database print money it's you",
+   "zh": ""
+  },
+  {
+   "i": 272,
+   "s": 2176,
+   "e": 2190,
+   "en": "create money in the in the database um provided the creation of that money uh is less than the rate at which goods and services increase um you you will actually have deflation. So I'll make a",
+   "zh": ""
+  },
+  {
+   "i": 273,
+   "s": 2190,
+   "e": 2204,
+   "en": "prediction which is that deflation will be the issue not inflation because because as the output of goods and services increases um if if the output of goods and services increases faster than the money supply you will have deflation.",
+   "zh": ""
+  },
+  {
+   "i": 274,
+   "s": 2204,
+   "e": 2211,
+   "en": "I'm actually I'm perfectly willing to believe that. You may well be right. No, absolutely. You may well be right. But I I'm I'm really",
+   "zh": ""
+  },
+  {
+   "i": 275,
+   "s": 2211,
+   "e": 2225,
+   "en": "hung up on how we get from the current polarized, angry, fearful policy we have now to this nirvana. And and I think you could you can paint a picture where people are so scared by this,",
+   "zh": ""
+  },
+  {
+   "i": 276,
+   "s": 2225,
+   "e": 2240,
+   "en": "you know, they essentially try to stop it. Maybe they can't, but you get nationalized. There's a kind of, you know, far-left government. Uh there's exorbitant tax increases. is the kind of economy crumbles because people are so worried about a future which does sound",
+   "zh": ""
+  },
+  {
+   "i": 277,
+   "s": 2240,
+   "e": 2244,
+   "en": "quite scary as you describe it. So how do you how do you handle the politics now?",
+   "zh": ""
+  },
+  {
+   "i": 278,
+   "s": 2244,
+   "e": 2246,
+   "en": "It's exhilarating and terrifying",
+   "zh": ""
+  },
+  {
+   "i": 279,
+   "s": 2246,
+   "e": 2248,
+   "en": "but if if you were in Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 280,
+   "s": 2248,
+   "e": 2261,
+   "en": "honestly and if you ask me on any given day I I in fact even intraday I've gone from exhilaration to terror regarding AI. So I I want to be clear. I'm not like I'm not sort of some,",
+   "zh": ""
+  },
+  {
+   "i": 281,
+   "s": 2261,
+   "e": 2268,
+   "en": "you know, I'm not trying to be sort of candid here and and just be some, oh, everything's wonderful, some panglossian",
+   "zh": ""
+  },
+  {
+   "i": 282,
+   "s": 2268,
+   "e": 2274,
+   "en": "view of the world where everything's, you know, going to be great. No, no, no risk. I'm I'm saying there is some risk.",
+   "zh": ""
+  },
+  {
+   "i": 283,
+   "s": 2274,
+   "e": 2275,
+   "en": "Um,",
+   "zh": ""
+  },
+  {
+   "i": 284,
+   "s": 2275,
+   "e": 2289,
+   "en": "I think we agree on that. I guess I'm trying to be more sort of, you know, small bore and practical and think about what can be done now to limit those risks. And you gave a very strong argument for what you and your fellow model makers could do. What should government",
+   "zh": ""
+  },
+  {
+   "i": 285,
+   "s": 2289,
+   "e": 2291,
+   "en": "probably would be good to for us to",
+   "zh": ""
+  },
+  {
+   "i": 286,
+   "s": 2291,
+   "e": 2297,
+   "en": "coordinate and and just highlight issues that we see in each other's models um to mitigate",
+   "zh": ""
+  },
+  {
+   "i": 287,
+   "s": 2297,
+   "e": 2298,
+   "en": "downside risk?",
+   "zh": ""
+  },
+  {
+   "i": 288,
+   "s": 2298,
+   "e": 2304,
+   "en": "What should the government should you be paying more tax to fund more transfer programs?",
+   "zh": ""
+  },
+  {
+   "i": 289,
+   "s": 2304,
+   "e": 2307,
+   "en": "Well, first of all, I do I do pay a lot of tax. Um,",
+   "zh": ""
+  },
+  {
+   "i": 290,
+   "s": 2307,
+   "e": 2317,
+   "en": "so um I in fact I um I set a record for the most amount of taxes ever paid by a by a human.",
+   "zh": ""
+  },
+  {
+   "i": 291,
+   "s": 2317,
+   "e": 2319,
+   "en": "That's also because you're the world's richest man.",
+   "zh": ""
+  },
+  {
+   "i": 292,
+   "s": 2319,
+   "e": 2323,
+   "en": "Well, even before that.",
+   "zh": ""
+  },
+  {
+   "i": 293,
+   "s": 2323,
+   "e": 2330,
+   "en": "So my guess is that I will pay many trillions in tax and I'm fine with that.",
+   "zh": ""
+  },
+  {
+   "i": 294,
+   "s": 2330,
+   "e": 2345,
+   "en": "Um so yeah um that's just the way it's going to be. But I don't think t in a future where money is relevant. I think taxation also becomes somewhat irrelevant. And what about giving people a sense that they have a share in the upside?",
+   "zh": ""
+  },
+  {
+   "i": 295,
+   "s": 2345,
+   "e": 2352,
+   "en": "Sure. Giving people shares in SpaceX, in Tesla, do you think that's and there's a lot of talk about this right now. Um",
+   "zh": ""
+  },
+  {
+   "i": 296,
+   "s": 2352,
+   "e": 2367,
+   "en": "well, one of the reasons I took SpaceX public is so that the public could participate in they could own a piece of SpaceX. Um whereas as a private company we're very limited in the number of shareholders we're allowed to have before going public. So as a public",
+   "zh": ""
+  },
+  {
+   "i": 297,
+   "s": 2367,
+   "e": 2377,
+   "en": "company um we can have millions of shareholders as a private company we limited to just a few thousand shareholders. Um, so",
+   "zh": ""
+  },
+  {
+   "i": 298,
+   "s": 2377,
+   "e": 2392,
+   "en": "do you think there should be distribution of shares like you know the Alaska wealth fund is there for which could you imagine a world and some people talk about the Trump accounts being a kind of vehicle for this that you a share of your equity goes to ordinary Americans",
+   "zh": ""
+  },
+  {
+   "i": 299,
+   "s": 2392,
+   "e": 2407,
+   "en": "right well in the taxes that like that I that I pay I mean I'll I'll you know so for my stock options I pay 40% uh income tax on a national basis and then because I spend I don't know about",
+   "zh": ""
+  },
+  {
+   "i": 300,
+   "s": 2407,
+   "e": 2422,
+   "en": "30% of my time in California there about I pay another sort of roughly a third of the California state taxes which is are now around 15%. So, so I I pay about 45% in taxes just so people know know this,",
+   "zh": ""
+  },
+  {
+   "i": 301,
+   "s": 2422,
+   "e": 2425,
+   "en": "you know, I don't know if it's quite so roughly half.",
+   "zh": ""
+  },
+  {
+   "i": 302,
+   "s": 2425,
+   "e": 2438,
+   "en": "Um, then when I die, there'll be another sort of 45% roughly half that that will be taxed. Um, so at the end of the day, it probably I'll have a quarter of of",
+   "zh": ""
+  },
+  {
+   "i": 303,
+   "s": 2438,
+   "e": 2452,
+   "en": "what I what I whatever I have. But the um I I think the only thing it gives me is that for some period of time I would have control of the direction of the companies.",
+   "zh": ""
+  },
+  {
+   "i": 304,
+   "s": 2452,
+   "e": 2467,
+   "en": "So it's not um that that's pretty much all it gets me and until I guess the AI is so smart that it's b it's it's in charge and and that point controlling companies won't really matter. Well, let's talk",
+   "zh": ""
+  },
+  {
+   "i": 305,
+   "s": 2467,
+   "e": 2482,
+   "en": "about that because I think one of the other things that worries people about the direction we're heading in, and I'm going to caricature it, but people think that the direction of the world is being shaped by a very small number of incredibly powerful people. And you are right at the top of that list.",
+   "zh": ""
+  },
+  {
+   "i": 306,
+   "s": 2482,
+   "e": 2485,
+   "en": "But what else is But is is this different from the from",
+   "zh": ""
+  },
+  {
+   "i": 307,
+   "s": 2485,
+   "e": 2488,
+   "en": "I agree with you. I think I think it was like that.",
+   "zh": ""
+  },
+  {
+   "i": 308,
+   "s": 2488,
+   "e": 2489,
+   "en": "When wasn't that the case?",
+   "zh": ""
+  },
+  {
+   "i": 309,
+   "s": 2489,
+   "e": 2503,
+   "en": "It was ever thus, but it was ever it is a as you've described very vividly, it's an incredibly rapid change. And so let's start with control of your company which you definitely have now. Um after the IPO you basically you have what 80% odd",
+   "zh": ""
+  },
+  {
+   "i": 310,
+   "s": 2503,
+   "e": 2506,
+   "en": "of voting shares and as I understand it",
+   "zh": ""
+  },
+  {
+   "i": 311,
+   "s": 2506,
+   "e": 2520,
+   "en": "you can only be removed by a vote of shares which you yourself control. So so tell me if I'm wrong but I think companies in that bucket by the way the AI companies like um Google's in that in that bucket. Alphabet is controlled by Larry and Sergey. Um",
+   "zh": ""
+  },
+  {
+   "i": 312,
+   "s": 2520,
+   "e": 2534,
+   "en": "but I think yours is more extreme. the inability the same level of they they have um voting control of of that company. Uh Mark Zuckerberg has control of a matter um and and uh you know Mark is trying very hard on the AI front and",
+   "zh": ""
+  },
+  {
+   "i": 313,
+   "s": 2534,
+   "e": 2548,
+   "en": "I think probably will will also have a leading AI he's made I think he released one last week. Um so I think he's he's he he'll be one of the you know Meta will be one of the AI companies. But is",
+   "zh": ""
+  },
+  {
+   "i": 314,
+   "s": 2548,
+   "e": 2553,
+   "en": "it sensible for one person to have so much control over a company?",
+   "zh": ""
+  },
+  {
+   "i": 315,
+   "s": 2553,
+   "e": 2567,
+   "en": "Um well it I really just need to make sure that I can focus on long-term by longterm I just mean in the 5 to 10 years. Um, so one of the challenges with",
+   "zh": ""
+  },
+  {
+   "i": 316,
+   "s": 2567,
+   "e": 2582,
+   "en": "being a public company is that is are the sort of the pressure to to have uh great results every single quarter, but and and and to not really invest in things that may only pay off in 5 to 10",
+   "zh": ""
+  },
+  {
+   "i": 317,
+   "s": 2582,
+   "e": 2595,
+   "en": "years. And um you know the case of SpaceX I need I I want to extend consciousness beyond Earth and and have a growing civilization on the moon, Mars",
+   "zh": ""
+  },
+  {
+   "i": 318,
+   "s": 2595,
+   "e": 2610,
+   "en": "and elsewhere in the solar system. the return I I think ultimately this would have a very high return on investment but in the short term we'll be spending all this money on a moon base or and a Mars base and then people are like I you know I'm going to get all this pressure",
+   "zh": ""
+  },
+  {
+   "i": 319,
+   "s": 2610,
+   "e": 2624,
+   "en": "for like well you missed your earnings this quarter because you spent too much on Mars. I'm like yes by the way that was in the in the S1 perspectus and it's is literally listed as a thing we will do. Um, so but but but they still get",
+   "zh": ""
+  },
+  {
+   "i": 320,
+   "s": 2624,
+   "e": 2639,
+   "en": "grumpy about these things, you know, cuz they're like, well, you had whatever, you know, you said your gross margin would be this and it's actually slightly worse and now now we're going to punish you and and the short sellers all descend upon you and you get a lot of pressure that",
+   "zh": ""
+  },
+  {
+   "i": 321,
+   "s": 2639,
+   "e": 2641,
+   "en": "Yeah. So, I just need some way to sort of,",
+   "zh": ""
+  },
+  {
+   "i": 322,
+   "s": 2641,
+   "e": 2650,
+   "en": "you know, say like, listen guys, we're we're going to focus on 5 to 10 year or longer time horizon investments. this will depress our short-term earnings.",
+   "zh": ""
+  },
+  {
+   "i": 323,
+   "s": 2650,
+   "e": 2664,
+   "en": "But the long I mean if you take a long-term view and there are investors we have many investors that do take a long-term view. In fact, I'm a big fan of the the retail investors. In fact, I find our retail investors um on balance have the have the they're very",
+   "zh": ""
+  },
+  {
+   "i": 324,
+   "s": 2664,
+   "e": 2679,
+   "en": "insightful and and have very long-term views. Um but but part of this comes if you say what's the incentive structure is the for portfolio managers it's sort of understandable why why they put so much pressure on on a on quarterly",
+   "zh": ""
+  },
+  {
+   "i": 325,
+   "s": 2679,
+   "e": 2692,
+   "en": "earnings because um their their compensation and their um and whether they get promoted or not is dependent on how their portfolio does and they they have they only have a few years to to",
+   "zh": ""
+  },
+  {
+   "i": 326,
+   "s": 2692,
+   "e": 2706,
+   "en": "make these decisions. Um and then they're evaluated based on those decisions over the course of sometimes only a year or less. And uh and so since since they're under pressure to have",
+   "zh": ""
+  },
+  {
+   "i": 327,
+   "s": 2706,
+   "e": 2715,
+   "en": "immediate returns, they then put companies under pressure to have immediate returns. So once you in understand the incentive structure, the behavior naturally follows.",
+   "zh": ""
+  },
+  {
+   "i": 328,
+   "s": 2715,
+   "e": 2730,
+   "en": "What about though keyman risk? I mean what happens you know I heaven forbid but what happens if you get run over by the proverbial bus tomorrow you know it is you to you have total control over these companies do you have a plan for",
+   "zh": ""
+  },
+  {
+   "i": 329,
+   "s": 2730,
+   "e": 2731,
+   "en": "how they would progress without you?",
+   "zh": ""
+  },
+  {
+   "i": 330,
+   "s": 2731,
+   "e": 2746,
+   "en": "I I think they would actually do very well for for for several years um and you know there there's a clear road map for or space map I should say for",
+   "zh": ""
+  },
+  {
+   "i": 331,
+   "s": 2746,
+   "e": 2761,
+   "en": "SpaceX. Um, and there's a road map actually for Tesla literally. Um, so I think I think there's, you know, if you look at Apple after Steve Jobs, you know, Steve Jobs had, you know, he he he",
+   "zh": ""
+  },
+  {
+   "i": 332,
+   "s": 2761,
+   "e": 2770,
+   "en": "had a strategic vision and a bunch of products that um that that he had had ideas for and Apple has done very well.",
+   "zh": ""
+  },
+  {
+   "i": 333,
+   "s": 2770,
+   "e": 2783,
+   "en": "Um, but but but when you don't have a creative genius like Steve Jobs, you don't you you what what you miss what what Apple's missing are the incredible breakthrough products.",
+   "zh": ""
+  },
+  {
+   "i": 334,
+   "s": 2783,
+   "e": 2794,
+   "en": "Yeah. So they make amazing phones, you know, great computers. Um, but Apple hasn't come up with a sort of Steve's Jobs Steve Jobs level breakthrough product.",
+   "zh": ""
+  },
+  {
+   "i": 335,
+   "s": 2794,
+   "e": 2798,
+   "en": "So by analogy, that's what you bring to all of your companies.",
+   "zh": ""
+  },
+  {
+   "i": 336,
+   "s": 2798,
+   "e": 2808,
+   "en": "You mentioned Mars. You know, most people think of you as the man who wants to, you know, create a colony on Mars. So, we have multilanetary civilization.",
+   "zh": ""
+  },
+  {
+   "i": 337,
+   "s": 2808,
+   "e": 2823,
+   "en": "I've been saying that for such a long time. You have, but now you seem more focused on AI and what AI will do in the next 10 years. And you you sound much more excited about using the moon as a base from which to, you know, pop out orbital",
+   "zh": ""
+  },
+  {
+   "i": 338,
+   "s": 2823,
+   "e": 2832,
+   "en": "uh AI satellites. Have you shifted your attention away from Mars or are you as interested in colonizing Mars as you ever were?",
+   "zh": ""
+  },
+  {
+   "i": 339,
+   "s": 2832,
+   "e": 2847,
+   "en": "I I'm I'm interested in the set of actions that propagate consciousness into the future to the maximum degree possible. So that the future light cone of consciousness is as big as big as we could, you know, like that, you know, there's there's an",
+   "zh": ""
+  },
+  {
+   "i": 340,
+   "s": 2847,
+   "e": 2860,
+   "en": "exciting future where there's where we're a space fairing civilization out there among the stars and and the the great things that are envisioned in the",
+   "zh": ""
+  },
+  {
+   "i": 341,
+   "s": 2860,
+   "e": 2875,
+   "en": "non-disystopian sci-fi books and movies come become real one day. I sort of want the Star Trek you know, Star Wars future. The Star Wars was the first movie I ever saw in a theater, by the way. Really, it's probably maybe it had a profound",
+   "zh": ""
+  },
+  {
+   "i": 342,
+   "s": 2875,
+   "e": 2881,
+   "en": "effect on me, I suppose. Um, so I remember it was I was",
+   "zh": ""
+  },
+  {
+   "i": 343,
+   "s": 2881,
+   "e": 2887,
+   "en": "Oh, blew my mind, honestly. I was I think I was 6 years old and um I was like, this is the greatest thing I've ever seen.",
+   "zh": ""
+  },
+  {
+   "i": 344,
+   "s": 2887,
+   "e": 2890,
+   "en": "Has your life been about making that happen?",
+   "zh": ""
+  },
+  {
+   "i": 345,
+   "s": 2890,
+   "e": 2900,
+   "en": "Yeah, it I mean it I didn't think it would be, but at the when I was young, but um and my my life feels somewhat surreal. like I can't believe these things are actually happening, you know.",
+   "zh": ""
+  },
+  {
+   "i": 346,
+   "s": 2900,
+   "e": 2901,
+   "en": "Um",
+   "zh": ""
+  },
+  {
+   "i": 347,
+   "s": 2901,
+   "e": 2902,
+   "en": "I think the world",
+   "zh": ""
+  },
+  {
+   "i": 348,
+   "s": 2902,
+   "e": 2904,
+   "en": "makes me believe in simulation theory.",
+   "zh": ""
+  },
+  {
+   "i": 349,
+   "s": 2904,
+   "e": 2905,
+   "en": "Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 350,
+   "s": 2905,
+   "e": 2920,
+   "en": "Where it's like, well, this like the things I'm doing are so preposterous that um it's hard to believe they're real. I mean, we've got Starship, which is the largest, most powerful flying object",
+   "zh": ""
+  },
+  {
+   "i": 351,
+   "s": 2920,
+   "e": 2928,
+   "en": "ever made. Um, and we intend to launch that more than once per hour.",
+   "zh": ""
+  },
+  {
+   "i": 352,
+   "s": 2928,
+   "e": 2936,
+   "en": "I know. I read that and we can, you know, people can quibble about how quickly it happens, but I think based on your track record, we should assume it will happen at some point.",
+   "zh": ""
+  },
+  {
+   "i": 353,
+   "s": 2936,
+   "e": 2950,
+   "en": "It will happen. I I'm just sort of struck that when I when I I am as as blown away by this world as you are and I'm I watch it from a from a much more naive level, but for me the whole evolution of AI and the capabilities of",
+   "zh": ""
+  },
+  {
+   "i": 354,
+   "s": 2950,
+   "e": 2955,
+   "en": "these models is in and of itself so mind-blowing.",
+   "zh": ""
+  },
+  {
+   "i": 355,
+   "s": 2955,
+   "e": 2958,
+   "en": "It's pretty much happening as I as I thought thought it would.",
+   "zh": ""
+  },
+  {
+   "i": 356,
+   "s": 2958,
+   "e": 2959,
+   "en": "Is it?",
+   "zh": ""
+  },
+  {
+   "i": 357,
+   "s": 2959,
+   "e": 2962,
+   "en": "Yeah. Oh, that's interesting.",
+   "zh": ""
+  },
+  {
+   "i": 358,
+   "s": 2962,
+   "e": 2972,
+   "en": "Um and not just me, many people um predicted this. I think Ray Koswell predict Ray Koswell's predictions have",
+   "zh": ""
+  },
+  {
+   "i": 359,
+   "s": 2972,
+   "e": 2974,
+   "en": "been remarkably accurate.",
+   "zh": ""
+  },
+  {
+   "i": 360,
+   "s": 2974,
+   "e": 2975,
+   "en": "Yeah. The singularity.",
+   "zh": ""
+  },
+  {
+   "i": 361,
+   "s": 2975,
+   "e": 2990,
+   "en": "Yeah. Approaching. Let's go back more immediately to the here and now. We've talked about concentration of control in your companies. You've made a very good case for why you should have it. You also have through Starlink incredible geopolitical power. I mean, I'm I'm one",
+   "zh": ""
+  },
+  {
+   "i": 362,
+   "s": 2990,
+   "e": 2992,
+   "en": "of your customers. Excellent product.",
+   "zh": ""
+  },
+  {
+   "i": 363,
+   "s": 2992,
+   "e": 2996,
+   "en": "Great. But without them, the Ukrainians would have been in serious serious trouble.",
+   "zh": ""
+  },
+  {
+   "i": 364,
+   "s": 2996,
+   "e": 3006,
+   "en": "And obvious the Ukrainian government has publicly thanked Stalin many times for being instrumental in uh defending Ukraine.",
+   "zh": ""
+  },
+  {
+   "i": 365,
+   "s": 3006,
+   "e": 3019,
+   "en": "And you recently decided to prevent the Russians in the occupied territories from having access to Starink. Um, well, no, we we we were never at any point selling Starink to Russians. Um,",
+   "zh": ""
+  },
+  {
+   "i": 366,
+   "s": 3019,
+   "e": 3034,
+   "en": "but they were grabbing it, right? They were using it and you've now stopped them from doing that. Well, what they they they essentially got Starlink units um that they ordered through Ukraine and then and then smuggled them into uh the uh into eastern Ukraine where the",
+   "zh": ""
+  },
+  {
+   "i": 367,
+   "s": 3034,
+   "e": 3049,
+   "en": "Russians are um and were then using them um in some cases for um attacks. Um now the in order to address this um what we",
+   "zh": ""
+  },
+  {
+   "i": 368,
+   "s": 3049,
+   "e": 3064,
+   "en": "worked with the Ukrainian government to create a white list of approved Starling terminals. Now this has some downsides because a whole bunch of people who were just innocent users of Starlink and just trying to access the internet for work or for education",
+   "zh": ""
+  },
+  {
+   "i": 369,
+   "s": 3064,
+   "e": 3066,
+   "en": "now don't have Starlink.",
+   "zh": ""
+  },
+  {
+   "i": 370,
+   "s": 3066,
+   "e": 3075,
+   "en": "These are geopolitical decisions of consequence. How do you feel about having that power? You can determine the outcome of wars. H h h h h h h h h h h h h h h h h h h h h How does that feel?",
+   "zh": ""
+  },
+  {
+   "i": 371,
+   "s": 3075,
+   "e": 3078,
+   "en": "And is it right that you should have that power?",
+   "zh": ""
+  },
+  {
+   "i": 372,
+   "s": 3078,
+   "e": 3093,
+   "en": "Well, I I'm not sure we we're determining the ultimate outcome of the, you know, that the say the war in Ukraine. Um, you know, I I I think uh I do hope that",
+   "zh": ""
+  },
+  {
+   "i": 373,
+   "s": 3093,
+   "e": 3108,
+   "en": "that that there's some sort of peace agreement reached soon because um for like 2 or 3 years now the border has barely moved and um and every day there are lots of people dying at the front",
+   "zh": ""
+  },
+  {
+   "i": 374,
+   "s": 3108,
+   "e": 3123,
+   "en": "line and um and I think there's a lot of wishful thinking here of of people saying well Russia should completely withdraw But this is not realistic. Um I really think there needs to be some",
+   "zh": ""
+  },
+  {
+   "i": 375,
+   "s": 3123,
+   "e": 3138,
+   "en": "um you know a a a a piece that that that is that you know we have to be pragmatic about this. What we can't what I think would be terrible is if if there's if there's another three years of people",
+   "zh": ""
+  },
+  {
+   "i": 376,
+   "s": 3138,
+   "e": 3153,
+   "en": "dying senselessly at the front lines um with with and you have to say like well You know, how do you explain to the the the children of of the men that are",
+   "zh": ""
+  },
+  {
+   "i": 377,
+   "s": 3153,
+   "e": 3168,
+   "en": "dying at the front lines? Russia on the Russian side, too. By the way, they're being conscripted and sent there. I am quite offended by sort of fancy diplomats who have you know seven course dinners in in you know in luxurious",
+   "zh": ""
+  },
+  {
+   "i": 378,
+   "s": 3168,
+   "e": 3181,
+   "en": "places while people are dying at the front lines and who who pontificate about how Russia should withdraw but they're not going Russia Russia's not going to withdraw. So there really needs to be an accepted piece along along",
+   "zh": ""
+  },
+  {
+   "i": 379,
+   "s": 3181,
+   "e": 3184,
+   "en": "those lines. Um,",
+   "zh": ""
+  },
+  {
+   "i": 380,
+   "s": 3184,
+   "e": 3191,
+   "en": "and do you think it's your responsibility to play a role in tipping the scales towards what you see as the right way to peace?",
+   "zh": ""
+  },
+  {
+   "i": 381,
+   "s": 3191,
+   "e": 3206,
+   "en": "I I I would I I've been advocating peace for a long time. I, you know, I I I posted a few years ago that that that there really needs to be some concession here to Russia. Um, this is not me being",
+   "zh": ""
+  },
+  {
+   "i": 382,
+   "s": 3206,
+   "e": 3216,
+   "en": "pro-Russia, I'm just being pragmatic. um or people will die for years uh with nothing achieved and that is exactly what happened.",
+   "zh": ""
+  },
+  {
+   "i": 383,
+   "s": 3216,
+   "e": 3220,
+   "en": "I don't know. I mean the Ukrainian are doing",
+   "zh": ""
+  },
+  {
+   "i": 384,
+   "s": 3220,
+   "e": 3223,
+   "en": "the Ukrainians are doing pretty well right now at",
+   "zh": ""
+  },
+  {
+   "i": 385,
+   "s": 3223,
+   "e": 3238,
+   "en": "you know with their incredible drone capacity hitting inside Russia and the and the kind of general consensuses that you know the the the balance of the war is shifting. But my point is not so much about is not going to retake those territories. it is not going to happen.",
+   "zh": ""
+  },
+  {
+   "i": 386,
+   "s": 3238,
+   "e": 3252,
+   "en": "My interest is really on whether you think given that you you have through Starlink you have an incredible power whether it's appropriate that you should wield it and that's quite rare that an individual actor has such power by turning on and off a",
+   "zh": ""
+  },
+  {
+   "i": 387,
+   "s": 3252,
+   "e": 3255,
+   "en": "capability to shape conflict.",
+   "zh": ""
+  },
+  {
+   "i": 388,
+   "s": 3255,
+   "e": 3260,
+   "en": "Well, is this something you think I should do differently?",
+   "zh": ""
+  },
+  {
+   "i": 389,
+   "s": 3260,
+   "e": 3274,
+   "en": "I mean I think you were right to support Ukraine. I think that, you know, as as it won't surprise you, I I think that the Russian aggression was, you know, for many many reasons an appalling aggression and I I think that that was an important thing that you did.",
+   "zh": ""
+  },
+  {
+   "i": 390,
+   "s": 3274,
+   "e": 3281,
+   "en": "Yeah. I mean, I did a a very deep dive into the background of that conflict to understand exactly what was going on.",
+   "zh": ""
+  },
+  {
+   "i": 391,
+   "s": 3281,
+   "e": 3296,
+   "en": "Um, and um, I'm reminded of the old adage that there are no angels in war. It's a similar tone, I think, about domestic politics where you've, you know, you've you've",
+   "zh": ""
+  },
+  {
+   "i": 392,
+   "s": 3296,
+   "e": 3302,
+   "en": "played a big role domestically, politically here. You spend a lot of money on Donald Trump's re-election.",
+   "zh": ""
+  },
+  {
+   "i": 393,
+   "s": 3302,
+   "e": 3311,
+   "en": "After the election, you got very actively involved, you know, through Doge, you tried to cut a lot of spending, reshape the government.",
+   "zh": ""
+  },
+  {
+   "i": 394,
+   "s": 3311,
+   "e": 3324,
+   "en": "How do you feel that wasn't hugely successful in the sense that, you know, there wasn't nearly as much spending cut as you tried? How do you, as you look back on that, do you regret getting so involved in politics? Do you think it was a good thing to do?",
+   "zh": ""
+  },
+  {
+   "i": 395,
+   "s": 3324,
+   "e": 3329,
+   "en": "I think I I think I got a little too involved in politics. Got carried away, frankly. Um,",
+   "zh": ""
+  },
+  {
+   "i": 396,
+   "s": 3329,
+   "e": 3338,
+   "en": "so the um, you know, the the goal with the sort of Doge stuff was was to try to do something about the the deficit, which is massive.",
+   "zh": ""
+  },
+  {
+   "i": 397,
+   "s": 3338,
+   "e": 3352,
+   "en": "Um, where the interest payments exceed the amount of money spent on the Department of War. like basically if you add up all the money spent on um what is now the department of war and the uh and",
+   "zh": ""
+  },
+  {
+   "i": 398,
+   "s": 3352,
+   "e": 3366,
+   "en": "and intelligence in the US uh that is smaller than the interest payments on the debt. So we we we we need to sort of take a close look at spending um and make sure that uh money is being spent in sensible ways and that it is not",
+   "zh": ""
+  },
+  {
+   "i": 399,
+   "s": 3366,
+   "e": 3380,
+   "en": "wasted or spent on on on fraudulent activities. Um and um I got a lot of flack from this for this obviously. Um but the the people don't understand just how um",
+   "zh": ""
+  },
+  {
+   "i": 400,
+   "s": 3380,
+   "e": 3394,
+   "en": "simple it was for for the Doge team to approve payments. Um if if we h literally we we we just asked to have the contact information of the recipient um or some evidence that say money was",
+   "zh": ""
+  },
+  {
+   "i": 401,
+   "s": 3394,
+   "e": 3407,
+   "en": "going to um its intended purpose. Um but over and over that we've told we need to wire money for some sort of important cause in Africa and we're like okay but",
+   "zh": ""
+  },
+  {
+   "i": 402,
+   "s": 3407,
+   "e": 3422,
+   "en": "the wiring wiring instructions are to deote and tuish in DC in Washington DC not to Africa so we would like to send the money to Africa can you please connect us with the recipients so we can send them the money directly and then we get silence",
+   "zh": ""
+  },
+  {
+   "i": 403,
+   "s": 3422,
+   "e": 3430,
+   "en": "I have we don't need to relitigate Doge I have no doubt that there was there's a lot of waste in the US government. I think probably",
+   "zh": ""
+  },
+  {
+   "i": 404,
+   "s": 3430,
+   "e": 3442,
+   "en": "much worse than anyone could possibly imagine. But the way I I mean I think there is it is a fair criticism that the way you shut down a whole bunch of programs probably in fact certainly caused unnecessary suffering. I mean that no",
+   "zh": ""
+  },
+  {
+   "i": 405,
+   "s": 3442,
+   "e": 3444,
+   "en": "no",
+   "zh": ""
+  },
+  {
+   "i": 406,
+   "s": 3444,
+   "e": 3446,
+   "en": "you you don't buy that at all.",
+   "zh": ""
+  },
+  {
+   "i": 407,
+   "s": 3446,
+   "e": 3448,
+   "en": "It it caused a lot of complaining.",
+   "zh": ""
+  },
+  {
+   "i": 408,
+   "s": 3448,
+   "e": 3456,
+   "en": "You're watching my interview with Elon Musk. If you want to get early access to other interviews, subscribe to The Economist by clicking the link above.",
+   "zh": ""
+  },
+  {
+   "i": 409,
+   "s": 3456,
+   "e": 3458,
+   "en": "Now back to the interview.",
+   "zh": ""
+  },
+  {
+   "i": 410,
+   "s": 3458,
+   "e": 3466,
+   "en": "You don't So you don't buy the idea that anybody to put it really crudely and simply any kid in Africa died because of the suddeness with which",
+   "zh": ""
+  },
+  {
+   "i": 411,
+   "s": 3466,
+   "e": 3467,
+   "en": "zero?",
+   "zh": ""
+  },
+  {
+   "i": 412,
+   "s": 3467,
+   "e": 3472,
+   "en": "I just don't think that's right. I just don't think my I mean I've had people reporting in Africa who",
+   "zh": ""
+  },
+  {
+   "i": 413,
+   "s": 3472,
+   "e": 3483,
+   "en": "how many NOS's are there that could that could that could step in because bear in mind this it was it happened quickly. So this and there are literally tens of thousands of NOS's.",
+   "zh": ""
+  },
+  {
+   "i": 414,
+   "s": 3483,
+   "e": 3494,
+   "en": "Yeah. Not everyone functions as fast as you do. If if if if funding is cut off for antiretrovirals overnight and it just stops, then people will die when they don't have access to them and it just",
+   "zh": ""
+  },
+  {
+   "i": 415,
+   "s": 3494,
+   "e": 3499,
+   "en": "No, no, only if they cannot get funding for that. But with the Gates Foundation has $50 billion.",
+   "zh": ""
+  },
+  {
+   "i": 416,
+   "s": 3499,
+   "e": 3502,
+   "en": "What's what what about them?",
+   "zh": ""
+  },
+  {
+   "i": 417,
+   "s": 3502,
+   "e": 3507,
+   "en": "What about any one of a number of organizations? What about um the uh um",
+   "zh": ""
+  },
+  {
+   "i": 418,
+   "s": 3507,
+   "e": 3519,
+   "en": "what Mackenzie whatever her last name is used to be uh gave $50 billion. What about that? But you know, let's let's be practical. In many of these countries, USAD was the biggest funer. But I I don't want to have a",
+   "zh": ""
+  },
+  {
+   "i": 419,
+   "s": 3519,
+   "e": 3521,
+   "en": "USD was a political organization.",
+   "zh": ""
+  },
+  {
+   "i": 420,
+   "s": 3521,
+   "e": 3530,
+   "en": "It may also have been that, but it was the biggest funer of of health care system. So I I I am I'm very sure of of regime change",
+   "zh": ""
+  },
+  {
+   "i": 421,
+   "s": 3530,
+   "e": 3534,
+   "en": "and and there may well be benefits from having",
+   "zh": ""
+  },
+  {
+   "i": 422,
+   "s": 3534,
+   "e": 3537,
+   "en": "also USID funding was not stopped. It was moved to the state department.",
+   "zh": ""
+  },
+  {
+   "i": 423,
+   "s": 3537,
+   "e": 3551,
+   "en": "It was stopped. There were huge numbers of things shut down in Africa that were that were claims of this. These claims are false. They're nonsense and and absolute nonsense. But but obviously",
+   "zh": ""
+  },
+  {
+   "i": 424,
+   "s": 3551,
+   "e": 3565,
+   "en": "just for when funding is stopped for fraudulent organizations or for something, do you think they're going to say do you think they're going to say, \"Well, we please keep funding the fraud, or do you think they're going to come up",
+   "zh": ""
+  },
+  {
+   "i": 425,
+   "s": 3565,
+   "e": 3570,
+   "en": "with a sad story that sounds sympathetic in order to get the funding restored?\"",
+   "zh": ""
+  },
+  {
+   "i": 426,
+   "s": 3570,
+   "e": 3576,
+   "en": "Obviously, it will be the latter. And that's exactly what they did. But zero died because",
+   "zh": ""
+  },
+  {
+   "i": 427,
+   "s": 3576,
+   "e": 3588,
+   "en": "well that's what I that's what I that's what I would take issue with. I think you can I actually have a lot of sympathy for the change of the aid regime that the US under the Trump administration has precipitated.",
+   "zh": ""
+  },
+  {
+   "i": 428,
+   "s": 3588,
+   "e": 3598,
+   "en": "However, I think the pace and the suddeness with which it happened will almost certainly have caused unnecessary suffering and deaths. And I think both of those can",
+   "zh": ""
+  },
+  {
+   "i": 429,
+   "s": 3598,
+   "e": 3600,
+   "en": "No, I think that's totally false.",
+   "zh": ""
+  },
+  {
+   "i": 430,
+   "s": 3600,
+   "e": 3601,
+   "en": "Okay. Well,",
+   "zh": ""
+  },
+  {
+   "i": 431,
+   "s": 3601,
+   "e": 3614,
+   "en": "and obviously false because there there are are the amount of funding we're talking about uh is far less than what can be done than what can be supported via private uh via foundations like the",
+   "zh": ""
+  },
+  {
+   "i": 432,
+   "s": 3614,
+   "e": 3624,
+   "en": "Gates Foundation uh or Mackenzie Bas's Foundation. Um she's given away tens of billions of dollars. Um the Gates Foundation has tens of billions of dollars.",
+   "zh": ""
+  },
+  {
+   "i": 433,
+   "s": 3624,
+   "e": 3631,
+   "en": "Uh they are capable of acting very quickly. Um, and if they didn't, I would say they're equally responsible.",
+   "zh": ""
+  },
+  {
+   "i": 434,
+   "s": 3631,
+   "e": 3632,
+   "en": "I see. Okay.",
+   "zh": ""
+  },
+  {
+   "i": 435,
+   "s": 3632,
+   "e": 3633,
+   "en": "Obviously.",
+   "zh": ""
+  },
+  {
+   "i": 436,
+   "s": 3633,
+   "e": 3634,
+   "en": "All right. Fair point. Um,",
+   "zh": ""
+  },
+  {
+   "i": 437,
+   "s": 3634,
+   "e": 3637,
+   "en": "zero people.",
+   "zh": ""
+  },
+  {
+   "i": 438,
+   "s": 3637,
+   "e": 3638,
+   "en": "I hear you loud and clear.",
+   "zh": ""
+  },
+  {
+   "i": 439,
+   "s": 3638,
+   "e": 3639,
+   "en": "Zero.",
+   "zh": ""
+  },
+  {
+   "i": 440,
+   "s": 3639,
+   "e": 3640,
+   "en": "Hear you loud and clear.",
+   "zh": ""
+  },
+  {
+   "i": 441,
+   "s": 3640,
+   "e": 3641,
+   "en": "Obviously,",
+   "zh": ""
+  },
+  {
+   "i": 442,
+   "s": 3641,
+   "e": 3655,
+   "en": "uh, domestically, you you stepped away from Doge. It It was hard to do what you were trying to do. You've just explained it. But this administration has gone in directions that I suspect you were not expecting two and a half years ago. you",
+   "zh": ""
+  },
+  {
+   "i": 443,
+   "s": 3655,
+   "e": 3660,
+   "en": "know, I'm not going to agree with everything any administration does.",
+   "zh": ""
+  },
+  {
+   "i": 444,
+   "s": 3660,
+   "e": 3662,
+   "en": "Are you disappointed by this administration?",
+   "zh": ""
+  },
+  {
+   "i": 445,
+   "s": 3662,
+   "e": 3667,
+   "en": "No, I think this is a this administration on balance uh is as excellent.",
+   "zh": ""
+  },
+  {
+   "i": 446,
+   "s": 3667,
+   "e": 3673,
+   "en": "No, no administration is perfect, but it's uh vastly better than the alternative.",
+   "zh": ""
+  },
+  {
+   "i": 447,
+   "s": 3673,
+   "e": 3678,
+   "en": "Can we talk about Europe, a place that you are very very focused on? Um",
+   "zh": ""
+  },
+  {
+   "i": 448,
+   "s": 3678,
+   "e": 3680,
+   "en": "I'm not that focused on Europe.",
+   "zh": ""
+  },
+  {
+   "i": 449,
+   "s": 3680,
+   "e": 3685,
+   "en": "I think judging by your posts, you're pretty concerned about Europe. uh you you support",
+   "zh": ""
+  },
+  {
+   "i": 450,
+   "s": 3685,
+   "e": 3689,
+   "en": "I mean every once in a while I post something",
+   "zh": ""
+  },
+  {
+   "i": 451,
+   "s": 3689,
+   "e": 3695,
+   "en": "it's reasonably frequently it's not once in a while but but I'm because I'm genuinely interested in this as someone who lives in Europe lives in London.",
+   "zh": ""
+  },
+  {
+   "i": 452,
+   "s": 3695,
+   "e": 3696,
+   "en": "Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 453,
+   "s": 3696,
+   "e": 3703,
+   "en": "Uh you paint a picture well first of all you support not just the populist right but the far right in fact very fringe parties in some countries.",
+   "zh": ""
+  },
+  {
+   "i": 454,
+   "s": 3703,
+   "e": 3705,
+   "en": "No I support the normal people.",
+   "zh": ""
+  },
+  {
+   "i": 455,
+   "s": 3705,
+   "e": 3707,
+   "en": "Okay. What you call the far right falsely.",
+   "zh": ""
+  },
+  {
+   "i": 456,
+   "s": 3707,
+   "e": 3709,
+   "en": "You think is the normal person. Okay.",
+   "zh": ""
+  },
+  {
+   "i": 457,
+   "s": 3709,
+   "e": 3711,
+   "en": "Yes. Um,",
+   "zh": ""
+  },
+  {
+   "i": 458,
+   "s": 3711,
+   "e": 3725,
+   "en": "literally you could you could go back uh 10 or 15 years and these these these policies were completely normal. In fact, you you one of the one of the tricks I think is funny. What I think is quite funny is to like take a speech",
+   "zh": ""
+  },
+  {
+   "i": 459,
+   "s": 3725,
+   "e": 3739,
+   "en": "from Obama and Hillary and then and then go to someone and say uh who's sort of um you know on the sort of what I call the lunatic left um and say what do you think of the speech by Trump? Like oh wow he's the worst person ever. actually",
+   "zh": ""
+  },
+  {
+   "i": 460,
+   "s": 3739,
+   "e": 3744,
+   "en": "that was a speech by Obama or actually that was a speech by Hillary.",
+   "zh": ""
+  },
+  {
+   "i": 461,
+   "s": 3744,
+   "e": 3758,
+   "en": "I I I agree. No, I agree that the center of gravity in this country has shifted certainly the Democratic party shifted to the left. But that's not what I'm talking about. I'm talking about people like Rupert Low people. It's actually just normal people. Um it's just normal people. It's just normal people. And um",
+   "zh": ""
+  },
+  {
+   "i": 462,
+   "s": 3758,
+   "e": 3773,
+   "en": "the and and here are the principles and and tell me which of these sound terrible um that we should have secure borders. That we should have safe cities. uh that we should have sensible spending. Which of those three are well are our are are far right fringe. And",
+   "zh": ""
+  },
+  {
+   "i": 463,
+   "s": 3773,
+   "e": 3786,
+   "en": "and I would like to just admonish you and the media for the absurd characterization of the farright. It is false and misleading and nonsense.",
+   "zh": ""
+  },
+  {
+   "i": 464,
+   "s": 3786,
+   "e": 3787,
+   "en": "Please keep this part in.",
+   "zh": ""
+  },
+  {
+   "i": 465,
+   "s": 3787,
+   "e": 3790,
+   "en": "We'll keep all of this in. But let me let me let me",
+   "zh": ""
+  },
+  {
+   "i": 466,
+   "s": 3790,
+   "e": 3791,
+   "en": "don't cut this part.",
+   "zh": ""
+  },
+  {
+   "i": 467,
+   "s": 3791,
+   "e": 3793,
+   "en": "Let me push back on that. Let me push back on that because you have",
+   "zh": ""
+  },
+  {
+   "i": 468,
+   "s": 3793,
+   "e": 3796,
+   "en": "nonsense. Elon, you have what is it?",
+   "zh": ""
+  },
+  {
+   "i": 469,
+   "s": 3796,
+   "e": 3799,
+   "en": "Close to 250 million followers on X.",
+   "zh": ""
+  },
+  {
+   "i": 470,
+   "s": 3799,
+   "e": 3800,
+   "en": "Yeah.",
+   "zh": ""
+  },
+  {
+   "i": 471,
+   "s": 3800,
+   "e": 3801,
+   "en": "You say things like",
+   "zh": ""
+  },
+  {
+   "i": 472,
+   "s": 3801,
+   "e": 3802,
+   "en": "popular guy",
+   "zh": ""
+  },
+  {
+   "i": 473,
+   "s": 3802,
+   "e": 3806,
+   "en": "quote civil war in Britain is inevitable. Just a question.",
+   "zh": ""
+  },
+  {
+   "i": 474,
+   "s": 3806,
+   "e": 3807,
+   "en": "Yes.",
+   "zh": ""
+  },
+  {
+   "i": 475,
+   "s": 3807,
+   "e": 3810,
+   "en": "I mean, when were you last in the UK?",
+   "zh": ""
+  },
+  {
+   "i": 476,
+   "s": 3810,
+   "e": 3812,
+   "en": "Um, a few years ago.",
+   "zh": ""
+  },
+  {
+   "i": 477,
+   "s": 3812,
+   "e": 3815,
+   "en": "Exactly. So, so I live there. I'm there the whole time. That is not",
+   "zh": ""
+  },
+  {
+   "i": 478,
+   "s": 3815,
+   "e": 3817,
+   "en": "You live at a close existence.",
+   "zh": ""
+  },
+  {
+   "i": 479,
+   "s": 3817,
+   "e": 3820,
+   "en": "No, I don't actually. And the numbers also disprove what you say.",
+   "zh": ""
+  },
+  {
+   "i": 480,
+   "s": 3820,
+   "e": 3821,
+   "en": "What numbers?",
+   "zh": ""
+  },
+  {
+   "i": 481,
+   "s": 3821,
+   "e": 3834,
+   "en": "all the numbers about crime. London is a much safer city than any city in the United States. Violent crime in the UK is not where you think it is. In fact, it's coming down. You you have painted and because you have so many followers, so many Americans believe it, a a kind",
+   "zh": ""
+  },
+  {
+   "i": 482,
+   "s": 3834,
+   "e": 3849,
+   "en": "of view that Europe in and the UK are kind of, you know, overrun with terrifying Muslim immigrants. There's rape on every corner. There's a sort of civilizational destruction. I haven't said any of those things. It's just not Well, you say civil war in Britain is inevitable. Yes, if current trends",
+   "zh": ""
+  },
+  {
+   "i": 483,
+   "s": 3849,
+   "e": 3851,
+   "en": "continue, it is",
+   "zh": ""
+  },
+  {
+   "i": 484,
+   "s": 3851,
+   "e": 3852,
+   "en": "why?",
+   "zh": ""
+  },
+  {
+   "i": 485,
+   "s": 3852,
+   "e": 3865,
+   "en": "Well, if if you have uh a large uh and growing rapidly growing uh group of of people whose beliefs are antithetical to",
+   "zh": ""
+  },
+  {
+   "i": 486,
+   "s": 3865,
+   "e": 3878,
+   "en": "western beliefs. Um at some point there will be a reckoning that that they they will they will try to implement their views and those who oppose it will oppose it and that's what you call civil war.",
+   "zh": ""
+  },
+  {
+   "i": 487,
+   "s": 3878,
+   "e": 3888,
+   "en": "And obviously this is the trend. Um and uh and and you absolutely do live in a cloistered existence. And if you'd like we can go on a tour of Britain.",
+   "zh": ""
+  },
+  {
+   "i": 488,
+   "s": 3888,
+   "e": 3896,
+   "en": "Sure. Very happy to come on a tour of Britain. And then and you will see my country that I live in all the time and you haven't been to a few years ago.",
+   "zh": ""
+  },
+  {
+   "i": 489,
+   "s": 3896,
+   "e": 3899,
+   "en": "I've been there literally a hundred times.",
+   "zh": ""
+  },
+  {
+   "i": 490,
+   "s": 3899,
+   "e": 3900,
+   "en": "But when was the last time?",
+   "zh": ""
+  },
+  {
+   "i": 491,
+   "s": 3900,
+   "e": 3901,
+   "en": "Literally a few years ago.",
+   "zh": ""
+  },
+  {
+   "i": 492,
+   "s": 3901,
+   "e": 3903,
+   "en": "You know why I this exercises me?",
+   "zh": ""
+  },
+  {
+   "i": 493,
+   "s": 3903,
+   "e": 3917,
+   "en": "because you have really shaped opinion about the UK and so many Americans I come across and I have conversations with and they will be and I just had one the other day along the order of oh London such a dangerous place how can you know there are sort of grooming",
+   "zh": ""
+  },
+  {
+   "i": 494,
+   "s": 3917,
+   "e": 3930,
+   "en": "gangs everywhere there are there's violence everywhere this is a picture that people get from things that you post or that are posted on X and for example you're you're posting for what was it 48 hours of Citizen Vigilante",
+   "zh": ""
+  },
+  {
+   "i": 495,
+   "s": 3930,
+   "e": 3934,
+   "en": "that film which you know paints dystopian. I've watched it.",
+   "zh": ""
+  },
+  {
+   "i": 496,
+   "s": 3934,
+   "e": 3935,
+   "en": "Yes,",
+   "zh": ""
+  },
+  {
+   "i": 497,
+   "s": 3935,
+   "e": 3936,
+   "en": "it was not fun. I watched it yesterday.",
+   "zh": ""
+  },
+  {
+   "i": 498,
+   "s": 3936,
+   "e": 3950,
+   "en": "It's not a very good movie, but it's also paints a dystopian picture of Europe and it glorifies vigilante violence. It glorifies the murdering of a Muslim immigrant family. I honestly think that it is irresponsible for you to put that up on X.",
+   "zh": ""
+  },
+  {
+   "i": 499,
+   "s": 3950,
+   "e": 3954,
+   "en": "I think that it's it's a movie. Um, and it's worth watching.",
+   "zh": ""
+  },
+  {
+   "i": 500,
+   "s": 3954,
+   "e": 3960,
+   "en": "You're clearly suggesting Europe is dystopian place and you",
+   "zh": ""
+  },
+  {
+   "i": 501,
+   "s": 3960,
+   "e": 3969,
+   "en": "Yes. I mean, why aren't you more uh doing more to fight censorship in Europe? Why aren't you",
+   "zh": ""
+  },
+  {
+   "i": 502,
+   "s": 3969,
+   "e": 3972,
+   "en": "doing seem to be doing nothing to fight censorship in Europe?",
+   "zh": ""
+  },
+  {
+   "i": 503,
+   "s": 3972,
+   "e": 3973,
+   "en": "That's not true. I am I think that",
+   "zh": ""
+  },
+  {
+   "i": 504,
+   "s": 3973,
+   "e": 3979,
+   "en": "they put people in in prison in the UK for social media posts. Do you think that's appropriate?",
+   "zh": ""
+  },
+  {
+   "i": 505,
+   "s": 3979,
+   "e": 3993,
+   "en": "No. And we've written editorials against it. But I think that's the sort of thing that I think is bad. And I think if you and I agree with you, but I don't think you have to glorify vigilante violence and kind of you know post the things that you are doing and paint an entirely",
+   "zh": ""
+  },
+  {
+   "i": 506,
+   "s": 3993,
+   "e": 3995,
+   "en": "inaccurate picture of Europe that you",
+   "zh": ""
+  },
+  {
+   "i": 507,
+   "s": 3995,
+   "e": 3997,
+   "en": "I don't think it is.",
+   "zh": ""
+  },
+  {
+   "i": 508,
+   "s": 3997,
+   "e": 3999,
+   "en": "We should we should do a tour of the UK.",
+   "zh": ""
+  },
+  {
+   "i": 509,
+   "s": 3999,
+   "e": 4000,
+   "en": "Yes. And one of",
+   "zh": ""
+  },
+  {
+   "i": 510,
+   "s": 4000,
+   "e": 4010,
+   "en": "the UK has actually been very good at integrating immigrants. The UK has a is is very effective at doing that. There are problems. I'm the first to admit that there are problems.",
+   "zh": ""
+  },
+  {
+   "i": 511,
+   "s": 4010,
+   "e": 4011,
+   "en": "Yes, there are major problems.",
+   "zh": ""
+  },
+  {
+   "i": 512,
+   "s": 4011,
+   "e": 4022,
+   "en": "There are problems. But it is not. It really is not what you are describing to or suggesting to your 240 million followers. It is. And I think there's a problem.",
+   "zh": ""
+  },
+  {
+   "i": 513,
+   "s": 4022,
+   "e": 4025,
+   "en": "No, I think I'm I think I'm spot on.",
+   "zh": ""
+  },
+  {
+   "i": 514,
+   "s": 4025,
+   "e": 4026,
+   "en": "Well, we'll have to",
+   "zh": ""
+  },
+  {
+   "i": 515,
+   "s": 4026,
+   "e": 4038,
+   "en": "and that's why you have freedom of speech or at least allows people to say things that are wrong. But your point is not that you're not just saying I have every right to say what I want. You're saying, you know, I am right about Europe and I really don't think you are.",
+   "zh": ""
+  },
+  {
+   "i": 516,
+   "s": 4038,
+   "e": 4040,
+   "en": "I think I am.",
+   "zh": ""
+  },
+  {
+   "i": 517,
+   "s": 4040,
+   "e": 4045,
+   "en": "I think you will find that most people in Europe or many people in Europe don't think you're right about it. But let's let's come to that point",
+   "zh": ""
+  },
+  {
+   "i": 518,
+   "s": 4045,
+   "e": 4049,
+   "en": "because the media keeps ignoring what's ignoring reality.",
+   "zh": ""
+  },
+  {
+   "i": 519,
+   "s": 4049,
+   "e": 4051,
+   "en": "I don't think that's true either. I really",
+   "zh": ""
+  },
+  {
+   "i": 520,
+   "s": 4051,
+   "e": 4053,
+   "en": "and they're programmed by the TV and conventional media.",
+   "zh": ""
+  },
+  {
+   "i": 521,
+   "s": 4053,
+   "e": 4067,
+   "en": "But and why are you this is I guess even to me sort of the bigger picture question. Why do you focus on this? Why are you interested in it? Because on the one hand we started this conversation and you described to me this",
+   "zh": ""
+  },
+  {
+   "i": 522,
+   "s": 4067,
+   "e": 4076,
+   "en": "extraordinary transformative amazing sort of yeah civilizational changing stuff that's happening in the next 10 years",
+   "zh": ""
+  },
+  {
+   "i": 523,
+   "s": 4076,
+   "e": 4086,
+   "en": "and yet you're also you know a an ongoing participant in the worst kind of tribalism uh you know cesspit of social media.",
+   "zh": ""
+  },
+  {
+   "i": 524,
+   "s": 4086,
+   "e": 4095,
+   "en": "Like how does that fit? Are you you know on the one they're two very different views of the world. Yeah, I don't think they're inconsistent.",
+   "zh": ""
+  },
+  {
+   "i": 525,
+   "s": 4095,
+   "e": 4110,
+   "en": "But why do you do the latter one, the tribalism? I mean, people say that you're a racist. People say that you're, you know, there's all kinds of things said about you, which I'm sure you would disagree with. Um, but I just don't understand what is the motivation for doing that. Are you fermenting?",
+   "zh": ""
+  },
+  {
+   "i": 526,
+   "s": 4110,
+   "e": 4123,
+   "en": "My partner is is is um she's half Indian and my my and I have four children with her. um you know um one of them was named after a famous",
+   "zh": ""
+  },
+  {
+   "i": 527,
+   "s": 4123,
+   "e": 4138,
+   "en": "Indian physicist um so I I would say I'm not racist and also uh the you know if you look at the people that are employed at my companies um you know we have senior executives of all races uh there",
+   "zh": ""
+  },
+  {
+   "i": 528,
+   "s": 4138,
+   "e": 4141,
+   "en": "there's there's I don't think there's any racism there.",
+   "zh": ""
+  },
+  {
+   "i": 529,
+   "s": 4141,
+   "e": 4143,
+   "en": "Are you anti-Muslim?",
+   "zh": ""
+  },
+  {
+   "i": 530,
+   "s": 4143,
+   "e": 4157,
+   "en": "Um I am I'm against uh having if if if if people are coming to a country with",
+   "zh": ""
+  },
+  {
+   "i": 531,
+   "s": 4157,
+   "e": 4163,
+   "en": "antithetical views um I I am against that.",
+   "zh": ""
+  },
+  {
+   "i": 532,
+   "s": 4163,
+   "e": 4178,
+   "en": "I I'm against that you know I'm against um I I I'm against rape and murder. I'm against uh the imposition of",
+   "zh": ""
+  },
+  {
+   "i": 533,
+   "s": 4178,
+   "e": 4188,
+   "en": "rules and laws that are contrary to what we've come to accept in the west.",
+   "zh": ""
+  },
+  {
+   "i": 534,
+   "s": 4188,
+   "e": 4200,
+   "en": "Um and um and I think it's a it's it's a crying shame that the sort of traditional media like you um uh don't recognize this.",
+   "zh": ""
+  },
+  {
+   "i": 535,
+   "s": 4200,
+   "e": 4215,
+   "en": "First of all, I think that you hugely exaggerate the challenges that Europe faces. Secondly, in areas I completely agree with you. I I I think that, you know, the constraints on freedom of speech in in the UK in certain areas are problematic.",
+   "zh": ""
+  },
+  {
+   "i": 536,
+   "s": 4215,
+   "e": 4230,
+   "en": "What worries me is that the people you are supporting are really quite vile people in some areas. like some members of the AFD, Alice Videl, whom I've met, is a perfectly thoughtful person, but in her party are some real neo-Nazis, are",
+   "zh": ""
+  },
+  {
+   "i": 537,
+   "s": 4230,
+   "e": 4243,
+   "en": "some really, really awful people. And your blanket support of this kind of party with 240 million followers means that you have a power in Europe that I think perhaps you don't realize the",
+   "zh": ""
+  },
+  {
+   "i": 538,
+   "s": 4243,
+   "e": 4246,
+   "en": "scale of impact you have, but you can",
+   "zh": ""
+  },
+  {
+   "i": 539,
+   "s": 4246,
+   "e": 4248,
+   "en": "I hope I hope I am having a big impact.",
+   "zh": ""
+  },
+  {
+   "i": 540,
+   "s": 4248,
+   "e": 4252,
+   "en": "Why? Why should you why should you be able to shape European politics? What?",
+   "zh": ""
+  },
+  {
+   "i": 541,
+   "s": 4252,
+   "e": 4254,
+   "en": "You don't even live there.",
+   "zh": ""
+  },
+  {
+   "i": 542,
+   "s": 4254,
+   "e": 4257,
+   "en": "I think of it as the sort of the West collectively.",
+   "zh": ""
+  },
+  {
+   "i": 543,
+   "s": 4257,
+   "e": 4272,
+   "en": "But do you see why this makes people think that this man who has all this power, he's the world's richest man, he thinks he has a right to influence our politics. It makes people It's why, you know, we started this conversation saying superlatives. It's why people loathe you.",
+   "zh": ""
+  },
+  {
+   "i": 544,
+   "s": 4272,
+   "e": 4273,
+   "en": "I mean, some people do loathe you.",
+   "zh": ""
+  },
+  {
+   "i": 545,
+   "s": 4273,
+   "e": 4274,
+   "en": "Yes, some people do.",
+   "zh": ""
+  },
+  {
+   "i": 546,
+   "s": 4274,
+   "e": 4279,
+   "en": "But do you understand why? Do you think what you're doing is helpful for Western?",
+   "zh": ""
+  },
+  {
+   "i": 547,
+   "s": 4279,
+   "e": 4292,
+   "en": "Maybe maybe some people do lo me. I And that's and that's probably true. I don't care. Um the uh but but the fact that uh as you pointed out a quarter billion people follow me is that I think a lot",
+   "zh": ""
+  },
+  {
+   "i": 548,
+   "s": 4292,
+   "e": 4295,
+   "en": "more people actually like me than don't.",
+   "zh": ""
+  },
+  {
+   "i": 549,
+   "s": 4295,
+   "e": 4301,
+   "en": "And I think a lot more people hate you and the media uh more than you realize.",
+   "zh": ""
+  },
+  {
+   "i": 550,
+   "s": 4301,
+   "e": 4314,
+   "en": "Do you realize the media is despised? Do do you realize that that journalists how the view of journalists is is like it's it's like a favorable view of journalists is like 15%.",
+   "zh": ""
+  },
+  {
+   "i": 551,
+   "s": 4314,
+   "e": 4316,
+   "en": "I do know that in the United States.",
+   "zh": ""
+  },
+  {
+   "i": 552,
+   "s": 4316,
+   "e": 4318,
+   "en": "So so the shoe is on the other foot.",
+   "zh": ""
+  },
+  {
+   "i": 553,
+   "s": 4318,
+   "e": 4320,
+   "en": "They hate you.",
+   "zh": ""
+  },
+  {
+   "i": 554,
+   "s": 4320,
+   "e": 4324,
+   "en": "They hate you far more than they hate me.",
+   "zh": ""
+  },
+  {
+   "i": 555,
+   "s": 4324,
+   "e": 4337,
+   "en": "I think there is certainly a loss of trust in journalism. I think in part there have been mistakes by journalists and journalism. I totally acknowledge that. But I also think that the kind of polarized environment particularly on",
+   "zh": ""
+  },
+  {
+   "i": 556,
+   "s": 4337,
+   "e": 4344,
+   "en": "social media fostered by the kinds of things you are pushing on X actually helps this makes it worse.",
+   "zh": ""
+  },
+  {
+   "i": 557,
+   "s": 4344,
+   "e": 4348,
+   "en": "I don't think so.",
+   "zh": ""
+  },
+  {
+   "i": 558,
+   "s": 4348,
+   "e": 4357,
+   "en": "I think I think you're the problem. The media um and and speaking of loathing, you're loaded far more than I am and you don't seem to even realize that.",
+   "zh": ""
+  },
+  {
+   "i": 559,
+   "s": 4357,
+   "e": 4368,
+   "en": "I think I think very few people know who I am relative to you. So I don't think I play in the same game. the media collectively. Um, so I mean, you're hated.",
+   "zh": ""
+  },
+  {
+   "i": 560,
+   "s": 4368,
+   "e": 4380,
+   "en": "Do you even do you even know that? You probably don't. I like to think that I'm aware of my own personal shortcomings and the economist shortcomings and our world views shortcomings. But what we stand for as",
+   "zh": ""
+  },
+  {
+   "i": 561,
+   "s": 4380,
+   "e": 4394,
+   "en": "you as you know is liberal values, traditional classical liberal values where we worry about concentrations of power and we believe in the individual and the dignity of the individual. I and",
+   "zh": ""
+  },
+  {
+   "i": 562,
+   "s": 4394,
+   "e": 4402,
+   "en": "individual freedom I firmly believe that and I have long thought that you were a classical liberal but when I read what you",
+   "zh": ""
+  },
+  {
+   "i": 563,
+   "s": 4402,
+   "e": 4406,
+   "en": "classical liberal JS Mill limited government individual freedom",
+   "zh": ""
+  },
+  {
+   "i": 564,
+   "s": 4406,
+   "e": 4415,
+   "en": "yeah I agree with that. when I read what you post on your feed, I sometimes wonder whether you really do believe in that.",
+   "zh": ""
+  },
+  {
+   "i": 565,
+   "s": 4415,
+   "e": 4427,
+   "en": "Um, I literally said, look, I believe in uh safe cities, secure borders, and sensible spending with with respect to government. Um,",
+   "zh": ""
+  },
+  {
+   "i": 566,
+   "s": 4427,
+   "e": 4428,
+   "en": "does",
+   "zh": ""
+  },
+  {
+   "i": 567,
+   "s": 4428,
+   "e": 4430,
+   "en": "that doesn't make me right-wing at all.",
+   "zh": ""
+  },
+  {
+   "i": 568,
+   "s": 4430,
+   "e": 4432,
+   "en": "Um, in the least.",
+   "zh": ""
+  },
+  {
+   "i": 569,
+   "s": 4432,
+   "e": 4436,
+   "en": "Does the US or do European countries score better on those?",
+   "zh": ""
+  },
+  {
+   "i": 570,
+   "s": 4436,
+   "e": 4438,
+   "en": "The US is better. No.",
+   "zh": ""
+  },
+  {
+   "i": 571,
+   "s": 4438,
+   "e": 4452,
+   "en": "Yeah. Safe cities much more dangerous in the US than the UK. Sensible spending, bigger deficit here, out of control. You managed, you've you've you failed to reduce it. Secure borders. Now, under the Trump administration, I agree with you. Before not, but on two out of",
+   "zh": ""
+  },
+  {
+   "i": 572,
+   "s": 4452,
+   "e": 4458,
+   "en": "three, unequivocally, Europe is in a better place. Yet, you seem to paint a picture of Europe being a hell hole.",
+   "zh": ""
+  },
+  {
+   "i": 573,
+   "s": 4458,
+   "e": 4461,
+   "en": "I don't think Europe's a hell hole.",
+   "zh": ""
+  },
+  {
+   "i": 574,
+   "s": 4461,
+   "e": 4463,
+   "en": "Okay, we can agree on something.",
+   "zh": ""
+  },
+  {
+   "i": 575,
+   "s": 4463,
+   "e": 4464,
+   "en": "When did I ever say that?",
+   "zh": ""
+  },
+  {
+   "i": 576,
+   "s": 4464,
+   "e": 4467,
+   "en": "Well, the picture you paint of Europe You're making up things.",
+   "zh": ""
+  },
+  {
+   "i": 577,
+   "s": 4467,
+   "e": 4481,
+   "en": "No, I'm not. You sayi civil war in Britain is inevitable and then you you've you basically proitized for this citizen vigilante film which really does paint Europe as a hellhole. It just starts with you know ominous music and",
+   "zh": ""
+  },
+  {
+   "i": 578,
+   "s": 4481,
+   "e": 4483,
+   "en": "it says Europe.",
+   "zh": ""
+  },
+  {
+   "i": 579,
+   "s": 4483,
+   "e": 4489,
+   "en": "Well, there are there was out of control rape and murder.",
+   "zh": ""
+  },
+  {
+   "i": 580,
+   "s": 4489,
+   "e": 4493,
+   "en": "It's more dangerous in this country than it is in Europe.",
+   "zh": ""
+  },
+  {
+   "i": 581,
+   "s": 4493,
+   "e": 4502,
+   "en": "uh where where there is danger in this country is is because we we we failed to incarcerate uh repeat violent offenders.",
+   "zh": ""
+  },
+  {
+   "i": 582,
+   "s": 4502,
+   "e": 4516,
+   "en": "Um and that's uh you know the classic sort of SARSDA uh or judges that fail to incarcerate repeat violent offenders. And if somebody gets arrested 50 times literally",
+   "zh": ""
+  },
+  {
+   "i": 583,
+   "s": 4516,
+   "e": 4526,
+   "en": "um for violent crimes uh and and eventually they're going to kill somebody. So So you either you either incarcerate them or people will die.",
+   "zh": ""
+  },
+  {
+   "i": 584,
+   "s": 4526,
+   "e": 4529,
+   "en": "I think the prevalence of guns has quite a lot to do with it too.",
+   "zh": ""
+  },
+  {
+   "i": 585,
+   "s": 4529,
+   "e": 4536,
+   "en": "I mean this is a much more dangerous country. Murder rates are much higher in large part because there's so much there are so many guns.",
+   "zh": ""
+  },
+  {
+   "i": 586,
+   "s": 4536,
+   "e": 4544,
+   "en": "Well, let me give you an interesting number. There are more people that die in Europe from heat deaths than gun than people that die from gun deaths in America.",
+   "zh": ""
+  },
+  {
+   "i": 587,
+   "s": 4544,
+   "e": 4548,
+   "en": "Why aren't you uh writing an article about air conditioning?",
+   "zh": ""
+  },
+  {
+   "i": 588,
+   "s": 4548,
+   "e": 4556,
+   "en": "Well, we've done several on air conditioning and we had on our cover last week um a a whole a whole long piece about, you know, why air conditioning. Yeah, we're very pro aironditioning.",
+   "zh": ""
+  },
+  {
+   "i": 589,
+   "s": 4556,
+   "e": 4557,
+   "en": "Okay, good. Well, good.",
+   "zh": ""
+  },
+  {
+   "i": 590,
+   "s": 4557,
+   "e": 4558,
+   "en": "Very pro. You should read us.",
+   "zh": ""
+  },
+  {
+   "i": 591,
+   "s": 4558,
+   "e": 4562,
+   "en": "Absolutely. Credits where it's due.",
+   "zh": ""
+  },
+  {
+   "i": 592,
+   "s": 4562,
+   "e": 4566,
+   "en": "I think you have a a view of the economist that is not entirely accurate.",
+   "zh": ""
+  },
+  {
+   "i": 593,
+   "s": 4566,
+   "e": 4579,
+   "en": "So I will you come look at England, start reading The Economist and I will um you know stand corrected on my criticism of you in this area",
+   "zh": ""
+  },
+  {
+   "i": 594,
+   "s": 4579,
+   "e": 4592,
+   "en": "that there are there are many parts of Britain um and Europe which are not safe. You you you can't just walk around. But there are far more in this country.",
+   "zh": ""
+  },
+  {
+   "i": 595,
+   "s": 4592,
+   "e": 4593,
+   "en": "Far more.",
+   "zh": ""
+  },
+  {
+   "i": 596,
+   "s": 4593,
+   "e": 4595,
+   "en": "No, I don't think so.",
+   "zh": ""
+  },
+  {
+   "i": 597,
+   "s": 4595,
+   "e": 4598,
+   "en": "All right, let's go and get my fact checkers to check that.",
+   "zh": ""
+  },
+  {
+   "i": 598,
+   "s": 4598,
+   "e": 4600,
+   "en": "Yeah, I don't I don't think that's true.",
+   "zh": ""
+  },
+  {
+   "i": 599,
+   "s": 4600,
+   "e": 4601,
+   "en": "Um,",
+   "zh": ""
+  },
+  {
+   "i": 600,
+   "s": 4601,
+   "e": 4605,
+   "en": "let's move on from this because I think I've got a sense of why you're doing what you're doing.",
+   "zh": ""
+  },
+  {
+   "i": 601,
+   "s": 4605,
+   "e": 4613,
+   "en": "The point is not that that that the question is not is that is is America perfect? Question is, uh, does Europe have a serious and growing problem?",
+   "zh": ""
+  },
+  {
+   "i": 602,
+   "s": 4613,
+   "e": 4628,
+   "en": "Absolutely. More dangerous. That's where we started this. Europe has a serious and growing problem. I'm I'm I'm not going to, uh, say that the United States has no problems. Of course, it does. Um but uh you know we we should all try to to",
+   "zh": ""
+  },
+  {
+   "i": 603,
+   "s": 4628,
+   "e": 4629,
+   "en": "address these issues.",
+   "zh": ""
+  },
+  {
+   "i": 604,
+   "s": 4629,
+   "e": 4635,
+   "en": "We can agree on that. We should all try to address the problems. My point was simply that I think you exaggerate the scale of Europe's problem and that",
+   "zh": ""
+  },
+  {
+   "i": 605,
+   "s": 4635,
+   "e": 4641,
+   "en": "I think you people are asleep at the switch and do not realize the magnitude of the issue.",
+   "zh": ""
+  },
+  {
+   "i": 606,
+   "s": 4641,
+   "e": 4649,
+   "en": "I also think that your interventions, however well-intentioned they may be, risk making Europe's problem a lot worse.",
+   "zh": ""
+  },
+  {
+   "i": 607,
+   "s": 4649,
+   "e": 4663,
+   "en": "How? because you are putting your support behind people who are proto athoritarians who are not trying simply to you know make sure there is better integration of Muslims or to to secure the borders but who have very clear",
+   "zh": ""
+  },
+  {
+   "i": 608,
+   "s": 4663,
+   "e": 4678,
+   "en": "fascist tendencies and you will cause Europe I think what you're saying is total fiction um and really uh I I'm simply saying that they need to be there needs to that Europe has to have secure borders um",
+   "zh": ""
+  },
+  {
+   "i": 609,
+   "s": 4678,
+   "e": 4693,
+   "en": "okay on that not let in vast numbers of people who with views that are antithetical to uh the accepted views in in Europe and and where there will where there will not be some level of uh safe cultural integration. This is simply",
+   "zh": ""
+  },
+  {
+   "i": 610,
+   "s": 4693,
+   "e": 4694,
+   "en": "common sense.",
+   "zh": ""
+  },
+  {
+   "i": 611,
+   "s": 4694,
+   "e": 4708,
+   "en": "If all you are saying is Europe should have secure borders, I completely agree with you. then that then I have misunderstood what your interventions have been on social media because that is not what the view I have con not what I would conclude having seen what the",
+   "zh": ""
+  },
+  {
+   "i": 612,
+   "s": 4708,
+   "e": 4716,
+   "en": "people you are supporting and the things you're doing but if that's your goal I share your goal that Europe should have secure borders I think that's perfectly agreeable",
+   "zh": ""
+  },
+  {
+   "i": 613,
+   "s": 4716,
+   "e": 4717,
+   "en": "that gets me to a question",
+   "zh": ""
+  },
+  {
+   "i": 614,
+   "s": 4717,
+   "e": 4732,
+   "en": "and and let me let me explain what what the fundamental forcing function here is uh for why the borders are not secure which is uh when you have a welfare state that provides substantial benefits uh to",
+   "zh": ""
+  },
+  {
+   "i": 615,
+   "s": 4732,
+   "e": 4744,
+   "en": "anyone who comes there. Um you create a very powerful economic forcing function for anyone who is below that standard of living to come to Europe. Um it is it is",
+   "zh": ""
+  },
+  {
+   "i": 616,
+   "s": 4744,
+   "e": 4749,
+   "en": "a an an obvious powerful driving force.",
+   "zh": ""
+  },
+  {
+   "i": 617,
+   "s": 4749,
+   "e": 4760,
+   "en": "Um and um people will come there if if their standard of living is uh from what they get in Europe is above where they are elsewhere in the world. It's very basic.",
+   "zh": ""
+  },
+  {
+   "i": 618,
+   "s": 4760,
+   "e": 4762,
+   "en": "I'd completely agree with that. I don't I don't",
+   "zh": ""
+  },
+  {
+   "i": 619,
+   "s": 4762,
+   "e": 4764,
+   "en": "it's a very basic incentive structure.",
+   "zh": ""
+  },
+  {
+   "i": 620,
+   "s": 4764,
+   "e": 4765,
+   "en": "Um",
+   "zh": ""
+  },
+  {
+   "i": 621,
+   "s": 4765,
+   "e": 4775,
+   "en": "economic conditions, economic influences determine a lot of migration. I think asylum is a separate issue, but I think you I think you're absolutely right.",
+   "zh": ""
+  },
+  {
+   "i": 622,
+   "s": 4775,
+   "e": 4790,
+   "en": "There are there are um pressures for migration. However, there are other things that you haven't focused on which is migration brings a lot of benefits and it al particularly does so in a continent like Europe which is a rapidly aging continent. So we can agree that completely uncontrolled borders are a",
+   "zh": ""
+  },
+  {
+   "i": 623,
+   "s": 4790,
+   "e": 4798,
+   "en": "bad idea but I am I think Europe benefits from having immigration controlled immigration. It brings",
+   "zh": ""
+  },
+  {
+   "i": 624,
+   "s": 4798,
+   "e": 4813,
+   "en": "Yes. I like I I'm in favor of immigration. Obviously I'd be hypocritical if I wasn't since I'm an immigrant to the United States. Um, I'm in favor of immigration if the person immigrating um is going to be a productive member of society. Um, if they're going to be honest and if",
+   "zh": ""
+  },
+  {
+   "i": 625,
+   "s": 4813,
+   "e": 4818,
+   "en": "they're not going to mistreat people in that country, they're going to.",
+   "zh": ""
+  },
+  {
+   "i": 626,
+   "s": 4818,
+   "e": 4819,
+   "en": "I can agree on all of those.",
+   "zh": ""
+  },
+  {
+   "i": 627,
+   "s": 4819,
+   "e": 4820,
+   "en": "Yes.",
+   "zh": ""
+  },
+  {
+   "i": 628,
+   "s": 4820,
+   "e": 4829,
+   "en": "But I think that Europe does better on that than you give it credit for. That's I think where we disagree. But let's move on. Tell me, what do you think people get most wrong about you?",
+   "zh": ""
+  },
+  {
+   "i": 629,
+   "s": 4829,
+   "e": 4833,
+   "en": "Well, I mean, you get you just got a whole bunch of things wrong about me.",
+   "zh": ""
+  },
+  {
+   "i": 630,
+   "s": 4833,
+   "e": 4839,
+   "en": "pretty much everything in the last just rewind the last 20 minutes still wrong.",
+   "zh": ""
+  },
+  {
+   "i": 631,
+   "s": 4839,
+   "e": 4842,
+   "en": "So I got we got I got wrong your your",
+   "zh": ""
+  },
+  {
+   "i": 632,
+   "s": 4842,
+   "e": 4844,
+   "en": "Well, let's not be repetitive here.",
+   "zh": ""
+  },
+  {
+   "i": 633,
+   "s": 4844,
+   "e": 4848,
+   "en": "Okay. So So that political side of you people get most wrong.",
+   "zh": ""
+  },
+  {
+   "i": 634,
+   "s": 4848,
+   "e": 4862,
+   "en": "Yeah. My political views are very are are centrist. they're not uh far-right and and and frankly calling it farright I think is an insult uh to to history an",
+   "zh": ""
+  },
+  {
+   "i": 635,
+   "s": 4862,
+   "e": 4875,
+   "en": "insult to many peoples and it is uh an outrageous falsehood. Um it's it's completely absurd. I I literally have stated my position which is that and and I've been very clear about this which is that there need to",
+   "zh": ""
+  },
+  {
+   "i": 636,
+   "s": 4875,
+   "e": 4888,
+   "en": "be secure borders that um if if there's if there's an influx of immigrants they they they need to be people who will agree that the with with with western ideals with western values and if they",
+   "zh": ""
+  },
+  {
+   "i": 637,
+   "s": 4888,
+   "e": 4903,
+   "en": "don't and if and if there's a long-term uh growth of people who do not or or in some cases are adamantly opposed to western values you are setting yourself up for civil war. This is obvious. A",
+   "zh": ""
+  },
+  {
+   "i": 638,
+   "s": 4903,
+   "e": 4904,
+   "en": "child can see this.",
+   "zh": ""
+  },
+  {
+   "i": 639,
+   "s": 4904,
+   "e": 4908,
+   "en": "So, so but this this is not a right-wing view. I'm simply stating reality.",
+   "zh": ""
+  },
+  {
+   "i": 640,
+   "s": 4908,
+   "e": 4919,
+   "en": "Well, I think we can both agree that evidence will be able to decide which of us is more or less right. And we will find evidence for both of our views in different parts of Europe. The question is what the overall",
+   "zh": ""
+  },
+  {
+   "i": 641,
+   "s": 4919,
+   "e": 4920,
+   "en": "I'm very good at predicting the future.",
+   "zh": ""
+  },
+  {
+   "i": 642,
+   "s": 4920,
+   "e": 4935,
+   "en": "I'm not perfect, but I'm very good at predicting the future. Uh my batting average is is very high for a human. Um, but this this does have somewhat of a Cassandra effect where where people don't believe that what I'm saying is",
+   "zh": ""
+  },
+  {
+   "i": 643,
+   "s": 4935,
+   "e": 4950,
+   "en": "likely to be true. Um, because, you know, I I I can see into the future with a higher B, not perfectly, but with a higher probability of success than most people. So, and including things",
+   "zh": ""
+  },
+  {
+   "i": 644,
+   "s": 4950,
+   "e": 4965,
+   "en": "that people believe to be in some cases counterintuitive. Um, and uh, again, I'm not saying I'm always right. I certainly am not. But but my batting average is very good. Um,",
+   "zh": ""
+  },
+  {
+   "i": 645,
+   "s": 4965,
+   "e": 4976,
+   "en": "but but this this this does have, like I said, a Cassandra effect where people don't realize that what I'm saying will come to pass. Um, maybe not exactly in the timing that I",
+   "zh": ""
+  },
+  {
+   "i": 646,
+   "s": 4976,
+   "e": 4984,
+   "en": "thought, but it will come to pass. Um, and uh, yeah.",
+   "zh": ""
+  },
+  {
+   "i": 647,
+   "s": 4984,
+   "e": 4989,
+   "en": "the history will write the verdict.",
+   "zh": ""
+  },
+  {
+   "i": 648,
+   "s": 4989,
+   "e": 5002,
+   "en": "But I think you will see that very little of what I've said um is inaccurate. Um and and a super majority of what I've said",
+   "zh": ""
+  },
+  {
+   "i": 649,
+   "s": 5002,
+   "e": 5005,
+   "en": "is very accurate and will come to pass",
+   "zh": ""
+  },
+  {
+   "i": 650,
+   "s": 5005,
+   "e": 5020,
+   "en": "unless there are there's some change in direction. Do you have higher confidence level in your expectations of the future for AI the first part of our conversation or the latter part the political part?",
+   "zh": ""
+  },
+  {
+   "i": 651,
+   "s": 5020,
+   "e": 5033,
+   "en": "Um the I mean AI is digital super intelligence is called the singularity like a black hole because you don't know what's going to happen after that. It's and and it",
+   "zh": ""
+  },
+  {
+   "i": 652,
+   "s": 5033,
+   "e": 5046,
+   "en": "sort of sucks in everything. So I think really in in terms of the the the really big macro effects here AI and robots will really dominate",
+   "zh": ""
+  },
+  {
+   "i": 653,
+   "s": 5046,
+   "e": 5050,
+   "en": "everything.",
+   "zh": ""
+  },
+  {
+   "i": 654,
+   "s": 5050,
+   "e": 5055,
+   "en": "So on a on a on a time scale that is less than 10 years",
+   "zh": ""
+  },
+  {
+   "i": 655,
+   "s": 5055,
+   "e": 5068,
+   "en": "which probably renders this other stuff that we've been talking about less important and less relevant. The a the AI AI robotics revolution will happen",
+   "zh": ""
+  },
+  {
+   "i": 656,
+   "s": 5069,
+   "e": 5082,
+   "en": "sooner. It it will it'll happen sooner than civil war in in in in Britain. I would say civil war in Britain is probably 20 years away. Um and the AI",
+   "zh": ""
+  },
+  {
+   "i": 657,
+   "s": 5082,
+   "e": 5086,
+   "en": "robot singularity is 10 years away.",
+   "zh": ""
+  },
+  {
+   "i": 658,
+   "s": 5086,
+   "e": 5091,
+   "en": "Well, hopefully these benign all powerful AIs will prevent such outcomes.",
+   "zh": ""
+  },
+  {
+   "i": 659,
+   "s": 5091,
+   "e": 5092,
+   "en": "They probably will.",
+   "zh": ""
+  },
+  {
+   "i": 660,
+   "s": 5092,
+   "e": 5098,
+   "en": "Elon, I don't agree with everything you say, but it's always absolutely fascinating to talk to you. Thank you very much indeed. No,",
+   "zh": ""
+  },
+  {
+   "i": 661,
+   "s": 5098,
+   "e": 5100,
+   "en": "you're welcome. I'm not boring.",
+   "zh": ""
+  },
+  {
+   "i": 662,
+   "s": 5100,
+   "e": 5106,
+   "en": "You're definitely not boring.",
+   "zh": ""
+  }
+ ]
+}

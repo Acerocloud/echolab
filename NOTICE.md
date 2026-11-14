@@ -13,7 +13,7 @@ EchoLab 是一个用于个人英语影子跟读练习的本地网页工具。本
 
 | 内容 | 来源 | 授权 / 归属 |
 | --- | --- | --- |
-| 字幕文本（`lesson.json` 里的 `en`） | YouTube 上由人工上传的字幕（subtitles），非自动生成 | 归视频作者 / 字幕译者所有 |
+| 字幕文本（`lesson.json` 里的 `en`） | YouTube 人工字幕；`economist-musk` 使用用户提供的 YouTube 自动字幕导出稿 | 归原权利人所有 |
 | 字幕译文（`lesson.json` 里的 `zh`） | 有人工中文字幕的课程取自 YouTube；`muse-launch` 一课为本项目用 AI 翻译，已标注 | 归原字幕译者；AI 译文由本项目生成 |
 | 封面图（`poster.jpg`） | `i.ytimg.com` YouTube 官方缩略图 | 归视频作者所有 |
 | 词汇释义（`dict.json`） | [ECDICT](https://github.com/skywind3000/ECDICT) | MIT |
