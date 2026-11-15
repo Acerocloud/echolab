@@ -10,6 +10,7 @@ import {
 } from "./ui.js";
 import { createShadowPanel } from "./shadow-panel.js";
 import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } from "./keys.js";
+import { chat, hasAI } from "./ai.js";
 
 export const meta = { title: "课程" };
 
@@ -681,7 +682,7 @@ export async function render(root, [id]) {
   async function openWordCard(word, cue, anchor) {
     const [dict, glosses] = await Promise.all([getDict(), getGlosses()]);
     const entry = dict[word] || dict[word.replace(/['’]s$/, "")] || null;
-    const gloss = glosses[id]?.[word] || null;
+    const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
 
     const defs = entry?.defs?.length
       ? entry.defs.map((d) => `<li>${d.pos ? `<em>${esc(d.pos)}</em>` : ""}${esc(d.zh)}</li>`).join("")
@@ -699,7 +700,9 @@ export async function render(root, [id]) {
           </div>
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
         </div>
-        <ul class="wc-defs">${defs}</ul>
+        ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
+        ${id === "muse-launch" && !gloss ? `<p class="wc-context" data-context>本句释义尚未生成</p><button class="btn btn-plain btn-sm" data-context-generate>生成本句解释</button>` : ""}
+        <details class="wc-dictionary" ${id === "muse-launch" ? "" : "open"}><summary>词典释义</summary><ul class="wc-defs">${defs}</ul></details>
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
@@ -723,6 +726,28 @@ export async function render(root, [id]) {
 
     document.getElementById("layer").querySelector("[data-tts]")
       ?.addEventListener("click", () => speak(word));
+    const layer = document.getElementById("layer");
+    const generate = layer.querySelector("[data-context-generate]");
+    generate?.addEventListener("click", async () => {
+      const output = layer.querySelector("[data-context]");
+      if (!hasAI()) {
+        output.textContent = "请先在设置中配置 AI 接口和模型。";
+        return;
+      }
+      generate.disabled = true;
+      output.textContent = "正在结合上下文解释…";
+      try {
+        const explanation = await chat([
+          { role: "system", content: "你是严谨的英语老师。用简体中文解释目标词在给定句子中的具体意思，先给本句释义，再解释常见字面义与当前含义之间可核实的联系。含义之间没有明确引申关系或来源不确定时直接说明，不要编造词源。简洁自然。" },
+          { role: "user", content: JSON.stringify({ word, lemma: entry?.lemma || word, sentence: cue?.en, translation: cue?.zh }) },
+        ], { temperature: 0.3, maxTokens: 700 });
+        if (output.isConnected) output.textContent = explanation;
+      } catch (error) {
+        if (output.isConnected) output.textContent = `解释生成失败：${error.message}`;
+      } finally {
+        if (generate.isConnected) generate.disabled = false;
+      }
+    });
     void anchor;
   }
 
