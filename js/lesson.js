@@ -127,9 +127,9 @@ export async function render(root, [id]) {
         <h1>${esc(info.titleZh)}</h1>
         <p class="lesson-en">${esc(info.title)}</p>
         <div class="lesson-kicker">
-          <span>${CATEGORIES[info.category]?.label || info.category}</span><i>·</i>
-          <span class="mono">${esc(info.level)}</span><i>·</i>
-          <span class="mono">${fmtTime(info.duration)}</span><i>·</i>
+          <span>${CATEGORIES[info.category]?.label || info.category}</span>
+          <span class="mono">${esc(info.level)}</span>
+          <span class="mono">${fmtTime(info.duration)}</span>
           <span>${info.cueCount} 句</span>
         </div>
       </div>
@@ -191,9 +191,9 @@ export async function render(root, [id]) {
       </aside>
       <div class="lesson-meta">
         <p class="meta-desc">${esc(info.desc)}</p>
-        <p class="meta-source">${esc(lesson.speaker)} · ${lesson.source.captionType === "auto" ? "YouTube 自动字幕" : "人工字幕"}${
+        <p class="meta-source"><span>${esc(lesson.speaker)}</span><span>${lesson.source.captionType === "auto" ? "YouTube 自动字幕" : "人工字幕"}${
           lesson.source.clipped ? "（节选）" : ""
-        } · <a href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener">原始视频</a></p>
+        }</span> <a class="source-youtube" href="https://www.youtube.com/watch?v=${esc(ytId || "")}" target="_blank" rel="noopener" aria-label="在 YouTube 查看原始视频" title="在 YouTube 查看原始视频"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M23 7a3 3 0 0 0-2.1-2.1C19 4.4 12 4.4 12 4.4s-7 0-8.9.5A3 3 0 0 0 1 7a31 31 0 0 0-.5 5 31 31 0 0 0 .5 5 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5A3 3 0 0 0 23 17a31 31 0 0 0 .5-5 31 31 0 0 0-.5-5ZM9.7 15.3V8.7l5.8 3.3-5.8 3.3Z"/></svg></a></p>
       </div>
     </div>
 

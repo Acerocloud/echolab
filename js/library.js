@@ -27,8 +27,8 @@ export async function render(root) {
 
   root.innerHTML = `
     <section class="library-intro">
-      <h1>课程库</h1>
-      <p>用真实英语素材练习逐句精听和跟读。</p>
+      <h1>听见真实世界。</h1>
+
     </section>
     <section class="featured" aria-labelledby="featured-title">
       <div class="featured-copy">
@@ -93,12 +93,12 @@ export async function render(root) {
     return `
       <a class="card" href="#/lesson/${l.id}">
         <div class="card-media">
-          <img src="${esc(l.poster)}" alt="" loading="lazy" />
+          <img src="${esc(l.poster)}" alt="" loading="lazy" /><span class="category-badges"><span>${esc(CATEGORIES[l.category]?.label || l.category)}</span><span>${esc(l.level)}</span></span>
           <span class="card-dur mono">${fmtTime(l.duration)}</span>
           ${pct ? `<div class="card-bar"><i style="width:${pct}%"></i></div>` : ""}
         </div>
         <div class="card-body">
-          <p class="card-meta">${CATEGORIES[l.category]?.label || l.category} · ${esc(l.level)}${l.cueCount === 0 ? " · 视频观看" : ""}</p>
+
           <h3>${esc(l.titleZh)}</h3>
           <p class="card-en">${esc(l.title)}</p>
           <p class="card-foot">${esc(l.speaker)}${
