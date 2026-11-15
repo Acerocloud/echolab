@@ -694,6 +694,7 @@ export async function render(root, [id]) {
         <div class="wc-head">
           <div>
             <h2 class="wc-word">${esc(word)}</h2>
+            ${entry?.lemma && entry.lemma !== word ? `<p class="wc-ph">原词 · ${esc(entry.lemma)}</p>` : ""}
             ${entry?.ph ? `<p class="wc-ph">/${esc(entry.ph)}/</p>` : ""}
           </div>
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
