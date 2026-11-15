@@ -415,7 +415,7 @@ export async function render(root, [id]) {
     let high = cues.length;
     while (low < high) {
       const mid = Math.floor((low + high) / 2);
-      if (cues[mid].s <= t + 0.06) low = mid + 1;
+      if (cues[mid].s <= t) low = mid + 1;
       else high = mid;
     }
     return Math.max(0, low - 1);
@@ -552,7 +552,9 @@ export async function render(root, [id]) {
         }
       }
 
-      const i = cueAt(t);
+      const i = playing && (pauseEach || repeat) && cur && t >= cur.s && t < cur.e
+        ? current
+        : cueAt(t);
       if (i !== current) setActive(i);
 
       if (info.duration && t > info.duration + 0.4) {

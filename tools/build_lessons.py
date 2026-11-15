@@ -373,6 +373,11 @@ def main():
         except Exception:
             pass
     for d in built:
+        for index, cue in enumerate(d["cues"]):
+            if not (0 <= cue["s"] < cue["e"] <= d["duration"]):
+                log(f"  !! Invalid timing in {d['id']} cue {index}: {cue['s']}–{cue['e']}")
+            if index and cue["s"] < d["cues"][index - 1]["e"]:
+                log(f"  !! Overlapping subtitles in {d['id']} at cue {index}")
         existing[d["id"]] = {
             "id": d["id"],
             "title": d["title"],
