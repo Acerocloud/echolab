@@ -31,6 +31,12 @@ python -m http.server 8777 --bind 127.0.0.1
 
 浏览器建议 Chrome / Edge 最新版（录音、Web Audio 支持最好）。
 
+### 软件更新
+
+Windows 上解压 Release 的 ZIP 后，用 `start.bat` 启动。打开网页时会检查一次更新，也可以在「设置 → 软件更新」手动检查。发现新版后，点「一键更新」即可下载、验证并安装，随后本地服务会重启并刷新网页。继续用同一个本地地址打开，浏览器里的进度、生词和设置会保留。
+
+GitHub 仓库是私有的。更新服务使用本机已有的 Git for Windows 凭据，或启动前已设置的 `GH_TOKEN` / `GITHUB_TOKEN`。账号需要有仓库读取权限。Git 工作副本请用 `git pull` 更新，macOS / Linux 请从 Releases 下载新版 ZIP。
+
 ---
 
 ## 它有什么

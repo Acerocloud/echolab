@@ -1,7 +1,8 @@
 /* EchoLab — 路由与外壳 */
 
 import { applyTheme } from "./store.js";
-import { icon, esc, openModal, isModalOpen } from "./ui.js";
+import { icon, esc, openModal, isModalOpen, toast } from "./ui.js";
+import { checkForUpdate } from "./update.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
 
 const routes = [
@@ -91,5 +92,8 @@ window.addEventListener("hashchange", render);
 
 applyTheme();
 render();
+checkForUpdate().then((update) => {
+  if (update.available && location.hash !== "#/settings") toast(`EchoLab v${update.latest} 已发布，可在设置中更新。`);
+}).catch(() => {});
 
 export { icon };

@@ -4,6 +4,7 @@ import { state, setSetting, resetAll, exportJSON } from "./store.js";
 import { icon, esc, toast, openModal } from "./ui.js";
 import { testConnection, listModels, pickModel } from "./ai.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
+import { checkForUpdate, installUpdate } from "./update.js";
 
 export const meta = { title: "设置" };
 
@@ -18,6 +19,17 @@ export async function render(root) {
         <p class="page-sub">管理跟读、AI 造句和本机学习数据。</p>
       </div>
     </div>
+
+    <section class="block">
+      <div class="block-head"><h2>软件更新</h2></div>
+      <div class="setting-row">
+        <div><span id="updateStatus" role="status">正在检查更新…</span></div>
+        <div class="update-actions">
+          <button class="btn btn-plain" id="updateCheck">检查更新</button>
+          <button class="btn btn-primary" id="updateInstall" hidden>一键更新</button>
+        </div>
+      </div>
+    </section>
 
     <section class="block">
       <div class="block-head"><h2>跟读</h2></div>
@@ -244,6 +256,40 @@ export async function render(root) {
       status.textContent = `失败：${e.message}`;
     }
   });
+
+  const updateStatus = root.querySelector("#updateStatus");
+  const updateCheck = root.querySelector("#updateCheck");
+  const updateInstall = root.querySelector("#updateInstall");
+  async function showUpdate(refresh = false) {
+    updateCheck.disabled = true;
+    updateInstall.hidden = true;
+    updateStatus.textContent = "正在检查更新…";
+    try {
+      const { current, latest, available, installable } = await checkForUpdate({ refresh });
+      updateInstall.hidden = !(available && installable);
+      updateStatus.textContent = available
+        ? `当前 v${current}，可更新至 v${latest}。${installable ? "" : "请在 Git 工作副本中运行 git pull。"}`
+        : `当前 v${current}，已是最新版。`;
+    } catch (error) {
+      updateStatus.textContent = error.message;
+    } finally {
+      updateCheck.disabled = false;
+    }
+  }
+  updateCheck.addEventListener("click", () => showUpdate(true));
+  updateInstall.addEventListener("click", async () => {
+    updateCheck.disabled = true;
+    updateInstall.disabled = true;
+    updateStatus.textContent = "正在下载、验证并安装更新…";
+    try {
+      await installUpdate();
+    } catch (error) {
+      updateStatus.textContent = error.message;
+      updateCheck.disabled = false;
+      updateInstall.disabled = false;
+    }
+  });
+  showUpdate();
 
   return () => {};
 }

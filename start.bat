@@ -11,6 +11,14 @@ echo   Press Ctrl+C to stop.
 echo.
 
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\serve.ps1" -Port 8777
+if "%errorlevel%"=="42" goto restart
+goto result
+
+:restart
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\serve.ps1" -Port 8777 -NoBrowser
+if "%errorlevel%"=="42" goto restart
+
+:result
 if errorlevel 1 (
   echo.
   echo   [EchoLab] Failed to start. Try: python -m http.server 8777

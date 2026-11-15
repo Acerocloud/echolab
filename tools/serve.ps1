@@ -17,6 +17,7 @@ if (-not $Root) {
   $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 }
 $Root = (Resolve-Path -LiteralPath $Root).Path.TrimEnd('\')
+. (Join-Path $PSScriptRoot 'update.ps1')
 
 $MIME = @{
   ".html" = "text/html; charset=utf-8"
@@ -220,6 +221,27 @@ try {
       $q = $path.IndexOf("?")
       if ($q -ge 0) { $path = $path.Substring(0, $q) }
 
+      if ($path -eq '/api/update/check' -or $path -eq '/api/update/install') {
+        $allowedHosts = @("127.0.0.1:$Port", "localhost:$Port")
+        if ($method -ne 'POST' -or $headers['host'] -notin $allowedHosts -or
+            $headers['origin'] -cne "http://$($headers['host'])" -or $headers['x-echolab-update'] -cne '1') {
+          Send-Json $stream 403 'Forbidden' @{ error = '更新只能从本机 EchoLab 页面发起。' } $false
+          continue
+        }
+        try {
+          if ($path -eq '/api/update/check') {
+            Send-Json $stream 200 'OK' (Get-EchoLabUpdate $Root) $false
+          } else {
+            $installedVersion = Install-EchoLabUpdate $Root
+            Send-Json $stream 200 'OK' @{ version = $installedVersion } $false
+            exit 42
+          }
+        } catch {
+          Send-Json $stream 502 'Update Error' @{ error = $_.Exception.Message } $false
+        }
+        continue
+      }
+
       # --- AI 代理 ---
       if ($method -eq "POST" -and $path -eq "/api/ai") {
         $len = 0
@@ -247,7 +269,7 @@ try {
       $path = $path.Replace("/", "\")
 
       $full = [System.IO.Path]::GetFullPath((Join-Path $Root $path.TrimStart('\')))
-      if (-not $full.StartsWith($Root, [System.StringComparison]::OrdinalIgnoreCase)) {
+      if (-not $full.StartsWith($Root + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
         Send-Json $stream 403 "Forbidden" @{ error = "forbidden" } $headOnly
         continue
       }
