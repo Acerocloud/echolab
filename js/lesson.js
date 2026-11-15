@@ -369,6 +369,7 @@ export async function render(root, [id]) {
       </div>
       <div class="line-tools">
         <button class="mini icon-only" data-act="shadow" aria-label="跟读这句">${icon("mic", 13)}</button>
+        <button class="mini icon-only" data-act="copy" aria-label="复制英文字幕" title="复制英文字幕">${icon("copy", 14)}</button>
       </div>
     </li>`;
   }
@@ -600,12 +601,25 @@ export async function render(root, [id]) {
     if (!li) return;
     const i = Number(li.dataset.i);
     const selection = window.getSelection();
-    const phrase = selection?.toString().trim().replace(/\s+/g, " ");
+    let phrase = selection?.toString().trim().replace(/\s+/g, " ");
     if (phrase && selection.rangeCount && li.querySelector(".line-en")?.contains(selection.anchorNode) &&
         li.querySelector(".line-en")?.contains(selection.focusNode)) {
+      const range = selection.getRangeAt(0);
+      const startToken = range.startContainer.parentElement?.closest(".tok");
+      const endToken = range.endContainer.parentElement?.closest(".tok");
+      const expanded = range.cloneRange();
+      if (startToken && li.contains(startToken)) expanded.setStartBefore(startToken);
+      if (endToken && li.contains(endToken)) expanded.setEndAfter(endToken);
+      phrase = expanded.toString().trim().replace(/\s+/g, " ");
       if (phrase.length > 120) return toast("请选择不超过 120 个字符的英文词组");
       openWordCard(phrase.toLowerCase(), cues[i], li);
       selection.removeAllRanges();
+      return;
+    }
+    if (e.target.closest('[data-act="copy"]')) {
+      navigator.clipboard.writeText(cues[i].en)
+        .then(() => toast("英文已复制"))
+        .catch(() => toast("复制失败，请检查浏览器剪贴板权限"));
       return;
     }
     if (tok) { openWordCard(tok.dataset.w, cues[i], tok); return; }

@@ -261,7 +261,7 @@
   color: var(--muted);
 }
 
-.line-tools { opacity: 0; transition: opacity 0.15s; }
+.line-tools { display: flex; align-items: flex-start; gap: 2px; opacity: 0; transition: opacity 0.15s; }
 .line:hover .line-tools, .line.active .line-tools, .line:focus-within .line-tools { opacity: 1; }
 
 .tok { font-weight: inherit; border-radius: 3px; transition: background 0.12s, color 0.12s; cursor: pointer; }
