@@ -72,6 +72,9 @@ select, option { background-color: var(--surface); color: var(--text); }
 }
 *::-webkit-scrollbar-track { background: transparent; }
 
+html[data-input-mode="pointer"] :is(button, a, [role="button"]):focus-visible { outline: none; }
+html[data-input-mode="keyboard"] :is(button, a, [role="button"]):focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+
 /* ---------------------------------------------------------------- 顶部导航 */
 .topbar {
   position: sticky;

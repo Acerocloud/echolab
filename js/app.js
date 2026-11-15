@@ -15,6 +15,10 @@ const routes = [
   { re: /^\/about$/, view: () => import("./about.js"), nav: "about", title: "关于" },
 ];
 
+// Pointer focus should not leave a keyboard focus ring behind.
+document.addEventListener("pointerdown", () => { document.documentElement.dataset.inputMode = "pointer"; }, true);
+document.addEventListener("keydown", (event) => { if (event.key === "Tab") document.documentElement.dataset.inputMode = "keyboard"; }, true);
+
 const root = document.getElementById("view");
 let cleanup = null;
 let token = 0;

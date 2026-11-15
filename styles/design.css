@@ -9,7 +9,7 @@ body{background:#13151a}.topbar{background:#171a20eF;backdrop-filter:blur(18px);
 /* Interactive contrast on both active and hovered subtitle rows. */
 .line .tok:hover, .sp-en .tok:hover { background:#607c9c; color:#fff; }
 .line .mini { color:#c6d4e2; }
-.line .mini:hover, .line .mini:focus-visible { background:#607c9c; color:#fff; }
+.line .mini:hover, html:not([data-input-mode="pointer"]) .line .mini:focus-visible { background:#607c9c; color:#fff; }
 .line .mini:active { background:#7894b2; color:#101b29; }
 .line ::selection, .sp-en ::selection { background:#769ac2; color:#101820; }
 .sp-steps li.active, .sp-btn-primary { background:#174b80; color:#fff; }
