@@ -80,11 +80,15 @@ function Install-EchoLabUpdate($AppRoot) {
     $client.DefaultRequestHeaders.Accept.ParseAdd('application/octet-stream')
     $bytes = $client.GetByteArrayAsync("$script:EchoLabReleaseApi/releases/assets/$($asset.id)").GetAwaiter().GetResult()
     [IO.File]::WriteAllBytes($archive, $bytes)
-    if ($bytes.Length -ne $asset.size -or ('sha256:' + (Get-FileHash -LiteralPath $archive).Hash) -ine $asset.digest) {
+    $sha = [Security.Cryptography.SHA256]::Create()
+    try { $hash = [BitConverter]::ToString($sha.ComputeHash($bytes)).Replace('-', '') }
+    finally { $sha.Dispose() }
+    if ($bytes.Length -ne $asset.size -or ('sha256:' + $hash) -ine $asset.digest) {
       throw 'The downloaded archive failed checksum verification.'
     }
     $unpacked = Join-Path $scratch 'unpacked'
-    Expand-Archive -LiteralPath $archive -DestinationPath $unpacked
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    [IO.Compression.ZipFile]::ExtractToDirectory($archive, $unpacked)
     $source = Join-Path $unpacked "EchoLab-v$($release.latest)"
     foreach ($required in 'package.json', 'index.html', 'start.bat', 'tools/serve.ps1', 'tools/update.ps1') {
       if (-not (Test-Path -LiteralPath (Join-Path $source $required) -PathType Leaf)) { throw 'Incomplete release archive.' }
