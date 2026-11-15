@@ -23,3 +23,5 @@ body{background:#13151a}.topbar{background:#171a20eF;backdrop-filter:blur(18px);
 .source-youtube,.footer-github { display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:8px; color:#c9d9ea; }
 .source-youtube:hover,.footer-github:hover { background:#304767; color:#fff; }
 .footer-github { margin-left:auto; }
+.wc-form { margin:10px 0 0; color:var(--text-2); font-size:13px; line-height:1.7; }
+.wc-form small { color:var(--muted); font-size:12px; }

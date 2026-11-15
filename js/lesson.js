@@ -17,6 +17,11 @@ import { closeModal } from "./ui.js";
 export const meta = { title: "课程" };
 
 let dictCache = null;
+let inflectionsCache = null;
+function getInflections() {
+  if (!inflectionsCache) inflectionsCache = fetch("content/inflections.json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  return inflectionsCache;
+}
 let glossCache = null;
 let ytApiPromise = null;
 
@@ -708,8 +713,10 @@ export async function render(root, [id]) {
 
   /* ---------------------------------------------------------------- 词卡 */
   async function openWordCard(word, cue, anchor) {
-    const [dict, glosses] = await Promise.all([getDict(), getGlosses()]);
-    const entry = dict[word] || dict[word.replace(/['’]s$/, "")] || null;
+    const [dict, glosses, inflections] = await Promise.all([getDict(), getGlosses(), getInflections()]);
+    const form = inflections[word.toLowerCase()];
+    const entry = dict[word] || dict[form?.base] || dict[word.replace(/['’]s$/, "")] || null;
+    const labels = form ? [["s", "名词复数"], ["3", "动词第三人称单数"], ["i", "现在分词"], ["p", "过去式"], ["d", "过去分词"]].filter(([key]) => form.forms[key] === word.toLowerCase()).map(([, label]) => label) : [];
     const isPhrase = /\s/.test(word);
     const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
     const cacheKey = explanationKey(id, cue, word);
@@ -726,7 +733,7 @@ export async function render(root, [id]) {
         <div class="wc-head">
           <div>
             <h2 class="wc-word">${esc(word)}</h2>
-            ${entry?.lemma && entry.lemma !== word ? `<p class="wc-ph">原词 · ${esc(entry.lemma)}</p>` : ""}
+            ${form ? `<p class="wc-form">词形 · ${esc(labels.join(" / "))}<br>原词 · ${esc(form.base)}${form.forms.p && form.forms.d && (labels.includes("过去式") || labels.includes("过去分词")) ? `<br>过去式 · ${esc(form.forms.p)}　过去分词 · ${esc(form.forms.d)}` : ""}${labels.length > 1 ? `<br><small>具体用法请结合句子判断</small>` : ""}</p>` : entry?.lemma && entry.lemma !== word ? `<p class="wc-ph">原词 · ${esc(entry.lemma)}</p>` : ""}
             ${entry?.ph ? `<p class="wc-ph">/${esc(entry.ph)}/</p>` : ""}
           </div>
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
