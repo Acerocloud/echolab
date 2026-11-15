@@ -23,7 +23,7 @@ export async function render(root) {
   const lastAt = (id) => state.lessons[id]?.lastAt || 0;
   const practiced = lessons.filter((lesson) => lesson.cueCount && lastAt(lesson.id))
     .sort((a, b) => lastAt(b.id) - lastAt(a.id))[0];
-  const featured = practiced || lessons.find((lesson) => lesson.id === "economist-musk") || lessons[0];
+  const featured = practiced || lessons.find((lesson) => lesson.id === "muse-launch") || lessons[0];
 
   root.innerHTML = `
     <section class="library-intro">
