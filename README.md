@@ -13,7 +13,7 @@
 
 **方式一：双击（推荐，零依赖）**
 
-- Windows：双击 `start.bat` —— 内置一个 PowerShell 静态服务器，**不需要安装 Python 或 Node**
+- Windows：双击 `start.vbs` —— 在系统托盘运行，右键图标可以打开应用或退出。无需安装 Python 或 Node
 - macOS / Linux：`bash start.sh`（用系统自带的 `python3 -m http.server`）
 
 脚本会自动打开 `http://127.0.0.1:8777`。
@@ -33,7 +33,7 @@ python -m http.server 8777 --bind 127.0.0.1
 
 ### 软件更新
 
-Windows 上解压 Release 的 ZIP 后，用 `start.bat` 启动。打开网页时会检查一次更新，也可以在「设置 → 软件更新」手动检查。发现新版后，点「一键更新」即可下载、验证并安装，随后本地服务会重启并刷新网页。继续用同一个本地地址打开，浏览器里的进度、生词和设置会保留。
+Windows 上解压 Release 的 ZIP 后，用 `start.vbs` 启动。打开网页时会检查一次更新，也可以在「设置 → 软件更新」手动检查。发现新版后，点「一键更新」即可下载、验证并安装，随后本地服务会重启并刷新网页。继续用同一个本地地址打开，浏览器里的进度、生词和设置会保留。
 
 GitHub 仓库是私有的。更新服务使用本机已有的 Git for Windows 凭据，或启动前已设置的 `GH_TOKEN` / `GITHUB_TOKEN`。账号需要有仓库读取权限。Git 工作副本请用 `git pull` 更新，macOS / Linux 请从 Releases 下载新版 ZIP。
 
