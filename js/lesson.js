@@ -380,12 +380,18 @@ export async function render(root, [id]) {
   }
 
   function applySubPrefs() {
+    const anchor = lineNodes[current];
+    const before = anchor?.getBoundingClientRect().top;
     const showEn = !hasChinese || state.settings.subEn;
     const showZh = state.settings.subZh;
     root.querySelector("#tEn").setAttribute("aria-pressed", String(showEn));
     root.querySelector("#tZh").setAttribute("aria-pressed", String(Boolean(showZh && info.langs?.includes("zh"))));
     root.querySelectorAll(".line-en").forEach((el) => (el.style.display = showEn ? "" : "none"));
     root.querySelectorAll(".line-zh").forEach((el) => (el.style.display = showZh ? "" : "none"));
+    if (anchor && Number.isFinite(before)) {
+      const delta = anchor.getBoundingClientRect().top - before;
+      linesEl.scrollTo({ top: linesEl.scrollTop + delta, behavior: "instant" });
+    }
   }
 
   function applyFont() {

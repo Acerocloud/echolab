@@ -25,3 +25,6 @@ body{background:#13151a}.topbar{background:#171a20eF;backdrop-filter:blur(18px);
 .footer-github { margin-left:auto; }
 .wc-form { margin:10px 0 0; color:var(--text-2); font-size:13px; line-height:1.7; }
 .wc-form small { color:var(--muted); font-size:12px; }
+.lesson-kicker span,.meta-source span { background:#174b80; color:#fff; }
+.seg-mini button.on,.seg-mode button.on { background:#174b80; color:#fff; font-weight:700; }
+.seg-mode button { font-weight:700; }
