@@ -104,6 +104,7 @@ export function openModal({ title, body, actions = [], onClose }) {
     layer.innerHTML = "";
     activeModal = null;
     document.removeEventListener("keydown", onKey);
+    layer.removeEventListener("click", onBackdrop);
     onClose?.();
   };
   const onKey = (e) => {
@@ -116,13 +117,14 @@ export function openModal({ title, body, actions = [], onClose }) {
   layer.querySelectorAll("[data-act]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const a = actions[Number(btn.dataset.act)];
-      const keep = a.onClick?.();
+      const keep = a.onClick?.(btn);
       if (keep !== true) close();
     });
   });
-  layer.addEventListener("click", (e) => {
+  const onBackdrop = (e) => {
     if (e.target === layer) close();
-  }, { once: true });
+  };
+  layer.addEventListener("click", onBackdrop);
   activeModal = close;
   return close;
 }

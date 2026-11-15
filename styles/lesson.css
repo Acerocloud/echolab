@@ -319,6 +319,12 @@
 .wc-dictionary h3 { margin: 0 0 12px; font-size: 14px; }
 .wc-context { white-space: pre-wrap; }
 .wc-context-actions { display: flex; align-items: center; gap: 8px; margin: 12px 0 20px; }
+.modal-foot .btn.word-saved { --btn-bg: #c94343; --btn-fg: #fff; }
+.modal-foot .btn.word-saved:hover { --btn-bg: #aa3333; }
+.word-saved-animation { animation: word-saved-pulse 240ms ease-out; }
+@keyframes word-saved-pulse {
+  50% { transform: scale(1.08); }
+}
 .wc-defs { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
 .wc-defs li { font-size: 14.5px; line-height: 1.55; color: var(--text-2); }
 .wc-defs li em { font-style: normal; font-size: 11px; color: var(--muted); margin-right: 7px; font-family: var(--mono); }

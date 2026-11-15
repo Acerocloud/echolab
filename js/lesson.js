@@ -743,7 +743,7 @@ export async function render(root, [id]) {
         {
           label: hasWord(word) ? "移出生词本" : "加入生词本",
           primary: true,
-          onClick: () => {
+          onClick: (button) => {
             const added = toggleWord(word, id);
             if (added && isPhrase) {
               const saved = state.words.find((item) => item.w === word.toLowerCase());
@@ -754,6 +754,12 @@ export async function render(root, [id]) {
             root.querySelectorAll(`.tok[data-w="${CSS.escape(word)}"]`)
               .forEach((n) => n.classList.toggle("saved", added));
             toast(added ? `已加入生词本` : `已移出`);
+            button.textContent = added ? "移出生词本" : "加入生词本";
+            button.classList.toggle("word-saved", added);
+            button.classList.remove("word-saved-animation");
+            void button.offsetWidth;
+            button.classList.add("word-saved-animation");
+            return true;
           },
         },
       ],
@@ -762,6 +768,7 @@ export async function render(root, [id]) {
     document.getElementById("layer").querySelector("[data-tts]")
       ?.addEventListener("click", () => speak(word));
     const layer = document.getElementById("layer");
+    layer.querySelector(".modal-foot .btn-primary")?.classList.toggle("word-saved", hasWord(word));
     const generate = layer.querySelector("[data-context-generate]");
     layer.querySelector("[data-context-settings]")?.addEventListener("click", () => {
       closeModal();
