@@ -220,6 +220,7 @@
 
 /* ---------------------------------------------------------------- 字幕列表 */
 .pane-script { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.phrase-hint { margin: 9px 8px 2px; color: var(--muted); font-size: 12px; }
 
 .lines {
   list-style: none;

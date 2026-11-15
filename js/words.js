@@ -3,6 +3,7 @@
 import { state, dueWords, setWordMastered, toggleWord } from "./store.js";
 import { icon, esc, toast } from "./ui.js";
 import { generateSentences, hasAI } from "./ai.js";
+import { explanationKey } from "./word-explanations.js";
 
 export const meta = { title: "生词本" };
 
@@ -52,7 +53,11 @@ export async function render(root) {
 
   const defOf = (w) => {
     const entry = dict[w] || dict[lemmaOf(w) || ""] || null;
-    if (!entry?.defs?.length) return "";
+    if (!entry?.defs?.length) {
+      const saved = state.words.find((item) => item.w === w);
+      if (!saved) return "";
+      return state.wordExplanations?.[explanationKey(saved.lesson, { i: saved.cue, en: saved.en }, w)] || "";
+    }
     return entry.defs.map((d) => `${d.pos ? d.pos + " " : ""}${d.zh}`).join("；");
   };
 

@@ -41,7 +41,7 @@ function Get-EchoLabRelease($Client, $AppRoot) {
     throw 'Could not reach GitHub. Check your connection and try again.'
   }
   $release = $json | ConvertFrom-Json
-  if ($release.tag_name -cnotmatch '^v(\d+\.\d+\.\d+)$') { throw 'Invalid release version.' }
+  if ($release.tag_name -cnotmatch '^v(\d+\.\d+\.\d+(?:\.\d+)?)$') { throw 'Invalid release version.' }
   $latest = $Matches[1]
   $asset = $release.assets | Where-Object { $_.name -ceq "EchoLab-v$latest.zip" } | Select-Object -First 1
   return @{

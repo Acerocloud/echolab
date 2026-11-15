@@ -151,7 +151,7 @@ export async function render(root, [id]) {
       <aside class="side">
         <div class="panel-head">
           <div class="panel-title">
-            <span data-panel-title>逐句字幕</span>
+            <span data-panel-title title="选中英文词组可查释义并加入生词本">逐句字幕</span>
             <span class="panel-pos mono" data-pos></span>
           </div>
           <div class="panel-tools">
@@ -181,6 +181,7 @@ export async function render(root, [id]) {
         </div>
 
         <div class="pane pane-script" data-pane="script">
+          <p class="phrase-hint">选中英文词组可查释义或加入生词本</p>
           <ol class="lines" id="lines">
             ${cues.map(lineHTML).join("")}
           </ol>
@@ -598,6 +599,15 @@ export async function render(root, [id]) {
     const li = e.target.closest(".line");
     if (!li) return;
     const i = Number(li.dataset.i);
+    const selection = window.getSelection();
+    const phrase = selection?.toString().trim().replace(/\s+/g, " ");
+    if (phrase && selection.rangeCount && li.querySelector(".line-en")?.contains(selection.anchorNode) &&
+        li.querySelector(".line-en")?.contains(selection.focusNode)) {
+      if (phrase.length > 120) return toast("请选择不超过 120 个字符的英文词组");
+      openWordCard(phrase.toLowerCase(), cues[i], li);
+      selection.removeAllRanges();
+      return;
+    }
     if (tok) { openWordCard(tok.dataset.w, cues[i], tok); return; }
     if (e.target.closest('[data-act="shadow"]')) {
       if (mode === "shadow") shadowCtl?.goto(i);
@@ -686,6 +696,7 @@ export async function render(root, [id]) {
   async function openWordCard(word, cue, anchor) {
     const [dict, glosses] = await Promise.all([getDict(), getGlosses()]);
     const entry = dict[word] || dict[word.replace(/['’]s$/, "")] || null;
+    const isPhrase = /\s/.test(word);
     const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
     const cacheKey = explanationKey(id, cue, word);
     const cached = state.wordExplanations?.[cacheKey];
@@ -707,8 +718,8 @@ export async function render(root, [id]) {
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
         </div>
         ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
-        ${id === "muse-launch" && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
-        <div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>
+        ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
+        ${!isPhrase || entry ? `<div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>` : ""}
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
@@ -720,6 +731,10 @@ export async function render(root, [id]) {
           primary: true,
           onClick: () => {
             const added = toggleWord(word, id);
+            if (added && isPhrase) {
+              const saved = state.words.find((item) => item.w === word.toLowerCase());
+              if (saved) { saved.cue = cue?.i; saved.en = cue?.en; saved.zh = cue?.zh; save(true); }
+            }
             if (added) savedSet.add(word);
             else savedSet.delete(word);
             root.querySelectorAll(`.tok[data-w="${CSS.escape(word)}"]`)
