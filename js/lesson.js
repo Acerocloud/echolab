@@ -2,7 +2,7 @@
 
 import { getLesson, getManifest, CATEGORIES } from "./data.js";
 import {
-  state, lessonProgress, setCuePosition, setSetting, toggleWord, hasWord,
+  state, save, lessonProgress, setCuePosition, setSetting, toggleWord, hasWord,
   addPracticeTime, addLessonTime,
 } from "./store.js";
 import {
@@ -11,6 +11,8 @@ import {
 import { createShadowPanel } from "./shadow-panel.js";
 import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } from "./keys.js";
 import { chat, hasAI } from "./ai.js";
+import { DEFAULT_WORD_PROMPT, explanationKey, cleanExplanation } from "./word-explanations.js";
+import { closeModal } from "./ui.js";
 
 export const meta = { title: "课程" };
 
@@ -683,6 +685,8 @@ export async function render(root, [id]) {
     const [dict, glosses] = await Promise.all([getDict(), getGlosses()]);
     const entry = dict[word] || dict[word.replace(/['’]s$/, "")] || null;
     const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
+    const cacheKey = explanationKey(id, cue, word);
+    const cached = state.wordExplanations?.[cacheKey];
 
     const defs = entry?.defs?.length
       ? entry.defs.map((d) => `<li>${d.pos ? `<em>${esc(d.pos)}</em>` : ""}${esc(d.zh)}</li>`).join("")
@@ -701,8 +705,8 @@ export async function render(root, [id]) {
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
         </div>
         ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
-        ${id === "muse-launch" && !gloss ? `<p class="wc-context" data-context>本句释义尚未生成</p><button class="btn btn-plain btn-sm" data-context-generate>生成本句解释</button>` : ""}
-        <details class="wc-dictionary" ${id === "muse-launch" ? "" : "open"}><summary>词典释义</summary><ul class="wc-defs">${defs}</ul></details>
+        ${id === "muse-launch" && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
+        <div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
@@ -728,6 +732,10 @@ export async function render(root, [id]) {
       ?.addEventListener("click", () => speak(word));
     const layer = document.getElementById("layer");
     const generate = layer.querySelector("[data-context-generate]");
+    layer.querySelector("[data-context-settings]")?.addEventListener("click", () => {
+      closeModal();
+      location.hash = "#/settings";
+    });
     generate?.addEventListener("click", async () => {
       const output = layer.querySelector("[data-context]");
       if (!hasAI()) {
@@ -738,10 +746,18 @@ export async function render(root, [id]) {
       output.textContent = "正在结合上下文解释…";
       try {
         const explanation = await chat([
-          { role: "system", content: "你是严谨的英语老师。用简体中文解释目标词在给定句子中的具体意思，先给本句释义，再解释常见字面义与当前含义之间可核实的联系。含义之间没有明确引申关系或来源不确定时直接说明，不要编造词源。简洁自然。" },
+          { role: "system", content: state.settings.wordPrompt || DEFAULT_WORD_PROMPT },
           { role: "user", content: JSON.stringify({ word, lemma: entry?.lemma || word, sentence: cue?.en, translation: cue?.zh }) },
         ], { temperature: 0.3, maxTokens: 700 });
-        if (output.isConnected) output.textContent = explanation;
+        const cleaned = cleanExplanation(explanation);
+        if (!cleaned) throw new Error("接口没有返回解释");
+        state.wordExplanations ||= {};
+        state.wordExplanations[cacheKey] = cleaned;
+        save(true);
+        if (output.isConnected) {
+          output.textContent = cleaned;
+          generate.textContent = "重新生成";
+        }
       } catch (error) {
         if (output.isConnected) output.textContent = `解释生成失败：${error.message}`;
       } finally {

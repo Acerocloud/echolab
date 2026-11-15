@@ -20,6 +20,8 @@
 .page-sub { margin: 0; color: var(--muted); font-size: 14px; }
 .small { font-size: 12px; }
 .update-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.setting-prompt { flex-wrap: wrap; }
+.setting-prompt textarea { width: min(100%, 480px); height: auto; min-height: 110px; resize: vertical; }
 
 /* ---------------------------------------------------------------- 统计 */
 .stat-grid {

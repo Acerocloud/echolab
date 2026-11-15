@@ -5,6 +5,7 @@ import { icon, esc, toast, openModal } from "./ui.js";
 import { testConnection, listModels, pickModel } from "./ai.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
 import { checkForUpdate, installUpdate } from "./update.js";
+import { DEFAULT_WORD_PROMPT } from "./word-explanations.js";
 
 export const meta = { title: "设置" };
 
@@ -63,6 +64,11 @@ export async function render(root) {
 
     <section class="block">
       <div class="block-head"><h2>AI 造句</h2><span class="muted small">OpenAI 兼容接口</span></div>
+      <div class="setting-row setting-prompt">
+        <div><b>单词解释提示词</b><span>生成词卡的本句解释时使用</span></div>
+        <textarea class="field" id="wordPrompt" rows="5" aria-label="单词解释提示词">${esc(state.settings.wordPrompt || DEFAULT_WORD_PROMPT)}</textarea>
+        <button class="btn btn-plain btn-sm" id="resetWordPrompt">恢复默认</button>
+      </div>
 
       <div class="setting-row">
         <div><b>接口地址</b><span>到 /v1 为止，例如 https://opencode.ai/zen/go/v1</span></div>
@@ -184,6 +190,16 @@ export async function render(root) {
       const status = root.querySelector("#aiStatus");
       if (status) status.textContent = "已保存，可以点「测试」";
     });
+  });
+
+  const wordPrompt = root.querySelector("#wordPrompt");
+  wordPrompt.addEventListener("change", () => {
+    setSetting("wordPrompt", wordPrompt.value.trim() || DEFAULT_WORD_PROMPT);
+    wordPrompt.value = state.settings.wordPrompt;
+  });
+  root.querySelector("#resetWordPrompt").addEventListener("click", () => {
+    wordPrompt.value = DEFAULT_WORD_PROMPT;
+    setSetting("wordPrompt", DEFAULT_WORD_PROMPT);
   });
 
   function saveModel(model) {
