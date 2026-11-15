@@ -225,20 +225,11 @@ export async function render(root, [id]) {
   };
 
   /** 判断一次跳转是否已经落地：带目标句时，要等真实时间进到那一句里才算数 */
-  let lockCue = -1;
-  let lockUntil = 0;
-
   function seekLanded(p) {
     const t = rawTime();
     if (p.cue !== null && cues[p.cue]) {
       const c = cues[p.cue];
-      // 关键帧 seek 常落在目标前几十毫秒，给 60ms 容差
-      if (t >= c.s - 0.06 && t < c.e) {
-        lockCue = p.cue;
-        lockUntil = performance.now() + 600;
-        return true;
-      }
-      return false;
+      return t >= c.s - 0.06 && t < c.e && Math.abs(t - p.target) < 0.35;
     }
     return Math.abs(t - p.target) < 0.35;
   }
@@ -306,6 +297,7 @@ export async function render(root, [id]) {
       playerVars: {
         autoplay: 0,
         controls: 1,
+        disablekb: 1,
         modestbranding: 1,
         rel: 0,
         playsinline: 1,
@@ -322,7 +314,13 @@ export async function render(root, [id]) {
           setActive(current, { force: true });
           if (mode === "shadow" && !shadowCtl) setMode("shadow", { cue: current });
         },
-        onStateChange: (e) => { if (e.data === 1) killYouTubeCaptions(); },
+        onStateChange: (e) => {
+          if (e.data !== 1) return;
+          killYouTubeCaptions();
+          if (mode === "listen" && !document.fullscreenElement && document.activeElement === player?.getIframe?.()) {
+            root.focus({ preventScroll: true });
+          }
+        },
         onError: (e) => showPlayerError(e.data),
       },
     });
@@ -343,7 +341,7 @@ export async function render(root, [id]) {
     }),
   };
 
-  let playToken = 0;
+  let stoppedAtCueEnd = false;
 
   /* ---------------------------------------------------------------- 适配器（跟读面板用） */
   const media = {
@@ -407,46 +405,31 @@ export async function render(root, [id]) {
 
   /**
    * 时间 → 句子序号。
-   * 先严格命中（s <= t < e），再给前一句 0.12s 的尾巴，剩下的空隙归下一句。
-   * 之前用 s-0.06 / e+0.18 做区间，会让句首的时间被判给上一句，
-   * 于是「跳到下一句」后立刻又被认成上一句（开着单句循环时会直接卡住）。
+   * 空隙保留上一句，有重叠时以最新开始的句子为准。
    */
   function cueAt(t) {
-    for (let k = 0; k < cues.length; k += 1) {
-      const c = cues[k];
-      if (t >= c.s && t < c.e) return k;
+    let low = 0;
+    let high = cues.length;
+    while (low < high) {
+      const mid = Math.floor((low + high) / 2);
+      if (cues[mid].s <= t + 0.06) low = mid + 1;
+      else high = mid;
     }
-    for (let k = 0; k < cues.length; k += 1) {
-      const c = cues[k];
-      if (t >= c.e && t < c.e + 0.12) return k;
-    }
-    for (let k = 0; k < cues.length; k += 1) if (t < cues[k].s) return k;
-    return cues.length - 1;
+    return Math.max(0, low - 1);
   }
 
   function playCue(i) {
     const c = cues[i];
     if (!c) return;
+    stoppedAtCueEnd = false;
     seekRel(c.s, i);
     play();
     setActive(i, { force: true });
 
-    // seekTo 会先进入缓冲，紧随其后的 playVideo 有时被吞掉，
-    // 落地后再确认一次是否真的在播（用户主动暂停会作废这个任务）
-    const token = ++playToken;
-    let tries = 0;
-    const kick = () => {
-      if (token !== playToken || mode !== "listen") return;
-      if (pendingSeek) {
-        if (tries++ < 20) setTimeout(kick, 250);
-        return;
-      }
-      if (!isPlaying()) {
-        play();
-        if (tries++ < 4) setTimeout(kick, 400);
-      }
-    };
-    setTimeout(kick, 400);
+  }
+
+  function stepCue(direction) {
+    if (cues[current + direction]) playCue(current + direction);
   }
 
   /* ---------------------------------------------------------------- 全局面板控制 */
@@ -465,12 +448,11 @@ export async function render(root, [id]) {
     btnLoop.classList.toggle("on", repeat);
     btnLoop.setAttribute("aria-pressed", String(repeat));
     setSetting("repeatOne", repeat);
-    if (repeat) { seekRel(cues[current].s); play(); }
+    if (repeat) playCue(current);
   }
 
   function togglePlay() {
     if (!playerReady) return toast("播放器还在加载…");
-    playToken += 1;               // 用户自己按的，取消待执行的补播
     if (isPlaying()) pause();
     else play();
   }
@@ -491,6 +473,7 @@ export async function render(root, [id]) {
 
   function setMode(next, { cue } = {}) {
     if (next === mode && shadowCtl) return;
+    stoppedAtCueEnd = false;
     mode = next;
     document.title = `${next === "shadow" ? "跟读" : "课程"} · EchoLab`;
     root.dataset.mode = next;
@@ -541,19 +524,32 @@ export async function render(root, [id]) {
       // 跳转还在飞：别用旧时间重算当前句，否则刚切过去的句子会被拽回来
       if (pendingSeek) { relTime(); return; }
 
-      const t = relTime();
+      const t = rawTime();
       const cur = cues[current];
+      const playing = isPlaying();
 
-      if (cur && t >= cur.e - 0.03) {
+      if (stoppedAtCueEnd && cur) {
+        if (Math.abs(t - cur.e) < 0.4) {
+          if (!playing) return;
+          if (pauseEach && !repeat) {
+            playCue(cues[current + 1] ? current + 1 : current);
+            return;
+          }
+        }
+        stoppedAtCueEnd = false;
+      }
+
+      if (cur && playing && t >= cur.e - 0.03) {
         if (repeat) { seekRel(cur.s, current); return; }
-        if (pauseEach && isPlaying()) {
+        if (pauseEach) {
+          stoppedAtCueEnd = true;
           pause();
           seekRel(Math.max(cur.s, cur.e - 0.06), current);
           return;
         }
       }
 
-      const i = performance.now() < lockUntil ? lockCue : cueAt(t);
+      const i = cueAt(t);
       if (i !== current) setActive(i);
 
       if (info.duration && t > info.duration + 0.4) {
@@ -564,8 +560,8 @@ export async function render(root, [id]) {
   }
 
   /* ---------------------------------------------------------------- 事件 */
-  root.querySelector('[data-act="prev"]').addEventListener("click", () => playCue(clamp(current - 1, 0, cues.length - 1)));
-  root.querySelector('[data-act="next"]').addEventListener("click", () => playCue(clamp(current + 1, 0, cues.length - 1)));
+  root.querySelector('[data-act="prev"]').addEventListener("click", () => stepCue(-1));
+  root.querySelector('[data-act="next"]').addEventListener("click", () => stepCue(1));
   root.querySelector('[data-act="repeat"]').addEventListener("click", () => playCue(current));
   btnLoop.addEventListener("click", () => setLoop(!repeat));
   root.querySelector('[data-act="shortcuts"]').addEventListener("click", openShortcuts);
@@ -745,7 +741,7 @@ export async function render(root, [id]) {
 
   /* ---------------------------------------------------------------- 键盘 */
   function onKey(e) {
-    if (isModalOpen()) return;
+    if (isModalOpen() || e.defaultPrevented || e.isComposing || e.ctrlKey || e.altKey || e.metaKey) return;
     const tag = document.activeElement?.tagName;
     if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
     if (mode !== "listen") return;
@@ -754,8 +750,8 @@ export async function render(root, [id]) {
 
     const k = getKeys();
     if (matchKey(e, k.repeat)) { e.preventDefault(); playCue(current); return; }
-    if (matchKey(e, k.prev)) { e.preventDefault(); playCue(clamp(current - 1, 0, cues.length - 1)); return; }
-    if (matchKey(e, k.next)) { e.preventDefault(); playCue(clamp(current + 1, 0, cues.length - 1)); return; }
+    if (matchKey(e, k.prev)) { e.preventDefault(); if (!e.repeat) stepCue(-1); return; }
+    if (matchKey(e, k.next)) { e.preventDefault(); if (!e.repeat) stepCue(1); return; }
     if (matchKey(e, k.loop)) { e.preventDefault(); setLoop(!repeat); return; }
     if (matchKey(e, k.pauseEach)) { e.preventDefault(); setPauseEach(!pauseEach); return; }
     if (matchKey(e, k.shadow)) { e.preventDefault(); setMode("shadow"); }
