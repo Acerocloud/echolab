@@ -9,5 +9,9 @@ const families=JSON.parse(readFileSync(new URL('../content/word-families.json',i
 assert(formatWordFamily('create',families).includes('creative'));
 assert(formatWordFamily('create',families).includes('creation'));
 assert(formatWordFamily('happy',families).includes('happily'));
+assert(formatWordFamily('create',families).includes('v.  create'));
+assert(formatWordFamily('create',families).includes('n.  '));
+assert(formatWordFamily('create',families).includes('adj.  '));
+assert(formatWordFamily('happy',families).includes('adv.  '));
 assert(formatWordFamily('unknownwordxyz',families).includes('暂未收录'));
 console.log('Word roots, irregular verb forms and plural verified');

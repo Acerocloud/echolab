@@ -12,9 +12,9 @@ export function findWordForms(word, entry, inflections) {
 // WordNet relations can refer to a different sense than the current sentence.
 export function formatWordFamily(base, families) {
   const family = families?.[String(base || '').toLowerCase()];
-  const labels = [['v','动词'],['n','名词'],['a','形容词'],['r','副词']];
+  const labels = [['v','v.'],['n','n.'],['a','adj.'],['r','adv.']];
   const rows = labels.filter(([key]) => Array.isArray(family?.[key]) && family[key].length)
-    .map(([key,label]) => label + '：' + family[key].slice(0, 12).join('、'));
+    .map(([key,label]) => label + '  ' + family[key].slice(0, 12).join('、'));
   if (!rows.length) return '本地词典暂未收录这个词的同词族形式。';
   return '同词族（词典关联可能对应不同词义）：\n' + rows.join('\n');
 }
