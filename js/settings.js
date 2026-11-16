@@ -101,9 +101,9 @@ export async function render(root) {
       <div class="block-head"><h2>Google Drive</h2></div>
       <div class="setting-row">
         <div><b>云端学习记录</b><span id="driveStatus" role="status">正在检查连接…</span></div>
-        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">连接 Google</button><button class="btn btn-primary" id="driveSync" hidden>同步记录</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
+        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">使用 Google 登录</button><button class="btn btn-plain" id="driveConfig">选择客户端配置</button><input id="driveConfigFile" type="file" accept=".json,application/json" hidden /><button class="btn btn-primary" id="driveSync" hidden>同步记录</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
       </div>
-      <p class="muted small">仅同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。</p>
+      <p class="muted small">首次使用需选择 Google Cloud 中下载的桌面客户端 JSON。同步包括学习进度、生词、收藏和单词解释；AI 密钥保留在本机。</p>
     </section>
 
     <section class="block">

@@ -6,13 +6,13 @@ import { createDriveClient } from './drive-api.js';
 
 const BASELINE = 'echolab.drive.baseline.v1';
 const ROLLBACK = 'echolab.drive.restore-backup.v1';
-const CLIENT_PATH = '%LOCALAPPDATA%\\EchoLab\\google-oauth.json';
-
-async function local(action) {
-  const res = await fetch(`/api/drive/${action}`, { method:'POST', headers:{'X-EchoLab-Drive':'1'}, cache:'no-store' });
-  let body; try { body = await res.json(); } catch { throw new Error('请先重新启动 EchoLab 本地服务。'); }
-  if (!res.ok) throw new Error(body.error || 'Google Drive 服务暂不可用。');
-  return body;
+async function local(action, body) {
+  const headers = { 'X-EchoLab-Drive':'1' };
+  if (body !== undefined) headers['Content-Type'] = 'application/json';
+  const res = await fetch(`/api/drive/${action}`, { method:'POST', headers, body, cache:'no-store' });
+  let result; try { result = await res.json(); } catch { throw new Error('请先重新启动 EchoLab 本地服务。'); }
+  if (!res.ok) throw new Error(result.error || 'Google Drive 服务暂不可用。');
+  return result;
 }
 function readBaseline() { try { const x=localStorage.getItem(BASELINE); return x ? JSON.parse(x) : null; } catch { return null; } }
 function saveBaseline(snapshot) { localStorage.setItem(BASELINE, JSON.stringify(snapshot)); }
@@ -27,14 +27,14 @@ function restore(snapshot) {
 }
 
 export function mountDriveSettings(root) {
-  const status=root.querySelector('#driveStatus'), connect=root.querySelector('#driveConnect'), sync=root.querySelector('#driveSync'), disconnect=root.querySelector('#driveDisconnect'), recover=root.querySelector('#driveRecover');
+  const status=root.querySelector('#driveStatus'), connect=root.querySelector('#driveConnect'), config=root.querySelector('#driveConfig'), configFile=root.querySelector('#driveConfigFile'), sync=root.querySelector('#driveSync'), disconnect=root.querySelector('#driveDisconnect'), recover=root.querySelector('#driveRecover');
   if (!status) return () => {};
-  let currentToken='', busy=false, timer=0, stopped=false;
+  let currentToken='', busy=false, awaitingAuth=false, stopped=false;
   const show=(message)=>{ if(!stopped) status.textContent=message; };
-  function buttons(connected) { connect.hidden=connected; sync.hidden=!connected; disconnect.hidden=!connected; }
+  function buttons(connected) { connect.hidden=connected; config.hidden=connected; sync.hidden=!connected; disconnect.hidden=!connected; }
   async function refresh() {
     try { const result=await local('token'); currentToken=result.accessToken || ''; buttons(Boolean(currentToken)); show(currentToken ? '已连接 Google Drive。可手动同步学习记录。' : '尚未连接。学习记录保存在本机。'); return Boolean(currentToken); }
-    catch { currentToken=''; buttons(false); show('请重启 EchoLab；连接需要 Windows 本地服务。'); return false; }
+    catch { currentToken=''; buttons(false); show('连接状态暂时无法获取，请检查网络或重启 EchoLab。'); return false; }
   }
   async function executeSync() {
     if (busy) return; busy=true; sync.disabled=true;
@@ -60,17 +60,35 @@ export function mountDriveSettings(root) {
   connect.addEventListener('click', async()=>{
     const popup=window.open('about:blank','_blank');
     connect.disabled=true; show('正在准备 Google 授权…');
-    try { const result=await local('start'); if(!result.url?.startsWith('https://accounts.google.com/')) throw new Error('授权地址无效。'); if(popup) popup.location.href=result.url; else { show('浏览器阻止了弹窗，请允许弹窗后重试。'); return; } show('请在新窗口中完成 Google 授权，然后返回这里。'); }
-    catch(e) { popup?.close(); show(`${e.message || '无法开始授权。'} 请确认客户端配置文件已放到 ${CLIENT_PATH}`); }
+    try { const result=await local('start'); if(!result.url?.startsWith('https://accounts.google.com/')) throw new Error('授权地址无效。'); if(popup) { awaitingAuth=true; popup.location.href=result.url; } else { show('浏览器阻止了弹窗，请允许弹窗后重试。'); return; } show('请在新窗口中完成 Google 授权，然后返回这里。'); }
+    catch(e) { popup?.close(); show('无法开始授权。请先选择 Google Cloud 下载的桌面客户端配置文件。'); }
     finally { connect.disabled=false; }
   });
   sync.addEventListener('click',executeSync);
+  config.addEventListener('click', () => configFile.click());
+  configFile.addEventListener('change', async () => {
+    const file = configFile.files?.[0];
+    if (!file) return;
+    config.disabled = true;
+    try {
+      if (file.size > 65536) throw new Error('配置文件过大。');
+      const content = await file.text();
+      JSON.parse(content);
+      await local('config', content);
+      show('配置已安全保存在本机，现在可以使用 Google 登录。');
+    } catch {
+      show('配置文件无效，请选择此 EchoLab 项目的桌面 OAuth 客户端 JSON。');
+    } finally {
+      configFile.value = '';
+      config.disabled = false;
+    }
+  });
   disconnect.addEventListener('click', async()=>{ try { await local('disconnect'); localStorage.removeItem(BASELINE); currentToken=''; buttons(false); show('已在本机断开连接，云端备份仍然保留。'); } catch(e) {show(e.message);} });
   if (recover) {
     recover.hidden = !localStorage.getItem(ROLLBACK);
     recover.addEventListener('click', () => openModal({ title:'找回恢复前的记录？', body:'<p>将恢复上一次从云端同步前保存的本机学习记录。当前记录会作为新的本地恢复副本保存。</p>', actions:[{label:'取消'}, {label:'确认恢复',primary:true,onClick:()=>{ try { restore(JSON.parse(localStorage.getItem(ROLLBACK))); } catch { show('无法恢复本地记录。'); } }}] }));
   }
-  const onFocus=()=>{ if(!busy) refresh(); }; window.addEventListener('focus',onFocus);
+  const onFocus=()=>{ if(awaitingAuth && !busy) { awaitingAuth=false; refresh(); } }; window.addEventListener('focus',onFocus);
   refresh();
-  return ()=>{stopped=true;clearTimeout(timer);window.removeEventListener('focus',onFocus);};
+  return ()=>{stopped=true;window.removeEventListener('focus',onFocus);};
 }

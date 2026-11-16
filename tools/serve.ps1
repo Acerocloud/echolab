@@ -229,19 +229,35 @@ try {
           $params = @{}
           if ($q -ge 0) { foreach ($pair in ($target.Substring($q+1) -split '&')) { $kv=$pair -split '=',2; if ($kv.Length -eq 2) { $params[[Uri]::UnescapeDataString($kv[0])] = [Uri]::UnescapeDataString($kv[1].Replace('+',' ')) } } }
           Complete-DriveAuthorization $params['state'] $params['code']
-          $html = '<!doctype html><meta charset="utf-8"><title>EchoLab</title><p>Google Drive connected. You can close this window and return to EchoLab.</p>'
+          $html = '<!doctype html><meta charset="utf-8"><title>EchoLab</title><p>Google 账号已连接。你可以关闭此窗口，返回 EchoLab 同步记录。</p>'
           Write-Response $stream 200 'OK' ([Text.Encoding]::UTF8.GetBytes($html)) 'text/html; charset=utf-8' @{ 'Referrer-Policy'='no-referrer'; 'Content-Security-Policy'="default-src 'none'" } $false
-        } catch { Send-Json $stream 400 'Authorization Error' @{ error='Google authorization failed or expired. Return to EchoLab and try again.' } $false }
+        } catch {
+          $html = '<!doctype html><meta charset="utf-8"><title>EchoLab</title><p>Google 授权未完成或已过期。请关闭此窗口，返回 EchoLab 重试。</p>'
+          Write-Response $stream 400 'Authorization Error' ([Text.Encoding]::UTF8.GetBytes($html)) 'text/html; charset=utf-8' @{ 'Referrer-Policy'='no-referrer'; 'Content-Security-Policy'="default-src 'none'" } $false
+        }
         continue
       }
-      if ($path -in @('/api/drive/start','/api/drive/token','/api/drive/disconnect')) {
+      if ($path -in @('/api/drive/start','/api/drive/token','/api/drive/disconnect','/api/drive/config')) {
         $allowedHosts = @("127.0.0.1:$Port", "localhost:$Port")
         if ($method -ne 'POST' -or $headers['host'] -notin $allowedHosts -or $headers['origin'] -cne "http://$($headers['host'])" -or $headers['x-echolab-drive'] -cne '1') { Send-Json $stream 403 'Forbidden' @{ error='Forbidden' } $false; continue }
         try {
           if ($path -eq '/api/drive/start') { Send-Json $stream 200 'OK' (New-DriveAuthorization $Port) $false }
           elseif ($path -eq '/api/drive/token') { $access=Get-DriveAccessToken; Send-Json $stream 200 'OK' @{ connected=[bool]$access; accessToken=$access } $false }
+          elseif ($path -eq '/api/drive/config') {
+            $length = 0
+            if (-not [int]::TryParse([string]$headers['content-length'], [ref]$length) -or $length -lt 2 -or $length -gt 65536) { throw 'Invalid configuration size.' }
+            $body = New-Object byte[] $length
+            $have = [Math]::Min($bodyPrefix.Length, $length)
+            if ($have -gt 0) { [Array]::Copy($bodyPrefix, 0, $body, 0, $have) }
+            while ($have -lt $length) { $n = $stream.Read($body, $have, $length - $have); if ($n -le 0) { throw 'Incomplete configuration.' }; $have += $n }
+            Save-DriveClientConfig ([Text.Encoding]::UTF8.GetString($body))
+            Send-Json $stream 200 'OK' @{ configured=$true } $false
+          }
           else { Disconnect-Drive; Send-Json $stream 200 'OK' @{ connected=$false } $false }
-        } catch { Send-Json $stream 502 'Drive Error' @{ error='Google authorization failed. Please reconnect and check network access.' } $false }
+        } catch {
+          $message = if ($path -eq '/api/drive/config') { 'Invalid Google OAuth desktop configuration.' } elseif ($path -eq '/api/drive/start') { 'Google OAuth client configuration is missing or invalid.' } else { 'Google authorization failed. Please reconnect and check network access.' }
+          Send-Json $stream 502 'Drive Error' @{ error=$message } $false
+        }
         continue
       }
 

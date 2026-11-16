@@ -3,8 +3,15 @@
 $folder=Join-Path ([IO.Path]::GetTempPath()) ('echolab-oauth-test-'+[Guid]::NewGuid().ToString('N'))
 [IO.Directory]::CreateDirectory($folder) | Out-Null
 try {
- $script:DriveClientPath=Join-Path $folder 'client.json'; $script:DriveTokenPath=Join-Path $folder 'token.dat'
+ $script:DriveClientPath=Join-Path $folder 'client.json'; $script:DriveClientProtectedPath=Join-Path $folder 'client.dat'; $script:DriveTokenPath=Join-Path $folder 'token.dat'
  @{installed=@{client_id=$script:DriveClientId;client_secret='test-placeholder'}} | ConvertTo-Json | Set-Content -LiteralPath $script:DriveClientPath -Encoding UTF8
+ $valid=@{installed=@{client_id=$script:DriveClientId;client_secret='new-test-secret'}} | ConvertTo-Json -Compress
+ Save-DriveClientConfig $valid
+ if ((Read-DriveClientSecret) -ne 'new-test-secret') { throw 'Client config roundtrip failed' }
+ if ([Text.Encoding]::UTF8.GetString([IO.File]::ReadAllBytes($script:DriveClientProtectedPath)).Contains('new-test-secret')) { throw 'Client secret stored as plaintext' }
+ $bad=@{installed=@{client_id='wrong-client';client_secret='bad-secret'}} | ConvertTo-Json -Compress
+ $invalidRejected=$false; try { Save-DriveClientConfig $bad } catch { $invalidRejected=$true }
+ if (-not $invalidRejected -or (Read-DriveClientSecret) -ne 'new-test-secret') { throw 'Wrong client configuration was accepted' }
  $start=New-DriveAuthorization 18877
  if(-not $start.url.StartsWith('https://accounts.google.com/o/oauth2/v2/auth?')){throw 'Bad authorization endpoint'}
  if($start.url -notmatch 'code_challenge_method=S256' -or $start.url -notmatch 'drive.appdata'){throw 'Bad PKCE or scope'}
