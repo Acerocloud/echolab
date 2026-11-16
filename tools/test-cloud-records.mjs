@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { learningSnapshot, validateSnapshot, compareSnapshots, applyLearningSnapshot } from '../js/cloud-records.js';
+const state = { settings: { ai: { key: 'secret' } }, lessons: { a: { cue: 1 } }, words: [{ w: 'take' }], stars: [], days: {}, total: { passed: 1 }, wordExplanations: { x: '释义' } };
+const first = learningSnapshot(state);
+assert(!JSON.stringify(first).includes('secret'));
+assert.equal(compareSnapshots(first, null, null).action, 'upload');
+assert.equal(compareSnapshots(first, first, null).action, 'unchanged');
+const changed = structuredClone(first); changed.data.lessons.a.cue = 2;
+assert.equal(compareSnapshots(changed, first, null).action, 'choose');
+assert.equal(compareSnapshots(changed, first, first).action, 'upload');
+assert.equal(compareSnapshots(first, changed, first).action, 'download');
+const other = structuredClone(first); other.data.words.push({w:'go'});
+assert.equal(compareSnapshots(changed, other, first).action, 'conflict');
+assert.throws(() => validateSnapshot({format:'echolab-learning',version:1,data:{words:{}}}));
+applyLearningSnapshot(state,changed); assert.equal(state.lessons.a.cue,2); assert.equal(state.settings.ai.key,'secret');
+console.log('Cloud record isolation and conflict detection passed');

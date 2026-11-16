@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { createDriveClient, DriveError } from '../js/drive-api.js';
+import { learningSnapshot } from '../js/cloud-records.js';
+let calls=[];
+const mock=async (url,options)=>{ calls.push({url,options}); if(url.includes('pageToken=next'))return new Response(JSON.stringify({files:[{id:'b'}]})); if(url.includes('spaces=appDataFolder'))return new Response(JSON.stringify({files:[{id:'a'}],nextPageToken:'next'})); if(url.includes('uploadType='))return new Response(JSON.stringify({id:'new'})); return new Response(JSON.stringify(learningSnapshot({words:[{w:'take'}]}))); };
+const client=createDriveClient('token',mock);
+assert.deepEqual((await client.list()).map(x=>x.id),['a','b']);
+assert.equal((await client.read('abc')).data.words[0].w,'take');
+assert.equal((await client.create(learningSnapshot({settings:{ai:{key:'secret'}}}))).id,'new');
+assert(!calls.at(-1).options.body.includes('secret'));
+assert.equal(calls[0].options.headers.Authorization,'Bearer token');
+await assert.rejects(()=>client.read('../bad'),/编号无效/);
+await assert.rejects(()=>createDriveClient('token',async()=>new Response('{}',{status:401})).list(),e=>e instanceof DriveError && e.status===401);
+console.log('Drive app-data list, read, append-only upload, credential exclusion and errors verified');

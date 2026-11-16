@@ -18,6 +18,7 @@ if (-not $Root) {
 }
 $Root = (Resolve-Path -LiteralPath $Root).Path.TrimEnd('\')
 . (Join-Path $PSScriptRoot 'update.ps1')
+. (Join-Path $PSScriptRoot 'google-drive.ps1')
 
 $MIME = @{
   ".html" = "text/html; charset=utf-8"
@@ -220,6 +221,29 @@ try {
       $path = $target
       $q = $path.IndexOf("?")
       if ($q -ge 0) { $path = $path.Substring(0, $q) }
+
+      # Google OAuth callbacks are protected by a one-time random state and PKCE.
+      if ($path -eq '/api/drive/callback' -and $method -eq 'GET') {
+        if ($headers['host'] -cne "127.0.0.1:$Port") { Send-Json $stream 403 'Forbidden' @{ error = 'Forbidden' } $false; continue }
+        try {
+          $params = @{}
+          if ($q -ge 0) { foreach ($pair in ($target.Substring($q+1) -split '&')) { $kv=$pair -split '=',2; if ($kv.Length -eq 2) { $params[[Uri]::UnescapeDataString($kv[0])] = [Uri]::UnescapeDataString($kv[1].Replace('+',' ')) } } }
+          Complete-DriveAuthorization $params['state'] $params['code']
+          $html = '<!doctype html><meta charset="utf-8"><title>EchoLab</title><p>Google Drive connected. You can close this window and return to EchoLab.</p>'
+          Write-Response $stream 200 'OK' ([Text.Encoding]::UTF8.GetBytes($html)) 'text/html; charset=utf-8' @{ 'Referrer-Policy'='no-referrer'; 'Content-Security-Policy'="default-src 'none'" } $false
+        } catch { Send-Json $stream 400 'Authorization Error' @{ error='Google authorization failed or expired. Return to EchoLab and try again.' } $false }
+        continue
+      }
+      if ($path -in @('/api/drive/start','/api/drive/token','/api/drive/disconnect')) {
+        $allowedHosts = @("127.0.0.1:$Port", "localhost:$Port")
+        if ($method -ne 'POST' -or $headers['host'] -notin $allowedHosts -or $headers['origin'] -cne "http://$($headers['host'])" -or $headers['x-echolab-drive'] -cne '1') { Send-Json $stream 403 'Forbidden' @{ error='Forbidden' } $false; continue }
+        try {
+          if ($path -eq '/api/drive/start') { Send-Json $stream 200 'OK' (New-DriveAuthorization $Port) $false }
+          elseif ($path -eq '/api/drive/token') { $access=Get-DriveAccessToken; Send-Json $stream 200 'OK' @{ connected=[bool]$access; accessToken=$access } $false }
+          else { Disconnect-Drive; Send-Json $stream 200 'OK' @{ connected=$false } $false }
+        } catch { Send-Json $stream 502 'Drive Error' @{ error='Google authorization failed. Please reconnect and check network access.' } $false }
+        continue
+      }
 
       if ($path -eq '/api/update/check' -or $path -eq '/api/update/install') {
         $allowedHosts = @("127.0.0.1:$Port", "localhost:$Port")

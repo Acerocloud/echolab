@@ -6,6 +6,7 @@ import { testConnection, listModels, pickModel } from "./ai.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
 import { checkForUpdate, installUpdate } from "./update.js";
 import { DEFAULT_WORD_PROMPT } from "./word-explanations.js";
+import { mountDriveSettings } from "./drive-settings.js";
 
 export const meta = { title: "设置" };
 
@@ -97,6 +98,15 @@ export async function render(root) {
     </section>
 
     <section class="block">
+      <div class="block-head"><h2>Google Drive</h2></div>
+      <div class="setting-row">
+        <div><b>云端学习记录</b><span id="driveStatus" role="status">正在检查连接…</span></div>
+        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">连接 Google</button><button class="btn btn-primary" id="driveSync" hidden>同步记录</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
+      </div>
+      <p class="muted small">仅同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。</p>
+    </section>
+
+    <section class="block">
       <div class="block-head"><h2>学习数据</h2></div>
       <div class="setting-row">
         <div><b>导出学习记录</b><span>下载进度、生词与收藏（JSON）</span></div>
@@ -119,6 +129,8 @@ export async function render(root) {
       <p class="muted small" style="margin-top:12px">在课程页点控制条右侧的 ⌨ 可以改键。</p>
     </section>
   `;
+
+  const cleanupDrive = mountDriveSettings(root);
 
   /* 分段控件 */
   root.querySelectorAll(".seg[data-key]").forEach((seg) => {
@@ -307,5 +319,5 @@ export async function render(root) {
   });
   showUpdate();
 
-  return () => {};
+  return () => cleanupDrive();
 }

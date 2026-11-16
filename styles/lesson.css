@@ -372,3 +372,12 @@
   .bar { gap: 6px; }
   .bar-actions { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
 }
+.wc-forms { margin:18px 0 0; }
+.wc-forms-body { margin-top:12px; padding:14px 16px; border-radius:12px; background:var(--bg-2); }
+.wc-forms-title { margin:0 0 8px; color:var(--text); font-size:13px; font-weight:600; }
+.wc-forms-list { display:grid; gap:6px; margin:0; font-size:13px; }
+.wc-forms-list div { display:flex; gap:14px; }
+.wc-forms-list dt { color:var(--muted); min-width:90px; }
+.wc-forms-list dd { margin:0; color:var(--text-2); }
+.wc-forms-ai { white-space:pre-wrap; color:var(--text-2); font-size:13px; line-height:1.6; }
+.wc-forms-ai:empty { display:none; }

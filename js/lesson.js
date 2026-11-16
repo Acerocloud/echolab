@@ -13,6 +13,7 @@ import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } fr
 import { chat, hasAI } from "./ai.js";
 import { DEFAULT_WORD_PROMPT, explanationKey, cleanExplanation } from "./word-explanations.js";
 import { closeModal } from "./ui.js";
+import { findWordForms, WORD_FAMILY_PROMPT } from "./word-forms.js";
 
 export const meta = { title: "课程" };
 
@@ -724,6 +725,7 @@ export async function render(root, [id]) {
     const entry = dict[word] || dict[form?.base] || dict[word.replace(/['’]s$/, "")] || null;
     const labels = form ? [["s", "名词复数"], ["3", "动词第三人称单数"], ["i", "现在分词"], ["p", "过去式"], ["d", "过去分词"]].filter(([key]) => form.forms[key] === word.toLowerCase()).map(([, label]) => label) : [];
     const isPhrase = /\s/.test(word);
+    const wordForms = isPhrase ? null : findWordForms(word, entry, inflections);
     const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
     const cacheKey = explanationKey(id, cue, word);
     const cached = state.wordExplanations?.[cacheKey];
@@ -747,6 +749,7 @@ export async function render(root, [id]) {
         ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
         ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
         ${!isPhrase || entry ? `<div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>` : ""}
+        ${wordForms ? `<div class="wc-forms"><button class="btn btn-plain btn-sm" data-word-forms aria-expanded="false">查看其他词形</button><div class="wc-forms-body" data-forms-body hidden><p class="wc-forms-title">原词 · ${esc(wordForms.base)}</p>${wordForms.forms.length ? `<dl class="wc-forms-list">${wordForms.forms.map(item=>`<div><dt>${esc(item.label)}</dt><dd>${esc(item.word)}</dd></div>`).join("")}</dl>` : '<p class="muted small">词典暂无其他屈折形式。</p>'}<p class="wc-forms-ai" data-forms-ai></p><button class="btn btn-quiet btn-sm" data-forms-generate>AI 查询同词族</button></div></div>` : ""}
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
@@ -782,6 +785,30 @@ export async function render(root, [id]) {
       ?.addEventListener("click", () => speak(word));
     const layer = document.getElementById("layer");
     layer.querySelector(".modal-foot .btn-primary")?.classList.toggle("word-saved", hasWord(word));
+    const formsButton = layer.querySelector('[data-word-forms]');
+    const formsBody = layer.querySelector('[data-forms-body]');
+    const familyOutput = layer.querySelector('[data-forms-ai]');
+    const familyButton = layer.querySelector('[data-forms-generate]');
+    const familyKey = wordForms ? JSON.stringify([wordForms.base, cue?.en || '']) : '';
+    if (familyOutput && state.wordFamilies?.[familyKey]) { familyOutput.textContent = 'AI 同词族：' + state.wordFamilies[familyKey]; familyButton.textContent = '重新查询'; }
+    formsButton?.addEventListener('click', () => {
+      const expanded = formsButton.getAttribute('aria-expanded') !== 'true';
+      formsButton.setAttribute('aria-expanded', String(expanded));
+      formsButton.textContent = expanded ? '收起其他词形' : '查看其他词形';
+      formsBody.hidden = !expanded;
+      if (expanded && !state.wordFamilies?.[familyKey] && hasAI() && !familyButton.disabled) familyButton.click();
+    });
+    familyButton?.addEventListener('click', async () => {
+      if (!hasAI()) { familyOutput.textContent = '请先在设置中配置 AI，再查询名词、形容词和副词等同词族。'; return; }
+      familyButton.disabled = true; familyOutput.textContent = '正在查询同词族…';
+      try {
+        const response = await chat([{role:'system',content:WORD_FAMILY_PROMPT},{role:'user',content:JSON.stringify({word,lemma:wordForms.base,sentence:cue?.en})}], {temperature:0.2,maxTokens:500});
+        const result = cleanExplanation(response); if (!result) throw new Error('没有返回词形');
+        state.wordFamilies ||= {}; state.wordFamilies[familyKey] = result; save(true);
+        if (familyOutput.isConnected) { familyOutput.textContent = 'AI 同词族：' + result; familyButton.textContent = '重新查询'; }
+      } catch(error) { if (familyOutput.isConnected) familyOutput.textContent = '查询失败：' + error.message; }
+      finally { if (familyButton.isConnected) familyButton.disabled = false; }
+    });
     const generate = layer.querySelector("[data-context-generate]");
     layer.querySelector("[data-context-settings]")?.addEventListener("click", () => {
       closeModal();
