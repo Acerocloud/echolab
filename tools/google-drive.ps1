@@ -41,39 +41,13 @@ function Read-DriveClientSecret {
   if (Test-Path -LiteralPath $script:DriveClientProtectedPath -PathType Leaf) {
     Add-Type -AssemblyName System.Security
     $encrypted = [IO.File]::ReadAllBytes($script:DriveClientProtectedPath)
-    $bytes = [Security.Cryptography.ProtectedData]::Unprotect($encrypted,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
-    return [Text.Encoding]::UTF8.GetString($bytes)
+    $plain = [Security.Cryptography.ProtectedData]::Unprotect($encrypted,$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
+    return [Text.Encoding]::UTF8.GetString($plain)
   }
   if (-not (Test-Path -LiteralPath $script:DriveClientPath -PathType Leaf)) { throw 'Google OAuth client configuration is missing.' }
   $config = Get-Content -LiteralPath $script:DriveClientPath -Raw -Encoding UTF8 | ConvertFrom-Json
   if ($config.installed.client_id -cne $script:DriveClientId -or -not $config.installed.client_secret) { throw 'Google OAuth client configuration does not match.' }
   return [string]$config.installed.client_secret
-}
-function Save-DriveClientConfig([string]$Json) {
-  $config = $Json | ConvertFrom-Json
-  $installed = $config.installed
-  if (-not $installed -or $installed.client_id -cne $script:DriveClientId -or -not $installed.client_secret) {
-    throw 'The file is not the EchoLab Windows OAuth client.'
-  }
-  $secret = [string]$installed.client_secret
-  if ($secret.Length -gt 512 -or $secret -match '\s') { throw 'Invalid OAuth client configuration.' }
-  Add-Type -AssemblyName System.Security
-  $encrypted = [Security.Cryptography.ProtectedData]::Protect([Text.Encoding]::UTF8.GetBytes($secret),$null,[Security.Cryptography.DataProtectionScope]::CurrentUser)
-  $folder = Split-Path -Parent $script:DriveClientProtectedPath
-  [IO.Directory]::CreateDirectory($folder) | Out-Null
-  $tempPath = Join-Path $folder ('google-oauth-' + [Guid]::NewGuid().ToString('N') + '.tmp')
-  $backupPath = $tempPath + '.bak'
-  try {
-    [IO.File]::WriteAllBytes($tempPath,$encrypted)
-    if (Test-Path -LiteralPath $script:DriveClientProtectedPath -PathType Leaf) {
-      [IO.File]::Replace($tempPath,$script:DriveClientProtectedPath,$backupPath)
-    } else {
-      [IO.File]::Move($tempPath,$script:DriveClientProtectedPath)
-    }
-  } finally {
-    if (Test-Path -LiteralPath $tempPath) { Remove-Item -LiteralPath $tempPath -Force }
-    if (Test-Path -LiteralPath $backupPath) { Remove-Item -LiteralPath $backupPath -Force }
-  }
 }
 function Invoke-DriveToken([hashtable]$Body) {
   $Body.client_secret = Read-DriveClientSecret

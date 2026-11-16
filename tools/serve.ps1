@@ -237,25 +237,15 @@ try {
         }
         continue
       }
-      if ($path -in @('/api/drive/start','/api/drive/token','/api/drive/disconnect','/api/drive/config')) {
+      if ($path -in @('/api/drive/start','/api/drive/token','/api/drive/disconnect')) {
         $allowedHosts = @("127.0.0.1:$Port", "localhost:$Port")
         if ($method -ne 'POST' -or $headers['host'] -notin $allowedHosts -or $headers['origin'] -cne "http://$($headers['host'])" -or $headers['x-echolab-drive'] -cne '1') { Send-Json $stream 403 'Forbidden' @{ error='Forbidden' } $false; continue }
         try {
           if ($path -eq '/api/drive/start') { Send-Json $stream 200 'OK' (New-DriveAuthorization $Port) $false }
           elseif ($path -eq '/api/drive/token') { $access=Get-DriveAccessToken; Send-Json $stream 200 'OK' @{ connected=[bool]$access; accessToken=$access } $false }
-          elseif ($path -eq '/api/drive/config') {
-            $length = 0
-            if (-not [int]::TryParse([string]$headers['content-length'], [ref]$length) -or $length -lt 2 -or $length -gt 65536) { throw 'Invalid configuration size.' }
-            $body = New-Object byte[] $length
-            $have = [Math]::Min($bodyPrefix.Length, $length)
-            if ($have -gt 0) { [Array]::Copy($bodyPrefix, 0, $body, 0, $have) }
-            while ($have -lt $length) { $n = $stream.Read($body, $have, $length - $have); if ($n -le 0) { throw 'Incomplete configuration.' }; $have += $n }
-            Save-DriveClientConfig ([Text.Encoding]::UTF8.GetString($body))
-            Send-Json $stream 200 'OK' @{ configured=$true } $false
-          }
           else { Disconnect-Drive; Send-Json $stream 200 'OK' @{ connected=$false } $false }
         } catch {
-          $message = if ($path -eq '/api/drive/config') { 'Invalid Google OAuth desktop configuration.' } elseif ($path -eq '/api/drive/start') { 'Google OAuth client configuration is missing or invalid.' } else { 'Google authorization failed. Please reconnect and check network access.' }
+          $message = if ($path -eq '/api/drive/start') { 'Could not start Google authorization.' } else { 'Google authorization failed. Please reconnect and check network access.' }
           Send-Json $stream 502 'Drive Error' @{ error=$message } $false
         }
         continue
@@ -310,6 +300,15 @@ try {
 
       $full = [System.IO.Path]::GetFullPath((Join-Path $Root $path.TrimStart('\')))
       if (-not $full.StartsWith($Root + '\', [System.StringComparison]::OrdinalIgnoreCase)) {
+        Send-Json $stream 403 "Forbidden" @{ error = "forbidden" } $headOnly
+        continue
+      }
+      # Backend scripts and repository metadata are not web assets.
+      $blocked = @('tools', '.git', '.cache')
+      if (@($blocked | Where-Object {
+        $base = Join-Path $Root $_
+        $full.Equals($base, [StringComparison]::OrdinalIgnoreCase) -or $full.StartsWith($base + '\', [StringComparison]::OrdinalIgnoreCase)
+      }).Count -gt 0) {
         Send-Json $stream 403 "Forbidden" @{ error = "forbidden" } $headOnly
         continue
       }
