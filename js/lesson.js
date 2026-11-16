@@ -13,12 +13,19 @@ import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } fr
 import { chat, hasAI } from "./ai.js";
 import { DEFAULT_WORD_PROMPT, explanationKey, cleanExplanation } from "./word-explanations.js";
 import { closeModal } from "./ui.js";
-import { findWordForms, WORD_FAMILY_PROMPT } from "./word-forms.js";
+import { findWordForms, formatWordFamily } from "./word-forms.js";
 
 export const meta = { title: "课程" };
 
 let dictCache = null;
 let inflectionsCache = null;
+let wordFamiliesCache = null;
+function getWordFamilies() {
+  if (!wordFamiliesCache) wordFamiliesCache = fetch("content/word-families.json")
+    .then(r => { if (!r.ok) throw new Error("词族词典加载失败"); return r.json(); })
+    .catch(error => { wordFamiliesCache = null; throw error; });
+  return wordFamiliesCache;
+}
 function getInflections() {
   if (!inflectionsCache) inflectionsCache = fetch("content/inflections.json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
   return inflectionsCache;
@@ -749,7 +756,7 @@ export async function render(root, [id]) {
         ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
         ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
         ${!isPhrase || entry ? `<div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>` : ""}
-        ${wordForms ? `<div class="wc-forms"><button class="btn btn-plain btn-sm" data-word-forms aria-expanded="false">查看其他词形</button><div class="wc-forms-body" data-forms-body hidden><p class="wc-forms-title">原词 · ${esc(wordForms.base)}</p>${wordForms.forms.length ? `<dl class="wc-forms-list">${wordForms.forms.map(item=>`<div><dt>${esc(item.label)}</dt><dd>${esc(item.word)}</dd></div>`).join("")}</dl>` : '<p class="muted small">词典暂无其他屈折形式。</p>'}<p class="wc-forms-ai" data-forms-ai></p><button class="btn btn-quiet btn-sm" data-forms-generate>AI 查询同词族</button></div></div>` : ""}
+        ${wordForms ? `<div class="wc-forms"><button class="btn btn-plain btn-sm" data-word-forms aria-expanded="false">查看其他词形</button><div class="wc-forms-body" data-forms-body hidden><p class="wc-forms-title">原词 · ${esc(wordForms.base)}</p>${wordForms.forms.length ? `<dl class="wc-forms-list">${wordForms.forms.map(item=>`<div><dt>${esc(item.label)}</dt><dd>${esc(item.word)}</dd></div>`).join("")}</dl>` : '<p class="muted small">词典暂无其他屈折形式。</p>'}<div class="wc-family" data-family-output></div></div></div>` : ""}
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
@@ -787,27 +794,23 @@ export async function render(root, [id]) {
     layer.querySelector(".modal-foot .btn-primary")?.classList.toggle("word-saved", hasWord(word));
     const formsButton = layer.querySelector('[data-word-forms]');
     const formsBody = layer.querySelector('[data-forms-body]');
-    const familyOutput = layer.querySelector('[data-forms-ai]');
-    const familyButton = layer.querySelector('[data-forms-generate]');
-    const familyKey = wordForms ? JSON.stringify([wordForms.base, cue?.en || '']) : '';
-    if (familyOutput && state.wordFamilies?.[familyKey]) { familyOutput.textContent = 'AI 同词族：' + state.wordFamilies[familyKey]; familyButton.textContent = '重新查询'; }
-    formsButton?.addEventListener('click', () => {
+    const familyOutput = layer.querySelector('[data-family-output]');
+    let familyLoaded = false;
+    formsButton?.addEventListener('click', async () => {
       const expanded = formsButton.getAttribute('aria-expanded') !== 'true';
       formsButton.setAttribute('aria-expanded', String(expanded));
       formsButton.textContent = expanded ? '收起其他词形' : '查看其他词形';
       formsBody.hidden = !expanded;
-      if (expanded && !state.wordFamilies?.[familyKey] && hasAI() && !familyButton.disabled) familyButton.click();
-    });
-    familyButton?.addEventListener('click', async () => {
-      if (!hasAI()) { familyOutput.textContent = '请先在设置中配置 AI，再查询名词、形容词和副词等同词族。'; return; }
-      familyButton.disabled = true; familyOutput.textContent = '正在查询同词族…';
+      if (!expanded || familyLoaded) return;
+      familyOutput.textContent = '正在读取本地词典…';
       try {
-        const response = await chat([{role:'system',content:WORD_FAMILY_PROMPT},{role:'user',content:JSON.stringify({word,lemma:wordForms.base,sentence:cue?.en})}], {temperature:0.2,maxTokens:500});
-        const result = cleanExplanation(response); if (!result) throw new Error('没有返回词形');
-        state.wordFamilies ||= {}; state.wordFamilies[familyKey] = result; save(true);
-        if (familyOutput.isConnected) { familyOutput.textContent = 'AI 同词族：' + result; familyButton.textContent = '重新查询'; }
-      } catch(error) { if (familyOutput.isConnected) familyOutput.textContent = '查询失败：' + error.message; }
-      finally { if (familyButton.isConnected) familyButton.disabled = false; }
+        const families = await getWordFamilies();
+        if (!familyOutput.isConnected) return;
+        familyOutput.textContent = formatWordFamily(wordForms.base, families);
+        familyLoaded = true;
+      } catch {
+        if (familyOutput.isConnected) familyOutput.textContent = '本地词族词典暂时无法读取，请收起后重试。';
+      }
     });
     const generate = layer.querySelector("[data-context-generate]");
     layer.querySelector("[data-context-settings]")?.addEventListener("click", () => {

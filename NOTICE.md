@@ -52,3 +52,4 @@ TED / TED-Ed 内容依 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by
 | [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference) | 视频播放 | YouTube 服务条款 |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | 抓取字幕（未随仓库分发） | Unlicense |
 | [ECDICT](https://github.com/skywind3000/ECDICT) | 离线词典 | MIT |
+| [Princeton WordNet 3.0](https://wordnet.princeton.edu/) | 离线同词族关系（`content/word-families.json`） | [WordNet 3.0 许可](licenses/WORDNET-3.0.txt)，Copyright 2006 Princeton University |

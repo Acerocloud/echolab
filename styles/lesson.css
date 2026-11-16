@@ -379,5 +379,5 @@
 .wc-forms-list div { display:flex; gap:14px; }
 .wc-forms-list dt { color:var(--muted); min-width:90px; }
 .wc-forms-list dd { margin:0; color:var(--text-2); }
-.wc-forms-ai { white-space:pre-wrap; color:var(--text-2); font-size:13px; line-height:1.6; }
-.wc-forms-ai:empty { display:none; }
+.wc-family { margin-top:12px; white-space:pre-wrap; color:var(--text-2); font-size:13px; line-height:1.75; }
+.wc-family:empty { display:none; }
