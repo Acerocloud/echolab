@@ -101,9 +101,10 @@ export async function render(root) {
       <div class="block-head"><h2>Google Drive</h2></div>
       <div class="setting-row">
         <div><b>云端学习记录</b><span id="driveStatus" role="status">正在检查连接…</span></div>
-        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">使用 Google 登录</button><button class="btn btn-primary" id="driveSync" hidden>同步记录</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
+        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">使用 Google 登录</button><button class="btn btn-primary" id="driveSync" hidden>立即同步</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
       </div>
-      <p class="muted small">同步包括学习进度、生词、收藏和单词解释；AI 密钥保留在本机。登录状态到期或重新打开页面后需要重新登录。</p>
+      <p class="muted small">登录后自动同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。登录到期或重新打开页面后需要重新登录。</p>
+      <p class="muted small"><a id="driveFolder" href="https://drive.google.com/drive/my-drive" target="_blank" rel="noopener noreferrer" hidden>同步目录：我的云端硬盘 / EchoLab ↗</a></p>
     </section>
 
     <section class="block">

@@ -21,8 +21,9 @@ export function createDriveClient(accessToken, fetcher = fetch) {
     return response;
   }
   return {
-    async list() {
-      const params = new URLSearchParams({ spaces: 'appDataFolder', q: `name = '${FILE}' and trashed = false`, fields: 'nextPageToken,files(id,name,modifiedTime)', orderBy: 'modifiedTime desc', pageSize: '100' });
+    async list(folder = 'appDataFolder') {
+      if (!/^[\w-]+$/.test(folder)) throw new Error('云端文件夹编号无效');
+      const params = new URLSearchParams({ spaces: folder === 'appDataFolder' ? 'appDataFolder' : 'drive', q: `name = '${FILE}' and trashed = false${folder === 'appDataFolder' ? '' : ` and '${folder}' in parents`}`, fields: 'nextPageToken,files(id,name,modifiedTime)', orderBy: 'modifiedTime desc', pageSize: '100' });
       const result = []; let page;
       do {
         if (page) params.set('pageToken', page);
@@ -38,9 +39,23 @@ export function createDriveClient(accessToken, fetcher = fetch) {
       const response = await request(`${API}/files/${encodeURIComponent(id)}?alt=media`);
       return validateSnapshot(await response.json());
     },
-    async create(snapshot) {
+    async findFolder() {
+      const params = new URLSearchParams({ spaces:'drive', q:"name = 'EchoLab' and mimeType = 'application/vnd.google-apps.folder' and trashed = false", fields:'files(id,name)', pageSize:'100' });
+      const result = await (await request(`${API}/files?${params}`)).json();
+      if (!Array.isArray(result.files)) throw new DriveError('Google Drive 文件夹列表格式不正确');
+      const id = result.files[0]?.id;
+      if (id && !/^[\w-]+$/.test(id)) throw new DriveError('云端文件夹编号无效');
+      return id || null;
+    },
+    async createFolder() {
+      const result = await (await request(`${API}/files?fields=id`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name:'EchoLab',mimeType:'application/vnd.google-apps.folder'})})).json();
+      if (!/^[\w-]+$/.test(result.id || '')) throw new DriveError('无法创建 EchoLab 文件夹');
+      return result.id;
+    },
+    async create(snapshot, folder = 'appDataFolder') {
+      if (!/^[\w-]+$/.test(folder)) throw new Error('云端文件夹编号无效');
       const safe = validateSnapshot(snapshot);
-      const metadata = JSON.stringify({ name: FILE, parents: ['appDataFolder'] });
+      const metadata = JSON.stringify({ name: FILE, parents: [folder] });
       const boundary = 'echolab-' + crypto.randomUUID();
       const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${metadata}\r\n--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(safe)}\r\n--${boundary}--\r\n`;
       return (await request(UPLOAD, { method: 'POST', headers: { 'Content-Type': `multipart/related; boundary=${boundary}` }, body })).json();

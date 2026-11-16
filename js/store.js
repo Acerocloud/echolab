@@ -58,6 +58,7 @@ export function save(immediate = false) {
   const write = () => {
     try {
       localStorage.setItem(KEY, JSON.stringify(state));
+      window.dispatchEvent(new Event('echolab:learning-saved'));
     } catch (err) {
       console.warn("save failed", err);
     }

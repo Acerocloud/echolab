@@ -1,5 +1,6 @@
 /* Google Identity Services token flow for the local Windows web UI. */
 export const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
+export const DRIVE_FILE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
 const GIS_URL = 'https://accounts.google.com/gsi/client';
 let libraryPromise;
 
@@ -39,7 +40,7 @@ export function createGoogleWebAuth({clientId, load = loadGoogleIdentity, now = 
     if (!/^\d+-[a-z0-9]+\.apps\.googleusercontent\.com$/.test(clientId || '')) throw new Error('Google 网页客户端尚未配置。');
     const oauth = await load();
     client = oauth.initTokenClient({
-      client_id: clientId, scope: DRIVE_SCOPE,
+      client_id: clientId, scope: `${DRIVE_SCOPE} ${DRIVE_FILE_SCOPE}`,
       callback: result => {
         const active = pending; pending = null;
         if (!active) return;
@@ -47,7 +48,7 @@ export function createGoogleWebAuth({clientId, load = loadGoogleIdentity, now = 
           active.reject(new Error('Google 授权未完成，请重试。')); return;
         }
         const scopes = String(result.scope || '').split(/\s+/);
-        if (!scopes.includes(DRIVE_SCOPE)) { active.reject(new Error('未授权 EchoLab 应用数据访问，无法同步。')); return; }
+        if (!scopes.includes(DRIVE_SCOPE) || !scopes.includes(DRIVE_FILE_SCOPE)) { active.reject(new Error('请允许 EchoLab 访问应用数据和创建的文件，才能同步。')); return; }
         token = result.access_token;
         expires = now() + Math.max(1, Number(result.expires_in) - 60) * 1000;
         onChange(true); active.resolve();

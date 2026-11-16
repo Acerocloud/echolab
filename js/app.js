@@ -4,6 +4,7 @@ import { applyTheme } from "./store.js";
 import { icon, esc, openModal, isModalOpen, toast } from "./ui.js";
 import { checkForUpdate } from "./update.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
+import './drive-sync.js';
 
 const routes = [
   { re: /^\/?$/, view: () => import("./library.js"), nav: "library", title: "课程库" },
