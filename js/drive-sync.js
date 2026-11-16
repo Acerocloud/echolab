@@ -6,13 +6,13 @@ import {createDriveClient} from './drive-api.js';
 import {createGoogleWebAuth} from './google-web-auth.js';
 import {GOOGLE_WEB_CLIENT_ID} from './google-web-config.js';
 const BASELINE='echolab.drive.baseline.v1', ROLLBACK='echolab.drive.restore-backup.v1';
-let message='尚未连接。学习记录保存在本机。', folder='', busy=false, conflict=false, queued=false, timer, ready=false;
+let message='尚未连接。学习记录保存在本机。', folder='', account='', busy=false, conflict=false, queued=false, timer, ready=false;
 const listeners=new Set();
 const notify=()=>{for(const fn of listeners) fn({message,folder,connected:!!auth.currentToken(),ready,busy});};
 const show=s=>{message=s;notify();};
 const auth=createGoogleWebAuth({clientId:GOOGLE_WEB_CLIENT_ID,onChange:connected=>{if(!connected){folder='';message='登录已过期，请重新登录以继续自动同步。';} notify();}});
-function baseline(){try{const saved=JSON.parse(localStorage.getItem(BASELINE));return saved?.folder===folder?saved.snapshot:null;}catch{return null;}}
-function saveBaseline(snapshot){localStorage.setItem(BASELINE,JSON.stringify({folder,snapshot}));}
+function baseline(){try{const saved=JSON.parse(localStorage.getItem(BASELINE));return saved?.account===account?saved.snapshot:null;}catch{return null;}}
+function saveBaseline(snapshot){localStorage.setItem(BASELINE,JSON.stringify({account,snapshot}));}
 function restore(snapshot){const next=JSON.parse(JSON.stringify(state));applyLearningSnapshot(next,snapshot);localStorage.setItem(ROLLBACK,JSON.stringify(learningSnapshot(state)));localStorage.setItem('echolab.v1',JSON.stringify(next));saveBaseline(snapshot);location.reload();}
 export function recoverDriveBackup(){const s=localStorage.getItem(ROLLBACK);if(s)restore(JSON.parse(s));}
 export function hasDriveBackup(){return !!localStorage.getItem(ROLLBACK);}
@@ -31,13 +31,28 @@ export async function syncDrive(manual=false){
  busy=true;show('正在检查云端记录…');
  try{
   const drive=createDriveClient(token);
-  folder=await drive.findFolder() || await drive.createFolder();notify();
-  let list=await drive.list(folder), legacy=false;
-  if(!list.length){list=await drive.list();legacy=!!list.length;}
-  const remote=list.length?await drive.read(list[0].id):null;
+  account=await drive.accountId(); folder='appDataFolder';
+  const list=await drive.list();
+  let remote=list.length?await drive.read(list[0].id):null, migrated=false;
+  // The previous release may have written newer records to a visible folder.
+  if(list[0]?.appProperties?.visibleMigration!=='done'){
+    const visibleFolder=await drive.findFolder();
+    const visibleList=visibleFolder?await drive.list(visibleFolder):[];
+    const visible=visibleList.length?await drive.read(visibleList[0].id):null;
+    const local=learningSnapshot(state);
+    if(visible && ((remote && compareSnapshots(visible,remote,null).action!=='unchanged') || compareSnapshots(local,visible,null).action!=='unchanged')){
+      conflict=true;show('发现旧版可见文件夹中的记录，请选择要保留的版本。');
+      const choose=async snapshot=>{try{await drive.create(snapshot);if(compareSnapshots(learningSnapshot(state),snapshot,null).action==='unchanged'){saveBaseline(snapshot);conflict=false;show('记录已迁移到隐藏数据区，自动同步已开启。');}else restore(snapshot);}catch(e){show(e.message || '迁移失败，原记录未删除。');}};
+      const actions=[{label:'稍后处理'},{label:'使用本机记录',onClick:()=>{choose(learningSnapshot(state));}},{label:'使用可见文件夹记录',onClick:()=>{choose(visible);}}];
+      if(remote)actions.splice(2,0,{label:'使用隐藏区记录',onClick:()=>{choose(remote);}});
+      openModal({title:'选择要迁移的学习记录',body:'<p>发现上个版本保存在可见文件夹的记录，与本机或隐藏区的记录不同。请选择要继续使用的版本；原有云端记录会保留，恢复前会备份本机记录。</p>',actions});
+      return;
+    }
+    if(visible && !remote){await drive.create(visible);remote=visible;migrated=true;}
+  }
   const local=learningSnapshot(state), decision=compareSnapshots(local,remote,baseline()).action;
   if(decision==='unchanged'){
-    if(legacy)await drive.create(local,folder);
+    if(!migrated && list[0]?.appProperties?.visibleMigration!=='done')await drive.create(local);
     saveBaseline(local);show('自动同步已开启，学习记录已同步。');
   }else if(decision==='upload'){
     await drive.create(local,folder);saveBaseline(local);show('自动同步已开启，学习记录已备份。');

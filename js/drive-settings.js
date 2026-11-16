@@ -1,11 +1,10 @@
 import {openModal} from './ui.js';
 import {subscribeDrive,prepareDrive,signInDrive,disconnectDrive,syncDrive,recoverDriveBackup,hasDriveBackup} from './drive-sync.js';
 export function mountDriveSettings(root){
- const status=root.querySelector('#driveStatus'),connect=root.querySelector('#driveConnect'),sync=root.querySelector('#driveSync'),disconnect=root.querySelector('#driveDisconnect'),recover=root.querySelector('#driveRecover'),link=root.querySelector('#driveFolder');
+ const status=root.querySelector('#driveStatus'),connect=root.querySelector('#driveConnect'),sync=root.querySelector('#driveSync'),disconnect=root.querySelector('#driveDisconnect'),recover=root.querySelector('#driveRecover');
  if(!status)return ()=>{};
  const unsubscribe=subscribeDrive(({message,folder,connected,ready,busy})=>{
   status.textContent=message;connect.hidden=connected;connect.disabled=false;sync.hidden=!connected;sync.disabled=busy;disconnect.hidden=!connected;
-  link.hidden=!folder; if(folder)link.href=`https://drive.google.com/drive/folders/${encodeURIComponent(folder)}`;
  });
  connect.addEventListener('click',()=>{connect.disabled=true;signInDrive().finally(()=>{connect.disabled=false;});});
  sync.addEventListener('click',()=>syncDrive(true));

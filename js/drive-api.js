@@ -21,9 +21,14 @@ export function createDriveClient(accessToken, fetcher = fetch) {
     return response;
   }
   return {
+    async accountId() {
+      const data = await (await request(`${API}/about?fields=user(permissionId)`)).json();
+      if (!/^[\w-]+$/.test(data.user?.permissionId || '')) throw new DriveError('无法确认 Google Drive 账号');
+      return data.user.permissionId;
+    },
     async list(folder = 'appDataFolder') {
       if (!/^[\w-]+$/.test(folder)) throw new Error('云端文件夹编号无效');
-      const params = new URLSearchParams({ spaces: folder === 'appDataFolder' ? 'appDataFolder' : 'drive', q: `name = '${FILE}' and trashed = false${folder === 'appDataFolder' ? '' : ` and '${folder}' in parents`}`, fields: 'nextPageToken,files(id,name,modifiedTime)', orderBy: 'modifiedTime desc', pageSize: '100' });
+      const params = new URLSearchParams({ spaces: folder === 'appDataFolder' ? 'appDataFolder' : 'drive', q: `name = '${FILE}' and trashed = false${folder === 'appDataFolder' ? '' : ` and '${folder}' in parents`}`, fields: 'nextPageToken,files(id,name,modifiedTime,appProperties)', orderBy: 'modifiedTime desc', pageSize: '100' });
       const result = []; let page;
       do {
         if (page) params.set('pageToken', page);
@@ -55,7 +60,7 @@ export function createDriveClient(accessToken, fetcher = fetch) {
     async create(snapshot, folder = 'appDataFolder') {
       if (!/^[\w-]+$/.test(folder)) throw new Error('云端文件夹编号无效');
       const safe = validateSnapshot(snapshot);
-      const metadata = JSON.stringify({ name: FILE, parents: [folder] });
+      const metadata = JSON.stringify({ name: FILE, parents: [folder], ...(folder === 'appDataFolder' ? {appProperties:{visibleMigration:'done'}} : {}) });
       const boundary = 'echolab-' + crypto.randomUUID();
       const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${metadata}\r\n--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(safe)}\r\n--${boundary}--\r\n`;
       return (await request(UPLOAD, { method: 'POST', headers: { 'Content-Type': `multipart/related; boundary=${boundary}` }, body })).json();
