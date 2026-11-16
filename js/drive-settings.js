@@ -1,10 +1,12 @@
 import {openModal} from './ui.js';
 import {subscribeDrive,prepareDrive,signInDrive,disconnectDrive,syncDrive,recoverDriveBackup,hasDriveBackup} from './drive-sync.js';
+function formatBytes(bytes){if(bytes<1024)return `${bytes} B`;if(bytes<1024*1024)return `${(bytes/1024).toFixed(1)} KB`;return `${(bytes/(1024*1024)).toFixed(1)} MB`;}
 export function mountDriveSettings(root){
- const status=root.querySelector('#driveStatus'),connect=root.querySelector('#driveConnect'),sync=root.querySelector('#driveSync'),disconnect=root.querySelector('#driveDisconnect'),recover=root.querySelector('#driveRecover');
+ const status=root.querySelector('#driveStatus'),info=root.querySelector('#driveSyncInfo'),connect=root.querySelector('#driveConnect'),sync=root.querySelector('#driveSync'),disconnect=root.querySelector('#driveDisconnect'),recover=root.querySelector('#driveRecover');
  if(!status)return ()=>{};
- const unsubscribe=subscribeDrive(({message,folder,connected,ready,busy})=>{
+ const unsubscribe=subscribeDrive(({message,connected,busy,syncInfo})=>{
   status.textContent=message;connect.hidden=connected;connect.disabled=false;sync.hidden=!connected;sync.disabled=busy;disconnect.hidden=!connected;
+  info.textContent=syncInfo ? `本机上次同步：${new Date(syncInfo.time).toLocaleString('zh-CN', {hour12:false})} · 单份记录：${formatBytes(syncInfo.bytes)}` : '本机尚无同步记录';
  });
  connect.addEventListener('click',()=>{connect.disabled=true;signInDrive().finally(()=>{connect.disabled=false;});});
  sync.addEventListener('click',()=>syncDrive(true));

@@ -105,6 +105,7 @@ export async function render(root) {
       </div>
       <p class="muted small">登录后自动同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。登录到期或重新打开页面后需要重新登录。</p>
       <p class="muted small">同步位置：Google Drive 的 EchoLab 隐藏应用数据区。</p>
+      <p class="muted small" id="driveSyncInfo">本机尚无同步记录</p>
     </section>
 
     <section class="block">
