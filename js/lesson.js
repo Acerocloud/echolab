@@ -966,7 +966,7 @@ export async function render(root, [id]) {
       const button = chatForm.querySelector('button[type="submit"]');
       button.disabled = true;
       chatInput.disabled = true;
-      chatStatus.textContent = "正在回答…";
+      chatStatus.innerHTML = '<span class="wc-chat-spinner" aria-hidden="true"></span><span class="wc-chat-status-label">正在回答</span>';
       try {
         const context = { sentence: cue.en, translation: cue.zh || "", explanation: state.sentenceExplanations?.[sentenceKey] || "" };
         const answer = cleanExplanation(await chat([
