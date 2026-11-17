@@ -5,6 +5,7 @@ import {
   addPracticeTime, addLessonTime,
 } from "./store.js";
 import { icon, esc, toast, tokenize, isModalOpen, clamp } from "./ui.js";
+import { getKeys, matchKey } from "./keys.js";
 
 const BUCKETS = 96;
 
@@ -640,9 +641,13 @@ export function createShadowPanel(opts) {
 
   /* ---------------------------------------------------------------- 键盘 */
   function onKey(e) {
-    if (!active || isModalOpen()) return;
+    if (!active || isModalOpen() || e.defaultPrevented || e.isComposing || e.ctrlKey || e.altKey || e.metaKey) return;
     const tag = document.activeElement?.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+    const keys = getKeys();
+    if (matchKey(e, keys.prev)) { e.preventDefault(); if (!e.repeat) prev(); return; }
+    if (matchKey(e, keys.next)) { e.preventDefault(); if (!e.repeat) next(); return; }
+    if (matchKey(e, keys.repeat)) { e.preventDefault(); if (!e.repeat && !recActive) playOrigOnly(); return; }
     switch (e.key) {
       case " ":
         e.preventDefault();
@@ -656,8 +661,6 @@ export function createShadowPanel(opts) {
       case "3": e.preventDefault(); if (recAudio) playBoth(); break;
       case "Enter": e.preventDefault(); markPass(); break;
       case "r": case "R": e.preventDefault(); btnAgain.click(); break;
-      case "ArrowRight": e.preventDefault(); next(); break;
-      case "ArrowLeft": e.preventDefault(); prev(); break;
       default:
     }
   }

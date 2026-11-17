@@ -273,6 +273,10 @@ kbd {
   text-align: center;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+.collection-feedback { animation: collection-feedback 180ms ease-out; }
+.collection-removing { animation: collection-remove 180ms ease-in forwards; pointer-events: none; }
+@keyframes collection-feedback { 50% { transform: scale(1.045); } }
+@keyframes collection-remove { to { opacity: 0; transform: translateY(-4px); } }
 
 /* ---------------------------------------------------------------- 弹层 */
 .layer:empty { display: none; }

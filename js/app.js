@@ -13,6 +13,8 @@ const routes = [
   { re: /^\/lesson\/([\w-]+)\/shadow$/, view: () => import("./lesson.js"), nav: "library", title: "跟读" },
   { re: /^\/progress$/, view: () => import("./progress.js"), nav: "progress", title: "学习记录" },
   { re: /^\/words$/, view: () => import("./words.js"), nav: "words", title: "生词本" },
+  { re: /^\/usages$/, view: () => import("./usages.js"), nav: "usages", title: "用法本" },
+  { re: /^\/pronunciations$/, view: () => import("./pronunciations.js"), nav: "pronunciations", title: "读音本" },
   { re: /^\/settings$/, view: () => import("./settings.js"), nav: "settings", title: "设置" },
   { re: /^\/about$/, view: () => import("./about.js"), nav: "about", title: "关于" },
 ];

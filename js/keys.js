@@ -12,16 +12,31 @@ export const ACTIONS = [
 ];
 
 export const DEFAULT_KEYS = {
-  repeat: "r",
-  prev: "ArrowLeft",
-  next: "ArrowRight",
+  repeat: "ArrowLeft",
+  prev: "ArrowUp",
+  next: "ArrowDown",
   loop: "l",
   pauseEach: "p",
   shadow: "s",
 };
 
 export function getKeys() {
-  return { ...DEFAULT_KEYS, ...(state.settings.keys || {}) };
+  const saved = { ...(state.settings.keys || {}) };
+  // Earlier versions saved the complete default set, even when only one
+  // shortcut was changed. Migrate those three defaults without changing
+  // unrelated user bindings or introducing duplicate keys.
+  const legacy = { repeat: "r", prev: "ArrowLeft", next: "ArrowRight" };
+  if (Object.entries(legacy).every(([id, key]) => saved[id] === key) &&
+      !["loop", "pauseEach", "shadow"].some(id => ["ArrowLeft", "ArrowUp", "ArrowDown"].includes(saved[id]))) {
+    delete saved.repeat; delete saved.prev; delete saved.next;
+  }
+  const keys = { ...DEFAULT_KEYS, ...saved };
+  for (const id of ["repeat", "prev", "next"]) {
+    if (id in saved) continue;
+    const occupied = Object.entries(saved).some(([other, value]) => other !== id && value === keys[id]);
+    if (occupied && !Object.values(keys).includes(legacy[id])) keys[id] = legacy[id];
+  }
+  return keys;
 }
 
 export function setKey(id, key) {

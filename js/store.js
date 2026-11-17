@@ -20,6 +20,9 @@ const DEFAULTS = {
   },
   lessons: {},   // id -> { cue, passed: [], plays, seconds, lastAt, reps: {} }
   words: [],     // { w, lesson, t }
+  usages: [],    // 单词或词组在特定句子中的用法
+  pronunciations: [], // 需要练习发音的词语
+  subtitleEdits: {}, // 按课程与字幕序号保存用户修正
   stars: [],     // { lesson, cue, en, zh, t }
   days: {},      // 'YYYY-MM-DD' -> seconds
   total: { seconds: 0, passed: 0 },
@@ -153,6 +156,53 @@ export function addLessonTime(id, seconds) {
 }
 
 /* ---------------------------------------------------------------- 生词 / 收藏 */
+export function pronunciationKey(word) {
+  return String(word || '').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+export function hasPronunciation(word) {
+  const key = pronunciationKey(word);
+  return Array.isArray(state.pronunciations) && state.pronunciations.some(item => pronunciationKey(item.word) === key);
+}
+
+export function addPronunciation(record) {
+  const word = pronunciationKey(record.word);
+  if (!word || hasPronunciation(word)) return false;
+  if (!Array.isArray(state.pronunciations)) state.pronunciations = [];
+  state.pronunciations.unshift({ ...record, word, note: '', createdAt: Date.now() });
+  save(true);
+  return true;
+}
+
+export function removePronunciation(word) {
+  const key = pronunciationKey(word);
+  if (!Array.isArray(state.pronunciations)) return;
+  state.pronunciations = state.pronunciations.filter(item => pronunciationKey(item.word) !== key);
+  save(true);
+}
+
+export function usageKey(word, lesson, cue) {
+  return JSON.stringify([lesson, cue?.i, cue?.en, word.trim().toLowerCase()]);
+}
+
+export function hasUsage(key) {
+  return Array.isArray(state.usages) && state.usages.some(item => item.id === key);
+}
+
+export function saveUsage(record) {
+  if (!Array.isArray(state.usages)) state.usages = [];
+  const index = state.usages.findIndex(item => item.id === record.id);
+  if (index < 0) state.usages.unshift({ ...record, note: '', createdAt: Date.now() });
+  else state.usages[index] = { ...state.usages[index], ...record };
+  save(true);
+}
+
+export function removeUsage(key) {
+  if (!Array.isArray(state.usages)) return;
+  state.usages = state.usages.filter(item => item.id !== key);
+  save(true);
+}
+
 export function toggleWord(word, lessonId) {
   const w = word.toLowerCase();
   const i = state.words.findIndex((x) => x.w === w);

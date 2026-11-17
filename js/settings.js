@@ -67,8 +67,8 @@ export async function render(root) {
     <section class="block">
       <div class="block-head"><h2>AI 设置</h2><span class="muted small">OpenAI 兼容接口</span></div>
       <div class="setting-row setting-prompt">
-        <div><b>单词解释提示词</b><span>生成词卡的本句解释时使用</span></div>
-        <textarea class="field" id="wordPrompt" rows="1" aria-label="单词解释提示词">${esc(resolveWordPrompt(state.settings.wordPrompt))}</textarea>
+        <div><b>词语用法提示词</b><span>解释单词或词组在句中的意思时使用</span></div>
+        <textarea class="field" id="wordPrompt" rows="1" aria-label="词语用法提示词">${esc(resolveWordPrompt(state.settings.wordPrompt))}</textarea>
         <button class="btn btn-plain btn-sm" id="resetWordPrompt">恢复默认</button>
       </div>
 
@@ -110,7 +110,7 @@ export async function render(root) {
         <div><b>云端学习记录</b><span id="driveStatus" role="status">正在检查连接…</span></div>
         <div class="update-actions"><button class="btn google-signin" id="driveConnect"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15z"/><path fill="#34A853" d="M24 44.5c5.5 0 10.2-1.8 13.5-5l-6.6-5.1c-1.8 1.2-4.1 1.9-6.9 1.9-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20.5 20.5 0 0 0 24 44.5z"/><path fill="#FBBC05" d="M12.6 27.9a12.3 12.3 0 0 1 0-7.8v-5.3H5.8a20.5 20.5 0 0 0 0 18.4l6.8-5.3z"/><path fill="#EA4335" d="M24 11.7c3 0 5.7 1 7.8 3l5.9-5.9A19.8 19.8 0 0 0 24 3.5 20.5 20.5 0 0 0 5.8 14.8l6.8 5.3c1.6-4.8 6.1-8.4 11.4-8.4z"/></svg><span>Google 登录</span></button><button class="btn btn-primary" id="driveSync" hidden>立即同步</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
       </div>
-      <p class="muted small">登录后自动同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。登录到期或重新打开页面后需要重新登录。</p>
+      <p class="muted small">登录后自动同步学习进度、生词、用法、读音及收藏；AI 密钥保留在本机。登录到期或重新打开页面后需要重新登录。</p>
       <p class="muted small">同步位置：Google Drive 的 EchoLab 隐藏应用数据区。</p>
       <p class="muted small" id="driveSyncInfo">本机尚无同步记录</p>
     </section>
@@ -118,11 +118,11 @@ export async function render(root) {
     <section class="block">
       <div class="block-head"><h2>学习数据</h2></div>
       <div class="setting-row">
-        <div><b>导出学习记录</b><span>下载进度、生词与收藏（JSON）</span></div>
+        <div><b>导出学习记录</b><span>下载进度、生词、用法、读音与收藏（JSON）</span></div>
         <button class="btn btn-sm" id="btnExport">${icon("arrow", 14)} 导出</button>
       </div>
       <div class="setting-row">
-        <div><b>清空所有数据</b><span>进度、生词、设置全部重置，不可撤销</span></div>
+        <div><b>清空所有数据</b><span>进度、生词、用法、读音、设置全部重置，不可撤销</span></div>
         <button class="btn btn-sm danger" id="btnReset">${icon("trash", 14)} 清空</button>
       </div>
     </section>

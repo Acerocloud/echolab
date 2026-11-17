@@ -382,6 +382,16 @@
 .wl-main { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 12px; }
 .wl-main b { font-size: 15px; font-weight: 500; min-width: 96px; }
 .wl-main span { font-size: 12.5px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.collection-cross { display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex: 0 0 auto; height: 30px; padding: 0 11px; border: 0; border-radius: 999px; font-size: 12px; white-space: nowrap; cursor: pointer; }
+.collection-cross svg { flex: none; stroke-width: 2.2; }
+.collection-cross.collection-words { background: #174b80; color: #fff; }
+.collection-cross.collection-usages { background: #ffb12e; color: #291900; }
+.collection-cross.collection-pronunciations { background: #bba3f5; color: #201237; }
+.collection-cross.is-selected, .collection-cross.is-selected:hover { background: #b83d40; color: #fff; }
+.collection-cross:disabled { opacity: .55; }
+.collection-cross:not(.is-selected):hover { filter: brightness(.92); }
+.collection-detail-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.collection-search { width: min(100%, 320px); margin: 0 0 16px; }
 .wl-toggle {
   height: 26px;
   padding: 0 12px;
@@ -401,6 +411,8 @@
   .review-actions .btn { flex: none; }
   .wl-main { flex-direction: column; gap: 3px; }
   .wl-main b { min-width: 0; }
+  .wl-row { flex-wrap: wrap; gap: 8px; }
+  .wl-main { flex-basis: 100%; }
 }
 .rc-src { margin: 12px 0 0; font-size: 11px; color: var(--muted); opacity: 0.8; }
 /* ---------------------------------------------------------------- 生词本 · AI 造句 */
@@ -504,3 +516,37 @@ button.wl-main:hover b { color: var(--accent); }
 .google-signin { background: #fff; color: #1f1f1f; gap: 10px; }
 .google-signin:hover { background: #f2f2f2; color: #1f1f1f; }
 .google-signin span { color: inherit; font-size: inherit; }
+
+/* 用法本 */
+.usage-toolbar { display: flex; align-items: center; gap: 16px; margin: 12px 0 24px; }
+.usage-toolbar .field { max-width: 380px; }
+.usage-list { display: grid; gap: 16px; }
+.usage-entry { padding: 22px 24px; border-radius: 16px; background: var(--surface); }
+.usage-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.usage-heading-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+.usage-add-word { height: 36px; padding: 0 16px; font-size: 13px; }
+.usage-add-word svg { flex: none; stroke-width: 2.2; }
+.usage-add-word:disabled { opacity: .75; }
+.usage-heading h2 { margin: 0; font-size: 21px; overflow-wrap: anywhere; }
+.usage-explanation { color: var(--text-2); line-height: 1.7; margin: 10px 0 0; white-space: pre-wrap; }
+.usage-example { margin-top: 16px; padding: 16px; border-radius: 12px; background: var(--bg-2); }
+.usage-example p { margin: 0; line-height: 1.7; overflow-wrap: anywhere; }
+.usage-example mark { color: var(--accent); background: none; font-weight: 650; }
+.usage-example .usage-zh { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.usage-answer { margin-top: 16px; color: var(--text-2); font-size: 13px; line-height: 1.7; }
+.usage-answer span, .usage-note span { color: var(--muted); font-size: 12px; }
+.usage-answer p { margin: 4px 0 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.usage-note { display: grid; gap: 6px; margin-top: 16px; }
+.usage-note textarea { width: 100%; resize: vertical; line-height: 1.6; }
+.usage-source { display: inline-block; margin-top: 14px; color: var(--accent); font-size: 12px; }
+@media (max-width: 640px) { .usage-entry { padding: 18px; } .usage-toolbar { align-items: flex-start; flex-direction: column; gap: 8px; } }
+
+/* 读音本 */
+.pronunciation-list { display: grid; gap: 16px; }
+.pronunciation-entry { padding: 22px 24px; border-radius: 16px; background: var(--surface); }
+.pronunciation-heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.pronunciation-heading h2 { margin: 0; font-size: 21px; overflow-wrap: anywhere; }
+.pronunciation-phonetic { margin: 5px 0 0; font-size: 13px; color: var(--muted); }
+.pronunciation-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.pronunciation-actions .btn { height: 36px; font-size: 13px; padding: 0 16px; }
+@media (max-width: 640px) { .pronunciation-entry { padding: 18px; } }

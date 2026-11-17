@@ -2,16 +2,17 @@
 
 import { getLesson, getManifest, CATEGORIES } from "./data.js";
 import {
-  state, save, lessonProgress, setCuePosition, setSetting, toggleWord, hasWord,
+  state, save, lessonProgress, setCuePosition, setSetting, toggleWord, hasWord, usageKey, hasUsage, saveUsage, removeUsage,
+  hasPronunciation, addPronunciation, removePronunciation,
   addPracticeTime, addLessonTime,
 } from "./store.js";
 import {
-  icon, esc, toast, fmtTime, tokenize, openModal, isModalOpen, clamp,
+  icon, esc, toast, fmtTime, tokenize, openModal, isModalOpen, clamp, collectionFeedback,
 } from "./ui.js";
 import { createShadowPanel } from "./shadow-panel.js";
 import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } from "./keys.js";
 import { chat, hasAI } from "./ai.js";
-import { wordPrompt, sentencePrompt, explanationKey, cleanExplanation } from "./word-explanations.js";
+import { wordPrompt, sentencePrompt, SENTENCE_FOLLOWUP_PROMPT, explanationKey, cleanExplanation } from "./word-explanations.js";
 import { closeModal } from "./ui.js";
 import { findWordForms, formatWordFamily } from "./word-forms.js";
 import { mountSelect } from "./select-menu.js";
@@ -781,6 +782,7 @@ export async function render(root, [id]) {
     const cacheKey = explanationKey(id, cue, word);
     const cached = state.wordExplanations?.[cacheKey];
     const sentenceKey = JSON.stringify([id, cue?.i, cue?.en]);
+    const usageId = usageKey(word, id, cue);
     const sentenceCached = state.sentenceExplanations?.[sentenceKey] || "";
 
     const defs = entry?.defs?.length
@@ -798,15 +800,17 @@ export async function render(root, [id]) {
             ${entry?.ph ? `<p class="wc-ph">/${esc(entry.ph)}/</p>` : ""}
           </div>
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
+          ${cue ? `<button class="btn collection-btn collection-usage" data-usage-save aria-pressed="${hasUsage(usageId)}" aria-label="${hasUsage(usageId) ? "移出用法本" : "加入用法本"}">${hasUsage(usageId) ? "移出用法本" : `${icon("plus", 18)}<span>用法本</span>`}</button>` : ""}
+          <button class="btn collection-btn collection-pronunciation" data-pronunciation-save aria-pressed="${hasPronunciation(word)}" aria-label="${hasPronunciation(word) ? '移出读音本' : '加入读音本'}">${hasPronunciation(word) ? '移出读音本' : `${icon('plus', 18)}<span>读音本</span>`}</button>
         </div>
         ${saveOptions.length > 1 || initialSaveWord !== word ? `<div class="wc-save-form"><label for="wcSaveForm">保存到生词本</label><select id="wcSaveForm" aria-label="选择保存词形">${saveOptions.length > 1 ? '<option value="" selected>请选择本句词性</option>' : ""}${saveOptions.map(option => `<option value="${esc(option.word)}">${esc(option.label)}</option>`).join("")}</select><small>请根据句中的词性选择</small></div>` : ""}
-        ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
-        ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
+        ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>词语在句中的意思</strong>　${esc(gloss.zh)}</p>` : ""}
+        ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "词语用法尚未解释"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新解释" : "解释词语用法"}</button><button class="icon-btn" data-context-settings aria-label="设置词语用法提示词" title="设置词语用法提示词">${icon("gear", 17)}</button></div>` : ""}
         ${!isPhrase || entry ? `<div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>` : ""}
         ${wordForms ? `<div class="wc-forms"><button class="btn btn-plain btn-sm" data-word-forms aria-expanded="false">查看其他词形</button><div class="wc-forms-body" data-forms-body hidden><p class="wc-forms-title">原词 · ${esc(wordForms.base)}</p>${wordForms.forms.length ? `<dl class="wc-forms-list">${wordForms.forms.map(item=>`<div><dt>${esc(item.label)}</dt><dd>${esc(item.word)}</dd></div>`).join("")}</dl>` : '<p class="muted small">词典暂无其他屈折形式。</p>'}<div class="wc-family" data-family-output></div></div></div>` : ""}
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
           ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}
-          <div class="wc-sentence-actions"><button class="btn btn-plain btn-sm" data-sentence-generate>${sentenceCached ? "重新讲解这句" : "AI 讲解这句"}</button><button class="icon-btn" data-sentence-settings aria-label="设置句子讲解提示词" title="设置句子讲解提示词">${icon("gear", 17)}</button></div>
+          <div class="wc-sentence-actions"><button class="btn btn-plain btn-sm" data-sentence-generate>${sentenceCached ? "重新讲解整句" : "详细讲解整句"}</button><button class="icon-btn" data-sentence-settings aria-label="设置句子讲解提示词" title="设置句子讲解提示词">${icon("gear", 17)}</button></div>
           <div class="wc-sentence-explanation" data-sentence-output role="status" ${sentenceCached ? "" : "hidden"}>${esc(sentenceCached)}</div>
           <div class="wc-sentence-chat">
             <h3>针对这句提问</h3>
@@ -822,7 +826,7 @@ export async function render(root, [id]) {
       actions: [
         { label: "关闭" },
         {
-          label: hasWord(initialSaveWord) ? "移出生词本" : "加入生词本",
+          label: hasWord(initialSaveWord) ? "移出生词本" : "+ 生词本",
           primary: true,
           onClick: (button) => {
             const select = document.getElementById("layer").querySelector("#wcSaveForm");
@@ -837,12 +841,10 @@ export async function render(root, [id]) {
             else { savedSet.delete(saveWord); savedSet.delete(word); }
             root.querySelectorAll(`.tok[data-w="${CSS.escape(word)}"]`)
               .forEach((n) => n.classList.toggle("saved", added));
-            toast(added ? `已加入生词本` : `已移出`);
-            button.textContent = added ? "移出生词本" : "加入生词本";
+            button.innerHTML = added ? "移出生词本" : `${icon("plus", 18)}<span>生词本</span>`;
+            button.setAttribute('aria-label', added ? '移出生词本' : '加入生词本');
             button.classList.toggle("word-saved", added);
-            button.classList.remove("word-saved-animation");
-            void button.offsetWidth;
-            button.classList.add("word-saved-animation");
+            collectionFeedback(button, '生词本', added);
             return true;
           },
         },
@@ -853,17 +855,32 @@ export async function render(root, [id]) {
       ?.addEventListener("click", () => speak(word));
     const layer = document.getElementById("layer");
     const savedButton = layer.querySelector(".modal-foot .btn-primary");
+    savedButton.classList.add('collection-btn');
     const wordActions = document.createElement("div");
     wordActions.className = "wc-head-actions";
     const ttsButton = layer.querySelector(".wc-head .wc-tts");
     ttsButton.before(wordActions);
+    const usageButton = layer.querySelector('[data-usage-save]');
+    const pronunciationButton = layer.querySelector('[data-pronunciation-save]');
     wordActions.append(ttsButton, savedButton);
+    if (usageButton) wordActions.append(usageButton);
+    if (pronunciationButton) wordActions.append(pronunciationButton);
+    pronunciationButton?.addEventListener('click', () => {
+      const exists=hasPronunciation(word);
+      if (exists) removePronunciation(word);
+      else addPronunciation({word, phonetic: dict[word.toLowerCase()]?.ph || '', lesson:id, cue:cue?.i, en:cue?.en || '', zh:cue?.zh || ''});
+      pronunciationButton.innerHTML=exists ? `${icon('plus',18)}<span>读音本</span>` : '移出读音本';
+      pronunciationButton.setAttribute('aria-pressed',String(!exists));
+      pronunciationButton.setAttribute('aria-label',exists ? '加入读音本' : '移出读音本');
+      collectionFeedback(pronunciationButton, '读音本', !exists);
+    });
     function updateSaveButton() {
       const select = layer.querySelector("#wcSaveForm");
       const selected = select ? select.value : initialSaveWord;
       const saved = selected && hasWord(selected);
       savedButton?.classList.toggle("word-saved", saved);
-      if (savedButton) savedButton.textContent = saved ? "移出生词本" : "加入生词本";
+      if (savedButton) savedButton.innerHTML = saved ? "移出生词本" : `${icon("plus", 18)}<span>生词本</span>`;
+      if (savedButton) savedButton.setAttribute('aria-label', saved ? '移出生词本' : '加入生词本');
     }
     updateSaveButton();
     layer.querySelector("#wcSaveForm")?.addEventListener("change", updateSaveButton);
@@ -914,7 +931,7 @@ export async function render(root, [id]) {
         save(true);
         if (sentenceOutput.isConnected) {
           sentenceOutput.textContent = explanation;
-          sentenceGenerate.textContent = "重新讲解这句";
+          sentenceGenerate.textContent = "重新讲解整句";
           sentenceOutput.scrollIntoView({ block: "nearest", behavior: "smooth" });
         }
       } catch (error) {
@@ -930,6 +947,22 @@ export async function render(root, [id]) {
     const conversation = Array.isArray(state.sentenceChats?.[sentenceKey])
       ? state.sentenceChats[sentenceKey].filter(item => item && (item.role === "user" || item.role === "assistant") && typeof item.content === "string")
       : [];
+    function updateUsage() {
+      const lastAssistant = [...conversation].reverse().findIndex(item => item.role === 'assistant');
+      const answerIndex = lastAssistant < 0 ? -1 : conversation.length - 1 - lastAssistant;
+      saveUsage({ id: usageId, word, lesson: id, cue: cue.i, en: cue.en, zh: cue.zh || '',
+        explanation: state.wordExplanations?.[cacheKey] || gloss?.zh || '',
+        question: answerIndex > 0 && conversation[answerIndex - 1].role === 'user' ? conversation[answerIndex - 1].content : '',
+        answer: answerIndex >= 0 ? conversation[answerIndex].content : '' });
+    }
+    usageButton?.addEventListener('click', () => {
+      const exists = hasUsage(usageId);
+      if (exists) removeUsage(usageId); else updateUsage();
+      usageButton.innerHTML = exists ? `${icon('plus', 18)}<span>用法本</span>` : '移出用法本';
+      usageButton.setAttribute('aria-pressed', String(!exists));
+      usageButton.setAttribute('aria-label', exists ? '加入用法本' : '移出用法本');
+      collectionFeedback(usageButton, '用法本', !exists);
+    });
     function addChatMessage(role, content) {
       const item = document.createElement("div");
       item.className = `wc-chat-message ${role === "user" ? "is-user" : "is-assistant"}`;
@@ -970,16 +1003,17 @@ export async function render(root, [id]) {
       try {
         const context = { sentence: cue.en, translation: cue.zh || "", explanation: state.sentenceExplanations?.[sentenceKey] || "" };
         const answer = cleanExplanation(await chat([
-          { role: "system", content: sentencePrompt(state.settings.sentencePrompt) + "\n请针对学习者的问题回答，可以结合此前对话，不要重复整段讲解。" },
+          { role: "system", content: SENTENCE_FOLLOWUP_PROMPT },
           { role: "user", content: "当前句子及已有讲解：" + JSON.stringify(context) },
           ...conversation.slice(-20).map(({ role, content }) => ({ role, content })),
           { role: "user", content: question },
-        ], { temperature: 0.4, maxTokens: 4096 }));
+        ], { temperature: 0.4, maxTokens: 1200 }));
         if (!answer) throw new Error("接口没有返回回答");
         conversation.push({ role: "user", content: question }, { role: "assistant", content: answer });
         state.sentenceChats ||= {};
         state.sentenceChats[sentenceKey] = conversation;
         save(true);
+        if (hasUsage(usageId)) updateUsage();
         if (chatHistory.isConnected) {
           addChatMessage("user", question);
           addChatMessage("assistant", answer);
@@ -1017,9 +1051,10 @@ export async function render(root, [id]) {
         state.wordExplanations ||= {};
         state.wordExplanations[cacheKey] = cleaned;
         save(true);
+        if (hasUsage(usageId)) updateUsage();
         if (output.isConnected) {
           output.textContent = cleaned;
-          generate.textContent = "重新生成";
+          generate.textContent = "重新解释";
         }
       } catch (error) {
         if (output.isConnected) output.textContent = `解释生成失败：${error.message}`;

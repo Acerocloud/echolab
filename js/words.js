@@ -1,11 +1,12 @@
 /* EchoLab — 生词本（AI 造句复习） */
 
-import { state, dueWords, setWordMastered, toggleWord } from "./store.js";
-import { icon, esc, toast, openModal } from "./ui.js";
+import { state, dueWords, setWordMastered, toggleWord, usageKey, saveUsage, removeUsage, hasPronunciation, addPronunciation, removePronunciation } from "./store.js";
+import { icon, esc, toast, openModal, closeModal, collectionFeedback, removeWithAnimation } from "./ui.js";
 import { generateSentences, hasAI } from "./ai.js";
 import { explanationKey } from "./word-explanations.js";
 import { mountSelect } from "./select-menu.js";
 import { getLesson } from "./data.js";
+import { collectionButton, refreshCollectionButton } from './collections.js';
 
 export const meta = { title: "生词本" };
 
@@ -259,14 +260,41 @@ export async function render(root) {
     }
   }
 
+  async function resolveSavedCue(saved) {
+    if (saved.en) return { i: saved.cue, en: saved.en, zh: saved.zh || '' };
+    if (saved.lesson && Number.isInteger(saved.cue)) {
+      try { return (await getLesson(saved.lesson)).cues[saved.cue] || null; } catch { /* 课程不可用 */ }
+    }
+    return null;
+  }
+  function savedUsage(saved) {
+    const source = (saved.sourceWord || saved.w || '').toLowerCase();
+    return (state.usages || []).find(item => item.word?.toLowerCase() === source && item.lesson === (saved.lesson || '') &&
+      (Number.isInteger(saved.cue) ? item.cue === saved.cue : !Number.isInteger(item.cue)) &&
+      (!saved.en || item.en === saved.en));
+  }
+  async function addSavedUsage(saved, cue = undefined) {
+    if (savedUsage(saved)) return false;
+    if (cue === undefined) cue = await resolveSavedCue(saved);
+    const sourceWord = saved.sourceWord || saved.w;
+    const lesson = saved.lesson || '';
+    const sourceCue = cue || { i: saved.cue, en: '', zh: '' };
+    const sentenceKey = JSON.stringify([lesson, sourceCue.i, sourceCue.en]);
+    const history = state.sentenceChats?.[sentenceKey] || [];
+    const answerIndex = Array.isArray(history) ? history.findLastIndex(item => item?.role === 'assistant') : -1;
+    saveUsage({ id: usageKey(sourceWord, lesson, sourceCue), word: sourceWord, lesson,
+      cue: sourceCue.i, en: sourceCue.en || '', zh: sourceCue.zh || '',
+      explanation: state.wordExplanations?.[explanationKey(lesson, sourceCue, sourceWord)] || '',
+      question: answerIndex > 0 && history[answerIndex - 1]?.role === 'user' ? history[answerIndex - 1].content : '',
+      answer: answerIndex >= 0 ? history[answerIndex].content : '' });
+    return true;
+  }
+
   async function openSavedWord(word) {
     const saved = state.words.find(item => item.w === word);
     if (!saved) return;
     const entry = dict[word] || dict[lemmaOf(word) || ""] || null;
-    let cue = saved.en ? { i: saved.cue, en: saved.en, zh: saved.zh } : null;
-    if (!cue && saved.lesson && Number.isInteger(saved.cue)) {
-      try { cue = (await getLesson(saved.lesson)).cues[saved.cue] || null; } catch { /* 课程不可用时仍显示词典释义 */ }
-    }
+    const cue = await resolveSavedCue(saved);
     const sourceWord = saved.sourceWord || saved.w;
     const explanation = cue && state.wordExplanations?.[explanationKey(saved.lesson, cue, sourceWord)];
     const definitions = entry?.defs?.length
@@ -276,10 +304,42 @@ export async function render(root) {
       title: "",
       body: `<div class="wc"><div class="wc-head"><div><h2 class="wc-word">${esc(word)}</h2>${entry?.ph ? `<p class="wc-ph">/${esc(entry.ph)}/</p>` : ""}${sourceWord !== word ? `<p class="wc-form">原句词形 · ${esc(sourceWord)}</p>` : ""}</div><button class="wc-tts" data-word-speak aria-label="播放单词发音">${icon("volume", 17)}</button></div>
         <div class="wc-dictionary"><h3>词典释义</h3>${definitions}</div>
-        ${explanation ? `<div class="wc-context"><strong>已保存的本句解释</strong><p>${esc(explanation)}</p></div>` : ""}
+        ${explanation ? `<div class="wc-context"><strong>已保存的词语用法</strong><p>${esc(explanation)}</p></div>` : ""}
         ${cue?.en ? `<div class="wc-quote"><p class="wc-en">${esc(cue.en)}</p>${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}</div>`,
-      actions: [{ label: "关闭", primary: true }],
+      actions: [
+        { label: "关闭" },
+        { label: savedUsage(saved) ? "移出用法本" : "+ 用法本", onClick: button => {
+          button.disabled=true;
+          (async()=>{const previous=savedUsage(saved);if(previous)removeUsage(previous.id);else await addSavedUsage(saved,cue);refreshCollectionButton(button,'usages',saved);renderList();collectionFeedback(button,'用法本',!previous);})().catch(()=>toast('操作失败，请重试')).finally(()=>{button.disabled=false;});
+          return true;
+        } },
+        { label: hasPronunciation(sourceWord) ? "移出读音本" : "+ 读音本", onClick: button => {
+          const exists=hasPronunciation(sourceWord);
+          if(exists) removePronunciation(sourceWord);
+          else addPronunciation({word:sourceWord,phonetic:dict[sourceWord.toLowerCase()]?.ph || '',lesson:saved.lesson || '',cue:cue?.i,en:cue?.en || '',zh:cue?.zh || ''});
+          button.innerHTML=exists ? `${icon('plus',18)}<span>读音本</span>` : '移出读音本';
+          button.setAttribute('aria-label',exists ? '加入读音本' : '移出读音本');
+          button.setAttribute('aria-pressed',String(!exists));
+          button.classList.toggle('is-selected',!exists);renderList();collectionFeedback(button,'读音本',!exists);
+          return true;
+        } },
+        { label: "移出生词本", onClick: button => {
+          const modal=button.closest('.modal');
+          removeWithAnimation(button,'生词本',()=>{
+            if (state.words.some(item=>item.w===word)) toggleWord(word, '');
+            items=items.filter(item=>item.word!==word);renderAll();
+            if(document.querySelector('#layer .modal')===modal)closeModal();
+          });
+          return true;
+        } },
+      ],
     });
+    const usageAction = document.querySelector('#layer .modal-foot [data-act="1"]');
+    usageAction?.classList.add('collection-cross','collection-usages');
+    if (usageAction) refreshCollectionButton(usageAction,'usages',saved);
+    const pronunciationAction=document.querySelector('#layer .modal-foot [data-act="2"]');
+    pronunciationAction?.classList.add('collection-cross','collection-pronunciations');
+    if(pronunciationAction)refreshCollectionButton(pronunciationAction,'pronunciations',saved);
     document.querySelector("#layer [data-word-speak]")?.addEventListener("click", () => speak(word, 0.85));
   }
 
@@ -301,6 +361,8 @@ export async function render(root) {
             <b>${esc(w.w)}</b>
             <span>${esc(defOf(w.w) || "")}</span>
           </button>
+          <button class="collection-cross collection-usages${savedUsage(w)?' is-selected':''}" type="button" data-add-usage="${esc(w.w)}" aria-pressed="${Boolean(savedUsage(w))}" aria-label="${savedUsage(w)?'移出':'加入'}用法本">${savedUsage(w)?'移出用法本':`${icon('plus',15)}<span>用法本</span>`}</button>
+          ${collectionButton('pronunciations',w,0).replace('data-cross="pronunciations"','data-add-pronunciation="'+esc(w.w)+'"')}
           <button class="wl-toggle" data-mastered="${esc(w.w)}">${w.mastered ? "已记住" : "复习中"}</button>
           <button class="mini icon-only" data-del="${esc(w.w)}" aria-label="删除">${icon("close", 13)}</button>
         </div>`).join("")}</div>`;
@@ -318,12 +380,36 @@ export async function render(root) {
       });
     });
 
+    listEl.querySelectorAll('[data-add-usage]').forEach(btn=>{
+      btn.addEventListener('click', async()=>{
+        const saved=state.words.find(item=>item.w===btn.dataset.addUsage);if(!saved)return;
+        btn.disabled=true;
+        try { const existing=savedUsage(saved);if(existing)removeUsage(existing.id);else await addSavedUsage(saved);renderList();collectionFeedback(listEl.querySelector(`[data-add-usage="${CSS.escape(saved.w)}"]`),'用法本',!existing); }
+        catch { toast('添加失败，请重试'); }
+        finally { btn.disabled=false; }
+      });
+    });
+
+    listEl.querySelectorAll('[data-add-pronunciation]').forEach(btn=>{
+      btn.addEventListener('click', async()=>{
+        const saved=state.words.find(item=>item.w===btn.dataset.addPronunciation);if(!saved)return;
+        const source=saved.sourceWord || saved.w,exists=hasPronunciation(source);
+        btn.disabled=true;
+        try { if(exists)removePronunciation(source);
+          else {const cue=await resolveSavedCue(saved);addPronunciation({word:source,phonetic:dict[source.toLowerCase()]?.ph || '',lesson:saved.lesson || '',cue:cue?.i,en:cue?.en || '',zh:cue?.zh || ''});}
+          renderList();collectionFeedback(listEl.querySelector(`[data-add-pronunciation="${CSS.escape(saved.w)}"]`),'读音本',!exists);
+        } catch {toast('操作失败，请重试');} finally {btn.disabled=false;}
+      });
+    });
+
     listEl.querySelectorAll("[data-del]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        toggleWord(btn.dataset.del, "");
-        items = items.filter((x) => x.word !== btn.dataset.del);
-        renderAll();
-        toast("已移出生词本");
+        const word=btn.dataset.del;
+        removeWithAnimation(btn.closest('.wl-row'),'生词本',()=>{
+          if(state.words.some(item=>item.w===word))toggleWord(word, "");
+          items = items.filter((x) => x.word !== word);
+          renderAll();
+        });
       });
     });
   }

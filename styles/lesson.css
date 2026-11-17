@@ -305,7 +305,8 @@
 }
 /* ---------------------------------------------------------------- 词卡 */
 .wc { color: var(--text); }
-.wc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.wc-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.wc-head > div:first-child { min-width: 0; overflow-wrap: anywhere; }
 .wc-word { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; }
 .wc-ph { margin: 4px 0 0; font-size: 14px; color: var(--muted); font-family: var(--mono); }
 .wc-tts {
@@ -321,10 +322,6 @@
 .wc-context-actions { display: flex; align-items: center; gap: 8px; margin: 12px 0 20px; }
 .modal-foot .btn.word-saved { --btn-bg: #c94343; --btn-fg: #fff; }
 .modal-foot .btn.word-saved:hover { --btn-bg: #aa3333; }
-.word-saved-animation { animation: word-saved-pulse 240ms ease-out; }
-@keyframes word-saved-pulse {
-  50% { transform: scale(1.08); }
-}
 .wc-defs { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
 .wc-defs li { font-size: 14.5px; line-height: 1.55; color: var(--text-2); }
 .wc-defs li em { font-style: normal; font-size: 11px; color: var(--muted); margin-right: 7px; font-family: var(--mono); }
@@ -382,7 +379,7 @@
 .wc-family { margin-top:12px; white-space:pre-wrap; color:var(--text-2); font-size:13px; line-height:1.75; }
 .wc-family:empty { display:none; }
 
-.wc-sentence-actions { display: flex; align-items: center; gap: 8px; margin-top: 12px; }
+.wc-sentence-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
 .wc-sentence-explanation { margin-top: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.75; color: var(--text-2); }
 
 .wc-sentence-chat { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -406,7 +403,17 @@
 .wc-save-form select { max-width: 100%; padding: 7px 9px; border: 0; border-radius: 8px; color: var(--text); background: var(--fill); font: inherit; }
 .wc-save-form small { color: var(--muted); }
 
-.wc-head-actions { display: flex; align-items: flex-start; gap: 8px; flex-shrink: 0; }
+.wc-head-actions { display: flex; flex-wrap: nowrap; align-items: flex-start; justify-content: flex-end; gap: 6px; max-width: 100%; }
+.wc-head:has(.wc-head-actions) { display: grid; grid-template-columns: minmax(0, 1fr); }
+.wc-head-actions { width: min(100%, 336px); justify-content: flex-start; }
+.wc-head-actions .collection-btn { flex: 1 1 0; width: auto; min-width: 0; height: 34px; padding: 0 5px; gap: 4px; font-size: 12px; }
+.wc-head-actions .collection-btn svg { flex: none; width: 16px; height: 16px; stroke-width: 2.2; }
+.collection-usage, .wc-head-actions .collection-usage { background: #ffb12e; color: #291900; }
+.collection-usage:hover, .wc-head-actions .collection-usage:hover { background: #f19e16; color: #291900; }
+.collection-pronunciation, .wc-head-actions .collection-pronunciation { background: #bba3f5; color: #201237; }
+.collection-pronunciation:hover, .wc-head-actions .collection-pronunciation:hover { background: #a98de9; color: #201237; }
+.wc-head-actions .collection-usage[aria-pressed="true"], .wc-head-actions .collection-pronunciation[aria-pressed="true"] { background: #b83d40; color: #fff; }
 .wc-head-actions .btn.word-saved { background: #b83d40; color: #fff; }
 .wc-head-actions .btn.word-saved:hover { background: #982f33; }
-@media (max-width: 480px) { .wc-head { flex-wrap: wrap; } }
+@media (max-width: 480px) { .wc-head-actions { width: 100%; } }
+@media (max-width: 350px) { .wc-head-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); } .wc-head-actions .wc-tts { grid-column: 1 / -1; } .wc-head-actions .collection-btn { width: 100%; } }

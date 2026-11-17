@@ -1,6 +1,7 @@
 /* EchoLab — 通用 UI 工具 */
 
 const ICONS = {
+  plus: '<path d="M12 5v14M5 12h14"/>',
   play: '<path d="M8 5.5v13l11-6.5-11-6.5Z" fill="currentColor" stroke="none"/>',
   pause: '<rect x="7" y="5" width="3.4" height="14" rx="1.2" fill="currentColor" stroke="none"/><rect x="13.6" y="5" width="3.4" height="14" rx="1.2" fill="currentColor" stroke="none"/>',
   prev: '<path d="M18 6v12L9 12l9-6Z" fill="currentColor" stroke="none"/><rect x="5" y="5.5" width="2.4" height="13" rx="1" fill="currentColor" stroke="none"/>',
@@ -84,6 +85,24 @@ export function toast(msg, ms = 2200) {
   el.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => el.classList.remove("show"), ms);
+}
+
+export function collectionFeedback(button, book, added) {
+  if (button) {
+    button.classList.remove('collection-feedback');
+    void button.offsetWidth;
+    button.classList.add('collection-feedback');
+  }
+  toast(`${added ? '已加入' : '已移出'}${book}`);
+}
+
+export function removeWithAnimation(element, book, remove) {
+  if (!element || element.dataset.removing === '1') return;
+  element.dataset.removing = '1';
+  element.classList.add('collection-removing');
+  toast(`已移出${book}`);
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) remove(); else setTimeout(remove, 180);
 }
 
 /* ---------------------------------------------------------------- modal */

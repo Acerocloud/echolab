@@ -1,20 +1,20 @@
 /* Cloud data format: learning records only. Device settings and API keys stay local. */
-const fields = ['lessons', 'words', 'stars', 'days', 'total', 'wordExplanations', 'wordFamilies'];
-const defaults = { lessons: {}, words: [], stars: [], days: {}, total: { seconds: 0, passed: 0 }, wordExplanations: {}, wordFamilies: {} };
+const fields = ['lessons', 'words', 'usages', 'pronunciations', 'subtitleEdits', 'stars', 'days', 'total', 'wordExplanations', 'wordFamilies'];
+const defaults = { lessons: {}, words: [], usages: [], pronunciations: [], subtitleEdits: {}, stars: [], days: {}, total: { seconds: 0, passed: 0 }, wordExplanations: {}, wordFamilies: {} };
 const clone = value => JSON.parse(JSON.stringify(value));
 
 export function learningSnapshot(state) {
   const data = {};
   for (const key of fields) data[key] = clone(state[key] ?? defaults[key]);
-  return { format: 'echolab-learning', version: 1, data };
+  return { format: 'echolab-learning', version: 4, data };
 }
 
 export function validateSnapshot(snapshot) {
-  if (!snapshot || snapshot.format !== 'echolab-learning' || snapshot.version !== 1 || !snapshot.data || typeof snapshot.data !== 'object' || Array.isArray(snapshot.data)) throw new Error('云端记录格式不受支持');
+  if (!snapshot || snapshot.format !== 'echolab-learning' || ![1, 2, 3, 4].includes(snapshot.version) || !snapshot.data || typeof snapshot.data !== 'object' || Array.isArray(snapshot.data)) throw new Error('云端记录格式不受支持');
   const data = snapshot.data;
   for (const key of fields) {
     if (!(key in data)) continue;
-    if (key === 'words' || key === 'stars') {
+    if (key === 'words' || key === 'usages' || key === 'pronunciations' || key === 'stars') {
       if (!Array.isArray(data[key])) throw new Error('云端记录格式不正确');
     } else if (!data[key] || typeof data[key] !== 'object' || Array.isArray(data[key])) throw new Error('云端记录格式不正确');
   }
