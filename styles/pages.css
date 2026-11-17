@@ -190,7 +190,7 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1);
 }
-.switch.on { background: var(--green); }
+.switch.on { background: #34c759; }
 .switch.on i { transform: translateX(18px); }
 
 .seg {
