@@ -105,11 +105,10 @@ export async function chat(messages, { temperature = 1, maxTokens = 2000 } = {})
   const choice = data?.choices?.[0] || {};
   const msg = choice.message || {};
   const content = msg.content || "";
-  if (content) return content;
-
   if (choice.finish_reason === "length") {
-    throw new Error("输出被截断了：模型把额度花在思考上。把生成数量调小，或换一个轻量模型（名字里带 flash / haiku 的）");
+    throw new Error("AI 输出因长度限制被截断，请重试或换一个模型。");
   }
+  if (content) return content;
   if (msg.reasoning_content) {
     throw new Error("模型只返回了思考过程、没有正文。换一个轻量模型（名字里带 flash / haiku 的）再试");
   }

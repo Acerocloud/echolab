@@ -1,6 +1,7 @@
 /* EchoLab — 路由与外壳 */
 
-import { applyTheme } from "./store.js";
+import { applyTheme, state, save } from "./store.js";
+import { cleanWords } from "./word-normalize.js";
 import { icon, esc, openModal, isModalOpen, toast } from "./ui.js";
 import { checkForUpdate } from "./update.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
@@ -17,8 +18,8 @@ const routes = [
 ];
 
 // Pointer focus should not leave a keyboard focus ring behind.
-document.addEventListener("pointerdown", () => { document.documentElement.dataset.inputMode = "pointer"; }, true);
-document.addEventListener("keydown", (event) => { if (event.key === "Tab") document.documentElement.dataset.inputMode = "keyboard"; }, true);
+document.addEventListener("pointerdown", () => { if (document.documentElement.dataset.inputMode !== "pointer") document.documentElement.dataset.inputMode = "pointer"; }, true);
+document.addEventListener("keydown", (event) => { if (event.key === "Tab" && document.documentElement.dataset.inputMode !== "keyboard") document.documentElement.dataset.inputMode = "keyboard"; }, true);
 
 const root = document.getElementById("view");
 let cleanup = null;
@@ -96,7 +97,22 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("hashchange", render);
 
 applyTheme();
-render();
+async function prepareWords() {
+  if (!state.words.length || localStorage.getItem("echolab.word-cleanup.v1")) return;
+  try {
+    const [inflections, families, dict] = await Promise.all(["inflections", "word-families", "dict"].map(async name => {
+      const response = await fetch(`content/${name}.json`);
+      if (!response.ok) throw new Error("词典加载失败");
+      return response.json();
+    }));
+    const result = cleanWords(state.words, inflections, families, dict);
+    localStorage.setItem("echolab.word-cleanup.backup.v1", JSON.stringify({ time: Date.now(), words: state.words }));
+    state.words = result.words;
+    save(true);
+    localStorage.setItem("echolab.word-cleanup.v1", JSON.stringify({ changed: result.changed, merged: result.merged, uncertain: result.uncertain }));
+  } catch (error) { console.warn("生词清洗未执行", error); }
+}
+prepareWords().then(render);
 checkForUpdate().then((update) => {
   if (update.available && location.hash !== "#/settings") toast(`EchoLab v${update.latest} 已发布，可在设置中更新。`);
 }).catch(() => {});

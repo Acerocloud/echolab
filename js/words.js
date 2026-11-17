@@ -1,9 +1,11 @@
 /* EchoLab — 生词本（AI 造句复习） */
 
 import { state, dueWords, setWordMastered, toggleWord } from "./store.js";
-import { icon, esc, toast } from "./ui.js";
+import { icon, esc, toast, openModal } from "./ui.js";
 import { generateSentences, hasAI } from "./ai.js";
 import { explanationKey } from "./word-explanations.js";
+import { mountSelect } from "./select-menu.js";
+import { getLesson } from "./data.js";
 
 export const meta = { title: "生词本" };
 
@@ -90,6 +92,7 @@ export async function render(root) {
         <h2>全部生词</h2>
         <span class="muted small" id="wlCount"></span>
       </div>
+      <p class="muted small" id="cleanupInfo" hidden></p>
       <div id="wordList"></div>
     </section>
   `;
@@ -100,7 +103,19 @@ export async function render(root) {
   const countEl = root.querySelector("#wlCount");
   const genBtn = root.querySelector("#genBtn");
   const genCount = root.querySelector("#genCount");
+  const cleanupCountSelect = mountSelect(genCount);
   const genHint = root.querySelector("#genHint");
+
+  try {
+    const report = JSON.parse(localStorage.getItem("echolab.word-cleanup.v1") || "null");
+    const backup = JSON.parse(localStorage.getItem("echolab.word-cleanup.backup.v1") || "null");
+    if (report && Array.isArray(backup?.words)) {
+      const info = root.querySelector("#cleanupInfo");
+      info.hidden = false;
+      info.textContent = `已还原 ${report.changed} 个词形，合并 ${report.merged} 个重复项；${report.uncertain} 个词形因词性不确定保留原样。`;
+
+    }
+  } catch (error) { console.warn("生词备份读取失败", error); }
 
   /* ---------------------------------------------------------------- 卡片 */
   function renderCard() {
@@ -244,6 +259,30 @@ export async function render(root) {
     }
   }
 
+  async function openSavedWord(word) {
+    const saved = state.words.find(item => item.w === word);
+    if (!saved) return;
+    const entry = dict[word] || dict[lemmaOf(word) || ""] || null;
+    let cue = saved.en ? { i: saved.cue, en: saved.en, zh: saved.zh } : null;
+    if (!cue && saved.lesson && Number.isInteger(saved.cue)) {
+      try { cue = (await getLesson(saved.lesson)).cues[saved.cue] || null; } catch { /* 课程不可用时仍显示词典释义 */ }
+    }
+    const sourceWord = saved.sourceWord || saved.w;
+    const explanation = cue && state.wordExplanations?.[explanationKey(saved.lesson, cue, sourceWord)];
+    const definitions = entry?.defs?.length
+      ? `<ul class="wc-defs">${entry.defs.map(def => `<li>${def.pos ? `<em>${esc(def.pos)}</em>` : ""}${esc(def.zh)}</li>`).join("")}</ul>`
+      : `<p class="muted">本地词典暂无释义${explanation ? "，下方显示已保存的解释。" : "。"}</p>`;
+    openModal({
+      title: "",
+      body: `<div class="wc"><div class="wc-head"><div><h2 class="wc-word">${esc(word)}</h2>${entry?.ph ? `<p class="wc-ph">/${esc(entry.ph)}/</p>` : ""}${sourceWord !== word ? `<p class="wc-form">原句词形 · ${esc(sourceWord)}</p>` : ""}</div><button class="wc-tts" data-word-speak aria-label="播放单词发音">${icon("volume", 17)}</button></div>
+        <div class="wc-dictionary"><h3>词典释义</h3>${definitions}</div>
+        ${explanation ? `<div class="wc-context"><strong>已保存的本句解释</strong><p>${esc(explanation)}</p></div>` : ""}
+        ${cue?.en ? `<div class="wc-quote"><p class="wc-en">${esc(cue.en)}</p>${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}</div>`,
+      actions: [{ label: "关闭", primary: true }],
+    });
+    document.querySelector("#layer [data-word-speak]")?.addEventListener("click", () => speak(word, 0.85));
+  }
+
   /* ---------------------------------------------------------------- 词表 */
   function renderList() {
     const words = state.words;
@@ -258,13 +297,17 @@ export async function render(root) {
       .sort((a, b) => Number(a.mastered) - Number(b.mastered) || (b.t || 0) - (a.t || 0))
       .map((w) => `
         <div class="wl-row${w.mastered ? " is-done" : ""}" data-w="${esc(w.w)}">
-          <div class="wl-main">
+          <button class="wl-main" type="button" data-word-details="${esc(w.w)}" aria-label="查看 ${esc(w.w)} 的解释">
             <b>${esc(w.w)}</b>
             <span>${esc(defOf(w.w) || "")}</span>
-          </div>
+          </button>
           <button class="wl-toggle" data-mastered="${esc(w.w)}">${w.mastered ? "已记住" : "复习中"}</button>
           <button class="mini icon-only" data-del="${esc(w.w)}" aria-label="删除">${icon("close", 13)}</button>
         </div>`).join("")}</div>`;
+
+    listEl.querySelectorAll("[data-word-details]").forEach((btn) => {
+      btn.addEventListener("click", () => void openSavedWord(btn.dataset.wordDetails));
+    });
 
     listEl.querySelectorAll("[data-mastered]").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -305,5 +348,5 @@ export async function render(root) {
   });
 
   renderAll();
-  return () => speechSynthesis?.cancel?.();
+  return () => { cleanupCountSelect(); speechSynthesis?.cancel?.(); };
 }

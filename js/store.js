@@ -53,19 +53,25 @@ function load() {
 export const state = load();
 
 let saveTimer = 0;
+function flushSave() {
+  clearTimeout(saveTimer);
+  saveTimer = 0;
+  try {
+    localStorage.setItem(KEY, JSON.stringify(state));
+    window.dispatchEvent(new Event('echolab:learning-saved'));
+  } catch (err) {
+    console.warn("save failed", err);
+  }
+}
 export function save(immediate = false) {
   clearTimeout(saveTimer);
-  const write = () => {
-    try {
-      localStorage.setItem(KEY, JSON.stringify(state));
-      window.dispatchEvent(new Event('echolab:learning-saved'));
-    } catch (err) {
-      console.warn("save failed", err);
-    }
-  };
-  if (immediate) write();
-  else saveTimer = setTimeout(write, 220);
+  if (immediate) flushSave();
+  else saveTimer = setTimeout(flushSave, 220);
 }
+window.addEventListener("pagehide", () => { if (saveTimer) flushSave(); });
+if (typeof document !== "undefined") document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden" && saveTimer) flushSave();
+});
 
 /* ---------------------------------------------------------------- 时间 */
 export function todayKey(d = new Date()) {

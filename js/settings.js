@@ -5,7 +5,8 @@ import { icon, esc, toast, openModal } from "./ui.js";
 import { testConnection, listModels, pickModel } from "./ai.js";
 import { ACTIONS, getKeys, keyLabel } from "./keys.js";
 import { checkForUpdate, installUpdate } from "./update.js";
-import { DEFAULT_WORD_PROMPT } from "./word-explanations.js";
+import { DEFAULT_WORD_PROMPT, DEFAULT_SENTENCE_PROMPT, sentencePrompt, wordPrompt as resolveWordPrompt } from "./word-explanations.js";
+import { mountSelect } from "./select-menu.js";
 import { mountDriveSettings } from "./drive-settings.js";
 
 export const meta = { title: "设置" };
@@ -64,11 +65,17 @@ export async function render(root) {
     </section>
 
     <section class="block">
-      <div class="block-head"><h2>AI 造句</h2><span class="muted small">OpenAI 兼容接口</span></div>
+      <div class="block-head"><h2>AI 设置</h2><span class="muted small">OpenAI 兼容接口</span></div>
       <div class="setting-row setting-prompt">
         <div><b>单词解释提示词</b><span>生成词卡的本句解释时使用</span></div>
-        <textarea class="field" id="wordPrompt" rows="5" aria-label="单词解释提示词">${esc(state.settings.wordPrompt || DEFAULT_WORD_PROMPT)}</textarea>
+        <textarea class="field" id="wordPrompt" rows="1" aria-label="单词解释提示词">${esc(resolveWordPrompt(state.settings.wordPrompt))}</textarea>
         <button class="btn btn-plain btn-sm" id="resetWordPrompt">恢复默认</button>
+      </div>
+
+      <div class="setting-row setting-prompt">
+        <div><b>句子讲解提示词</b><span>生成整句详细讲解时使用</span></div>
+        <textarea class="field" id="sentencePrompt" rows="1" aria-label="句子讲解提示词">${esc(sentencePrompt(state.settings.sentencePrompt))}</textarea>
+        <button class="btn btn-plain btn-sm" id="resetSentencePrompt">恢复默认</button>
       </div>
 
       <div class="setting-row">
@@ -101,7 +108,7 @@ export async function render(root) {
       <div class="block-head"><h2>Google Drive</h2></div>
       <div class="setting-row">
         <div><b>云端学习记录</b><span id="driveStatus" role="status">正在检查连接…</span></div>
-        <div class="update-actions"><button class="btn btn-primary" id="driveConnect">使用 Google 登录</button><button class="btn btn-primary" id="driveSync" hidden>立即同步</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
+        <div class="update-actions"><button class="btn google-signin" id="driveConnect"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15z"/><path fill="#34A853" d="M24 44.5c5.5 0 10.2-1.8 13.5-5l-6.6-5.1c-1.8 1.2-4.1 1.9-6.9 1.9-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20.5 20.5 0 0 0 24 44.5z"/><path fill="#FBBC05" d="M12.6 27.9a12.3 12.3 0 0 1 0-7.8v-5.3H5.8a20.5 20.5 0 0 0 0 18.4l6.8-5.3z"/><path fill="#EA4335" d="M24 11.7c3 0 5.7 1 7.8 3l5.9-5.9A19.8 19.8 0 0 0 24 3.5 20.5 20.5 0 0 0 5.8 14.8l6.8 5.3c1.6-4.8 6.1-8.4 11.4-8.4z"/></svg><span>Google 登录</span></button><button class="btn btn-primary" id="driveSync" hidden>立即同步</button><button class="btn btn-plain" id="driveDisconnect" hidden>断开连接</button><button class="btn btn-plain" id="driveRecover" hidden>找回恢复前记录</button></div>
       </div>
       <p class="muted small">登录后自动同步学习进度、生词、收藏和单词解释；AI 密钥保留在本机。登录到期或重新打开页面后需要重新登录。</p>
       <p class="muted small">同步位置：Google Drive 的 EchoLab 隐藏应用数据区。</p>
@@ -133,6 +140,7 @@ export async function render(root) {
   `;
 
   const cleanupDrive = mountDriveSettings(root);
+  const cleanupModelSelect = mountSelect(root.querySelector("#aiModel"));
 
   /* 分段控件 */
   root.querySelectorAll(".seg[data-key]").forEach((seg) => {
@@ -206,14 +214,47 @@ export async function render(root) {
     });
   });
 
+  function resizePrompt(input) {
+    input.style.height = "auto";
+    input.style.height = `${input.scrollHeight}px`;
+  }
+  root.querySelectorAll(".setting-prompt textarea").forEach(input => {
+    input.addEventListener("input", () => resizePrompt(input));
+    resizePrompt(input);
+  });
+  const promptResizeObserver = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      const input = entry.target;
+      if (input.dataset.lastWidth !== String(entry.contentRect.width)) {
+        input.dataset.lastWidth = String(entry.contentRect.width);
+        resizePrompt(input);
+      }
+    }
+  });
+  root.querySelectorAll(".setting-prompt textarea").forEach(input => promptResizeObserver.observe(input));
+
   const wordPrompt = root.querySelector("#wordPrompt");
   wordPrompt.addEventListener("change", () => {
     setSetting("wordPrompt", wordPrompt.value.trim() || DEFAULT_WORD_PROMPT);
     wordPrompt.value = state.settings.wordPrompt;
+    resizePrompt(wordPrompt);
   });
   root.querySelector("#resetWordPrompt").addEventListener("click", () => {
     wordPrompt.value = DEFAULT_WORD_PROMPT;
     setSetting("wordPrompt", DEFAULT_WORD_PROMPT);
+    resizePrompt(wordPrompt);
+  });
+
+  const sentencePromptInput = root.querySelector("#sentencePrompt");
+  sentencePromptInput.addEventListener("change", () => {
+    setSetting("sentencePrompt", sentencePromptInput.value.trim() || DEFAULT_SENTENCE_PROMPT);
+    sentencePromptInput.value = state.settings.sentencePrompt;
+    resizePrompt(sentencePromptInput);
+  });
+  root.querySelector("#resetSentencePrompt").addEventListener("click", () => {
+    sentencePromptInput.value = DEFAULT_SENTENCE_PROMPT;
+    setSetting("sentencePrompt", DEFAULT_SENTENCE_PROMPT);
+    resizePrompt(sentencePromptInput);
   });
 
   function saveModel(model) {
@@ -321,5 +362,5 @@ export async function render(root) {
   });
   showUpdate();
 
-  return () => cleanupDrive();
+  return () => { promptResizeObserver.disconnect(); cleanupModelSelect(); cleanupDrive(); };
 }

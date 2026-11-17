@@ -20,8 +20,15 @@
 .page-sub { margin: 0; color: var(--muted); font-size: 14px; }
 .small { font-size: 12px; }
 .update-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.setting-prompt { flex-wrap: wrap; }
-.setting-prompt textarea { width: min(100%, 480px); height: auto; min-height: 110px; resize: vertical; }
+.setting-row.setting-prompt { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(0, 480px) minmax(88px, 1fr); gap: 16px; align-items: center; }
+.setting-prompt textarea { width: 100%; height: auto; min-height: 46px; padding: 12px 14px; font: 14px/1.6 var(--font); resize: none; overflow-y: hidden; }
+.setting-prompt > button { justify-self: end; }
+@media (max-width: 720px) {
+  .setting-row.setting-prompt { grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+  .setting-prompt > div:first-child { grid-column: 1 / -1; }
+  .setting-prompt textarea { grid-column: 1 / -1; }
+  .setting-prompt > button { grid-column: 2; }
+}
 
 /* ---------------------------------------------------------------- 统计 */
 .stat-grid {
@@ -480,3 +487,20 @@
 .ai-model { display: flex; align-items: center; gap: 8px; }
 .ai-model .field { width: 260px; padding-right: 8px; }
 select.field { cursor: pointer; }
+
+button.wl-main { border: 0; padding: 4px 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+button.wl-main:hover b { color: var(--accent); }
+
+/* 设置页输入控件 */
+.setting-row.setting-prompt textarea { border-radius: 18px; }
+.setting-row input.field, .setting-row select.field { border-radius: 999px; }
+.ai-model select.field {
+  appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f2f0ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.google-signin { background: #fff; color: #1f1f1f; gap: 10px; }
+.google-signin:hover { background: #f2f2f2; color: #1f1f1f; }
+.google-signin span { color: inherit; font-size: inherit; }

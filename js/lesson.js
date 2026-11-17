@@ -11,9 +11,11 @@ import {
 import { createShadowPanel } from "./shadow-panel.js";
 import { ACTIONS, getKeys, setKey, resetKeys, keyLabel, normalize, matchKey } from "./keys.js";
 import { chat, hasAI } from "./ai.js";
-import { DEFAULT_WORD_PROMPT, explanationKey, cleanExplanation } from "./word-explanations.js";
+import { wordPrompt, sentencePrompt, explanationKey, cleanExplanation } from "./word-explanations.js";
 import { closeModal } from "./ui.js";
 import { findWordForms, formatWordFamily } from "./word-forms.js";
+import { mountSelect } from "./select-menu.js";
+import { wordOptions } from "./word-normalize.js";
 
 export const meta = { title: "课程" };
 
@@ -254,9 +256,20 @@ export async function render(root, [id]) {
   const relTime = () => {
     const p = pendingSeek;
     if (!p) return rawTime();
-    if (seekLanded(p) || performance.now() - p.at > 4000) {
+    if (seekLanded(p)) {
       pendingSeek = null;
       return rawTime();
+    }
+    // 暂停状态下播放器可能一直报告跳转前的时间；不要因此覆盖已保存的句子。
+    // 播放后给播放器时间推进到目标位置，避免关键帧定位稍早时立即回退。
+    if (isPlaying()) {
+      p.playingAt ??= performance.now();
+      if (performance.now() - p.playingAt > 8000) {
+        pendingSeek = null;
+        return rawTime();
+      }
+    } else {
+      p.playingAt = null;
     }
     return p.target;
   };
@@ -321,13 +334,13 @@ export async function render(root, [id]) {
         iv_load_policy: 3,
         cc_load_policy: 0,
         hl: "en",
-        start: Math.max(0, Math.floor(offset)),
+        start: Math.max(0, Math.floor(offset + (cues[current]?.s || 0))),
       },
       events: {
         onReady: () => {
           playerReady = true;
           killYouTubeCaptions();
-          seekRel(cues[current]?.s || 0);
+          seekRel(cues[current]?.s || 0, current);
           setActive(current, { force: true });
           if (mode === "shadow" && !shadowCtl) setMode("shadow", { cue: current });
         },
@@ -377,7 +390,7 @@ export async function render(root, [id]) {
     return `<li class="line" data-i="${c.i}" data-s="${c.s}" data-e="${c.e}">
       <button type="button" class="line-n mono" aria-label="播放 ${fmtTime(c.s)}">${fmtTime(c.s)}</button>
       <div class="line-body">
-        <p class="line-en">${tokenize(c.en, savedSet)}</p>
+        <p class="line-en">${esc(c.en)}</p>
         ${c.zh ? `<p class="line-zh">${esc(c.zh)}</p>` : ""}
       </div>
       <div class="line-tools">
@@ -385,6 +398,33 @@ export async function render(root, [id]) {
         <button class="mini icon-only" data-act="copy" aria-label="复制英文字幕" title="复制英文字幕">${icon("copy", 14)}</button>
       </div>
     </li>`;
+  }
+
+  // 保留所有字幕行的真实高度，仅为视口附近的行创建逐词节点。
+  // 这样远距离恢复滚动不依赖估算高度，也不会常驻上万个单词节点。
+  let tokenObserver = null;
+  function setLineTokens(node, enabled) {
+    const en = node.querySelector(".line-en");
+    if (!en || (en.dataset.tokenized === "1") === enabled) return;
+    if (!enabled) {
+      const selection = window.getSelection();
+      if (selection && !selection.isCollapsed && selection.rangeCount && selection.getRangeAt(0).intersectsNode(en)) return;
+    }
+    const cue = cues[Number(node.dataset.i)];
+    if (!cue) return;
+    if (enabled) en.innerHTML = tokenize(cue.en, savedSet);
+    else en.textContent = cue.en;
+    en.dataset.tokenized = enabled ? "1" : "0";
+  }
+  function startTokenObserver() {
+    if (!("IntersectionObserver" in window)) {
+      lineNodes.forEach(node => setLineTokens(node, true));
+      return;
+    }
+    tokenObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) setLineTokens(entry.target, entry.isIntersecting);
+    }, { root: linesEl, rootMargin: "800px 0px" });
+    lineNodes.forEach(node => tokenObserver.observe(node));
   }
 
   function applySubPrefs() {
@@ -409,8 +449,9 @@ export async function render(root, [id]) {
   function setActive(i, { scroll = true, force = false } = {}) {
     if (i < 0 || i >= cues.length) return;
     const changed = i !== current || force;
+    linesEl.querySelector(".line.active")?.classList.remove("active");
     current = i;
-    lineNodes.forEach((n) => n.classList.toggle("active", Number(n.dataset.i) === i));
+    lineNodes[i]?.classList.add("active");
     panelPos.textContent = `${i + 1} / ${cues.length}`;
     if (scroll && changed && mode === "listen") {
       const node = lineNodes[i];
@@ -419,7 +460,7 @@ export async function render(root, [id]) {
         const nr = node.getBoundingClientRect();
         const delta = nr.top - lr.top - (linesEl.clientHeight - nr.height) / 2;
         if (Math.abs(delta) > 8) {
-          linesEl.scrollTo({ top: linesEl.scrollTop + delta, behavior: force ? "auto" : "smooth" });
+          linesEl.scrollTo({ top: linesEl.scrollTop + delta, behavior: force ? "instant" : "smooth" });
         }
       }
     }
@@ -520,8 +561,9 @@ export async function render(root, [id]) {
         startCue: current,
         savedSet,
         onChangeCue: (i) => {
+          linesEl.querySelector(".line.active")?.classList.remove("active");
           current = i;
-          lineNodes.forEach((n) => n.classList.toggle("active", Number(n.dataset.i) === i));
+          lineNodes[i]?.classList.add("active");
           panelPos.textContent = `${i + 1} / ${cues.length}`;
           syncHash();
         },
@@ -532,7 +574,7 @@ export async function render(root, [id]) {
       current = shadowCtl?.cue ?? current;
       shadowCtl?.destroy();
       shadowCtl = null;
-      seekRel(cues[current]?.s || 0);
+      seekRel(cues[current]?.s || 0, current);
       setActive(current, { force: true });
       history.replaceState(null, "", `#/lesson/${id}`);
     }
@@ -727,15 +769,19 @@ export async function render(root, [id]) {
 
   /* ---------------------------------------------------------------- 词卡 */
   async function openWordCard(word, cue, anchor) {
-    const [dict, glosses, inflections] = await Promise.all([getDict(), getGlosses(), getInflections()]);
+    const [dict, glosses, inflections, families] = await Promise.all([getDict(), getGlosses(), getInflections(), getWordFamilies().catch(() => null)]);
     const form = inflections[word.toLowerCase()];
     const entry = dict[word] || dict[form?.base] || dict[word.replace(/['’]s$/, "")] || null;
     const labels = form ? [["s", "名词复数"], ["3", "动词第三人称单数"], ["i", "现在分词"], ["p", "过去式"], ["d", "过去分词"]].filter(([key]) => form.forms[key] === word.toLowerCase()).map(([, label]) => label) : [];
     const isPhrase = /\s/.test(word);
     const wordForms = isPhrase ? null : findWordForms(word, entry, inflections);
+    const saveOptions = isPhrase ? [{ word, label: word }] : (families ? wordOptions(word, inflections, families) : [{ word, label: word }]);
+    const initialSaveWord = saveOptions[0].word;
     const gloss = glosses[id]?.[cue?.i]?.[word] || glosses[id]?.[word] || null;
     const cacheKey = explanationKey(id, cue, word);
     const cached = state.wordExplanations?.[cacheKey];
+    const sentenceKey = JSON.stringify([id, cue?.i, cue?.en]);
+    const sentenceCached = state.sentenceExplanations?.[sentenceKey] || "";
 
     const defs = entry?.defs?.length
       ? entry.defs.map((d) => `<li>${d.pos ? `<em>${esc(d.pos)}</em>` : ""}${esc(d.zh)}</li>`).join("")
@@ -753,27 +799,42 @@ export async function render(root, [id]) {
           </div>
           <button class="wc-tts" data-tts aria-label="发音">${icon("volume", 17)}</button>
         </div>
+        ${saveOptions.length > 1 || initialSaveWord !== word ? `<div class="wc-save-form"><label for="wcSaveForm">保存到生词本</label><select id="wcSaveForm" aria-label="选择保存词形">${saveOptions.length > 1 ? '<option value="" selected>请选择本句词性</option>' : ""}${saveOptions.map(option => `<option value="${esc(option.word)}">${esc(option.label)}</option>`).join("")}</select><small>请根据句中的词性选择</small></div>` : ""}
         ${id === "muse-launch" && gloss ? `<p class="wc-context"><strong>本句释义</strong>　${esc(gloss.zh)}</p>` : ""}
         ${(id === "muse-launch" || isPhrase) && !gloss ? `<p class="wc-context" data-context>${cached ? esc(cached) : "本句释义尚未生成"}</p><div class="wc-context-actions"><button class="btn btn-plain btn-sm" data-context-generate>${cached ? "重新生成" : "生成本句解释"}</button><button class="icon-btn" data-context-settings aria-label="设置单词解释提示词" title="设置单词解释提示词">${icon("gear", 17)}</button></div>` : ""}
         ${!isPhrase || entry ? `<div class="wc-dictionary"><h3>词典释义</h3><ul class="wc-defs">${defs}</ul></div>` : ""}
         ${wordForms ? `<div class="wc-forms"><button class="btn btn-plain btn-sm" data-word-forms aria-expanded="false">查看其他词形</button><div class="wc-forms-body" data-forms-body hidden><p class="wc-forms-title">原词 · ${esc(wordForms.base)}</p>${wordForms.forms.length ? `<dl class="wc-forms-list">${wordForms.forms.map(item=>`<div><dt>${esc(item.label)}</dt><dd>${esc(item.word)}</dd></div>`).join("")}</dl>` : '<p class="muted small">词典暂无其他屈折形式。</p>'}<div class="wc-family" data-family-output></div></div></div>` : ""}
         ${cue ? `<div class="wc-quote"><p class="wc-en">${highlight(cue.en, word)}</p>
-          ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}</div>` : ""}
+          ${cue.zh ? `<p class="wc-zh">${esc(cue.zh)}</p>` : ""}
+          <div class="wc-sentence-actions"><button class="btn btn-plain btn-sm" data-sentence-generate>${sentenceCached ? "重新讲解这句" : "AI 讲解这句"}</button><button class="icon-btn" data-sentence-settings aria-label="设置句子讲解提示词" title="设置句子讲解提示词">${icon("gear", 17)}</button></div>
+          <div class="wc-sentence-explanation" data-sentence-output role="status" ${sentenceCached ? "" : "hidden"}>${esc(sentenceCached)}</div>
+          <div class="wc-sentence-chat">
+            <h3>针对这句提问</h3>
+            <div class="wc-chat-history" data-chat-history aria-live="polite"></div>
+            <form class="wc-chat-form" data-chat-form>
+              <textarea data-chat-input aria-label="针对这句提问" placeholder="例如：这里的 it 指什么？" rows="1" maxlength="3000"></textarea>
+              <button class="btn btn-primary btn-sm" type="submit">发送</button>
+            </form>
+            <p class="wc-chat-status" data-chat-status role="status"></p>
+          </div></div>` : ""}
         ${gloss ? `<div class="wc-why"><h3>翻译说明</h3><p>${esc(gloss.why)}</p></div>` : ""}
       </div>`,
       actions: [
         { label: "关闭" },
         {
-          label: hasWord(word) ? "移出生词本" : "加入生词本",
+          label: hasWord(initialSaveWord) ? "移出生词本" : "加入生词本",
           primary: true,
           onClick: (button) => {
-            const added = toggleWord(word, id);
-            if (added && isPhrase) {
-              const saved = state.words.find((item) => item.w === word.toLowerCase());
-              if (saved) { saved.cue = cue?.i; saved.en = cue?.en; saved.zh = cue?.zh; save(true); }
+            const select = document.getElementById("layer").querySelector("#wcSaveForm");
+            if (select && !select.value) { toast("请选择本句的词性和保存词形"); (select.nextElementSibling || select).focus(); return true; }
+            const saveWord = select?.value || initialSaveWord;
+            const added = toggleWord(saveWord, id);
+            if (added) {
+              const saved = state.words.find((item) => item.w === saveWord);
+              if (saved) { saved.cue = cue?.i; saved.en = cue?.en; saved.zh = cue?.zh; saved.sourceWord = word.toLowerCase(); save(true); }
             }
-            if (added) savedSet.add(word);
-            else savedSet.delete(word);
+            if (added) { savedSet.add(saveWord); savedSet.add(word); }
+            else { savedSet.delete(saveWord); savedSet.delete(word); }
             root.querySelectorAll(`.tok[data-w="${CSS.escape(word)}"]`)
               .forEach((n) => n.classList.toggle("saved", added));
             toast(added ? `已加入生词本` : `已移出`);
@@ -791,7 +852,22 @@ export async function render(root, [id]) {
     document.getElementById("layer").querySelector("[data-tts]")
       ?.addEventListener("click", () => speak(word));
     const layer = document.getElementById("layer");
-    layer.querySelector(".modal-foot .btn-primary")?.classList.toggle("word-saved", hasWord(word));
+    const savedButton = layer.querySelector(".modal-foot .btn-primary");
+    const wordActions = document.createElement("div");
+    wordActions.className = "wc-head-actions";
+    const ttsButton = layer.querySelector(".wc-head .wc-tts");
+    ttsButton.before(wordActions);
+    wordActions.append(ttsButton, savedButton);
+    function updateSaveButton() {
+      const select = layer.querySelector("#wcSaveForm");
+      const selected = select ? select.value : initialSaveWord;
+      const saved = selected && hasWord(selected);
+      savedButton?.classList.toggle("word-saved", saved);
+      if (savedButton) savedButton.textContent = saved ? "移出生词本" : "加入生词本";
+    }
+    updateSaveButton();
+    layer.querySelector("#wcSaveForm")?.addEventListener("change", updateSaveButton);
+    mountSelect(layer.querySelector("#wcSaveForm"));
     const formsButton = layer.querySelector('[data-word-forms]');
     const formsBody = layer.querySelector('[data-forms-body]');
     const familyOutput = layer.querySelector('[data-family-output]');
@@ -812,6 +888,112 @@ export async function render(root, [id]) {
         if (familyOutput.isConnected) familyOutput.textContent = '本地词族词典暂时无法读取，请收起后重试。';
       }
     });
+    const sentenceGenerate = layer.querySelector("[data-sentence-generate]");
+    const sentenceOutput = layer.querySelector("[data-sentence-output]");
+    layer.querySelector("[data-sentence-settings]")?.addEventListener("click", () => {
+      closeModal();
+      location.hash = "#/settings";
+    });
+    sentenceGenerate?.addEventListener("click", async () => {
+      sentenceOutput.hidden = false;
+      if (!hasAI()) {
+        sentenceOutput.textContent = "请先在设置中配置 AI 接口和模型。";
+        return;
+      }
+      sentenceGenerate.disabled = true;
+      sentenceOutput.textContent = "正在讲解这句话…";
+      try {
+        const result = await chat([
+          { role: "system", content: sentencePrompt(state.settings.sentencePrompt) },
+          { role: "user", content: JSON.stringify({ sentence: cue.en, translation: cue.zh || "" }) },
+        ], { temperature: 0.4, maxTokens: 4096 });
+        const explanation = cleanExplanation(result);
+        if (!explanation) throw new Error("接口没有返回讲解");
+        state.sentenceExplanations ||= {};
+        state.sentenceExplanations[sentenceKey] = explanation;
+        save(true);
+        if (sentenceOutput.isConnected) {
+          sentenceOutput.textContent = explanation;
+          sentenceGenerate.textContent = "重新讲解这句";
+          sentenceOutput.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+      } catch (error) {
+        if (sentenceOutput.isConnected) sentenceOutput.textContent = `讲解失败：${error.message}`;
+      } finally {
+        if (sentenceGenerate.isConnected) sentenceGenerate.disabled = false;
+      }
+    });
+    const chatForm = layer.querySelector("[data-chat-form]");
+    const chatInput = layer.querySelector("[data-chat-input]");
+    const chatHistory = layer.querySelector("[data-chat-history]");
+    const chatStatus = layer.querySelector("[data-chat-status]");
+    const conversation = Array.isArray(state.sentenceChats?.[sentenceKey])
+      ? state.sentenceChats[sentenceKey].filter(item => item && (item.role === "user" || item.role === "assistant") && typeof item.content === "string")
+      : [];
+    function addChatMessage(role, content) {
+      const item = document.createElement("div");
+      item.className = `wc-chat-message ${role === "user" ? "is-user" : "is-assistant"}`;
+      const label = document.createElement("b");
+      label.textContent = role === "user" ? "你" : "AI";
+      const text = document.createElement("p");
+      text.textContent = content;
+      item.append(label, text);
+      chatHistory.appendChild(item);
+    }
+    conversation.forEach(item => addChatMessage(item.role, item.content));
+    function resizeChatInput() {
+      if (!chatInput) return;
+      chatInput.style.height = "auto";
+      chatInput.style.height = `${Math.min(chatInput.scrollHeight, 180)}px`;
+      chatInput.style.overflowY = chatInput.scrollHeight > 180 ? "auto" : "hidden";
+    }
+    chatInput?.addEventListener("input", resizeChatInput);
+    resizeChatInput();
+    chatInput?.addEventListener("keydown", event => {
+      if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+        event.preventDefault();
+        chatForm.requestSubmit();
+      }
+    });
+    chatForm?.addEventListener("submit", async event => {
+      event.preventDefault();
+      const question = chatInput.value.trim();
+      if (!question) return;
+      if (!hasAI()) {
+        chatStatus.textContent = "请先在设置中配置 AI 接口和模型。";
+        return;
+      }
+      const button = chatForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      chatInput.disabled = true;
+      chatStatus.textContent = "正在回答…";
+      try {
+        const context = { sentence: cue.en, translation: cue.zh || "", explanation: state.sentenceExplanations?.[sentenceKey] || "" };
+        const answer = cleanExplanation(await chat([
+          { role: "system", content: sentencePrompt(state.settings.sentencePrompt) + "\n请针对学习者的问题回答，可以结合此前对话，不要重复整段讲解。" },
+          { role: "user", content: "当前句子及已有讲解：" + JSON.stringify(context) },
+          ...conversation.slice(-20).map(({ role, content }) => ({ role, content })),
+          { role: "user", content: question },
+        ], { temperature: 0.4, maxTokens: 4096 }));
+        if (!answer) throw new Error("接口没有返回回答");
+        conversation.push({ role: "user", content: question }, { role: "assistant", content: answer });
+        state.sentenceChats ||= {};
+        state.sentenceChats[sentenceKey] = conversation;
+        save(true);
+        if (chatHistory.isConnected) {
+          addChatMessage("user", question);
+          addChatMessage("assistant", answer);
+          chatInput.value = "";
+          resizeChatInput();
+          chatStatus.textContent = "";
+          chatHistory.lastElementChild?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+      } catch (error) {
+        if (chatStatus.isConnected) chatStatus.textContent = `发送失败：${error.message}，请重试。`;
+      } finally {
+        if (chatInput.isConnected) { button.disabled = false; chatInput.disabled = false; }
+      }
+    });
     const generate = layer.querySelector("[data-context-generate]");
     layer.querySelector("[data-context-settings]")?.addEventListener("click", () => {
       closeModal();
@@ -827,7 +1009,7 @@ export async function render(root, [id]) {
       output.textContent = "正在结合上下文解释…";
       try {
         const explanation = await chat([
-          { role: "system", content: state.settings.wordPrompt || DEFAULT_WORD_PROMPT },
+          { role: "system", content: wordPrompt(state.settings.wordPrompt) },
           { role: "user", content: JSON.stringify({ word, lemma: entry?.lemma || word, sentence: cue?.en, translation: cue?.zh }) },
         ], { temperature: 0.3, maxTokens: 700 });
         const cleaned = cleanExplanation(explanation);
@@ -882,6 +1064,7 @@ export async function render(root, [id]) {
   document.addEventListener("keydown", onKey);
 
   /* ---------------------------------------------------------------- 启动 */
+  startTokenObserver();
   startPoll();
   tickTimer = setInterval(() => {
     if (isPlaying()) {
@@ -917,6 +1100,7 @@ export async function render(root, [id]) {
   return () => {
     disposed = true;
     document.removeEventListener("keydown", onKey);
+    tokenObserver?.disconnect();
     clearInterval(tickTimer);
     clearInterval(pollTimer);
     pollTimer = 0;
